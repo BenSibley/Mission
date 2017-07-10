@@ -2,7 +2,7 @@
 // Front-end scripts
 function ct_ct_mission_load_scripts_styles() {
 
-	wp_enqueue_style( 'ct-mission-google-fonts', '//fonts.googleapis.com/css?family=Montserrat:400|Source+Sans+Pro:400,400italic,700' );
+	wp_enqueue_style( 'ct-mission-google-fonts', '//fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,700|PT+Serif:400,400i,700,700i' );
 	wp_enqueue_script( 'ct-mission-js', get_template_directory_uri() . '/js/build/production.min.js', array( 'jquery' ), '', true );
 	wp_localize_script( 'ct-mission-js', 'objectL10n', array(
 		'openMenu'       => esc_html__( 'open menu', 'mission' ),

@@ -1,0 +1,14 @@
+.toggle-navigation {
+  float: right;
+  border: solid 1px $color-gray-86;
+  border-radius: 3px;
+  background: none;
+  margin: 0;
+  padding: 7px 5px;
+  margin-left: -36px;
+}
+
+.menu-primary-container,
+.menu-secondary-container {
+  display: none;
+}

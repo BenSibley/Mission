@@ -1,7 +1,7 @@
 <div <?php post_class(); ?>>
 	<?php do_action( 'ct_mission_post_before' ); ?>
 	<article>
-		<?php ct_ct_mission_featured_image(); ?>
+		<?php ct_mission_featured_image(); ?>
 		<div class='post-header'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
 			<?php get_template_part( 'content/post-byline' ); ?>

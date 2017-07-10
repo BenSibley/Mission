@@ -1,9 +1,9 @@
 <?php
 
 /* Add customizer panels, sections, settings, and controls */
-add_action( 'customize_register', 'ct_ct_mission_add_customizer_content' );
+add_action( 'customize_register', 'ct_mission_add_customizer_content' );
 
-function ct_ct_mission_add_customizer_content( $wp_customize ) {
+function ct_mission_add_customizer_content( $wp_customize ) {
 
 	/***** Reorder default sections *****/
 
@@ -22,7 +22,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 
 	/***** Custom Controls *****/
 
-	class ct_ct_mission_pro_ad extends WP_Customize_Control {
+	class ct_mission_pro_ad extends WP_Customize_Control {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/mission-pro/';
 			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/mission-pro.gif' /></a>";
@@ -44,7 +44,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// don't add if Startup Blog Pro is active
 	if ( !defined( 'ct_mission_PRO_FILE' ) ) {
 		// section
-		$wp_customize->add_section( 'ct_ct_mission_pro', array(
+		$wp_customize->add_section( 'ct_mission_pro', array(
 			'title'    => sprintf( __( '%s Pro', 'mission' ), wp_get_theme( get_template() ) ),
 			'priority' => 1
 		) );
@@ -53,9 +53,9 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 			'sanitize_callback' => 'absint'
 		) );
 		// control
-		$wp_customize->add_control( new ct_ct_mission_pro_ad(
+		$wp_customize->add_control( new ct_mission_pro_ad(
 			$wp_customize, 'ct_mission_pro', array(
-				'section'  => 'ct_ct_mission_pro',
+				'section'  => 'ct_mission_pro',
 				'settings' => 'ct_mission_pro'
 			)
 		) );
@@ -83,7 +83,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_post_category', array(
 		'default'           => 'all',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_post_categories'
+		'sanitize_callback' => 'ct_mission_sanitize_post_categories'
 	) );
 	$categories_array = array( 'all' => 'All' );
 	foreach ( get_categories() as $category ) {
@@ -100,7 +100,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_display', array(
 		'default'           => 'homepage',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_slider_display'
+		'sanitize_callback' => 'ct_mission_sanitize_slider_display'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_display', array(
@@ -118,7 +118,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_arrow_navigation', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_arrow_navigation', array(
@@ -134,7 +134,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_dot_navigation', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_dot_navigation', array(
@@ -150,7 +150,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_button_text', array(
 		'default'           => __( 'Read more', 'mission'),
-		'sanitize_callback' => 'ct_ct_mission_sanitize_text'
+		'sanitize_callback' => 'ct_mission_sanitize_text'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_button_text', array(
@@ -162,7 +162,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_sticky', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_sticky', array(
@@ -234,7 +234,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'layout', array(
 		'default'           => 'right-sidebar',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_layout'
+		'sanitize_callback' => 'ct_mission_sanitize_layout'
 	) );
 	// control
 	$wp_customize->add_control( 'layout', array(
@@ -251,13 +251,13 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	/***** Social Media Icons *****/
 
 	// get the social sites array
-	$social_sites = ct_ct_mission_social_array();
+	$social_sites = ct_mission_social_array();
 
 	// set a priority used to order the social sites
 	$priority = 5;
 
 	// section
-	$wp_customize->add_section( 'ct_ct_mission_social_media_icons', array(
+	$wp_customize->add_section( 'ct_mission_social_media_icons', array(
 		'title'       => __( 'Social Media Icons', 'mission' ),
 		'priority'    => 30,
 		'description' => __( 'Add the URL for each of your social profiles.', 'mission' )
@@ -269,12 +269,12 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 		if ( $social_site == 'email' ) {
 			// setting
 			$wp_customize->add_setting( $social_site, array(
-				'sanitize_callback' => 'ct_ct_mission_sanitize_email'
+				'sanitize_callback' => 'ct_mission_sanitize_email'
 			) );
 			// control
 			$wp_customize->add_control( $social_site, array(
 				'label'    => __( 'Email Address', 'mission' ),
-				'section'  => 'ct_ct_mission_social_media_icons',
+				'section'  => 'ct_mission_social_media_icons',
 				'priority' => $priority
 			) );
 		} else {
@@ -318,14 +318,14 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 			if ( $social_site == 'skype' ) {
 				// setting
 				$wp_customize->add_setting( $social_site, array(
-					'sanitize_callback' => 'ct_ct_mission_sanitize_skype'
+					'sanitize_callback' => 'ct_mission_sanitize_skype'
 				) );
 				// control
 				$wp_customize->add_control( $social_site, array(
 					'type'        => 'url',
 					'label'       => $label,
 					'description' => sprintf( __( 'Accepts Skype link protocol (<a href="%s" target="_blank">learn more</a>)', 'mission' ), 'https://www.competethemes.com/blog/skype-links-wordpress/' ),
-					'section'     => 'ct_ct_mission_social_media_icons',
+					'section'     => 'ct_mission_social_media_icons',
 					'priority'    => $priority
 				) );
 			} else {
@@ -337,7 +337,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 				$wp_customize->add_control( $social_site, array(
 					'type'     => 'url',
 					'label'    => $label,
-					'section'  => 'ct_ct_mission_social_media_icons',
+					'section'  => 'ct_mission_social_media_icons',
 					'priority' => $priority
 				) );
 			}
@@ -356,7 +356,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'tagline', array(
 		'default'           => 'header-footer',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_tagline_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_tagline_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'tagline', array(
@@ -374,7 +374,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_byline_date', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_byline_date', array(
@@ -390,7 +390,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_byline_author', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_byline_author', array(
@@ -406,7 +406,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'author_avatars', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'author_avatars', array(
@@ -422,7 +422,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'author_box', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'author_box', array(
@@ -438,7 +438,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_categories', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_categories', array(
@@ -454,7 +454,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_tags', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_tags', array(
@@ -470,7 +470,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'sidebar', array(
 		'default'           => 'after',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_sidebar_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_sidebar_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'sidebar', array(
@@ -495,7 +495,7 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'full_post', array(
 		'default'           => 'no',
-		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'full_post', array(
@@ -524,12 +524,12 @@ function ct_ct_mission_add_customizer_content( $wp_customize ) {
 
 /***** Custom Sanitization Functions *****/
 
-function ct_ct_mission_sanitize_email( $input ) {
+function ct_mission_sanitize_email( $input ) {
 	return sanitize_email( $input );
 }
 
 // sanitize yes/no settings
-function ct_ct_mission_sanitize_yes_no_settings( $input ) {
+function ct_mission_sanitize_yes_no_settings( $input ) {
 
 	$valid = array(
 		'yes' => __( 'Yes', 'mission' ),
@@ -539,15 +539,15 @@ function ct_ct_mission_sanitize_yes_no_settings( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_mission_sanitize_text( $input ) {
+function ct_mission_sanitize_text( $input ) {
 	return wp_kses_post( force_balance_tags( $input ) );
 }
 
-function ct_ct_mission_sanitize_skype( $input ) {
+function ct_mission_sanitize_skype( $input ) {
 	return esc_url_raw( $input, array( 'http', 'https', 'skype' ) );
 }
 
-function ct_ct_mission_sanitize_tagline_settings( $input ) {
+function ct_mission_sanitize_tagline_settings( $input ) {
 
 	$valid = array(
 		'header-footer' => __( 'Yes, in the header & footer', 'mission' ),
@@ -559,7 +559,7 @@ function ct_ct_mission_sanitize_tagline_settings( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_mission_sanitize_sidebar_settings( $input ) {
+function ct_mission_sanitize_sidebar_settings( $input ) {
 
 	$valid = array(
 		'after'  => __( 'Yes, after main content', 'mission' ),
@@ -570,7 +570,7 @@ function ct_ct_mission_sanitize_sidebar_settings( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_mission_sanitize_slider_display( $input ) {
+function ct_mission_sanitize_slider_display( $input ) {
 
 	$valid = array(
 		'homepage'  => __( 'Homepage', 'mission' ),
@@ -582,7 +582,7 @@ function ct_ct_mission_sanitize_slider_display( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_mission_sanitize_post_categories( $input ) {
+function ct_mission_sanitize_post_categories( $input ) {
 
 	$categories_array = array( 'all' => 'All' );
 	foreach ( get_categories() as $category ) {
@@ -592,7 +592,7 @@ function ct_ct_mission_sanitize_post_categories( $input ) {
 	return array_key_exists( $input, $categories_array ) ? $input : '';
 }
 
-function ct_ct_mission_sanitize_layout( $input ) {
+function ct_mission_sanitize_layout( $input ) {
 
 	/*
 	 * Also allow layouts only included in the premium plugin.

@@ -1,7 +1,7 @@
 <div <?php post_class(); ?>>
 	<?php do_action( 'ct_mission_archive_post_before' ); ?>
 	<article>
-		<?php ct_ct_mission_featured_image(); ?>
+		<?php ct_mission_featured_image(); ?>
 		<div class='post-header'>
 			<?php do_action( 'ct_mission_sticky_post_status' ); ?>
 			<h2 class='post-title'>
@@ -10,7 +10,7 @@
 			<?php get_template_part( 'content/post-byline' ); ?>
 		</div>
 		<div class="post-content">
-			<?php ct_ct_mission_excerpt(); ?>
+			<?php ct_mission_excerpt(); ?>
 			<?php get_template_part( 'content/comments-link' ); ?>
 		</div>
 	</article>

@@ -56,6 +56,13 @@ jQuery(document).ready(function($){
             $(this).attr('aria-expanded', 'true');
         }
     }
+    
+    function moveSecondaryMenu() {
+        
+        if ( window.innerWidth < 800 ) {
+            
+        }
+    }
 
     // display the dropdown menus
     toggleDropdown.on('click', openDropdownMenu);

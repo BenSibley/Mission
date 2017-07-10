@@ -144,17 +144,20 @@ $tencent-weibo: #20b8e5;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
-//%dark-link {
-//  color: $color-gray-23;
-//
-//  &:link,
-//  &:visited,
-//  &:hover,
-//  &:active,
-//  &:focus {
-//    color: $color-gray-23;
-//  }
-//}
+%black-link {
+  color: #000;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: #000;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-gray-40;
+  }
+}
 //%light-link {
 //  color: white;
 //

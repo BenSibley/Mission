@@ -5,17 +5,17 @@ foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $file
 	include $filename;
 }
 
-if ( ! function_exists( ( 'ct_ct_mission_set_content_width' ) ) ) {
-	function ct_ct_mission_set_content_width() {
+if ( ! function_exists( ( 'ct_mission_set_content_width' ) ) ) {
+	function ct_mission_set_content_width() {
 		if ( ! isset( $content_width ) ) {
 			$content_width = 780;
 		}
 	}
 }
-add_action( 'after_setup_theme', 'ct_ct_mission_set_content_width', 0 );
+add_action( 'after_setup_theme', 'ct_mission_set_content_width', 0 );
 
-if ( ! function_exists( ( 'ct_ct_mission_theme_setup' ) ) ) {
-	function ct_ct_mission_theme_setup() {
+if ( ! function_exists( ( 'ct_mission_theme_setup' ) ) ) {
+	function ct_mission_theme_setup() {
 
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'automatic-feed-links' );
@@ -30,7 +30,7 @@ if ( ! function_exists( ( 'ct_ct_mission_theme_setup' ) ) ) {
 		add_theme_support( 'infinite-scroll', array(
 			'container' => 'loop-container',
 			'footer'    => 'overflow-container',
-			'render'    => 'ct_ct_mission_infinite_scroll_render'
+			'render'    => 'ct_mission_infinite_scroll_render'
 		) );
 		add_theme_support( 'custom-logo', array(
 			'height'      => 60,
@@ -40,16 +40,17 @@ if ( ! function_exists( ( 'ct_ct_mission_theme_setup' ) ) ) {
 		) );
 
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary', 'mission' )
+			'primary'   => esc_html__( 'Primary', 'mission' ),
+			'secondary' => esc_html__( 'Secondary', 'mission' )
 		) );
 
 		load_theme_textdomain( 'mission', get_template_directory() . '/languages' );
 	}
 }
-add_action( 'after_setup_theme', 'ct_ct_mission_theme_setup' );
+add_action( 'after_setup_theme', 'ct_mission_theme_setup' );
 
-if ( ! function_exists( ( 'ct_ct_mission_register_widget_areas' ) ) ) {
-	function ct_ct_mission_register_widget_areas() {
+if ( ! function_exists( ( 'ct_mission_register_widget_areas' ) ) ) {
+	function ct_mission_register_widget_areas() {
 
 		register_sidebar( array(
 			'name'          => esc_html__( 'Primary Sidebar', 'mission' ),
@@ -62,10 +63,10 @@ if ( ! function_exists( ( 'ct_ct_mission_register_widget_areas' ) ) ) {
 		) );
 	}
 }
-add_action( 'widgets_init', 'ct_ct_mission_register_widget_areas' );
+add_action( 'widgets_init', 'ct_mission_register_widget_areas' );
 
-if ( ! function_exists( ( 'ct_ct_mission_customize_comments' ) ) ) {
-	function ct_ct_mission_customize_comments( $comment, $args, $depth ) { ?>
+if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
+	function ct_mission_customize_comments( $comment, $args, $depth ) { ?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<div class="comment-author">
@@ -99,8 +100,8 @@ if ( ! function_exists( ( 'ct_ct_mission_customize_comments' ) ) ) {
 	}
 }
 
-if ( ! function_exists( 'ct_ct_mission_update_fields' ) ) {
-	function ct_ct_mission_update_fields( $fields ) {
+if ( ! function_exists( 'ct_mission_update_fields' ) ) {
+	function ct_mission_update_fields( $fields ) {
 
 		$commenter = wp_get_current_commenter();
 		$req       = get_option( 'require_name_email' );
@@ -131,10 +132,10 @@ if ( ! function_exists( 'ct_ct_mission_update_fields' ) ) {
 		return $fields;
 	}
 }
-add_filter( 'comment_form_default_fields', 'ct_ct_mission_update_fields' );
+add_filter( 'comment_form_default_fields', 'ct_mission_update_fields' );
 
-if ( ! function_exists( 'ct_ct_mission_update_comment_field' ) ) {
-	function ct_ct_mission_update_comment_field( $comment_field ) {
+if ( ! function_exists( 'ct_mission_update_comment_field' ) ) {
+	function ct_mission_update_comment_field( $comment_field ) {
 
 		$comment_field =
 			'<p class="comment-form-comment">
@@ -145,18 +146,18 @@ if ( ! function_exists( 'ct_ct_mission_update_comment_field' ) ) {
 		return $comment_field;
 	}
 }
-add_filter( 'comment_form_field_comment', 'ct_ct_mission_update_comment_field' );
+add_filter( 'comment_form_field_comment', 'ct_mission_update_comment_field' );
 
-if ( ! function_exists( 'ct_ct_mission_remove_comments_notes_after' ) ) {
-	function ct_ct_mission_remove_comments_notes_after( $defaults ) {
+if ( ! function_exists( 'ct_mission_remove_comments_notes_after' ) ) {
+	function ct_mission_remove_comments_notes_after( $defaults ) {
 		$defaults['comment_notes_after'] = '';
 		return $defaults;
 	}
 }
-add_action( 'comment_form_defaults', 'ct_ct_mission_remove_comments_notes_after' );
+add_action( 'comment_form_defaults', 'ct_mission_remove_comments_notes_after' );
 
-if ( ! function_exists( 'ct_ct_mission_filter_read_more_link' ) ) {
-	function ct_ct_mission_filter_read_more_link( $custom = false ) {
+if ( ! function_exists( 'ct_mission_filter_read_more_link' ) ) {
+	function ct_mission_filter_read_more_link( $custom = false ) {
 		global $post;
 		$ismore             = strpos( $post->post_content, '<!--more-->' );
 		$read_more_text     = get_theme_mod( 'read_more_text' );
@@ -177,23 +178,23 @@ if ( ! function_exists( 'ct_ct_mission_filter_read_more_link' ) ) {
 		return $output;
 	}
 }
-add_filter( 'the_content_more_link', 'ct_ct_mission_filter_read_more_link' ); // more tags
-add_filter( 'excerpt_more', 'ct_ct_mission_filter_read_more_link', 10 ); // automatic excerpts
+add_filter( 'the_content_more_link', 'ct_mission_filter_read_more_link' ); // more tags
+add_filter( 'excerpt_more', 'ct_mission_filter_read_more_link', 10 ); // automatic excerpts
 
 // handle manual excerpts
-if ( ! function_exists( 'ct_ct_mission_filter_manual_excerpts' ) ) {
-	function ct_ct_mission_filter_manual_excerpts( $excerpt ) {
+if ( ! function_exists( 'ct_mission_filter_manual_excerpts' ) ) {
+	function ct_mission_filter_manual_excerpts( $excerpt ) {
 		$excerpt_more = '';
 		if ( has_excerpt() ) {
-			$excerpt_more = ct_ct_mission_filter_read_more_link( true );
+			$excerpt_more = ct_mission_filter_read_more_link( true );
 		}
 		return $excerpt . $excerpt_more;
 	}
 }
-add_filter( 'get_the_excerpt', 'ct_ct_mission_filter_manual_excerpts' );
+add_filter( 'get_the_excerpt', 'ct_mission_filter_manual_excerpts' );
 
-if ( ! function_exists( 'ct_ct_mission_excerpt' ) ) {
-	function ct_ct_mission_excerpt() {
+if ( ! function_exists( 'ct_mission_excerpt' ) ) {
+	function ct_mission_excerpt() {
 		global $post;
 		$show_full_post = get_theme_mod( 'full_post' );
 		$ismore         = strpos( $post->post_content, '<!--more-->' );
@@ -206,8 +207,8 @@ if ( ! function_exists( 'ct_ct_mission_excerpt' ) ) {
 	}
 }
 
-if ( ! function_exists( 'ct_ct_mission_custom_excerpt_length' ) ) {
-	function ct_ct_mission_custom_excerpt_length( $length ) {
+if ( ! function_exists( 'ct_mission_custom_excerpt_length' ) ) {
+	function ct_mission_custom_excerpt_length( $length ) {
 
 		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
 
@@ -220,18 +221,18 @@ if ( ! function_exists( 'ct_ct_mission_custom_excerpt_length' ) ) {
 		}
 	}
 }
-add_filter( 'excerpt_length', 'ct_ct_mission_custom_excerpt_length', 99 );
+add_filter( 'excerpt_length', 'ct_mission_custom_excerpt_length', 99 );
 
-if ( ! function_exists( 'ct_ct_mission_remove_more_link_scroll' ) ) {
-	function ct_ct_mission_remove_more_link_scroll( $link ) {
+if ( ! function_exists( 'ct_mission_remove_more_link_scroll' ) ) {
+	function ct_mission_remove_more_link_scroll( $link ) {
 		$link = preg_replace( '|#more-[0-9]+|', '', $link );
 		return $link;
 	}
 }
-add_filter( 'the_content_more_link', 'ct_ct_mission_remove_more_link_scroll' );
+add_filter( 'the_content_more_link', 'ct_mission_remove_more_link_scroll' );
 
-if ( ! function_exists( 'ct_ct_mission_featured_image' ) ) {
-	function ct_ct_mission_featured_image() {
+if ( ! function_exists( 'ct_mission_featured_image' ) ) {
+	function ct_mission_featured_image() {
 
 		global $post;
 		$featured_image = '';
@@ -245,7 +246,7 @@ if ( ! function_exists( 'ct_ct_mission_featured_image' ) ) {
 			}
 		}
 
-		$featured_image = apply_filters( 'ct_ct_mission_featured_image', $featured_image );
+		$featured_image = apply_filters( 'ct_mission_featured_image', $featured_image );
 
 		if ( $featured_image ) {
 			echo $featured_image;
@@ -253,8 +254,8 @@ if ( ! function_exists( 'ct_ct_mission_featured_image' ) ) {
 	}
 }
 
-if ( ! function_exists( 'ct_ct_mission_social_array' ) ) {
-	function ct_ct_mission_social_array() {
+if ( ! function_exists( 'ct_mission_social_array' ) ) {
+	function ct_mission_social_array() {
 
 		$social_sites = array(
 			'twitter'       => 'ct_mission_twitter_profile',
@@ -312,14 +313,14 @@ if ( ! function_exists( 'ct_ct_mission_social_array' ) ) {
 			'yelp'          => 'ct_mission_yelp_profile'
 		);
 
-		return apply_filters( 'ct_ct_mission_social_array_filter', $social_sites );
+		return apply_filters( 'ct_mission_social_array_filter', $social_sites );
 	}
 }
 
-if ( ! function_exists( 'ct_ct_mission_social_icons_output' ) ) {
-	function ct_ct_mission_social_icons_output( $source = 'header' ) {
+if ( ! function_exists( 'ct_mission_social_icons_output' ) ) {
+	function ct_mission_social_icons_output( $source = 'header' ) {
 
-		$social_sites = ct_ct_mission_social_array();
+		$social_sites = ct_mission_social_array();
 
 		// store the site name and url
 		foreach ( $social_sites as $social_site => $profile ) {
@@ -378,8 +379,8 @@ if ( ! function_exists( 'ct_ct_mission_social_icons_output' ) ) {
  * WP will apply the ".menu-primary-items" class & id to the containing <div> instead of <ul>
  * making styling difficult and confusing. Using this wrapper to add a unique class to make styling easier.
  */
-if ( ! function_exists( ( 'ct_ct_mission_wp_page_menu' ) ) ) {
-	function ct_ct_mission_wp_page_menu() {
+if ( ! function_exists( ( 'ct_mission_wp_page_menu' ) ) ) {
+	function ct_mission_wp_page_menu() {
 		wp_page_menu( array(
 				"menu_class" => "menu-unset",
 				"depth"      => - 1
@@ -388,8 +389,8 @@ if ( ! function_exists( ( 'ct_ct_mission_wp_page_menu' ) ) ) {
 	}
 }
 
-if ( ! function_exists( ( 'ct_ct_mission_nav_dropdown_buttons' ) ) ) {
-	function ct_ct_mission_nav_dropdown_buttons( $item_output, $item, $depth, $args ) {
+if ( ! function_exists( ( 'ct_mission_nav_dropdown_buttons' ) ) ) {
+	function ct_mission_nav_dropdown_buttons( $item_output, $item, $depth, $args ) {
 
 		if ( $args->theme_location == 'primary' ) {
 
@@ -401,20 +402,20 @@ if ( ! function_exists( ( 'ct_ct_mission_nav_dropdown_buttons' ) ) ) {
 		return $item_output;
 	}
 }
-add_filter( 'walker_nav_menu_start_el', 'ct_ct_mission_nav_dropdown_buttons', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'ct_mission_nav_dropdown_buttons', 10, 4 );
 
-if ( ! function_exists( ( 'ct_ct_mission_sticky_post_marker' ) ) ) {
-	function ct_ct_mission_sticky_post_marker() {
+if ( ! function_exists( ( 'ct_mission_sticky_post_marker' ) ) ) {
+	function ct_mission_sticky_post_marker() {
 
 		if ( is_sticky() && ! is_archive() ) {
 			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "ct_mission" ) . '</span></div>';
 		}
 	}
 }
-add_action( 'sticky_post_status', 'ct_ct_mission_sticky_post_marker' );
+add_action( 'sticky_post_status', 'ct_mission_sticky_post_marker' );
 
-if ( ! function_exists( ( 'ct_ct_mission_reset_customizer_options' ) ) ) {
-	function ct_ct_mission_reset_customizer_options() {
+if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
+	function ct_mission_reset_customizer_options() {
 
 		if ( empty( $_POST['ct_mission_reset_customizer'] ) || 'ct_mission_reset_customizer_settings' !== $_POST['ct_mission_reset_customizer'] ) {
 			return;
@@ -439,14 +440,14 @@ if ( ! function_exists( ( 'ct_ct_mission_reset_customizer_options' ) ) ) {
 			'custom_css'
 		);
 
-		$social_sites = ct_ct_mission_social_array();
+		$social_sites = ct_mission_social_array();
 
 		// add social site settings to mods array
 		foreach ( $social_sites as $social_site => $value ) {
 			$mods_array[] = $social_site;
 		}
 
-		$mods_array = apply_filters( 'ct_ct_mission_mods_to_remove', $mods_array );
+		$mods_array = apply_filters( 'ct_mission_mods_to_remove', $mods_array );
 
 		foreach ( $mods_array as $theme_mod ) {
 			remove_theme_mod( $theme_mod );
@@ -460,10 +461,10 @@ if ( ! function_exists( ( 'ct_ct_mission_reset_customizer_options' ) ) ) {
 		exit;
 	}
 }
-add_action( 'admin_init', 'ct_ct_mission_reset_customizer_options' );
+add_action( 'admin_init', 'ct_mission_reset_customizer_options' );
 
-if ( ! function_exists( ( 'ct_ct_mission_delete_settings_notice' ) ) ) {
-	function ct_ct_mission_delete_settings_notice() {
+if ( ! function_exists( ( 'ct_mission_delete_settings_notice' ) ) ) {
+	function ct_mission_delete_settings_notice() {
 
 		if ( isset( $_GET['ct_mission_status'] ) ) {
 			?>
@@ -474,10 +475,10 @@ if ( ! function_exists( ( 'ct_ct_mission_delete_settings_notice' ) ) ) {
 		}
 	}
 }
-add_action( 'admin_notices', 'ct_ct_mission_delete_settings_notice' );
+add_action( 'admin_notices', 'ct_mission_delete_settings_notice' );
 
-if ( ! function_exists( ( 'ct_ct_mission_body_class' ) ) ) {
-	function ct_ct_mission_body_class( $classes ) {
+if ( ! function_exists( ( 'ct_mission_body_class' ) ) ) {
+	function ct_mission_body_class( $classes ) {
 
 		global $post;
 		$full_post = get_theme_mod( 'full_post' );
@@ -489,43 +490,31 @@ if ( ! function_exists( ( 'ct_ct_mission_body_class' ) ) ) {
 		return $classes;
 	}
 }
-add_filter( 'body_class', 'ct_ct_mission_body_class' );
+add_filter( 'body_class', 'ct_mission_body_class' );
 
 // add a shared class for post divs on archive and single pages
-if ( ! function_exists( ( 'ct_ct_mission_post_class' ) ) ) {
-	function ct_ct_mission_post_class( $classes ) {
+if ( ! function_exists( ( 'ct_mission_post_class' ) ) ) {
+	function ct_mission_post_class( $classes ) {
 		$classes[] = 'entry';
 		return $classes;
 	}
 }
-add_filter( 'post_class', 'ct_ct_mission_post_class' );
+add_filter( 'post_class', 'ct_mission_post_class' );
 
-if ( ! function_exists( ( 'ct_ct_mission_svg_output' ) ) ) {
-	function ct_ct_mission_svg_output( $type ) {
+if ( ! function_exists( ( 'ct_mission_svg_output' ) ) ) {
+	function ct_mission_svg_output( $type ) {
 
 		$svg = '';
 		if ( $type == 'toggle-navigation' ) {
-			$svg = '<svg width="24px" height="18px" viewBox="0 0 24 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-				    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-				        <g transform="translate(-148.000000, -36.000000)" fill="#6B6B6B">
-				            <g transform="translate(123.000000, 25.000000)">
-				                <g transform="translate(25.000000, 11.000000)">
-				                    <rect x="0" y="16" width="24" height="2"></rect>
-				                    <rect x="0" y="8" width="24" height="2"></rect>
-				                    <rect x="0" y="0" width="24" height="2"></rect>
-				                </g>
-				            </g>
-				        </g>
-				    </g>
-				</svg>';
+			$svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-272.000000, -21.000000)" fill="#000000"><g transform="translate(266.000000, 12.000000)"><g transform="translate(6.000000, 9.000000)"><rect x="0" y="0" width="24" height="2"/><rect x="0" y="8" width="24" height="2"/><rect x="0" y="16" width="24" height="2"/></g></g></g></g></svg>';
 		}
 
 		return $svg;
 	}
 }
 
-if ( ! function_exists( ( 'ct_ct_mission_add_meta_elements' ) ) ) {
-	function ct_ct_mission_add_meta_elements() {
+if ( ! function_exists( ( 'ct_mission_add_meta_elements' ) ) ) {
+	function ct_mission_add_meta_elements() {
 
 		$meta_elements = '';
 
@@ -539,10 +528,10 @@ if ( ! function_exists( ( 'ct_ct_mission_add_meta_elements' ) ) ) {
 		echo $meta_elements;
 	}
 }
-add_action( 'wp_head', 'ct_ct_mission_add_meta_elements', 1 );
+add_action( 'wp_head', 'ct_mission_add_meta_elements', 1 );
 
-if ( ! function_exists( ( 'ct_ct_mission_infinite_scroll_render' ) ) ) {
-	function ct_ct_mission_infinite_scroll_render() {
+if ( ! function_exists( ( 'ct_mission_infinite_scroll_render' ) ) ) {
+	function ct_mission_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();
 			get_template_part( 'content', 'archive' );
@@ -553,8 +542,8 @@ if ( ! function_exists( ( 'ct_ct_mission_infinite_scroll_render' ) ) ) {
 /* Routing templates this way to follow DRY coding patterns
 * (using index.php file only instead of duplicating loop in page.php, post.php, etc.)
 */
-if ( ! function_exists( 'ct_ct_mission_get_content_template' ) ) {
-	function ct_ct_mission_get_content_template() {
+if ( ! function_exists( 'ct_mission_get_content_template' ) ) {
+	function ct_mission_get_content_template() {
 
 		if ( is_home() || is_archive() ) {
 			get_template_part( 'content-archive', get_post_type() );
@@ -565,18 +554,18 @@ if ( ! function_exists( 'ct_ct_mission_get_content_template' ) ) {
 }
 
 // allow skype URIs to be used
-if ( ! function_exists( 'ct_ct_mission_allow_skype_protocol' ) ) {
-	function ct_ct_mission_allow_skype_protocol( $protocols ) {
+if ( ! function_exists( 'ct_mission_allow_skype_protocol' ) ) {
+	function ct_mission_allow_skype_protocol( $protocols ) {
 		$protocols[] = 'skype';
 
 		return $protocols;
 	}
 }
-add_filter( 'kses_allowed_protocols' , 'ct_ct_mission_allow_skype_protocol' );
+add_filter( 'kses_allowed_protocols' , 'ct_mission_allow_skype_protocol' );
 
 // Remove label that can't be edited with the_archive_title() e.g. "Category: Business" => "Business"
-if ( ! function_exists( 'ct_ct_mission_modify_archive_titles' ) ) {
-	function ct_ct_mission_modify_archive_titles( $title ) {
+if ( ! function_exists( 'ct_mission_modify_archive_titles' ) ) {
+	function ct_mission_modify_archive_titles( $title ) {
 
 		if ( is_category() ) {
 			$title = single_cat_title( '', false );
@@ -592,11 +581,11 @@ if ( ! function_exists( 'ct_ct_mission_modify_archive_titles' ) ) {
 		return $title;
 	}
 }
-add_filter( 'get_the_archive_title', 'ct_ct_mission_modify_archive_titles' );
+add_filter( 'get_the_archive_title', 'ct_mission_modify_archive_titles' );
 
 // sanitize CSS and convert HTML character codes back into ">" character so direct descendant CSS selectors work
-if ( ! function_exists( 'ct_ct_mission_sanitize_css' ) ) {
-	function ct_ct_mission_sanitize_css( $css ) {
+if ( ! function_exists( 'ct_mission_sanitize_css' ) ) {
+	function ct_mission_sanitize_css( $css ) {
 		$css = wp_kses( $css, '' );
 		$css = str_replace( '&gt;', '>', $css );
 

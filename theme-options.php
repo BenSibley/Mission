@@ -1,11 +1,11 @@
 <?php
 
-function ct_ct_mission_register_theme_page() {
-	add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission' ), wp_get_theme( get_template() ) ), wp_get_theme( get_template() ), 'edit_theme_options', 'mission-options', 'ct_ct_mission_options_content', 'ct_ct_mission_options_content' );
+function ct_mission_register_theme_page() {
+	add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission' ), wp_get_theme( get_template() ) ), wp_get_theme( get_template() ), 'edit_theme_options', 'mission-options', 'ct_mission_options_content', 'ct_mission_options_content' );
 }
-add_action( 'admin_menu', 'ct_ct_mission_register_theme_page' );
+add_action( 'admin_menu', 'ct_mission_register_theme_page' );
 
-function ct_ct_mission_options_content() {
+function ct_mission_options_content() {
 
 	$customizer_url = add_query_arg(
 		array(
@@ -18,7 +18,7 @@ function ct_ct_mission_options_content() {
 	?>
 	<div id="mission-dashboard-wrap" class="wrap">
 		<h2><?php printf( esc_html__( '%s Dashboard', 'mission' ), wp_get_theme( get_template() ) ); ?></h2>
-		<?php do_action( 'ct_ct_mission_theme_options_before' ); ?>
+		<?php do_action( 'ct_mission_theme_options_before' ); ?>
 		<div class="content-boxes">
 			<div class="content content-support">
 				<h3><?php esc_html_e( 'Get Started', 'mission' ); ?></h3>
@@ -28,7 +28,7 @@ function ct_ct_mission_options_content() {
 					   href="https://www.competethemes.com/documentation/mission-support-center/"><?php esc_html_e( 'Visit Support Center', 'mission' ); ?></a>
 				</p>
 			</div>
-			<?php if ( !function_exists( 'ct_ct_mission_pro_init' ) ) : ?>
+			<?php if ( !function_exists( 'ct_mission_pro_init' ) ) : ?>
 				<div class="content content-premium-upgrade">
 					<h3><?php printf( esc_html__( 'Startup Blog Pro', 'mission' ), wp_get_theme( get_template() ) ); ?></h3>
 					<p><?php printf( esc_html__( 'Download the %s Pro plugin and unlock six new layouts, four post templates, advanced color controls, and more.', 'mission' ), wp_get_theme( get_template() ) ); ?></p>
@@ -57,6 +57,6 @@ function ct_ct_mission_options_content() {
 				</form>
 			</div>
 		</div>
-		<?php do_action( 'ct_ct_mission_theme_options_after' ); ?>
+		<?php do_action( 'ct_mission_theme_options_after' ); ?>
 	</div>
 <?php }

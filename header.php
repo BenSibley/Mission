@@ -13,20 +13,26 @@
 	<div id="max-width" class="max-width">
 		<?php do_action( 'ct_mission_before_header' ); ?>
 		<header class="site-header" id="site-header" role="banner">
-			<div id="menu-primary-container" class="menu-primary-container">
-				<?php get_template_part( 'menu', 'primary' ); ?>
+			<div class="top-nav">
 				<?php get_template_part( 'content/search-bar' ); ?>
-				<?php ct_ct_mission_social_icons_output(); ?>
+				<div id="menu-secondary-container" class="menu-secondary-container">
+					<?php get_template_part( 'menu', 'secondary' ); ?>
+				</div>
+				<?php ct_mission_social_icons_output(); ?>
 			</div>
-			<button id="toggle-navigation" class="toggle-navigation" name="toggle-navigation" aria-expanded="false">
-				<span class="screen-reader-text"><?php esc_html_e( 'open menu', 'mission' ); ?></span>
-				<?php echo ct_ct_mission_svg_output( 'toggle-navigation' ); ?>
-			</button>
 			<div id="title-container" class="title-container">
 				<?php get_template_part( 'logo' ) ?>
+				<p class="date">July 10, 2017</p>
 				<?php if ( get_bloginfo( 'description' ) ) {
 					echo '<p class="tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';
 				} ?>
+			</div>
+			<button id="toggle-navigation" class="toggle-navigation" name="toggle-navigation" aria-expanded="false">
+				<span class="screen-reader-text"><?php esc_html_e( 'open menu', 'mission' ); ?></span>
+				<?php echo ct_mission_svg_output( 'toggle-navigation' ); ?>
+			</button>
+			<div id="menu-primary-container" class="menu-primary-container">
+				<?php get_template_part( 'menu', 'primary' ); ?>
 			</div>
 		</header>
 		<?php do_action( 'ct_mission_after_header' ); ?>

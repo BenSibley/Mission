@@ -1,9 +1,9 @@
 <?php
 
 /* Add customizer panels, sections, settings, and controls */
-add_action( 'customize_register', 'ct_ct_theme_name_add_customizer_content' );
+add_action( 'customize_register', 'ct_ct_mission_add_customizer_content' );
 
-function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
+function ct_ct_mission_add_customizer_content( $wp_customize ) {
 
 	/***** Reorder default sections *****/
 
@@ -12,7 +12,7 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	// check if exists in case user has no pages
 	if ( is_object( $wp_customize->get_section( 'static_front_page' ) ) ) {
 		$wp_customize->get_section( 'static_front_page' )->priority = 5;
-		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'ct-theme-name' );
+		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'mission' );
 	}
 
 	/***** Add PostMessage Support *****/
@@ -22,41 +22,41 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 
 	/***** Custom Controls *****/
 
-	class ct_ct_theme_name_pro_ad extends WP_Customize_Control {
+	class ct_ct_mission_pro_ad extends WP_Customize_Control {
 		public function render_content() {
-			$link = 'https://www.competethemes.com/ct-theme-name-pro/';
-			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/ct-theme-name-pro.gif' /></a>";
-			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'ct-theme-name'), $link, wp_get_theme( get_template() ) ) . "</p>";
-			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'ct-theme-name'), wp_get_theme( get_template() ) ) . "</p>";
+			$link = 'https://www.competethemes.com/mission-pro/';
+			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/mission-pro.gif' /></a>";
+			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'mission'), $link, wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'mission'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
-					<li>" . esc_html__('6 new layouts', 'ct-theme-name') . "</li>
-					<li>" . esc_html__('4 post templates', 'ct-theme-name') . "</li>
-					<li>" . esc_html__('61 advanced color controls', 'ct-theme-name') . "</li>
-					<li>" . esc_html__('+ 5 more features', 'ct-theme-name') . "</li>
+					<li>" . esc_html__('6 new layouts', 'mission') . "</li>
+					<li>" . esc_html__('4 post templates', 'mission') . "</li>
+					<li>" . esc_html__('61 advanced color controls', 'mission') . "</li>
+					<li>" . esc_html__('+ 5 more features', 'mission') . "</li>
 				  </ul>";
 			// translators: placeholder is "Startup Blog"
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='ct-theme-name-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'ct-theme-name'), wp_get_theme( get_template() ) ) . "</a></p>";
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='mission-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'mission'), wp_get_theme( get_template() ) ) . "</a></p>";
 		}
 	}
 
 	/***** Startup Blog Pro Section *****/
 
 	// don't add if Startup Blog Pro is active
-	if ( !defined( 'ct_theme_name_PRO_FILE' ) ) {
+	if ( !defined( 'ct_mission_PRO_FILE' ) ) {
 		// section
-		$wp_customize->add_section( 'ct_ct_theme_name_pro', array(
-			'title'    => sprintf( __( '%s Pro', 'ct-theme-name' ), wp_get_theme( get_template() ) ),
+		$wp_customize->add_section( 'ct_ct_mission_pro', array(
+			'title'    => sprintf( __( '%s Pro', 'mission' ), wp_get_theme( get_template() ) ),
 			'priority' => 1
 		) );
 		// setting
-		$wp_customize->add_setting( 'ct_theme_name_pro', array(
+		$wp_customize->add_setting( 'ct_mission_pro', array(
 			'sanitize_callback' => 'absint'
 		) );
 		// control
-		$wp_customize->add_control( new ct_ct_theme_name_pro_ad(
-			$wp_customize, 'ct_theme_name_pro', array(
-				'section'  => 'ct_ct_theme_name_pro',
-				'settings' => 'ct_theme_name_pro'
+		$wp_customize->add_control( new ct_ct_mission_pro_ad(
+			$wp_customize, 'ct_mission_pro', array(
+				'section'  => 'ct_ct_mission_pro',
+				'settings' => 'ct_mission_pro'
 			)
 		) );
 	}
@@ -64,8 +64,8 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	/***** Slider *****/
 
 	// section
-	$wp_customize->add_section( 'ct_theme_name_slider_settings', array(
-		'title'    => __( 'Recent Posts Slider', 'ct-theme-name' ),
+	$wp_customize->add_section( 'ct_mission_slider_settings', array(
+		'title'    => __( 'Recent Posts Slider', 'mission' ),
 		'priority' => 20
 	) );
 	// setting
@@ -75,15 +75,15 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	) );
 	// control
 	$wp_customize->add_control( 'slider_recent_posts', array(
-		'label'    => __( 'Number of posts in slider', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_slider_settings',
+		'label'    => __( 'Number of posts in slider', 'mission' ),
+		'section'  => 'ct_mission_slider_settings',
 		'settings' => 'slider_recent_posts',
 		'type'     => 'number'
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_post_category', array(
 		'default'           => 'all',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_post_categories'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_post_categories'
 	) );
 	$categories_array = array( 'all' => 'All' );
 	foreach ( get_categories() as $category ) {
@@ -91,8 +91,8 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	}
 	// control
 	$wp_customize->add_control( 'slider_post_category', array(
-		'label'    => __( 'Post category', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_slider_settings',
+		'label'    => __( 'Post category', 'mission' ),
+		'section'  => 'ct_mission_slider_settings',
 		'settings' => 'slider_post_category',
 		'type'     => 'select',
 		'choices' => $categories_array
@@ -100,87 +100,87 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'slider_display', array(
 		'default'           => 'homepage',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_slider_display'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_slider_display'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_display', array(
-		'label'    => __( 'Display slider on:', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_slider_settings',
+		'label'    => __( 'Display slider on:', 'mission' ),
+		'section'  => 'ct_mission_slider_settings',
 		'settings' => 'slider_display',
 		'type'     => 'radio',
 		'choices' => array(
-			'homepage'  => __( 'Homepage', 'ct-theme-name' ),
-			'blog'      => __( 'Blog', 'ct-theme-name' ),
-			'all-pages' => __( 'All Pages', 'ct-theme-name' ),
-			'no'        => __( 'Do not display', 'ct-theme-name' )
+			'homepage'  => __( 'Homepage', 'mission' ),
+			'blog'      => __( 'Blog', 'mission' ),
+			'all-pages' => __( 'All Pages', 'mission' ),
+			'no'        => __( 'Do not display', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_arrow_navigation', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_arrow_navigation', array(
-		'label'    => __( 'Display arrow navigation?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_slider_settings',
+		'label'    => __( 'Display arrow navigation?', 'mission' ),
+		'section'  => 'ct_mission_slider_settings',
 		'settings' => 'slider_arrow_navigation',
 		'type'     => 'radio',
 		'choices' => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_dot_navigation', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_dot_navigation', array(
-		'label'    => __( 'Display dot navigation?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_slider_settings',
+		'label'    => __( 'Display dot navigation?', 'mission' ),
+		'section'  => 'ct_mission_slider_settings',
 		'settings' => 'slider_dot_navigation',
 		'type'     => 'radio',
 		'choices' => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_button_text', array(
-		'default'           => __( 'Read more', 'ct-theme-name'),
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_text'
+		'default'           => __( 'Read more', 'mission'),
+		'sanitize_callback' => 'ct_ct_mission_sanitize_text'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_button_text', array(
-		'label'    => __( 'Button text', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_slider_settings',
+		'label'    => __( 'Button text', 'mission' ),
+		'section'  => 'ct_mission_slider_settings',
 		'settings' => 'slider_button_text',
 		'type'     => 'text'
 	) );
 	// setting
 	$wp_customize->add_setting( 'slider_sticky', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'slider_sticky', array(
-		'label'    => __( 'Include "sticky" posts?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_slider_settings',
+		'label'    => __( 'Include "sticky" posts?', 'mission' ),
+		'section'  => 'ct_mission_slider_settings',
 		'settings' => 'slider_sticky',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 
 	/***** Colors *****/
 
 	// section
-	$wp_customize->add_section( 'ct_theme_name_colors', array(
-		'title'    => __( 'Colors', 'ct-theme-name' ),
+	$wp_customize->add_section( 'ct_mission_colors', array(
+		'title'    => __( 'Colors', 'mission' ),
 		'priority' => 20
 	) );
 	// setting
@@ -191,8 +191,8 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	// control
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize, 'color_primary', array(
-			'label'       => __( 'Primary Color', 'ct-theme-name' ),
-			'section'     => 'ct_theme_name_colors',
+			'label'       => __( 'Primary Color', 'mission' ),
+			'section'     => 'ct_mission_colors',
 			'settings'    => 'color_primary'
 		)
 	) );
@@ -204,8 +204,8 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	// control
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize, 'color_secondary', array(
-			'label'       => __( 'Secondary Color', 'ct-theme-name' ),
-			'section'     => 'ct_theme_name_colors',
+			'label'       => __( 'Secondary Color', 'mission' ),
+			'section'     => 'ct_mission_colors',
 			'settings'    => 'color_secondary'
 		)
 	) );
@@ -217,8 +217,8 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	// control
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize, 'color_background', array(
-			'label'       => __( 'Background Color', 'ct-theme-name' ),
-			'section'     => 'ct_theme_name_colors',
+			'label'       => __( 'Background Color', 'mission' ),
+			'section'     => 'ct_mission_colors',
 			'settings'    => 'color_background'
 		)
 	) );
@@ -226,41 +226,41 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	/***** Layout *****/
 
 	// section
-	$wp_customize->add_section( 'ct_theme_name_layout', array(
-		'title'    => __( 'Layout', 'ct-theme-name' ),
+	$wp_customize->add_section( 'ct_mission_layout', array(
+		'title'    => __( 'Layout', 'mission' ),
 		'priority' => 25,
-		'description' => sprintf( __( 'Want more layouts? Check out the <a target="_blank" href="%1$s">%2$s Pro plugin</a>.', 'ct-theme-name' ), 'https://www.competethemes.com/ct-theme-name/', wp_get_theme( get_template() ) )
+		'description' => sprintf( __( 'Want more layouts? Check out the <a target="_blank" href="%1$s">%2$s Pro plugin</a>.', 'mission' ), 'https://www.competethemes.com/mission/', wp_get_theme( get_template() ) )
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(
 		'default'           => 'right-sidebar',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_layout'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_layout'
 	) );
 	// control
 	$wp_customize->add_control( 'layout', array(
-		'label'    => __( 'Choose a Layout', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_layout',
+		'label'    => __( 'Choose a Layout', 'mission' ),
+		'section'  => 'ct_mission_layout',
 		'settings' => 'layout',
 		'type'     => 'radio',
 		'choices'  => array(
-			'right-sidebar' => __( 'Right sidebar', 'ct-theme-name' ),
-			'left-sidebar'  => __( 'Left sidebar', 'ct-theme-name' )
+			'right-sidebar' => __( 'Right sidebar', 'mission' ),
+			'left-sidebar'  => __( 'Left sidebar', 'mission' )
 		)
 	) );
 
 	/***** Social Media Icons *****/
 
 	// get the social sites array
-	$social_sites = ct_ct_theme_name_social_array();
+	$social_sites = ct_ct_mission_social_array();
 
 	// set a priority used to order the social sites
 	$priority = 5;
 
 	// section
-	$wp_customize->add_section( 'ct_ct_theme_name_social_media_icons', array(
-		'title'       => __( 'Social Media Icons', 'ct-theme-name' ),
+	$wp_customize->add_section( 'ct_ct_mission_social_media_icons', array(
+		'title'       => __( 'Social Media Icons', 'mission' ),
 		'priority'    => 30,
-		'description' => __( 'Add the URL for each of your social profiles.', 'ct-theme-name' )
+		'description' => __( 'Add the URL for each of your social profiles.', 'mission' )
 	) );
 
 	// create a setting and control for each social site
@@ -269,12 +269,12 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 		if ( $social_site == 'email' ) {
 			// setting
 			$wp_customize->add_setting( $social_site, array(
-				'sanitize_callback' => 'ct_ct_theme_name_sanitize_email'
+				'sanitize_callback' => 'ct_ct_mission_sanitize_email'
 			) );
 			// control
 			$wp_customize->add_control( $social_site, array(
-				'label'    => __( 'Email Address', 'ct-theme-name' ),
-				'section'  => 'ct_ct_theme_name_social_media_icons',
+				'label'    => __( 'Email Address', 'mission' ),
+				'section'  => 'ct_ct_mission_social_media_icons',
 				'priority' => $priority
 			) );
 		} else {
@@ -318,14 +318,14 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 			if ( $social_site == 'skype' ) {
 				// setting
 				$wp_customize->add_setting( $social_site, array(
-					'sanitize_callback' => 'ct_ct_theme_name_sanitize_skype'
+					'sanitize_callback' => 'ct_ct_mission_sanitize_skype'
 				) );
 				// control
 				$wp_customize->add_control( $social_site, array(
 					'type'        => 'url',
 					'label'       => $label,
-					'description' => sprintf( __( 'Accepts Skype link protocol (<a href="%s" target="_blank">learn more</a>)', 'ct-theme-name' ), 'https://www.competethemes.com/blog/skype-links-wordpress/' ),
-					'section'     => 'ct_ct_theme_name_social_media_icons',
+					'description' => sprintf( __( 'Accepts Skype link protocol (<a href="%s" target="_blank">learn more</a>)', 'mission' ), 'https://www.competethemes.com/blog/skype-links-wordpress/' ),
+					'section'     => 'ct_ct_mission_social_media_icons',
 					'priority'    => $priority
 				) );
 			} else {
@@ -337,7 +337,7 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 				$wp_customize->add_control( $social_site, array(
 					'type'     => 'url',
 					'label'    => $label,
-					'section'  => 'ct_ct_theme_name_social_media_icons',
+					'section'  => 'ct_ct_mission_social_media_icons',
 					'priority' => $priority
 				) );
 			}
@@ -349,163 +349,163 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	/***** Show/Hide *****/
 
 	// section
-	$wp_customize->add_section( 'ct_theme_name_show_hide', array(
-		'title'    => __( 'Show/Hide Elements', 'ct-theme-name' ),
+	$wp_customize->add_section( 'ct_mission_show_hide', array(
+		'title'    => __( 'Show/Hide Elements', 'mission' ),
 		'priority' => 25
 	) );
 	// setting
 	$wp_customize->add_setting( 'tagline', array(
 		'default'           => 'header-footer',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_tagline_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_tagline_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'tagline', array(
-		'label'    => __( 'Show the tagline?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show the tagline?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'tagline',
 		'type'     => 'radio',
 		'choices'  => array(
-			'header-footer' => __( 'Yes, in the header & footer', 'ct-theme-name' ),
-			'header'        => __( 'Yes, in the header', 'ct-theme-name' ),
-			'footer'        => __( 'Yes, in the footer', 'ct-theme-name' ),
-			'no'            => __( 'No', 'ct-theme-name' )
+			'header-footer' => __( 'Yes, in the header & footer', 'mission' ),
+			'header'        => __( 'Yes, in the header', 'mission' ),
+			'footer'        => __( 'Yes, in the footer', 'mission' ),
+			'no'            => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'post_byline_date', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_byline_date', array(
-		'label'    => __( 'Show date in post byline?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show date in post byline?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'post_byline_date',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'post_byline_author', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_byline_author', array(
-		'label'    => __( 'Show author name in post byline?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show author name in post byline?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'post_byline_author',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'author_avatars', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'author_avatars', array(
-		'label'    => __( 'Show post author avatars?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show post author avatars?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'author_avatars',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'author_box', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'author_box', array(
-		'label'    => __( 'Show author box after posts?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show author box after posts?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'author_box',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'post_categories', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_categories', array(
-		'label'    => __( 'Show categories after the post?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show categories after the post?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'post_categories',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'post_tags', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_tags', array(
-		'label'    => __( 'Show tags after the post?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show tags after the post?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'post_tags',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
 	$wp_customize->add_setting( 'sidebar', array(
 		'default'           => 'after',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_sidebar_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_sidebar_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'sidebar', array(
-		'label'    => __( 'Show sidebar on mobile devices?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_show_hide',
+		'label'    => __( 'Show sidebar on mobile devices?', 'mission' ),
+		'section'  => 'ct_mission_show_hide',
 		'settings' => 'sidebar',
 		'type'     => 'radio',
 		'choices'  => array(
-			'after'  => __( 'Yes, after main content', 'ct-theme-name' ),
-			'before' => __( 'Yes, before main content', 'ct-theme-name' ),
-			'no'     => __( 'No', 'ct-theme-name' )
+			'after'  => __( 'Yes, after main content', 'mission' ),
+			'before' => __( 'Yes, before main content', 'mission' ),
+			'no'     => __( 'No', 'mission' )
 		)
 	) );
 
 	/***** Blog *****/
 
 	// section
-	$wp_customize->add_section( 'ct_theme_name_blog', array(
-		'title'    => __( 'Blog', 'ct-theme-name' ),
+	$wp_customize->add_section( 'ct_mission_blog', array(
+		'title'    => __( 'Blog', 'mission' ),
 		'priority' => 50
 	) );
 	// setting
 	$wp_customize->add_setting( 'full_post', array(
 		'default'           => 'no',
-		'sanitize_callback' => 'ct_ct_theme_name_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'full_post', array(
-		'label'    => __( 'Show full posts on blog?', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_blog',
+		'label'    => __( 'Show full posts on blog?', 'mission' ),
+		'section'  => 'ct_mission_blog',
 		'settings' => 'full_post',
 		'type'     => 'radio',
 		'choices'  => array(
-			'yes' => __( 'Yes', 'ct-theme-name' ),
-			'no'  => __( 'No', 'ct-theme-name' )
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
@@ -515,8 +515,8 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 	) );
 	// control
 	$wp_customize->add_control( 'excerpt_length', array(
-		'label'    => __( 'Excerpt word count', 'ct-theme-name' ),
-		'section'  => 'ct_theme_name_blog',
+		'label'    => __( 'Excerpt word count', 'mission' ),
+		'section'  => 'ct_mission_blog',
 		'settings' => 'excerpt_length',
 		'type'     => 'number'
 	) );
@@ -524,65 +524,65 @@ function ct_ct_theme_name_add_customizer_content( $wp_customize ) {
 
 /***** Custom Sanitization Functions *****/
 
-function ct_ct_theme_name_sanitize_email( $input ) {
+function ct_ct_mission_sanitize_email( $input ) {
 	return sanitize_email( $input );
 }
 
 // sanitize yes/no settings
-function ct_ct_theme_name_sanitize_yes_no_settings( $input ) {
+function ct_ct_mission_sanitize_yes_no_settings( $input ) {
 
 	$valid = array(
-		'yes' => __( 'Yes', 'ct-theme-name' ),
-		'no'  => __( 'No', 'ct-theme-name' )
+		'yes' => __( 'Yes', 'mission' ),
+		'no'  => __( 'No', 'mission' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_theme_name_sanitize_text( $input ) {
+function ct_ct_mission_sanitize_text( $input ) {
 	return wp_kses_post( force_balance_tags( $input ) );
 }
 
-function ct_ct_theme_name_sanitize_skype( $input ) {
+function ct_ct_mission_sanitize_skype( $input ) {
 	return esc_url_raw( $input, array( 'http', 'https', 'skype' ) );
 }
 
-function ct_ct_theme_name_sanitize_tagline_settings( $input ) {
+function ct_ct_mission_sanitize_tagline_settings( $input ) {
 
 	$valid = array(
-		'header-footer' => __( 'Yes, in the header & footer', 'ct-theme-name' ),
-		'header'        => __( 'Yes, in the header', 'ct-theme-name' ),
-		'footer'        => __( 'Yes, in the footer', 'ct-theme-name' ),
-		'no'            => __( 'No', 'ct-theme-name' )
+		'header-footer' => __( 'Yes, in the header & footer', 'mission' ),
+		'header'        => __( 'Yes, in the header', 'mission' ),
+		'footer'        => __( 'Yes, in the footer', 'mission' ),
+		'no'            => __( 'No', 'mission' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_theme_name_sanitize_sidebar_settings( $input ) {
+function ct_ct_mission_sanitize_sidebar_settings( $input ) {
 
 	$valid = array(
-		'after'  => __( 'Yes, after main content', 'ct-theme-name' ),
-		'before' => __( 'Yes, before main content', 'ct-theme-name' ),
-		'no'     => __( 'No', 'ct-theme-name' )
+		'after'  => __( 'Yes, after main content', 'mission' ),
+		'before' => __( 'Yes, before main content', 'mission' ),
+		'no'     => __( 'No', 'mission' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_theme_name_sanitize_slider_display( $input ) {
+function ct_ct_mission_sanitize_slider_display( $input ) {
 
 	$valid = array(
-		'homepage'  => __( 'Homepage', 'ct-theme-name' ),
-		'blog'      => __( 'Blog', 'ct-theme-name' ),
-		'all-pages' => __( 'All Pages', 'ct-theme-name' ),
-		'no'        => __( 'Do not display', 'ct-theme-name' )
+		'homepage'  => __( 'Homepage', 'mission' ),
+		'blog'      => __( 'Blog', 'mission' ),
+		'all-pages' => __( 'All Pages', 'mission' ),
+		'no'        => __( 'Do not display', 'mission' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-function ct_ct_theme_name_sanitize_post_categories( $input ) {
+function ct_ct_mission_sanitize_post_categories( $input ) {
 
 	$categories_array = array( 'all' => 'All' );
 	foreach ( get_categories() as $category ) {
@@ -592,7 +592,7 @@ function ct_ct_theme_name_sanitize_post_categories( $input ) {
 	return array_key_exists( $input, $categories_array ) ? $input : '';
 }
 
-function ct_ct_theme_name_sanitize_layout( $input ) {
+function ct_ct_mission_sanitize_layout( $input ) {
 
 	/*
 	 * Also allow layouts only included in the premium plugin.
@@ -600,14 +600,14 @@ function ct_ct_theme_name_sanitize_layout( $input ) {
 	 * via get_setting()
 	 */
 	$valid = array(
-		'right-sidebar' => __( 'Right sidebar', 'ct-theme-name' ),
-		'left-sidebar'  => __( 'Left sidebar', 'ct-theme-name' ),
-		'narrow'        => __( 'No sidebar - Narrow', 'ct-theme-name' ),
-		'wide'          => __( 'No sidebar - Wide', 'ct-theme-name' ),
-		'two-right'     => __( 'Two column - Right sidebar', 'ct-theme-name' ),
-		'two-left'      => __( 'Two column - Left sidebar', 'ct-theme-name' ),
-		'two-narrow'    => __( 'Two column - No Sidebar - Narrow', 'ct-theme-name' ),
-		'two-wide'      => __( 'Two column - No Sidebar - Wide', 'ct-theme-name' )
+		'right-sidebar' => __( 'Right sidebar', 'mission' ),
+		'left-sidebar'  => __( 'Left sidebar', 'mission' ),
+		'narrow'        => __( 'No sidebar - Narrow', 'mission' ),
+		'wide'          => __( 'No sidebar - Wide', 'mission' ),
+		'two-right'     => __( 'Two column - Right sidebar', 'mission' ),
+		'two-left'      => __( 'Two column - Left sidebar', 'mission' ),
+		'two-narrow'    => __( 'Two column - No Sidebar - Narrow', 'mission' ),
+		'two-wide'      => __( 'Two column - No Sidebar - Wide', 'mission' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

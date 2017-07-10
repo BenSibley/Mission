@@ -8,17 +8,17 @@ $previous_post = get_adjacent_post( false, '', true );
 // if there is a previous post
 if ( $previous_post ) {
 	// text above the link
-	$previous_text = esc_html__( 'Previous Post', 'ct-theme-name' );
+	$previous_text = esc_html__( 'Previous Post', 'mission' );
 	// if there is a title use it, else call it "The Previous Post"
-	$previous_title = get_the_title( $previous_post ) ? get_the_title( $previous_post ) : esc_html__( 'The Previous Post', 'ct-theme-name' );
+	$previous_title = get_the_title( $previous_post ) ? get_the_title( $previous_post ) : esc_html__( 'The Previous Post', 'mission' );
 	// get the post link
 	$previous_link = get_permalink( $previous_post );
 } // if there isn't a previous post
 else {
 	// text above the link
-	$previous_text = esc_html__( 'No Older Posts', 'ct-theme-name' );
+	$previous_text = esc_html__( 'No Older Posts', 'mission' );
 	// set the title to return to the blog
-	$previous_title = esc_html__( 'Return to Blog', 'ct-theme-name' );
+	$previous_title = esc_html__( 'Return to Blog', 'mission' );
 	// link to blog
 	$previous_link = home_url();
 }
@@ -29,17 +29,17 @@ $next_post = get_adjacent_post( false, '', false );
 // if there is a next post
 if ( $next_post ) {
 	// text above the link
-	$next_text = esc_html__( 'Next Post', 'ct-theme-name' );
+	$next_text = esc_html__( 'Next Post', 'mission' );
 	// if there is a title use it, else call it "The next Post"
-	$next_title = get_the_title( $next_post ) ? get_the_title( $next_post ) : esc_html__( 'The Next Post', 'ct-theme-name' );
+	$next_title = get_the_title( $next_post ) ? get_the_title( $next_post ) : esc_html__( 'The Next Post', 'mission' );
 	// get the post link
 	$next_link = get_permalink( $next_post );
 } // if there isn't a next post
 else {
 	// text above the link
-	$next_text = esc_html__( 'No Newer Posts', 'ct-theme-name' );
+	$next_text = esc_html__( 'No Newer Posts', 'mission' );
 	// set the title to return to the blog
-	$next_title = esc_html__( 'Return to Blog', 'ct-theme-name' );
+	$next_title = esc_html__( 'Return to Blog', 'mission' );
 	// link to blog
 	$next_link = home_url();
 }

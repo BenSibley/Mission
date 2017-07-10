@@ -34,7 +34,7 @@ if ( comments_open() ) { ?>
         <p class="comments-closed pings-open">
             <?php
             // translators: placeholder is link to the trackback URL
-            printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'ct-theme-name' ), esc_url( get_trackback_url() ) );
+            printf( esc_html__( 'Comments are closed, but <a href="%s" title="Trackback URL for this post">trackbacks</a> and pingbacks are open.', 'mission' ), esc_url( get_trackback_url() ) );
             ?>
         </p>
     </section>
@@ -52,14 +52,14 @@ if ( comments_open() ) { ?>
             </nav>
         <?php } ?>
         <p class="comments-closed">
-            <?php esc_html_e( 'Comments are closed.', 'ct-theme-name' ); ?>
+            <?php esc_html_e( 'Comments are closed.', 'mission' ); ?>
         </p>
     </section>
     <?php
 } else { ?>
     <section id="comments" class="comments">
         <p class="comments-closed">
-            <?php esc_html_e( 'Comments are closed.', 'ct-theme-name' ); ?>
+            <?php esc_html_e( 'Comments are closed.', 'mission' ); ?>
         </p>
     </section>
 <?php }

@@ -4,7 +4,7 @@
     var body = $('body');
     var siteTitle = $('#site-title');
     var tagline = $( '.tagline' );
-    var inlineStyles = $('#ct-ct_theme_name-style-inline-css');
+    var inlineStyles = $('#ct-ct_mission-style-inline-css');
 
     // Site title
     wp.customize( 'blogname', function( value ) {

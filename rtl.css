@@ -1,17 +1,17 @@
 /*
-Theme Name: CT Starter
-Theme URI: https://www.competethemes.com/ct_theme_name/
+Theme Name: Mission
+Theme URI: https://www.competethemes.com/mission/
 Author: Compete Themes
 Author URI: https://www.competethemes.com/
-Description: Ct_theme_name is a bold and minimalist blog theme for publishers who want to be heard.
+Description: Mission is a bold and minimalist blog theme for publishers who want to be heard.
 Version: 0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: gray, silver, white, light, dark, two-columns, right-sidebar, left-sidebar, responsive-layout, custom-menu, featured-images, sticky-post, theme-options, threaded-comments, translation-ready
-Text Domain: ct_theme_name
+Text Domain: mission
 
-Ct_theme_name WordPress Theme, Copyright 2016 Compete Themes
-Ct_theme_name is distributed under the terms of the GNU GPL
+Mission WordPress Theme, Copyright 2017 Compete Themes
+Mission is distributed under the terms of the GNU GPL
 */
 /*===== Variables =====*/
 /* Theme Colors */
@@ -48,10 +48,6 @@ textarea, input[type="submit"] {
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   height: 100%;
   font-size: 100%;
@@ -72,6 +68,15 @@ body {
 
 .main {
   margin: 0 auto;
+}
+
+.loop-container:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 
 p {
@@ -267,6 +272,10 @@ a img {
   margin: 0 auto;
 }
 
+.site-footer {
+  clear: both;
+}
+
 /**
  * 14.2 Galleries
  */
@@ -346,4 +355,169 @@ a img {
 }
 .tiled-gallery .gallery-row {
   margin: 0 auto;
+}
+
+.pagination {
+  clear: both;
+}
+
+.featured-image {
+  position: relative;
+  height: 0;
+  padding-bottom: 50%;
+  overflow: hidden;
+}
+.featured-image > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 0;
+}
+.featured-image > a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: white;
+  opacity: 0;
+  -webkit-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+}
+.featured-image > a:focus:after {
+  opacity: 0.2;
+}
+.featured-image > img,
+.featured-image > a > img {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.featured-image > img.no-object-fit,
+.featured-image > a > img.no-object-fit {
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(50%) translateY(-50%);
+  -ms-transform: translateX(50%) translateY(-50%);
+  transform: translateX(50%) translateY(-50%);
+}
+.featured-image .ccfic {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 12px 4px 4px;
+  font-size: 13px;
+}
+
+.post-content iframe {
+  max-width: 100%;
+}
+.post-content:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.site-header .search-form-container {
+  position: absolute;
+  top: 22px;
+  left: 1.5em;
+}
+.site-header .search-form-container button {
+  position: relative;
+  z-index: 9;
+  background: none;
+  border: none;
+  margin: 5px 0 0 -10px;
+  padding: 6px 10px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+.site-header .search-form-container button:hover {
+  cursor: pointer;
+}
+.site-header .search-form-container button:focus {
+  outline: none;
+}
+.site-header .search-form-container button.open + form {
+  opacity: 1;
+}
+.site-header .search-form-container i {
+  color: #666666;
+  z-index: -1;
+}
+.site-header .search-form-container form {
+  position: absolute;
+  top: 0;
+  left: -12px;
+  right: 0;
+  padding-top: 6px;
+  opacity: 0;
+  -webkit-transition: opacity 0.15s ease-in-out, right 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out, right 0.15s ease-in-out;
+}
+.site-header .search-form-container .search-field {
+  max-width: none !important;
+  outline: none !important;
+  padding: 6px 12px !important;
+}
+.site-header .search-form-container .search-field::-webkit-search-decoration, .site-header .search-form-container .search-field::-webkit-search-cancel-button, .site-header .search-form-container .search-field::-webkit-search-results-button, .site-header .search-form-container .search-field::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+.site-header .search-form-container .search-field::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.site-header .search-form-container .search-field::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.site-header .search-form-container .search-field:focus {
+  background: #EDEDED !important;
+}
+
+@media all and (min-width: 50em) {
+  .site-header .search-form-container {
+    position: relative;
+    float: left;
+    top: -6px;
+    left: 0;
+    z-index: 9;
+    text-align: left;
+    margin: 0 1.5em 0 0;
+  }
+  .site-header .search-form-container button {
+    margin: 0;
+    padding: 4px 10px;
+  }
+  .site-header .search-form-container button:hover {
+    cursor: pointer;
+  }
+  .site-header .search-form-container button.open + form {
+    right: -266px;
+  }
+  .site-header .search-form-container form {
+    padding-top: 0;
+    left: 0;
+  }
 }

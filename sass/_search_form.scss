@@ -22,7 +22,7 @@
         outline: none;
 
         i {
-          color: $color-gray-20;
+          //color: $color-gray-20;
         }
       }
       &.open {
@@ -68,7 +68,7 @@
       }
       &:focus {
         background: $color-gray-93 !important;
-        outline: solid 1px $color-gray-83 !important;
+        //outline: solid 1px $color-gray-83 !important;
       }
     }
   }

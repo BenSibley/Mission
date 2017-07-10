@@ -1,18 +1,18 @@
 <div <?php post_class(); ?>>
-	<?php do_action( 'ct_theme_name_archive_post_before' ); ?>
+	<?php do_action( 'ct_mission_archive_post_before' ); ?>
 	<article>
-		<?php ct_ct_theme_name_featured_image(); ?>
+		<?php ct_ct_mission_featured_image(); ?>
 		<div class='post-header'>
-			<?php do_action( 'ct_theme_name_sticky_post_status' ); ?>
+			<?php do_action( 'ct_mission_sticky_post_status' ); ?>
 			<h2 class='post-title'>
 				<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 			</h2>
 			<?php get_template_part( 'content/post-byline' ); ?>
 		</div>
 		<div class="post-content">
-			<?php ct_ct_theme_name_excerpt(); ?>
+			<?php ct_ct_mission_excerpt(); ?>
 			<?php get_template_part( 'content/comments-link' ); ?>
 		</div>
 	</article>
-	<?php do_action( 'ct_theme_name_archive_post_after' ); ?>
+	<?php do_action( 'ct_mission_archive_post_after' ); ?>
 </div>

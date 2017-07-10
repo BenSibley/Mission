@@ -1,0 +1,36 @@
+@import "variables";
+
+.upgrades-ad {
+  text-align: center;
+  border-bottom: solid 1px #eee;
+
+  a {
+    display: block;
+    padding: 9px 0;
+    color: white;
+    background: #43b3c4;
+    transition: background 0.15s ease-in-out;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus  {
+      color: white;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      background: #3ea5b3;
+
+      span {
+        right: -3px;
+      }
+    }
+  }
+  span {
+    position: relative;
+    right: 0;
+    transition: right 0.15s ease-in-out;
+  }
+}

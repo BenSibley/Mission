@@ -8,15 +8,12 @@
 body {
   height: 100%;
   font-size: 100%;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
-  //font-family: $primary-font-stack;
-  line-height: 1.5;
-//  background: $background;
-//  color: $gray;
-  -webkit-font-smoothing: subpixel-antialiased;
-  word-wrap: break-word;
-  -ms-word-wrap: break-word;
+  font-family: $pt-serif;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
 }
 .overflow-container {
   position: relative;
@@ -38,21 +35,21 @@ p {
   margin: $baseline-height 0;
 }
 a {
-//  color: $orange;
+  color: $color-blue;
 
   &:link,
   &:visited {
-//    color: $orange;
+    color: $color-blue;
   }
   &:hover,
   &:active,
   &:focus {
-//    color: $orange-dark;
+    color: $color-blue-hover;
   }
 }
 
 h1,h2,h3,h4,h5,h6 {
-  //font-family: $primary-font-stack;
+  font-family: $pt-serif;
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -89,18 +86,18 @@ li li {
 
 pre {
   word-wrap: break-word;
-//  background: $off-white;
+  background: $color-gray-95;
   white-space: pre-wrap;
   padding: $baseline-height / 2;
 }
 code {
-//  background: $off-white;
+  background: $color-gray-95;
   padding: 0 $baseline-height / 4;
 }
 blockquote {
   margin: $baseline-height $baseline-height $baseline-height 0;
   padding-left: $baseline-height;
-//  border-left: solid 3px $orange;
+  border-left: solid 3px #000;
 
   cite {
     display: block;
@@ -119,7 +116,7 @@ table {
 td,
 th {
   padding: $baseline-height / 2;
-  //border: solid 1px $color-gray-40;
+  border: solid 1px $color-gray-40;
 }
 
 /* Images */
@@ -156,42 +153,49 @@ img,
 .wp-caption-text,
 .gallery-caption {
   @extend %twelve-pixels;
-//  margin: 0 0 $baseline-height / 0.813;
-//  color: $gray-medium;
+  font-family: $pt-sans;
+  color: $color-gray-40;
 }
 
 /* Form styles */
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="file"]):not([type="image"]),
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
 textarea {
-  @extend %twelve-pixels;
+  @extend %fourteen-pixels-title;
   width: 100%;
-//  font-family: $primary-font-stack;
+  font-family: $pt-sans;
   padding: 10px 12px;
-  max-width: $baseline-height * 10 * 1.85;
-//  background: $background;
-//  color: $gray-medium;
-//  outline: solid 1px $gray-light;
-  border: none;
+  color: #000;
+  border: solid 1px $color-gray-86;
   border-radius: 0;
   -webkit-appearance: none;
-  transition: all 0.1s ease-in-out;
+  transition: border-color 0.15s;
+
+  &:focus {
+    outline: none;
+    border-color: $color-blue;
+  }
 }
 textarea {
-  max-width: $baseline-height * 15 * 1.85;
+  @extend %fourteen-pixels;
   overflow: auto; /* to hide scrollbar in IE */
 }
 input[type="submit"] {
-  @extend %twelve-pixels;
-//  font-family: $primary-font-stack;
+  @extend %fourteen-pixels-title;
+  font-family: $pt-sans;
   padding: 10px 12px;
   color: white;
-//  background: $orange;
-  outline: none;
+  background: #000;
   border: none;
   border-radius: 0;
   -webkit-appearance: none;
-  transition: all 0.1s ease-in-out;
+  transition: background 0.15s;
 
   &:hover {
     cursor: pointer;
@@ -199,28 +203,25 @@ input[type="submit"] {
   &:hover,
   &:active,
   &:focus {
-//    background: $color-gray-40;
+    outline: none;
+    background: $color-gray-30;
   }
 }
 
-input[type="search"] {
-//  margin-right: $baseline-height;
-//  padding-right: $baseline-height / 4; /* so safari 'x' doesn't get cut off */
+::-webkit-input-placeholder {
+  color: $color-gray-40;
 }
-//::-webkit-input-placeholder {
-//  color: $gray-medium;
-//}
-//:-moz-placeholder /* Firefox 18- */ {
-//  color: $gray-medium;
-//}
-//::-moz-placeholder /* Firefox 19+ */ {
-//  color: $gray-medium;
-//}
-//:-ms-input-placeholder {
-//  color: $gray-medium;
-//}
-//
-///* sticky */
+:-moz-placeholder /* Firefox 18- */ {
+  color: $color-gray-40;
+}
+::-moz-placeholder /* Firefox 19+ */ {
+  color: $color-gray-40;
+}
+:-ms-input-placeholder {
+  color: $color-gray-40;
+}
+
+/* sticky */
 //.excerpt.sticky {
 //  outline: solid 3px $orange;
 //}
@@ -266,8 +267,8 @@ a img {
   color: white !important;
   z-index: 99;
   padding: $baseline-height;
-//  background: $color-gray-20;
-  transition: top 0.2s ease-in-out;
+  background: #000;
+  transition: top 0.15s;
 
   &:focus {
     top: 0;

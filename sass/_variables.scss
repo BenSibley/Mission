@@ -13,6 +13,7 @@ $color-blue-hover: #1976C2;
 $color-gray-95: #F3F3F3;
 $color-gray-86: #DCDCDC;
 $color-gray-40: #666666;
+$color-gray-30: #4C4C4C;
 
 /* Media Query widths */
 
@@ -119,9 +120,14 @@ $tencent-weibo: #20b8e5;
   line-height: 1.333; /* 24px */
 }
 // 14px font
+%fourteen-pixels-title {
+  font-size: 0.875em; /* 14px / 16px */
+  line-height: 1.286; /* 18px */
+}
+// 14px font
 %fourteen-pixels {
   font-size: 0.875em; /* 14px / 16px */
-  line-height: 1.429; /* 20px */
+  line-height: 1.571; /* 22px */
 }
 // 12px font
 %twelve-pixels {

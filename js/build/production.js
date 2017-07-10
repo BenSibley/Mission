@@ -121,6 +121,7 @@ jQuery(document).ready(function($){
         if( menuPrimaryContainer.hasClass('open') ) {
             menuPrimaryContainer.removeClass('open');
             $(this).removeClass('open');
+            body.css('overflow', 'auto');
 
             // change screen reader text
             //$(this).children('span').text(objectL10n.openMenu);
@@ -131,6 +132,7 @@ jQuery(document).ready(function($){
         } else {
             menuPrimaryContainer.addClass('open');
             $(this).addClass('open');
+            body.css('overflow', 'hidden');
 
             // change screen reader text
             //$(this).children('span').text(objectL10n.closeMenu);

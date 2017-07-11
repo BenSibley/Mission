@@ -150,39 +150,85 @@ jQuery(document).ready(function($){
     }
 
     // display the dropdown menus
-    toggleDropdown.on('click', openDropdownMenu);
-    $('.back-button').on('click', openDropdownMenu);
+    // toggleDropdown.on('click', openDropdownMenu);
+    // // $('#back-button').on('click', openDropdownMenu);
+    //
+    // function openDropdownMenu() {
+    //
+    //     // get the buttons parent (li)
+    //     var menuItem = $(this).parent();
+    //
+    //     // if already opened
+    //     if( menuPrimaryContainer.hasClass('tiered') ) {
+    //
+    //         // remove open class
+    //         // menuItem.removeClass('open');
+    //         menuPrimaryContainer.removeClass('tiered');
+    //         $('.label').text('');
+    //
+    //         // change screen reader text
+    //         //$(this).children('span').text(objectL10n.openMenu);
+    //
+    //         // change aria text
+    //         $(this).attr('aria-expanded', 'false');
+    //     } else {
+    //
+    //         // add class to open the menu
+    //         // menuItem.addClass('open');
+    //         menuPrimaryContainer.addClass('tiered');
+    //         $('.label').text( $(this).prev().text() );
+    //
+    //         // change screen reader text
+    //         //$(this).children('span').text(objectL10n.closeMenu);
+    //
+    //         // change aria text
+    //         $(this).attr('aria-expanded', 'true');
+    //     }
+    // }
 
-    function openDropdownMenu() {
+    toggleDropdown.on('click', navigateMobileDropdowns);
+    $('#back-button').on('click', navigateMobileDropdowns);
 
-        // get the buttons parent (li)
-        var menuItem = $(this).parent();
+    function navigateMobileDropdowns() {
 
-        // if already opened
-        if( menuPrimaryContainer.hasClass('tiered') ) {
+        var classes = menuPrimaryContainer.attr('class');
 
-            // remove open class
-            // menuItem.removeClass('open');
-            menuPrimaryContainer.removeClass('tiered');
-            $('.label').text('');
+        var subString = classes.indexOf( 'tier-' ); // 23
+        var tierClass = classes.slice( subString, subString + 6 ); // tier-1
 
-            // change screen reader text
-            //$(this).children('span').text(objectL10n.openMenu);
+        // remove the class
+        menuPrimaryContainer.removeClass( tierClass );
 
-            // change aria text
-            $(this).attr('aria-expanded', 'false');
+        // increment/decrement the class by 1
+        var number = tierClass.slice( tierClass.length-1, tierClass.length );
+        if ( $(this).attr('id') == 'back-button' ) {
+            number = parseInt( number ) - 1;
         } else {
+            number = parseInt( number ) + 1;
+        }
+        tierClass = 'tier-' + number;
 
-            // add class to open the menu
-            // menuItem.addClass('open');
-            menuPrimaryContainer.addClass('tiered');
-            $('.label').text( $(this).prev().text() );
+        // add new class
+        menuPrimaryContainer.addClass( tierClass );
 
-            // change screen reader text
-            //$(this).children('span').text(objectL10n.closeMenu);
-
-            // change aria text
-            $(this).attr('aria-expanded', 'true');
+        // update label
+        if ( tierClass == 'tier-1' ) {
+            $('.label').text('');
+        } else {
+            if ( $(this).attr('id') == 'back-button' ) {
+                var oldCurrent = menuPrimary.find('.current');
+                // remove class from former current list item
+                oldCurrent.removeClass('current');
+                // add class to current list item
+                oldCurrent.parent().parent().addClass('current');
+            } else {
+                // remove class from former current list item
+                $(this).parents('.current').removeClass('current');
+                // add class to current list item
+                $(this).parent().addClass('current');
+            }
+            // update label
+            $('.label').text( menuPrimary.find('.current').children('a').text() );
         }
     }
 

@@ -31,7 +31,7 @@
 				<span class="screen-reader-text"><?php esc_html_e( 'open menu', 'mission' ); ?></span>
 				<?php echo ct_mission_svg_output( 'toggle-navigation' ); ?>
 			</button>
-			<div id="menu-primary-container" class="menu-primary-container">
+			<div id="menu-primary-container" class="menu-primary-container tier-1">
 				<?php get_template_part( 'menu', 'primary' ); ?>
 			</div>
 		</header>

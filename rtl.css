@@ -576,14 +576,29 @@ a img {
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-.menu-primary-container.tiered .menu-primary {
+.menu-primary-container.tier-2 .dropdown-navigation, .menu-primary-container.tier-3 .dropdown-navigation, .menu-primary-container.tier-4 .dropdown-navigation, .menu-primary-container.tier-5 .dropdown-navigation {
+  opacity: 1;
+  visibility: visible;
+}
+.menu-primary-container.tier-2 .menu-primary {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-.menu-primary-container.tiered .dropdown-navigation {
-  opacity: 1;
-  visibility: visible;
+.menu-primary-container.tier-3 .menu-primary {
+  -webkit-transform: translateX(-200%);
+  -ms-transform: translateX(-200%);
+  transform: translateX(-200%);
+}
+.menu-primary-container.tier-4 .menu-primary {
+  -webkit-transform: translateX(-300%);
+  -ms-transform: translateX(-300%);
+  transform: translateX(-300%);
+}
+.menu-primary-container.tier-5 .menu-primary {
+  -webkit-transform: translateX(-400%);
+  -ms-transform: translateX(-400%);
+  transform: translateX(-400%);
 }
 
 .menu-primary {
@@ -610,8 +625,6 @@ a img {
 .menu-primary-items li,
 .menu-unset ul li {
   position: relative;
-  margin-bottom: 0.75em;
-  padding-bottom: 0.75em;
   border-bottom: solid 1px #262626;
 }
 .menu-primary-items li.current-menu-item > a,
@@ -622,28 +635,61 @@ a img {
 .menu-unset ul a {
   display: block;
   font-family: "PT Sans", sans-serif;
-  padding: 3px 6px;
+  padding: 15px 0;
+  -webkit-transition: color 0.15s;
+  transition: color 0.15s;
+}
+.menu-primary-items a:hover, .menu-primary-items a:active, .menu-primary-items a:focus,
+.menu-unset ul a:hover,
+.menu-unset ul a:active,
+.menu-unset ul a:focus {
+  color: #DCDCDC;
 }
 .menu-primary-items ul,
 .menu-unset ul ul {
   position: fixed;
-  top: 0;
+  top: -12px;
   right: 100%;
   width: 100%;
   list-style: none;
-  overflow: hidden;
+  margin: 0;
+  padding: 0 5.556%;
+}
+.menu-primary-items ul ul,
+.menu-unset ul ul ul {
+  right: 200%;
+}
+.menu-primary-items ul ul ul,
+.menu-unset ul ul ul ul {
+  right: 300%;
+}
+.menu-primary-items ul ul ul ul,
+.menu-unset ul ul ul ul ul {
+  right: 400%;
 }
 
 .toggle-dropdown {
   position: absolute;
   left: 0;
-  top: -13px;
+  top: -1px;
   color: #fff;
   background: none;
   margin: 0;
   padding: 15px 5.556%;
   border: solid 1px #262626;
   border-radius: 0;
+  -webkit-transition: color 0.15s, background 0.15s;
+  transition: color 0.15s, background 0.15s;
+}
+.toggle-dropdown:hover {
+  cursor: pointer;
+}
+.toggle-dropdown:focus {
+  outline: none;
+}
+.toggle-dropdown:hover, .toggle-dropdown:active, .toggle-dropdown:focus {
+  color: #DCDCDC;
+  background: #000;
 }
 
 .dropdown-navigation {
@@ -682,7 +728,7 @@ a img {
 
 .menu-primary-items {
   position: relative;
-  top: -30px;
+  top: -42px;
 }
 
 .featured-image {

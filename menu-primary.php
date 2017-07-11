@@ -1,4 +1,4 @@
-<div class="dropdown-navigation"><a class="back-button" href="#"><i class="fa fa-angle-left"></i> Back</a><span class="label">Home</span></div>
+<div class="dropdown-navigation"><a id="back-button" class="back-button" href="#"><i class="fa fa-angle-left"></i> Back</a><span class="label"></span></div>
 <div id="menu-primary" class="menu-container menu-primary" role="navigation">
     <?php wp_nav_menu(
         array(

@@ -68,6 +68,7 @@ jQuery(document).ready(function($){
 
     // display the dropdown menus
     toggleDropdown.on('click', openDropdownMenu);
+    $('.back-button').on('click', openDropdownMenu);
 
     function openDropdownMenu() {
 
@@ -75,10 +76,12 @@ jQuery(document).ready(function($){
         var menuItem = $(this).parent();
 
         // if already opened
-        if( menuItem.hasClass('open') ) {
+        if( menuPrimaryContainer.hasClass('tiered') ) {
 
             // remove open class
-            menuItem.removeClass('open');
+            // menuItem.removeClass('open');
+            menuPrimaryContainer.removeClass('tiered');
+            $('.label').text('');
 
             // change screen reader text
             //$(this).children('span').text(objectL10n.openMenu);
@@ -88,7 +91,9 @@ jQuery(document).ready(function($){
         } else {
 
             // add class to open the menu
-            menuItem.addClass('open');
+            // menuItem.addClass('open');
+            menuPrimaryContainer.addClass('tiered');
+            $('.label').text( $(this).prev().text() );
 
             // change screen reader text
             //$(this).children('span').text(objectL10n.closeMenu);

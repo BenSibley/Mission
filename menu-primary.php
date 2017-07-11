@@ -1,3 +1,4 @@
+<div class="dropdown-navigation"><a class="back-button" href="#"><i class="fa fa-angle-left"></i> Back</a><span class="label">Home</span></div>
 <div id="menu-primary" class="menu-container menu-primary" role="navigation">
     <?php wp_nav_menu(
         array(
@@ -7,6 +8,6 @@
             'menu_class'      => 'menu-primary-items',
             'menu_id'         => 'menu-primary-items',
             'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-            'fallback_cb'     => 'ct_mission_wp_page_menu'
+            'fallback_cb'     => 'ct_mission_wp_page_menu',
         ) ); ?>
 </div>

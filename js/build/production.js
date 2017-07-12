@@ -160,6 +160,9 @@ jQuery(document).ready(function($){
         if ( window.innerWidth < 800 ) {
             menuPrimaryContainer.append( $('#menu-secondary-container') );
             $('#menu-secondary-container').addClass('moved');
+
+            menuPrimaryContainer.append( $('#social-media-icons') );
+            $('#social-media-icons').addClass('moved');
         }
     }
     moveSecondaryMenu();

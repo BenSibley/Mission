@@ -338,7 +338,7 @@ if ( ! function_exists( 'ct_mission_social_icons_output' ) ) {
 
 		if ( ! empty( $active_sites ) ) {
 
-			echo "<ul class='social-media-icons'>";
+			echo "<ul id='social-media-icons' class='social-media-icons'>";
 
 			foreach ( $active_sites as $key => $active_site ) {
 

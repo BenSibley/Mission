@@ -8,8 +8,6 @@
 }
 .menu-secondary {
   padding: 0 $column * 2;
-  text-align: left;
-
 
   .toggle-dropdown {
     padding: 12px $column * 2;
@@ -25,6 +23,13 @@
     position: relative;
     border-bottom: solid 1px $color-gray-15;
 
+    &.current-menu-item,
+    &.current-menu-ancestor {
+
+      > a {
+        text-decoration: underline;
+      }
+    }
     &.current,
     &.current-ancestor {
 

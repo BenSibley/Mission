@@ -45,15 +45,17 @@
 }
 
 .menu-primary-container {
-  position: absolute;
+  position: fixed;
   z-index: 9;
   top: 67px;
   bottom: 0;
   left: 100%;
   width: 100%;
-  background: rgba(0,0,0,0.90);
+  background: #000;
   opacity: 0;
   visibility: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   transition: opacity 0.35s, visibility 0.35s, transform 0.25s;
 
   &.open {
@@ -96,6 +98,9 @@
     }
   }
 }
+.admin-bar .menu-primary-container {
+  top: 113px;
+}
 .menu-primary {
   padding: 0 $column * 2;
   text-align: left;
@@ -120,6 +125,14 @@
         color: $color-blue;
       }
     }
+    &.current,
+    &.current-ancestor {
+
+      ul {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
   a {
     @extend %white-link;
@@ -142,6 +155,9 @@
     list-style: none;
     margin: 0;
     padding: 0 $column * 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s, visibility 0.35s;
 
     ul {
     left: 200%;
@@ -151,6 +167,9 @@
     }
     ul ul ul {
       left: 400%;
+    }
+    ul ul ul ul {
+      left: 500%;
     }
   }
 }

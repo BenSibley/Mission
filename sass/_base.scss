@@ -14,6 +14,13 @@ body {
   font-family: $pt-serif;
   color: #000;
   -webkit-font-smoothing: antialiased;
+
+
+  &.noscroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 }
 .overflow-container {
   position: relative;

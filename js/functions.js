@@ -38,10 +38,11 @@ jQuery(document).ready(function($){
         if( menuPrimaryContainer.hasClass('open') ) {
             menuPrimaryContainer.removeClass('open');
             $(this).removeClass('open');
-            body.css('overflow', 'auto');
+            body.removeClass('noscroll');
             
             // remove status of open menus
             menuPrimary.find('.current').removeClass('current');
+            menuPrimary.find('.current-ancestor').removeClass('current-ancestor');
             
             // reset to "tier-1" class
             var classes = menuPrimaryContainer.attr('class');
@@ -61,7 +62,7 @@ jQuery(document).ready(function($){
         } else {
             menuPrimaryContainer.addClass('open');
             $(this).addClass('open');
-            body.css('overflow', 'hidden');
+            body.addClass('noscroll');
 
             // change screen reader text
             //$(this).children('span').text(objectL10n.closeMenu);
@@ -103,25 +104,27 @@ jQuery(document).ready(function($){
         // add new class
         menuPrimaryContainer.addClass( tierClass );
 
+        if ( $(this).attr('id') == 'back-button' ) {
+            var oldCurrent = menuPrimary.find('.current');
+            // remove class from former current list item
+            oldCurrent.removeClass('current current-ancestor');
+            // add class to current list item
+            oldCurrent.parent().parent().addClass('current');
+        } else {
+            $(this).parents('.current').addClass('current-ancestor');
+            // remove class from former current list item
+            $(this).parents('.current').removeClass('current');
+            // add class to current list item
+            $(this).parent().addClass('current');
+        }
         // update label
         if ( tierClass == 'tier-1' ) {
             $('.label').text('');
         } else {
-            if ( $(this).attr('id') == 'back-button' ) {
-                var oldCurrent = menuPrimary.find('.current');
-                // remove class from former current list item
-                oldCurrent.removeClass('current');
-                // add class to current list item
-                oldCurrent.parent().parent().addClass('current');
-            } else {
-                // remove class from former current list item
-                $(this).parents('.current').removeClass('current');
-                // add class to current list item
-                $(this).parent().addClass('current');
-            }
-            // update label
-            $('.label').text( menuPrimary.find('.current').children('a').text() );
+            $('.label').text(menuPrimary.find('.current').children('a').text());
         }
+
+        menuPrimaryContainer.scrollTop(0);
     }
 
     function openSearchBar(){

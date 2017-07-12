@@ -118,6 +118,11 @@ body {
   color: #000;
   -webkit-font-smoothing: antialiased;
 }
+body.noscroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
 
 .overflow-container {
   position: relative;
@@ -479,6 +484,7 @@ a img {
 }
 
 .site-header {
+  position: relative;
   padding: 0.75em 5.556%;
   border-bottom: solid 1px #DCDCDC;
   margin-bottom: 1.125em;
@@ -557,15 +563,17 @@ a img {
 }
 
 .menu-primary-container {
-  position: absolute;
+  position: fixed;
   z-index: 9;
   top: 67px;
   bottom: 0;
   left: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: #000;
   opacity: 0;
   visibility: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   -webkit-transition: opacity 0.35s, visibility 0.35s, -webkit-transform 0.25s;
   transition: opacity 0.35s, visibility 0.35s, transform 0.25s;
 }
@@ -601,6 +609,10 @@ a img {
   transform: translateX(-400%);
 }
 
+.admin-bar .menu-primary-container {
+  top: 113px;
+}
+
 .menu-primary {
   padding: 0 5.556%;
   text-align: left;
@@ -631,6 +643,12 @@ a img {
 .menu-unset ul li.current-menu-item > a {
   color: #176DB3;
 }
+.menu-primary-items li.current ul, .menu-primary-items li.current-ancestor ul,
+.menu-unset ul li.current ul,
+.menu-unset ul li.current-ancestor ul {
+  opacity: 1;
+  visibility: visible;
+}
 .menu-primary-items a,
 .menu-unset ul a {
   display: block;
@@ -654,6 +672,10 @@ a img {
   list-style: none;
   margin: 0;
   padding: 0 5.556%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.35s, visibility 0.35s;
+  transition: opacity 0.35s, visibility 0.35s;
 }
 .menu-primary-items ul ul,
 .menu-unset ul ul ul {
@@ -666,6 +688,10 @@ a img {
 .menu-primary-items ul ul ul ul,
 .menu-unset ul ul ul ul ul {
   left: 400%;
+}
+.menu-primary-items ul ul ul ul ul,
+.menu-unset ul ul ul ul ul ul {
+  left: 500%;
 }
 
 .toggle-dropdown {

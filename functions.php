@@ -392,7 +392,7 @@ if ( ! function_exists( ( 'ct_mission_wp_page_menu' ) ) ) {
 if ( ! function_exists( ( 'ct_mission_nav_dropdown_buttons' ) ) ) {
 	function ct_mission_nav_dropdown_buttons( $item_output, $item, $depth, $args ) {
 
-		if ( $args->theme_location == 'primary' ) {
+		if ( $args->theme_location == 'primary' || $args->theme_location == 'secondary' ) {
 
 			if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
 				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "ct_mission" ) . '</span><i class="fa fa-angle-right"></i></button>', $item_output );

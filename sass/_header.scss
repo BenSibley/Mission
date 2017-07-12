@@ -11,6 +11,8 @@
   }
 }
 .title-container {
+  position: relative;
+  z-index: 19;
   display: inline-block;
 }
 .site-title {

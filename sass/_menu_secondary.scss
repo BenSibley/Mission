@@ -1,0 +1,83 @@
+.menu-secondary-container {
+  display: none;
+  transition: transform 0.25s;
+
+  &.moved {
+    display: block;
+  }
+}
+.menu-secondary {
+  padding: 0 $column * 2;
+  text-align: left;
+
+
+  .toggle-dropdown {
+    padding: 12px $column * 2;
+  }
+}
+.menu-secondary-items {
+  position: relative;
+  top: -42px;
+  margin: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    border-bottom: solid 1px $color-gray-15;
+
+    &.current,
+    &.current-ancestor {
+
+      ul {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  a {
+    @extend %twelve-pixels;
+    @extend %uppercase;
+    display: block;
+    font-family: $pt-sans;
+    padding: 15px 0;
+    color: $color-gray-86;
+    text-decoration: none;
+    transition: color 0.15s;
+
+    &:link,
+    &:visited {
+      color: $color-gray-86;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+    }
+  }
+
+  ul {
+    position: fixed;
+    top: -12px;
+    left: 100%;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0 $column * 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s, visibility 0.35s;
+
+    ul {
+      left: 200%;
+    }
+    ul ul {
+      left: 300%;
+    }
+    ul ul ul {
+      left: 400%;
+    }
+    ul ul ul ul {
+      left: 500%;
+    }
+  }
+}

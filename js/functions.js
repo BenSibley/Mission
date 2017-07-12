@@ -75,9 +75,11 @@ jQuery(document).ready(function($){
     function moveSecondaryMenu() {
         
         if ( window.innerWidth < 800 ) {
-            
+            menuPrimaryContainer.append( $('#menu-secondary-container') );
+            $('#menu-secondary-container').addClass('moved');
         }
     }
+    moveSecondaryMenu();
 
     toggleDropdown.on('click', navigateMobileDropdowns);
     $('#back-button').on('click', navigateMobileDropdowns);
@@ -105,7 +107,7 @@ jQuery(document).ready(function($){
         menuPrimaryContainer.addClass( tierClass );
 
         if ( $(this).attr('id') == 'back-button' ) {
-            var oldCurrent = menuPrimary.find('.current');
+            var oldCurrent = menuPrimaryContainer.find('.current');
             // remove class from former current list item
             oldCurrent.removeClass('current current-ancestor');
             // add class to current list item
@@ -121,7 +123,7 @@ jQuery(document).ready(function($){
         if ( tierClass == 'tier-1' ) {
             $('.label').text('');
         } else {
-            $('.label').text(menuPrimary.find('.current').children('a').text());
+            $('.label').text(menuPrimaryContainer.find('.current').children('a').text());
         }
 
         menuPrimaryContainer.scrollTop(0);

@@ -40,9 +40,6 @@
     outline: none;
   }
 }
-.menu-secondary-container {
-  display: none;
-}
 
 .menu-primary-container {
   position: fixed;
@@ -72,28 +69,37 @@
       opacity: 1;
       visibility: visible;
     }
+    .menu-secondary-container {
+      position: absolute;
+      width: 100%;
+      top: 48px;
+    }
   }
   &.tier-2 {
 
-    .menu-primary {
+    .menu-primary,
+    .menu-secondary-container {
       transform: translateX(-100%);
     }
   }
   &.tier-3 {
 
-    .menu-primary {
+    .menu-primary,
+    .menu-secondary-container {
       transform: translateX(-200%);
     }
   }
   &.tier-4 {
 
-    .menu-primary {
+    .menu-primary,
+    .menu-secondary-container {
       transform: translateX(-300%);
     }
   }
   &.tier-5 {
 
-    .menu-primary {
+    .menu-primary,
+    .menu-secondary-container {
       transform: translateX(-400%);
     }
   }

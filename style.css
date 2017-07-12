@@ -55,7 +55,7 @@ textarea {
 }
 
 .wp-caption-text,
-.gallery-caption, .dropdown-navigation a, .dropdown-navigation span {
+.gallery-caption, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a {
   font-size: 0.75em;
   /* 12px / 16px */
   line-height: 1.5;
@@ -69,7 +69,7 @@ textarea {
   /* 18px */
 }
 
-.dropdown-navigation a, .dropdown-navigation span {
+.dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a {
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
@@ -119,9 +119,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 body.noscroll {
-  overflow: hidden;
-  position: fixed;
+  overflow-x: hidden;
   width: 100%;
+  position: fixed;
+}
+body.noscroll #wpadminbar {
+  top: -46px;
 }
 
 .overflow-container {
@@ -495,6 +498,8 @@ a img {
 }
 
 .title-container {
+  position: relative;
+  z-index: 19;
   display: inline-block;
 }
 
@@ -558,10 +563,6 @@ a img {
   outline: none;
 }
 
-.menu-secondary-container {
-  display: none;
-}
-
 .menu-primary-container {
   position: fixed;
   z-index: 9;
@@ -588,22 +589,31 @@ a img {
   opacity: 1;
   visibility: visible;
 }
-.menu-primary-container.tier-2 .menu-primary {
+.menu-primary-container.tier-2 .menu-secondary-container, .menu-primary-container.tier-3 .menu-secondary-container, .menu-primary-container.tier-4 .menu-secondary-container, .menu-primary-container.tier-5 .menu-secondary-container {
+  position: absolute;
+  width: 100%;
+  top: 48px;
+}
+.menu-primary-container.tier-2 .menu-primary,
+.menu-primary-container.tier-2 .menu-secondary-container {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-.menu-primary-container.tier-3 .menu-primary {
+.menu-primary-container.tier-3 .menu-primary,
+.menu-primary-container.tier-3 .menu-secondary-container {
   -webkit-transform: translateX(-200%);
   -ms-transform: translateX(-200%);
   transform: translateX(-200%);
 }
-.menu-primary-container.tier-4 .menu-primary {
+.menu-primary-container.tier-4 .menu-primary,
+.menu-primary-container.tier-4 .menu-secondary-container {
   -webkit-transform: translateX(-300%);
   -ms-transform: translateX(-300%);
   transform: translateX(-300%);
 }
-.menu-primary-container.tier-5 .menu-primary {
+.menu-primary-container.tier-5 .menu-primary,
+.menu-primary-container.tier-5 .menu-secondary-container {
   -webkit-transform: translateX(-400%);
   -ms-transform: translateX(-400%);
   transform: translateX(-400%);
@@ -755,6 +765,78 @@ a img {
 .menu-primary-items {
   position: relative;
   top: -42px;
+}
+
+.menu-secondary-container {
+  display: none;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+}
+.menu-secondary-container.moved {
+  display: block;
+}
+
+.menu-secondary {
+  padding: 0 5.556%;
+  text-align: left;
+}
+.menu-secondary .toggle-dropdown {
+  padding: 12px 5.556%;
+}
+
+.menu-secondary-items {
+  position: relative;
+  top: -42px;
+  margin: 0;
+  list-style: none;
+}
+.menu-secondary-items li {
+  position: relative;
+  border-bottom: solid 1px #262626;
+}
+.menu-secondary-items li.current ul, .menu-secondary-items li.current-ancestor ul {
+  opacity: 1;
+  visibility: visible;
+}
+.menu-secondary-items a {
+  display: block;
+  font-family: "PT Sans", sans-serif;
+  padding: 15px 0;
+  color: #DCDCDC;
+  text-decoration: none;
+  -webkit-transition: color 0.15s;
+  transition: color 0.15s;
+}
+.menu-secondary-items a:link, .menu-secondary-items a:visited {
+  color: #DCDCDC;
+}
+.menu-secondary-items a:hover, .menu-secondary-items a:active, .menu-secondary-items a:focus {
+  color: #fff;
+}
+.menu-secondary-items ul {
+  position: fixed;
+  top: -12px;
+  left: 100%;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0 5.556%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.35s, visibility 0.35s;
+  transition: opacity 0.35s, visibility 0.35s;
+}
+.menu-secondary-items ul ul {
+  left: 200%;
+}
+.menu-secondary-items ul ul ul {
+  left: 300%;
+}
+.menu-secondary-items ul ul ul ul {
+  left: 400%;
+}
+.menu-secondary-items ul ul ul ul ul {
+  left: 500%;
 }
 
 .featured-image {

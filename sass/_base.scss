@@ -15,11 +15,14 @@ body {
   color: #000;
   -webkit-font-smoothing: antialiased;
 
-
   &.noscroll {
-    overflow: hidden;
-    position: fixed;
+    overflow-x: hidden;
     width: 100%;
+    position: fixed;
+
+    #wpadminbar {
+      top: -46px;
+    }
   }
 }
 .overflow-container {

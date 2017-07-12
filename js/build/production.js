@@ -122,6 +122,18 @@ jQuery(document).ready(function($){
             menuPrimaryContainer.removeClass('open');
             $(this).removeClass('open');
             body.css('overflow', 'auto');
+            
+            // remove status of open menus
+            menuPrimary.find('.current').removeClass('current');
+            
+            // reset to "tier-1" class
+            var classes = menuPrimaryContainer.attr('class');
+            var subString = classes.indexOf( 'tier-' ); // 23
+            var tierClass = classes.slice( subString, subString + 6 ); // tier-1
+            menuPrimaryContainer.removeClass( tierClass );
+            menuPrimaryContainer.addClass('tier-1');
+
+            $('.label').text('');
 
             // change screen reader text
             //$(this).children('span').text(objectL10n.openMenu);
@@ -148,43 +160,6 @@ jQuery(document).ready(function($){
             
         }
     }
-
-    // display the dropdown menus
-    // toggleDropdown.on('click', openDropdownMenu);
-    // // $('#back-button').on('click', openDropdownMenu);
-    //
-    // function openDropdownMenu() {
-    //
-    //     // get the buttons parent (li)
-    //     var menuItem = $(this).parent();
-    //
-    //     // if already opened
-    //     if( menuPrimaryContainer.hasClass('tiered') ) {
-    //
-    //         // remove open class
-    //         // menuItem.removeClass('open');
-    //         menuPrimaryContainer.removeClass('tiered');
-    //         $('.label').text('');
-    //
-    //         // change screen reader text
-    //         //$(this).children('span').text(objectL10n.openMenu);
-    //
-    //         // change aria text
-    //         $(this).attr('aria-expanded', 'false');
-    //     } else {
-    //
-    //         // add class to open the menu
-    //         // menuItem.addClass('open');
-    //         menuPrimaryContainer.addClass('tiered');
-    //         $('.label').text( $(this).prev().text() );
-    //
-    //         // change screen reader text
-    //         //$(this).children('span').text(objectL10n.closeMenu);
-    //
-    //         // change aria text
-    //         $(this).attr('aria-expanded', 'true');
-    //     }
-    // }
 
     toggleDropdown.on('click', navigateMobileDropdowns);
     $('#back-button').on('click', navigateMobileDropdowns);

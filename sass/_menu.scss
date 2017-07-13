@@ -299,6 +299,17 @@
           background: $color-gray-95;
         }
       }
+      &.menu-item-has-children {
+
+        > a:after {
+          content: '\f107';
+          font-family: "FontAwesome";
+          position: relative;
+          margin-left: 3px;
+          line-height: 1;
+          top: 1px;
+        }
+      }
     }
     a {
       color: #000;
@@ -313,32 +324,67 @@
       &:active,
       &:focus {
         color: $color-gray-40;
+
+        ~ ul {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-12px);
+
+          &:before {
+            width: 100%;
+          }
+        }
       }
     }
-    // NEEED TO UPDDATE THIS
     ul {
-      position: fixed;
-      top: -12px;
-      left: 100%;
-      width: 100%;
-      list-style: none;
-      margin: 0;
-      padding: 0 $column * 2;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.35s, visibility 0.35s;
+      position: absolute;
+      z-index: 19;
+      top: 100%;
+      left: $baseline-height/2;
+      width: auto;
+      min-width: 100%;
+      padding: $baseline-height/4 $baseline-height;
+      background: #fff;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+      text-align: left;
+      transition: opacity 0.25s, visibility 0.25s, transform 0.15s;
 
+      &:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-12px);
+
+        &:before {
+          width: 100%;
+        }
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, #000, $color-gray-86);
+        transition: width 0.2s;
+      }
+
+      li {
+        display: block;
+        font-size: 0.875em; /* 14px / 16px */
+        line-height: 1.571; /* 22px */
+        white-space: nowrap;
+
+        li {
+          font-size: 1em;
+        }
+      }
+      a {
+        display: block;
+        padding: 6px 0;
+      }
       ul {
-        left: 200%;
-      }
-      ul ul {
-        left: 300%;
-      }
-      ul ul ul {
-        left: 400%;
-      }
-      ul ul ul ul {
-        left: 500%;
+        left: -$baseline-height/2;
       }
     }
   }

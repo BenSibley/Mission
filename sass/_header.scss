@@ -91,6 +91,7 @@
   }
   &:hover {
     cursor: pointer;
+    color: $color-gray-40;
   }
   &.open {
     border-color: #000;
@@ -145,6 +146,16 @@
     position: absolute;
     top: $baseline-height * 0.75;
     left: $column * 2;
+
+    svg g {
+      transition: fill 0.15s;
+    }
+    &:hover {
+
+      svg g {
+        fill: $color-gray-40;
+      }
+    }
   }
 }
 
@@ -264,8 +275,10 @@
       line-height: 1.357; /* 38px */
     }
     .search-field {
-      padding: 14px 12px;
+      padding: 11px 18px;
       border-radius: 24px 0 0 24px;
+      font-size: 16px;
+      line-height: 1.5;
     }
     .search-submit {
       padding: 15px 18px;

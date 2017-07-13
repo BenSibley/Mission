@@ -73,7 +73,7 @@ jQuery(document).ready(function($){
     
     function moveSecondaryMenu() {
         
-        if ( window.innerWidth < 800 ) {
+        if ( window.innerWidth < 700 ) {
             menuPrimaryContainer.append( $('#menu-secondary-container') );
             $('#menu-secondary-container').addClass('moved');
 
@@ -85,7 +85,7 @@ jQuery(document).ready(function($){
 
     $(window).load(function() {
         // adjust mobile menu to fit right
-        if ( window.innerWidth < 800 ) {
+        if ( window.innerWidth < 700 ) {
             var newHeight = siteHeader.outerHeight(false);
             if ( window.innerWidth < 783 && body.hasClass('admin-bar') ) {
                 newHeight += 46;

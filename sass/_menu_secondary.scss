@@ -86,3 +86,78 @@
     }
   }
 }
+
+@media all and (min-width: $eight-hundred) {
+
+  .menu-secondary-container {
+    display: block;
+    float: left;
+  }
+  .menu-secondary {
+    padding: 0;
+
+    .toggle-dropdown {
+      display: none;
+    }
+  }
+  .menu-secondary-items {
+    position: static;
+    line-height: 0; // aligns menu with search bar (lets menu items 18px line-height replace 24px line-height)
+
+    li {
+      display: inline-block;
+      border-bottom: none;
+      margin-right: 8px;
+
+      //&.current-menu-item,
+      //&.current-menu-ancestor {
+      //
+      //  > a {
+      //    text-decoration: underline;
+      //  }
+      //}
+    }
+    a {
+      display: inline-block;
+      padding: 0;
+      color: #000;
+
+      &:link,
+      &:visited {
+        color: #000;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-gray-40;
+      }
+    }
+
+    // NEED TO UPDATE THIS
+    ul {
+      position: fixed;
+      top: -12px;
+      left: 100%;
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 0 $column * 2;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s, visibility 0.35s;
+
+      ul {
+        left: 200%;
+      }
+      ul ul {
+        left: 300%;
+      }
+      ul ul ul {
+        left: 400%;
+      }
+      ul ul ul ul {
+        left: 500%;
+      }
+    }
+  }
+}

@@ -252,3 +252,94 @@
   position: relative;
   top: -42px;
 }
+
+@media all and (min-width: $six-hundred) {
+
+  .menu-primary-container {
+    max-width: 440px;
+    box-shadow: -4px 0 12px 0 rgba(0,0,0,0.1);
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .toggle-navigation,
+  .toggle-dropdown,
+  .dropdown-navigation {
+    display: none;
+  }
+  .menu-primary-container {
+    position: static;
+    max-width: none;
+    box-shadow: none;
+    background: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    overflow: visible;
+    text-align: center;
+    border-top: solid 2px #000;
+    border-bottom: solid 1px $color-gray-86;
+  }
+  .menu-primary-items,
+  .menu-unset ul {
+    position: static;
+
+    li {
+      position: relative;
+      display: inline-block;
+      border-bottom: none;
+      margin-right: -4px;
+
+      &.current-menu-item,
+      &.current-menu-ancestor {
+
+        > a {
+          text-decoration: none;
+          background: $color-gray-95;
+        }
+      }
+    }
+    a {
+      color: #000;
+      display: inline-block;
+      padding: 12px;
+
+      &:link,
+      &:visited {
+        color: #000;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-gray-40;
+      }
+    }
+    // NEEED TO UPDDATE THIS
+    ul {
+      position: fixed;
+      top: -12px;
+      left: 100%;
+      width: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 0 $column * 2;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s, visibility 0.35s;
+
+      ul {
+        left: 200%;
+      }
+      ul ul {
+        left: 300%;
+      }
+      ul ul ul {
+        left: 400%;
+      }
+      ul ul ul ul {
+        left: 500%;
+      }
+    }
+  }
+}

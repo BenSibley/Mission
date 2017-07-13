@@ -1,15 +1,11 @@
 <?php
-if ( get_theme_mod( 'search_bar' ) != 'show' ) {
+if ( get_theme_mod( 'search_bar' ) == 'hide' ) {
 	return;
 }
 ?>
-<div class='search-form-container'>
-	<button id="search-icon" class="search-icon">
-		<i class="fa fa-search"></i>
-	</button>
-	<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<label class="screen-reader-text"><?php esc_html_e( 'Search', 'mission' ); ?></label>
-		<input type="search" class="search-field" placeholder="<?php esc_attr_e( 'Search...', 'mission' ); ?>" value="" name="s"
-		       title="<?php esc_attr_e( 'Search for:', 'mission' ); ?>" tabindex="-1"/>
-	</form>
+<button id="search-toggle" class="search-toggle"><i class="fa fa-search"></i></button>
+<div id="search-form-popup" class="search-form-popup">
+	<div class="title"><?php echo esc_html__( 'Search', 'mission' ) . ' ' . get_bloginfo('name'); ?></div>
+	<?php get_search_form(); ?>
+	<a id="close-search" class="close" href="#"><?php echo ct_mission_svg_output( 'close' ); ?></a>
 </div>

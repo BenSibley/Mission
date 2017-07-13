@@ -507,6 +507,8 @@ if ( ! function_exists( ( 'ct_mission_svg_output' ) ) ) {
 		$svg = '';
 		if ( $type == 'toggle-navigation' ) {
 			$svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-272.000000, -21.000000)" fill="#000000"><g transform="translate(266.000000, 12.000000)"><g transform="translate(6.000000, 9.000000)"><rect class="top-bar" x="0" y="0" width="24" height="2"/><rect class="middle-bar" x="0" y="8" width="24" height="2"/><rect class="bottom-bar" x="0" y="16" width="24" height="2"/></g></g></g></g></svg>';
+		} elseif ( $type == 'close' ) {
+			$svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-17.000000, -12.000000)" fill="#000000"><g transform="translate(17.000000, 12.000000)"><rect transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) " x="9" y="-2" width="2" height="24"/><rect transform="translate(10.000000, 10.000000) rotate(-45.000000) translate(-10.000000, -10.000000) " x="9" y="-2" width="2" height="24"/></g></g></g></svg>';
 		}
 
 		return $svg;

@@ -118,12 +118,12 @@ body {
   color: #000;
   -webkit-font-smoothing: antialiased;
 }
-body.noscroll {
+body.noscroll, body.display-search {
   overflow-x: hidden;
   width: 100%;
   position: fixed;
 }
-body.noscroll #wpadminbar {
+body.noscroll #wpadminbar, body.display-search #wpadminbar {
   top: -46px;
 }
 
@@ -285,7 +285,7 @@ input[type="url"],
 textarea {
   width: 100%;
   font-family: "PT Sans", sans-serif;
-  padding: 10px 12px;
+  padding: 8px 12px;
   color: #000;
   border: solid 1px #DCDCDC;
   border-radius: 0;
@@ -312,7 +312,7 @@ textarea {
 
 input[type="submit"] {
   font-family: "PT Sans", sans-serif;
-  padding: 10px 12px;
+  padding: 10px 18px;
   color: white;
   background: #000;
   border: none;
@@ -501,6 +501,7 @@ a img {
   position: relative;
   z-index: 19;
   display: inline-block;
+  max-width: calc(100% - 96px);
 }
 
 .site-title {
@@ -545,6 +546,76 @@ a img {
 }
 .social-media-icons i {
   vertical-align: middle;
+}
+
+.search-toggle {
+  position: relative;
+  z-index: 19;
+  float: right;
+  border: solid 1px #DCDCDC;
+  border-radius: 3px;
+  background: none;
+  margin: 0;
+  padding: 8px 10px;
+  margin-left: -36px;
+  -webkit-transition: border-color 0.35s;
+  transition: border-color 0.35s;
+}
+.search-toggle:hover {
+  cursor: pointer;
+}
+.search-toggle.open {
+  border-color: #000;
+}
+.search-toggle:focus {
+  outline: none;
+}
+.search-toggle i {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.display-search .search-form-popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-form-popup {
+  position: fixed;
+  z-index: 49;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3.75em 5.556%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.25s, visibility 0.25s;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+.search-form-popup .title {
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.search-form-popup .search-form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.search-form-popup .search-field {
+  border-radius: 0 18px 18px 0;
+  margin-left: 0;
+  border-left: none;
+}
+.search-form-popup .search-submit {
+  border-radius: 18px 0 0 18px;
+  margin-right: 0;
+}
+.search-form-popup .close {
+  position: absolute;
+  top: 1.125em;
+  right: 5.556%;
 }
 
 .pagination {

@@ -101,7 +101,6 @@ jQuery(document).ready(function($){
     objectFitAdjustment();
 
     toggleNavigation.on('click', openPrimaryMenu);
-    body.on('click', '#search-icon', openSearchBar);
 
     $('.post-content').fitVids({
         customSelector: 'iframe[src*="dailymotion.com"], iframe[src*="slideshare.net"], iframe[src*="animoto.com"], iframe[src*="blip.tv"], iframe[src*="funnyordie.com"], iframe[src*="hulu.com"], iframe[src*="ted.com"], iframe[src*="wordpress.tv"]'
@@ -167,6 +166,18 @@ jQuery(document).ready(function($){
     }
     moveSecondaryMenu();
 
+    $(window).load(function() {
+        // adjust mobile menu to fit right
+        if ( window.innerWidth < 800 ) {
+            var newHeight = siteHeader.outerHeight(false);
+            if ( window.innerWidth < 783 && body.hasClass('admin-bar') ) {
+                newHeight += 46;
+            }
+            menuPrimaryContainer.css('top', newHeight + 'px' );
+        }
+    });
+
+
     toggleDropdown.on('click', navigateMobileDropdowns);
     $('#back-button').on('click', navigateMobileDropdowns);
 
@@ -215,36 +226,22 @@ jQuery(document).ready(function($){
         menuPrimaryContainer.scrollTop(0);
     }
 
+    $('#search-toggle').on('click', openSearchBar);
+    $('#close-search').on('click', openSearchBar);
     function openSearchBar(){
 
-        if( $(this).hasClass('open') ) {
-
-            $(this).removeClass('open');
-            socialMediaIcons.removeClass('fade');
-
+        if( body.hasClass('display-search') ) {
+            body.removeClass('display-search');
             // make search input inaccessible to keyboards
             siteHeader.find('.search-field').attr('tabindex', -1);
-
-            // handle mobile width search bar sizing
-            if( window.innerWidth < 900 ) {
-                siteHeader.find('.search-form').attr('style', '');
-            }
         } else {
-
-            $(this).addClass('open');
-            socialMediaIcons.addClass('fade');
-
+            body.addClass('display-search');
             // make search input keyboard accessible
             siteHeader.find('.search-field').attr('tabindex', 0);
-
-            // handle mobile width search bar sizing
-            if( window.innerWidth < 800 ) {
-
-                // distance to other side (35px is width of icon space)
-                var leftDistance = window.innerWidth * 0.83332 - 35;
-
-                siteHeader.find('.search-form').css('left', -leftDistance + 'px')
-            }
+            // put cursor into the search input (delay 0.25 b/c of CSS transition)
+            setTimeout( function() {
+                $('#search-form-popup').find('#search-field').focus();
+            }, 250);
         }
     }
 

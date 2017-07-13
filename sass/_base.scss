@@ -15,7 +15,8 @@ body {
   color: #000;
   -webkit-font-smoothing: antialiased;
 
-  &.noscroll {
+  &.noscroll,
+  &.display-search {
     overflow-x: hidden;
     width: 100%;
     position: fixed;
@@ -180,7 +181,7 @@ textarea {
   @extend %fourteen-pixels-title;
   width: 100%;
   font-family: $pt-sans;
-  padding: 10px 12px;
+  padding: 8px 12px;
   color: #000;
   border: solid 1px $color-gray-86;
   border-radius: 0;
@@ -199,7 +200,7 @@ textarea {
 input[type="submit"] {
   @extend %fourteen-pixels-title;
   font-family: $pt-sans;
-  padding: 10px 12px;
+  padding: 10px 18px;
   color: white;
   background: #000;
   border: none;

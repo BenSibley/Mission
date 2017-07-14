@@ -945,9 +945,9 @@ a img {
 .menu-unset ul li.current-menu-ancestor > a {
   text-decoration: underline;
 }
-.menu-primary-items li.current ul, .menu-primary-items li.current-ancestor ul,
-.menu-unset ul li.current ul,
-.menu-unset ul li.current-ancestor ul {
+.menu-primary-items li.current > ul, .menu-primary-items li.current-ancestor > ul,
+.menu-unset ul li.current > ul,
+.menu-unset ul li.current-ancestor > ul {
   opacity: 1;
   visibility: visible;
 }

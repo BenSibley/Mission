@@ -123,8 +123,8 @@ jQuery(document).ready(function($){
             body.removeClass('noscroll');
             
             // remove status of open menus
-            menuPrimary.find('.current').removeClass('current');
-            menuPrimary.find('.current-ancestor').removeClass('current-ancestor');
+            menuPrimaryContainer.find('.current').removeClass('current');
+            menuPrimaryContainer.find('.current-ancestor').removeClass('current-ancestor');
             
             // reset to "tier-1" class
             var classes = menuPrimaryContainer.attr('class');

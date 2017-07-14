@@ -94,7 +94,7 @@ jQuery(document).ready(function($){
     $('.post-content').fitVids({
         customSelector: 'iframe[src*="dailymotion.com"], iframe[src*="slideshare.net"], iframe[src*="animoto.com"], iframe[src*="blip.tv"], iframe[src*="funnyordie.com"], iframe[src*="hulu.com"], iframe[src*="ted.com"], iframe[src*="wordpress.tv"]'
     });
-
+    
     /* Object fit cross-browser support */
     
     objectFitAdjustment();
@@ -223,6 +223,7 @@ jQuery(document).ready(function($){
 
         if ( window.innerWidth > 800 ) {
 
+            // move back to regular position
             if (menuSecondaryContainer.hasClass('moved') ) {
                 menuSecondaryContainer.removeClass('moved');
                 $('.top-nav').append(menuSecondaryContainer);
@@ -232,6 +233,7 @@ jQuery(document).ready(function($){
                 $('.top-nav').append(socialIcons);
             }
         } else {
+            // move into mobile menu
             if ( !menuSecondaryContainer.hasClass('moved') ) {
                 menuPrimaryContainer.append(menuSecondaryContainer);
                 menuSecondaryContainer.addClass('moved');
@@ -242,10 +244,6 @@ jQuery(document).ready(function($){
             }
         }
     });
-
-    // Need to move them back if they have .moved and resized over 800px
-    // Need to move them if >800px and resized smaller
-
 
     $('#search-toggle').on('click', openSearchBar);
     $('#close-search').on('click', openSearchBar);

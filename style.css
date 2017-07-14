@@ -133,9 +133,6 @@ body.display-search #wpadminbar {
     width: 100%;
     position: fixed;
   }
-  body.noscroll #wpadminbar {
-    top: -46px;
-  }
 }
 .overflow-container {
   position: relative;

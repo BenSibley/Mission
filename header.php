@@ -22,7 +22,7 @@
 			</div>
 			<div id="title-container" class="title-container">
 				<?php get_template_part( 'logo' ) ?>
-				<p class="date">July 10, 2017</p>
+				<p class="date"><?php echo date_i18n( get_option( 'date_format' ), strtotime( '<script>new Date();</script>' ) ); ?></p>
 				<?php if ( get_bloginfo( 'description' ) ) {
 					echo '<p class="tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';
 				} ?>

@@ -86,6 +86,24 @@
   }
 }
 
+@media all and (max-width: 799px) {
+
+  .menu-secondary-items {
+
+    li {
+
+      &.current,
+      &.current-ancestor {
+
+        ul {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
 @media all and (min-width: $eight-hundred) {
 
   .menu-secondary-container {
@@ -115,10 +133,12 @@
         > a:after {
           content: '\f107';
           font-family: "FontAwesome";
+          display: inline-block;
           position: relative;
           margin-left: 3px;
           line-height: 1;
           top: 0;
+          text-decoration: none;
         }
       }
     }

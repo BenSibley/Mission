@@ -343,7 +343,7 @@
       left: $baseline-height/2;
       width: auto;
       min-width: 100%;
-      padding: $baseline-height/4 $baseline-height;
+      padding: 0;
       background: #fff;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
       text-align: left;
@@ -368,23 +368,64 @@
         background-image: linear-gradient(to right, #000, $color-gray-86);
         transition: width 0.2s;
       }
-
       li {
         display: block;
         font-size: 0.875em; /* 14px / 16px */
         line-height: 1.571; /* 22px */
         white-space: nowrap;
+        margin-right: 0;
 
+        &.menu-item-has-children {
+
+          > a {
+            position: relative;
+
+            &:after {
+              content: '\f105';
+              position: absolute;
+              top: 10px;
+              right: 12px;
+            }
+          }
+          // reposition ">" based on increased padding-top
+          &:first-child > a:after {
+            top: 14px;
+          }
+        }
         li {
           font-size: 1em;
+        }
+        &:first-child a {
+          padding-top: 12px;
+        }
+        &:last-child a {
+          padding-bottom: 12px;
         }
       }
       a {
         display: block;
-        padding: 6px 0;
+        padding: 6px 36px 6px 24px;
+
+        &:hover,
+        &:active,
+        &:focus {
+
+          &:before {
+            content: '';
+            position: absolute;
+            left: 100%;
+            width: 100%;
+            top: 0;
+            height: 100%;
+          }
+        }
       }
-      ul {
-        left: -$baseline-height/2;
+      ul,
+      ul ul,
+      ul ul ul,
+      ul ul ul ul {
+        left: calc(100% + 12px);
+        top: 0;
       }
     }
   }

@@ -4,7 +4,6 @@
     var body = $('body');
     var siteTitle = $('#site-title');
     var tagline = $( '.tagline' );
-    var inlineStyles = $('#ct-ct_mission-style-inline-css');
 
     // Site title
     wp.customize( 'blogname', function( value ) {
@@ -27,38 +26,8 @@
         } );
     } );
 
-    wp.customize( 'logo_size', function( value ) {
-        value.bind( function( to ) {
-            $('.logo').css('width', to);
-        } );
-    } );
-
-    // Custom CSS
-
-    // get current Custom CSS
-    var customCSS = panel.find('#customize-control-custom_css').find('textarea').val();
-
-    // get the CSS in the inline element
-    var currentCSS = inlineStyles.text();
-
-    // remove the Custom CSS from the other CSS
-    currentCSS = currentCSS.replace(customCSS, '');
-
-    // update the CSS in the inline element w/o the custom css
-    inlineStyles.text(currentCSS);
-
-    // add custom CSS to its own style element
-    body.append('<style id="style-inline-custom-css" type="text/css">' + customCSS + '</style>');
-
-    // Custom CSS
-    wp.customize( 'custom_css', function( value ) {
-        value.bind( function( to ) {
-            $('#style-inline-custom-css').remove();
-            if ( to != '' ) {
-                to = '<style id="style-inline-custom-css" type="text/css">' + to + '</style>';
-                body.append( to );
-            }
-        } );
-    } );
+    /* prevent logo's selective refresh from acting b/c has_custom_logo() will always be true,
+     so the site title cannot return */
+    $('.custom-logo-link').removeClass('custom-logo-link');
 
 } )( jQuery );

@@ -116,6 +116,7 @@ body {
   padding: 0;
   font-family: "PT Serif", serif;
   color: #000;
+  background: #fff;
   -webkit-font-smoothing: antialiased;
 }
 body.display-search {
@@ -132,6 +133,14 @@ body.display-search #wpadminbar {
     overflow-x: hidden;
     width: 100%;
     position: fixed;
+  }
+  body.noscroll #wpadminbar {
+    top: -46px;
+  }
+}
+@media all and (min-width: 600px) {
+  body.noscroll #wpadminbar {
+    top: 0;
   }
 }
 .overflow-container {

@@ -33,8 +33,8 @@ if ( ! function_exists( ( 'ct_mission_theme_setup' ) ) ) {
 			'render'    => 'ct_mission_infinite_scroll_render'
 		) );
 		add_theme_support( 'custom-logo', array(
-			'height'      => 60,
-			'width'       => 240,
+			'height'      => 120,
+			'width'       => 480,
 			'flex-height' => true,
 			'flex-width'  => true
 		) );

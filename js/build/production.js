@@ -94,12 +94,13 @@ jQuery(document).ready(function($){
     $('.post-content').fitVids({
         customSelector: 'iframe[src*="dailymotion.com"], iframe[src*="slideshare.net"], iframe[src*="animoto.com"], iframe[src*="blip.tv"], iframe[src*="funnyordie.com"], iframe[src*="hulu.com"], iframe[src*="ted.com"], iframe[src*="wordpress.tv"]'
     });
-    
+
     /* Object fit cross-browser support */
     
     objectFitAdjustment();
     $(window).resize(function(){
         objectFitAdjustment();
+        adjustMenuTopPosition();
     });
     // Jetpack infinite scroll event that reloads posts.
     $( document.body ).on( 'post-load', function () {
@@ -150,18 +151,21 @@ jQuery(document).ready(function($){
     }
 
     // adjust mobile menu "top" value to line up correctly in case user has extra-tall header (rare)
-    $(window).load(function() {
-        if ( window.innerWidth < 800 ) {
+    function adjustMenuTopPosition() {
+        if (window.innerWidth < 800) {
             var newHeight = siteHeader.outerHeight(false);
-            if ( body.hasClass('admin-bar') ) {
-                if ( window.innerWidth < 783 ) {
+            if (body.hasClass('admin-bar')) {
+                if (window.innerWidth < 783) {
                     newHeight += 46;
                 } else {
                     newHeight += 32;
                 }
             }
-            menuPrimaryContainer.css('top', newHeight + 'px' );
+            menuPrimaryContainer.css('top', newHeight + 'px');
         }
+    }
+    $(window).load(function () {
+        adjustMenuTopPosition();
     });
 
     toggleDropdown.on('click', navigateMobileDropdowns);

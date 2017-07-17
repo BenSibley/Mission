@@ -233,18 +233,20 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(
-		'default'           => 'right-sidebar',
+		'default'           => 'simple',
 		'sanitize_callback' => 'ct_mission_sanitize_layout'
 	) );
 	// control
 	$wp_customize->add_control( 'layout', array(
-		'label'    => __( 'Choose a Layout', 'mission' ),
+		'label'    => __( 'Main Content Layout', 'mission' ),
 		'section'  => 'ct_mission_layout',
 		'settings' => 'layout',
 		'type'     => 'radio',
 		'choices'  => array(
-			'right-sidebar' => __( 'Right sidebar', 'mission' ),
-			'left-sidebar'  => __( 'Left sidebar', 'mission' )
+			'simple'       => __( 'Simple', 'mission' ),
+			'double'       => __( 'Double', 'mission' ),
+			'rows'         => __( 'Rows', 'mission' ),
+			'rows-excerpt' => __( 'Rows with excerpts', 'mission' )
 		)
 	) );
 
@@ -600,14 +602,16 @@ function ct_mission_sanitize_layout( $input ) {
 	 * via get_setting()
 	 */
 	$valid = array(
-		'right-sidebar' => __( 'Right sidebar', 'mission' ),
-		'left-sidebar'  => __( 'Left sidebar', 'mission' ),
-		'narrow'        => __( 'No sidebar - Narrow', 'mission' ),
-		'wide'          => __( 'No sidebar - Wide', 'mission' ),
-		'two-right'     => __( 'Two column - Right sidebar', 'mission' ),
-		'two-left'      => __( 'Two column - Left sidebar', 'mission' ),
-		'two-narrow'    => __( 'Two column - No Sidebar - Narrow', 'mission' ),
-		'two-wide'      => __( 'Two column - No Sidebar - Wide', 'mission' )
+		'simple'       => __( 'Simple', 'mission' ),
+		'double'       => __( 'Double', 'mission' ),
+		'rows'         => __( 'Rows', 'mission' ),
+		'rows-excerpt' => __( 'Rows with excerpts', 'mission' ),
+		'narrow'       => __( 'No sidebar - Narrow', 'mission' ),
+		'wide'         => __( 'No sidebar - Wide', 'mission' ),
+		'two-right'    => __( 'Two column - Right sidebar', 'mission' ),
+		'two-left'     => __( 'Two column - Left sidebar', 'mission' ),
+		'two-narrow'   => __( 'Two column - No Sidebar - Narrow', 'mission' ),
+		'two-wide'     => __( 'Two column - No Sidebar - Wide', 'mission' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

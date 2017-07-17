@@ -459,9 +459,12 @@ if ( ! function_exists( ( 'ct_mission_body_class' ) ) ) {
 
 		global $post;
 		$full_post = get_theme_mod( 'full_post' );
+		$layout = get_theme_mod( 'layout' );
 
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
+		} if ( !empty( $layout ) ) {
+			$classes[] = 'layout-' . $layout;
 		}
 
 		return $classes;
@@ -471,9 +474,15 @@ add_filter( 'body_class', 'ct_mission_body_class' );
 
 if ( ! function_exists( ( 'ct_mission_post_class' ) ) ) {
 	function ct_mission_post_class( $classes ) {
+		global $wp_query;
+		$layout = get_theme_mod( 'layout' );
 
 		// add a shared class for post divs on archive and single pages
 		$classes[] = 'entry';
+
+		if ( !empty( $layout ) && $wp_query->current_post != 0 ) {
+			$classes[] = $layout;
+		}
 
 		return $classes;
 	}
@@ -525,9 +534,16 @@ if ( ! function_exists( ( 'ct_mission_infinite_scroll_render' ) ) ) {
 */
 if ( ! function_exists( 'ct_mission_get_content_template' ) ) {
 	function ct_mission_get_content_template() {
+		global $wp_query;
+
+		$layout = get_theme_mod( 'layout' );
 
 		if ( is_home() || is_archive() ) {
-			get_template_part( 'content-archive', get_post_type() );
+			if ( !empty( $layout ) && $layout != 'simple' && $wp_query->current_post != 0 ) {
+				get_template_part( 'content-archive-' . $layout, get_post_type() );
+			} else {
+				get_template_part( 'content-archive', get_post_type() );
+			}
 		} else {
 			get_template_part( 'content', get_post_type() );
 		}

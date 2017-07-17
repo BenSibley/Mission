@@ -1541,6 +1541,7 @@ a img {
 }
 .featured-image {
   position: relative;
+  line-height: 0;
 }
 .featured-image > a {
   font-size: 0;
@@ -1549,6 +1550,19 @@ a img {
 }
 .featured-image > a:hover, .featured-image > a:active, .featured-image > a:focus {
   opacity: 0.9;
+}
+.featured-image img {
+  width: 100%;
+}
+.featured-image .ccfic {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 12px 4px 4px;
+  font-size: 13px;
 }
 
 .entry {
@@ -1649,5 +1663,147 @@ a img {
     margin-left: 2.778%;
     border-right: solid 1px #DCDCDC;
     padding-right: 0.75em;
+  }
+}
+.layout-double .double {
+  margin-bottom: 0.75em;
+  padding-bottom: 0.75em;
+}
+.layout-double .double .post-header {
+  margin-bottom: 0;
+}
+
+.layout-double .double .featured-image,
+.layout-rows .rows .featured-image,
+.layout-rows-excerpt .rows-excerpt .featured-image {
+  height: 0;
+  padding-bottom: 66%;
+  overflow: hidden;
+}
+.layout-double .double .featured-image > img,
+.layout-double .double .featured-image > a > img,
+.layout-rows .rows .featured-image > img,
+.layout-rows .rows .featured-image > a > img,
+.layout-rows-excerpt .rows-excerpt .featured-image > img,
+.layout-rows-excerpt .rows-excerpt .featured-image > a > img {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.layout-double .double .featured-image > img.no-object-fit,
+.layout-double .double .featured-image > a > img.no-object-fit,
+.layout-rows .rows .featured-image > img.no-object-fit,
+.layout-rows .rows .featured-image > a > img.no-object-fit,
+.layout-rows-excerpt .rows-excerpt .featured-image > img.no-object-fit,
+.layout-rows-excerpt .rows-excerpt .featured-image > a > img.no-object-fit {
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  -webkit-transform: translateX(50%) translateY(-50%);
+  -ms-transform: translateX(50%) translateY(-50%);
+  transform: translateX(50%) translateY(-50%);
+}
+
+@media all and (min-width: 37.5em) {
+  .layout-double .entry:first-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .layout-double .double {
+    width: 48%;
+    float: right;
+    border-bottom: none;
+    border-top: solid 1px #DCDCDC;
+    padding: 0.75em 0;
+    margin: 0;
+  }
+  .layout-double .double:nth-child(odd) {
+    padding-right: 0.75em;
+    margin-right: -1px;
+    border-right: solid 1px #DCDCDC;
+  }
+  .layout-double .double:nth-child(even) {
+    padding-left: 0.75em;
+    clear: right;
+    border-left: solid 1px #DCDCDC;
+  }
+  .layout-double .double .post-title {
+    font-size: 1.125em;
+    /* 18px / 16px */
+    line-height: 1.333;
+    /* 24px */
+  }
+}
+.layout-rows .rows,
+.layout-rows .rows-excerpt,
+.layout-rows-excerpt .rows,
+.layout-rows-excerpt .rows-excerpt {
+  margin-bottom: 0.75em;
+  padding-bottom: 0.75em;
+}
+.layout-rows .rows > article,
+.layout-rows .rows-excerpt > article,
+.layout-rows-excerpt .rows > article,
+.layout-rows-excerpt .rows-excerpt > article {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.layout-rows .rows .featured-image,
+.layout-rows .rows-excerpt .featured-image,
+.layout-rows-excerpt .rows .featured-image,
+.layout-rows-excerpt .rows-excerpt .featured-image {
+  float: right;
+  width: 28.57%;
+  padding-bottom: 18.8562%;
+  margin-left: 12px;
+}
+.layout-rows .rows .post-header,
+.layout-rows .rows-excerpt .post-header,
+.layout-rows-excerpt .rows .post-header,
+.layout-rows-excerpt .rows-excerpt .post-header {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 0;
+}
+
+.layout-rows-excerpt .rows-excerpt > article {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media all and (min-width: 37.5em) {
+  .layout-rows .rows .post-title,
+  .layout-rows .rows-excerpt .post-title,
+  .layout-rows-excerpt .rows .post-title,
+  .layout-rows-excerpt .rows-excerpt .post-title {
+    font-size: 1.3125em;
+    /* 21px / 16px */
+    line-height: 1.143;
+    /* 24px */
+  }
+}
+@media all and (min-width: 37.5em) {
+  .layout-rows .rows .post-title,
+  .layout-rows .rows-excerpt .post-title,
+  .layout-rows-excerpt .rows .post-title,
+  .layout-rows-excerpt .rows-excerpt .post-title {
+    font-size: 1.125em;
+    /* 18px / 16px */
+    line-height: 1.333;
+    /* 24px */
   }
 }

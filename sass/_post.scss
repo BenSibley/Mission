@@ -1,5 +1,6 @@
 .featured-image {
   position: relative;
+  line-height: 0;
 //  height: 0;
 //  padding-bottom: 50%;
 //  overflow: hidden;
@@ -14,7 +15,10 @@
       opacity: 0.9;
     }
   }
-//
+  img {
+    width: 100%;
+  }
+
 //  > a {
 //    position: absolute;
 //    top: 0;
@@ -64,16 +68,16 @@
 //      transform: translateX(50%) translateY(-50%);
 //    }
 //  }
-//  .ccfic {
-//    position: absolute;
-//    width: 100%;
-//    bottom: 0;
-//    text-align: center;
-//    background: rgba(0,0,0,0.7);
-//    color: white;
-//    padding: 4px 4px 4px 12px;
-//    font-size: 13px;
-//  }
+  .ccfic {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 4px 4px 12px;
+    font-size: 13px;
+  }
 }
 .entry {
   margin-bottom: $baseline-height * 0.75;

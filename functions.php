@@ -53,9 +53,19 @@ if ( ! function_exists( ( 'ct_mission_register_widget_areas' ) ) ) {
 	function ct_mission_register_widget_areas() {
 
 		register_sidebar( array(
-			'name'          => esc_html__( 'Primary Sidebar', 'mission' ),
-			'id'            => 'primary',
-			'description'   => esc_html__( 'Widgets in this area will be shown in the sidebar next to the main post content', 'mission' ),
+			'name'          => esc_html__( 'Left Sidebar', 'mission' ),
+			'id'            => 'left',
+			'description'   => esc_html__( 'Widgets in this area will be shown left of the main post content', 'mission' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		
+		register_sidebar( array(
+			'name'          => esc_html__( 'Right Sidebar', 'mission' ),
+			'id'            => 'right',
+			'description'   => esc_html__( 'Widgets in this area will be shown right of the main post content', 'mission' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -156,53 +166,12 @@ if ( ! function_exists( 'ct_mission_remove_comments_notes_after' ) ) {
 }
 add_action( 'comment_form_defaults', 'ct_mission_remove_comments_notes_after' );
 
-if ( ! function_exists( 'ct_mission_filter_read_more_link' ) ) {
-	function ct_mission_filter_read_more_link( $custom = false ) {
-		global $post;
-		$ismore             = strpos( $post->post_content, '<!--more-->' );
-		$read_more_text     = get_theme_mod( 'read_more_text' );
-		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
-		$excerpt_more       = ( $new_excerpt_length === 0 ) ? '' : '&#8230;';
-		$output = '';
-
-		// add ellipsis for automatic excerpts
-		if ( empty( $ismore ) && $custom !== true ) {
-			$output .= $excerpt_more;
-		}
-		// Because i18n text cannot be stored in a variable
-		if ( empty( $read_more_text ) ) {
-			$output .= '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . __( 'Continue Reading', 'mission' ) . '<span class="screen-reader-text">' . esc_html( get_the_title() ) . '</span></a></div>';
-		} else {
-			$output .= '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . esc_html( $read_more_text ) . '<span class="screen-reader-text">' . esc_html( get_the_title() ) . '</span></a></div>';
-		}
-		return $output;
-	}
-}
-add_filter( 'the_content_more_link', 'ct_mission_filter_read_more_link' ); // more tags
-add_filter( 'excerpt_more', 'ct_mission_filter_read_more_link', 10 ); // automatic excerpts
-
-// handle manual excerpts
-if ( ! function_exists( 'ct_mission_filter_manual_excerpts' ) ) {
-	function ct_mission_filter_manual_excerpts( $excerpt ) {
-		$excerpt_more = '';
-		if ( has_excerpt() ) {
-			$excerpt_more = ct_mission_filter_read_more_link( true );
-		}
-		return $excerpt . $excerpt_more;
-	}
-}
-add_filter( 'get_the_excerpt', 'ct_mission_filter_manual_excerpts' );
-
 if ( ! function_exists( 'ct_mission_excerpt' ) ) {
 	function ct_mission_excerpt() {
-		global $post;
-		$show_full_post = get_theme_mod( 'full_post' );
-		$ismore         = strpos( $post->post_content, '<!--more-->' );
-
-		if ( $show_full_post === 'yes' || $ismore ) {
-			the_content();
+		if ( get_theme_mod( 'full_post' ) == 'yes' ) {
+			return wpautop( get_the_content() );
 		} else {
-			the_excerpt();
+			return wpautop( get_the_excerpt() );
 		}
 	}
 }
@@ -222,6 +191,14 @@ if ( ! function_exists( 'ct_mission_custom_excerpt_length' ) ) {
 	}
 }
 add_filter( 'excerpt_length', 'ct_mission_custom_excerpt_length', 99 );
+
+// add plain ellipsis for automatic excerpts (removes [])
+if ( ! function_exists( 'ct_mission_excerpt_ellipsis' ) ) {
+	function ct_mission_excerpt_ellipsis() {
+		return '&#8230;';
+	}
+}
+add_filter( 'excerpt_more', 'ct_mission_excerpt_ellipsis', 10 );
 
 if ( ! function_exists( 'ct_mission_remove_more_link_scroll' ) ) {
 	function ct_mission_remove_more_link_scroll( $link ) {
@@ -492,10 +469,12 @@ if ( ! function_exists( ( 'ct_mission_body_class' ) ) ) {
 }
 add_filter( 'body_class', 'ct_mission_body_class' );
 
-// add a shared class for post divs on archive and single pages
 if ( ! function_exists( ( 'ct_mission_post_class' ) ) ) {
 	function ct_mission_post_class( $classes ) {
+
+		// add a shared class for post divs on archive and single pages
 		$classes[] = 'entry';
+
 		return $classes;
 	}
 }

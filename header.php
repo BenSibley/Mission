@@ -36,8 +36,9 @@
 			</div>
 		</header>
 		<?php do_action( 'ct_mission_after_header' ); ?>
-		<section id="main" class="main" role="main">
-			<?php do_action( 'ct_mission_main_top' );
-			if ( function_exists( 'yoast_breadcrumb' ) ) {
-				yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-			}
+		<div class="content-container">
+			<section id="main" class="main" role="main">
+				<?php do_action( 'ct_mission_main_top' );
+				if ( function_exists( 'yoast_breadcrumb' ) ) {
+					yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
+				}

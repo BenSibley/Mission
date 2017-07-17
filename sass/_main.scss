@@ -1,0 +1,21 @@
+.main {
+  padding: 0 $column * 2;
+}
+
+@media all and (min-width: $six-hundred) {
+
+  .main {
+    padding: 0 $column;
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .content-container {
+    display: flex;
+  }
+  .main {
+    width: $column * 16;
+    order: 2;
+  }
+}

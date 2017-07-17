@@ -10,8 +10,7 @@
 			<?php get_template_part( 'content/post-byline' ); ?>
 		</div>
 		<div class="post-content">
-			<?php ct_mission_excerpt(); ?>
-			<?php get_template_part( 'content/comments-link' ); ?>
+			<?php echo wp_kses_post( ct_mission_excerpt() ); ?>
 		</div>
 	</article>
 	<?php do_action( 'ct_mission_archive_post_after' ); ?>

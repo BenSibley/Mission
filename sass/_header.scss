@@ -172,6 +172,9 @@
 
 @media all and (min-width: $six-hundred) {
 
+  .site-header {
+    padding: $baseline-height * 0.75 $column;
+  }
   .site-title {
     font-size: 1.3125em; /* 21px / 16px */
     line-height: 1.143; /* 24px */
@@ -193,8 +196,8 @@
 @media all and (min-width: $eight-hundred) {
 
   .site-header {
-    padding: $baseline-height * 0.75 $column;
     border-bottom: 0;
+    padding-bottom: 0;
 
     .date {
       display: inline-block;

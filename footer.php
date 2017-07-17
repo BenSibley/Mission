@@ -1,7 +1,9 @@
 <?php do_action( 'ct_mission_main_bottom' ); ?>
 </section> <!-- .main -->
-<?php get_sidebar( 'primary' ); ?>
 <?php do_action( 'ct_mission_after_main' ); ?>
+<?php get_sidebar( 'left' ); ?>
+<?php get_sidebar( 'right' ); ?>
+</div><!-- content-container -->
 
 <footer id="site-footer" class="site-footer" role="contentinfo">
     <?php do_action( 'ct_mission_footer_top' ); ?>

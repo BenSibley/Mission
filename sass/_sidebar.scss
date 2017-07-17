@@ -1,0 +1,20 @@
+
+
+@media all and (min-width: $eight-hundred) {
+
+  .sidebar {
+    flex: 1;
+  }
+  .sidebar-left {
+    order: 1;
+    margin-left: $column;
+    border-right: solid 1px $color-gray-86;
+    padding-right: $baseline-height/2;
+  }
+  .sidebar-right {
+    order: 3;
+    margin-right: $column;
+    border-left: solid 1px $color-gray-86;
+    padding-left: $baseline-height/2;
+  }
+}

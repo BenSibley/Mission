@@ -1,6 +1,17 @@
 /* Widgets */
 .mission-post-list-widget select {
   display: block;
+  border-spacing: 0;
+  width: 100%;
+  clear: both;
+}
+.mission-post-list-widget .container {
+  border: solid 1px #DCDCDC;
+  padding: 0 12px;
+  margin: 12px 0;
+}
+.mission-post-list-widget h4 {
+  margin-bottom: 6px;
 }
 
 /* Theme options page */

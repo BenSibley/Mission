@@ -4,6 +4,17 @@
 
   select {
     display: block;
+    border-spacing: 0;
+    width: 100%;
+    clear: both;
+  }
+  .container {
+    border: solid 1px #DCDCDC;
+    padding: 0 12px;
+    margin: 12px 0;
+  }
+  h4 {
+    margin-bottom: 6px;
   }
 }
 

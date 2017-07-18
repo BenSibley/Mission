@@ -53,55 +53,61 @@ class ct_mission_post_list extends WP_Widget {
 				       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
 				       value="<?php echo esc_attr( $title ); ?>">
 			</p>
-			<p>
-				<input class="checkbox" type="checkbox" <?php checked( $use_category, 1 ); ?> id="<?php echo $this->get_field_id( 'use_category' ); ?>" name="<?php echo $this->get_field_name( 'use_category' ); ?>" value="<?php echo $use_category; ?>" />
-				<label for="<?php echo $this->get_field_id( 'use_category' ); ?>"><?php _e( 'Use category', 'mission' ); ?></label>
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Category', 'mission' ); ?></label>
-				<?php
-				wp_dropdown_categories( array(
-					'hide_empty' => 0,
-					'selected'  => $category,
-					'id' => $this->get_field_id( 'category' ),
-					'name' => $this->get_field_name( 'category' )
-				) ); ?>
-			</p>
-			<p>
-				<input class="checkbox" type="checkbox" <?php checked( $use_tag, 1 ); ?> id="<?php echo $this->get_field_id( 'use_tag' ); ?>" name="<?php echo $this->get_field_name( 'use_tag' ); ?>" value="<?php echo $use_tag; ?>" />
-				<label for="<?php echo $this->get_field_id( 'use_tag' ); ?>"><?php _e( 'Use tag', 'mission' ); ?></label>
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'tag' ); ?>"><?php _e( 'Tag', 'mission' ); ?></label>
-				<?php wp_dropdown_categories( array(
-					'taxonomy' => 'post_tag',
-					'hide_empty' => 0,
-					'selected'  => $tag,
-					'id' => $this->get_field_id( 'tag' ),
-					'name' => $this->get_field_name( 'tag' )
-				) ); ?>
-			</p>
-			<p><i><?php _e( 'Only posts with the category AND tag will be used if both selected.', 'mission' ); ?></i></p>
-			<p>
-				<input class="checkbox" type="checkbox" <?php checked( $author ); ?> id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" value="<?php echo $author; ?>" />
-				<label for="<?php echo $this->get_field_id( 'author' ); ?>"><?php _e( 'Show author in byline', 'mission' ); ?></label>
-			</p>
-			<p>
-				<input class="checkbox" type="checkbox" <?php checked( $date ); ?> id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" value="<?php echo $date; ?>" />
-				<label for="<?php echo $this->get_field_id( 'date' ); ?>"><?php _e( 'Show date in byline', 'mission' ); ?></label>
-			</p>
-			<p>
-				<input class="checkbox" type="checkbox" <?php checked( $image ); ?> id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php echo $image; ?>" />
-				<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Show Featured Images', 'mission' ); ?></label>
-			</p>
-			<p>
-				<input class="checkbox" type="checkbox" <?php checked( $excerpt ); ?> id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" value="<?php echo $excerpt; ?>" />
-				<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>"><?php _e( 'Show excerpt', 'mission' ); ?></label>
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id( 'excerpt_length' ); ?>"><?php _e( 'Number of words in excerpts', 'mission' ); ?></label>
-				<input id="<?php echo $this->get_field_id( 'excerpt_length' ); ?>" name="<?php echo $this->get_field_name( 'excerpt_length' ); ?>" type="text" size="3" value="<?php echo esc_attr( $excerpt_length ); ?>">
-			</p>
+			<h4><?php esc_html_e( 'Post Source', 'mission' ); ?></h4>
+			<div class="container">
+				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $use_category, 1 ); ?> id="<?php echo $this->get_field_id( 'use_category' ); ?>" name="<?php echo $this->get_field_name( 'use_category' ); ?>" value="<?php echo $use_category; ?>" />
+					<label for="<?php echo $this->get_field_id( 'use_category' ); ?>"><?php _e( 'Use category', 'mission' ); ?></label>
+				</p>
+				<p>
+					<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Category', 'mission' ); ?></label>
+					<?php
+					wp_dropdown_categories( array(
+						'hide_empty' => 0,
+						'selected'  => $category,
+						'id' => $this->get_field_id( 'category' ),
+						'name' => $this->get_field_name( 'category' )
+					) ); ?>
+				</p>
+				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $use_tag, 1 ); ?> id="<?php echo $this->get_field_id( 'use_tag' ); ?>" name="<?php echo $this->get_field_name( 'use_tag' ); ?>" value="<?php echo $use_tag; ?>" />
+					<label for="<?php echo $this->get_field_id( 'use_tag' ); ?>"><?php _e( 'Use tag', 'mission' ); ?></label>
+				</p>
+				<p>
+					<label for="<?php echo $this->get_field_id( 'tag' ); ?>"><?php _e( 'Tag', 'mission' ); ?></label>
+					<?php wp_dropdown_categories( array(
+						'taxonomy' => 'post_tag',
+						'hide_empty' => 0,
+						'selected'  => $tag,
+						'id' => $this->get_field_id( 'tag' ),
+						'name' => $this->get_field_name( 'tag' )
+					) ); ?>
+				</p>
+				<p><i><?php _e( 'Only posts with the category AND tag will be used if both selected.', 'mission' ); ?></i></p>
+			</div>
+			<h4><?php esc_html_e( 'Style', 'mission' ); ?></h4>
+			<div class="container">
+				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $author ); ?> id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" value="<?php echo $author; ?>" />
+					<label for="<?php echo $this->get_field_id( 'author' ); ?>"><?php _e( 'Show author in byline', 'mission' ); ?></label>
+				</p>
+				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $date ); ?> id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" value="<?php echo $date; ?>" />
+					<label for="<?php echo $this->get_field_id( 'date' ); ?>"><?php _e( 'Show date in byline', 'mission' ); ?></label>
+				</p>
+				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $image ); ?> id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php echo $image; ?>" />
+					<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Show Featured Images', 'mission' ); ?></label>
+				</p>
+				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $excerpt ); ?> id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" value="<?php echo $excerpt; ?>" />
+					<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>"><?php _e( 'Show excerpt', 'mission' ); ?></label>
+				</p>
+				<p>
+					<input id="<?php echo $this->get_field_id( 'excerpt_length' ); ?>" name="<?php echo $this->get_field_name( 'excerpt_length' ); ?>" type="text" size="2" value="<?php echo esc_attr( $excerpt_length ); ?>">
+					<label for="<?php echo $this->get_field_id( 'excerpt_length' ); ?>"><?php _e( 'Number of words in excerpts', 'mission' ); ?></label>
+				</p>
+			</div>
 		</div>
 		<?php
 	}

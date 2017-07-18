@@ -1,9 +1,12 @@
 <?php
 
 require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
-foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $filename ) {
-	include $filename;
-}
+require_once( trailingslashit( get_template_directory() ) . 'inc/widgets/post-list.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/scripts.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
+//foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $filename ) {
+//	include $filename;
+//}
 
 if ( ! function_exists( ( 'ct_mission_set_content_width' ) ) ) {
 	function ct_mission_set_content_width() {

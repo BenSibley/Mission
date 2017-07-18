@@ -1,5 +1,9 @@
-/* Back-end styles */
-/* styles for theme options page */
+/* Widgets */
+.mission-post-list-widget select {
+  display: block;
+}
+
+/* Theme options page */
 #ct_mission-dashboard-wrap h2 {
   margin-bottom: 24px;
 }

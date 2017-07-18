@@ -23,7 +23,7 @@ add_action( 'wp_enqueue_scripts', 'ct_mission_load_scripts_styles' );
 // Back-end scripts
 function ct_mission_enqueue_admin_styles( $hook ) {
 
-	if ( $hook == 'appearance_page_mission-options' ) {
+	if ( $hook == 'appearance_page_mission-options' || $hook == 'widgets.php' ) {
 		wp_enqueue_style( 'ct-mission-admin-styles', get_template_directory_uri() . '/styles/admin.min.css' );
 	}
 }

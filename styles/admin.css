@@ -14,6 +14,13 @@
   margin-bottom: 6px;
 }
 
+.widgets-php #available-widgets [id*=ct_mission_post_list] .widget-top {
+  background: #05B0E7;
+}
+.widgets-php #available-widgets [id*=ct_mission_post_list] .widget-top h3 {
+  color: white;
+}
+
 /* Theme options page */
 #ct_mission-dashboard-wrap h2 {
   margin-bottom: 24px;

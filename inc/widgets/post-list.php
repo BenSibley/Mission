@@ -83,7 +83,7 @@ class ct_mission_post_list extends WP_Widget {
 						'name' => $this->get_field_name( 'tag' )
 					) ); ?>
 				</p>
-				<p><i><?php _e( 'Only posts with the category AND tag will be used if both selected.', 'mission' ); ?></i></p>
+				<p><i><?php _e( 'If tags and categories are both selected only posts in both will be used.', 'mission' ); ?></i></p>
 			</div>
 			<h4><?php esc_html_e( 'Style', 'mission' ); ?></h4>
 			<div class="container">

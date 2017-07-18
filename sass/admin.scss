@@ -17,6 +17,16 @@
     margin-bottom: 6px;
   }
 }
+.widgets-php #available-widgets {
+
+  [id*=ct_mission_post_list] .widget-top {
+    background: #05B0E7;
+
+    h3 {
+      color: white;
+    }
+  }
+}
 
 /* Theme options page */
 

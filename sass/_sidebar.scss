@@ -1,4 +1,17 @@
+.sidebar-left,
+.sidebar-right {
 
+  .widget {
+    margin-bottom: $baseline-height;
+  }
+  .widget-title {
+    @extend %fourteen-pixels-title;
+    @extend %uppercase;
+    font-family: $pt-sans;
+    font-weight: 700;
+    color: $color-gray-40;
+  }
+}
 
 @media all and (min-width: $eight-hundred) {
 
@@ -9,12 +22,12 @@
     order: 1;
     margin-left: $column;
     border-right: solid 1px $color-gray-86;
-    padding-right: $baseline-height/2;
+    padding-right: $baseline-height * 0.75;
   }
   .sidebar-right {
     order: 3;
     margin-right: $column;
     border-left: solid 1px $color-gray-86;
-    padding-left: $baseline-height/2;
+    padding-left: $baseline-height * 0.75;
   }
 }

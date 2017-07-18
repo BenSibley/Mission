@@ -84,6 +84,7 @@ a {
   &:active,
   &:focus {
     color: $color-blue-hover;
+    text-decoration: none;
   }
 }
 

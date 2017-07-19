@@ -592,3 +592,29 @@ if ( ! function_exists( 'ct_mission_sanitize_css' ) ) {
 		return $css;
 	}
 }
+
+function ct_mission_post_byline( $author, $date ) {
+
+	if ( $author === 0 && $date === 0 ) {
+		return;
+	}
+	$post_author = get_the_author();
+	// add compatibility when used in header before loop
+	if ( empty( $post_author ) ) {
+		global $post;
+		$post_author = get_the_author_meta( 'display_name', $post->post_author );
+	}
+	$post_date = date_i18n( get_option( 'date_format' ), strtotime( get_the_date() ) );
+
+	echo '<div class="post-byline">';
+		if ( $author === 0 ) {
+			echo esc_html( $post_date );
+		} elseif ( $date === 0 ) {
+			// translators: %s = the author who published the post
+			printf( esc_html_x( 'By %s', 'This blog post was published by some author', 'mission' ), esc_html( $post_author ) );
+		} else {
+			// translators: %1$s = the author who published the post. %2$s = the date it was published
+			printf( esc_html_x( 'By %1$s on %2$s', 'This blog post was published by some author on some date ', 'mission' ), esc_html( $post_author ), esc_html( $post_date ) );
+		}
+	echo '</div>';
+}

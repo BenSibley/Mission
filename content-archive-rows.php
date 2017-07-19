@@ -1,3 +1,7 @@
+<?php
+$author = get_theme_mod( 'post_byline_author' );
+$date   = get_theme_mod( 'post_byline_date' );
+?>
 <div <?php post_class(); ?>>
 	<?php do_action( 'ct_mission_archive_post_before' ); ?>
 	<article>
@@ -7,7 +11,7 @@
 			<h2 class='post-title'>
 				<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 			</h2>
-			<?php get_template_part( 'content/post-byline' ); ?>
+			<?php ct_mission_post_byline( $author, $date ); ?>
 		</div>
 	</article>
 	<?php do_action( 'ct_mission_archive_post_after' ); ?>

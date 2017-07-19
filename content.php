@@ -1,10 +1,14 @@
+<?php
+$author = get_theme_mod( 'post_byline_author' );
+$date   = get_theme_mod( 'post_byline_date' );
+?>
 <div <?php post_class(); ?>>
 	<?php do_action( 'ct_mission_post_before' ); ?>
 	<article>
 		<?php ct_mission_featured_image(); ?>
 		<div class='post-header'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
-			<?php get_template_part( 'content/post-byline' ); ?>
+			<?php ct_mission_post_byline( $author, $date ); ?>
 		</div>
 		<div class="post-content">
 			<?php the_content(); ?>

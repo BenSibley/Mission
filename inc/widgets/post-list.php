@@ -81,25 +81,23 @@ class ct_mission_post_list extends WP_Widget {
 
 	public function form( $instance ) {
 
-		$title          = isset( $instance['title'] ) ? $instance['title'] : '';
-		$use_category   = isset( $instance['use_category'] ) ? $instance['use_category'] : 1;
-		$category       = isset( $instance['category'] ) ? $instance['category'] : 1;
-		$use_tag        = isset( $instance['use_tag'] ) ? $instance['use_tag'] : 0;
-		$tag            = isset( $instance['tag'] ) ? $instance['tag'] : 1;
-		$relationship            = isset( $instance['relationship'] ) ? $instance['relationship'] : 'AND';
-		$author         = isset( $instance['author'] ) ? $instance['author'] : 1;
-		$date           = isset( $instance['date'] ) ? $instance['date'] : 0;
-		$image          = isset( $instance['image'] ) ? $instance['image'] : 0;
-		$excerpt        = isset( $instance['excerpt'] ) ? $instance['excerpt'] : 1;
-		$post_count     = isset( $instance['post_count'] ) ? $instance['post_count'] : 5;
-		$style          = isset( $instance['style'] ) ? $instance['style'] : 1;
+		$title        = isset( $instance['title'] ) ? $instance['title'] : '';
+		$use_category = isset( $instance['use_category'] ) ? $instance['use_category'] : 1;
+		$category     = isset( $instance['category'] ) ? $instance['category'] : 1;
+		$use_tag      = isset( $instance['use_tag'] ) ? $instance['use_tag'] : 0;
+		$tag          = isset( $instance['tag'] ) ? $instance['tag'] : 1;
+		$relationship = isset( $instance['relationship'] ) ? $instance['relationship'] : 'AND';
+		$author       = isset( $instance['author'] ) ? $instance['author'] : 1;
+		$date         = isset( $instance['date'] ) ? $instance['date'] : 0;
+		$image        = isset( $instance['image'] ) ? $instance['image'] : 0;
+		$excerpt      = isset( $instance['excerpt'] ) ? $instance['excerpt'] : 1;
+		$post_count   = isset( $instance['post_count'] ) ? $instance['post_count'] : 5;
+		$style        = isset( $instance['style'] ) ? $instance['style'] : 1;
 		?>
 		<div class="mission-post-list-widget">
 			<p>
 				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title', 'mission' ); ?></label>
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
-				       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
-				       value="<?php echo esc_attr( $title ); ?>">
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 			</p>
 			<h4><?php esc_html_e( 'Post Source', 'mission' ); ?></h4>
 			<div class="container">
@@ -112,9 +110,9 @@ class ct_mission_post_list extends WP_Widget {
 					<?php
 					wp_dropdown_categories( array(
 						'hide_empty' => 0,
-						'selected'  => $category,
-						'id' => $this->get_field_id( 'category' ),
-						'name' => $this->get_field_name( 'category' )
+						'selected'   => $category,
+						'id'         => $this->get_field_id( 'category' ),
+						'name'       => $this->get_field_name( 'category' )
 					) ); ?>
 				</p>
 				<p>
@@ -124,11 +122,11 @@ class ct_mission_post_list extends WP_Widget {
 				<p class="tag">
 					<label for="<?php echo $this->get_field_id( 'tag' ); ?>"><?php esc_html_e( 'Tag', 'mission' ); ?></label>
 					<?php wp_dropdown_categories( array(
-						'taxonomy' => 'post_tag',
+						'taxonomy'   => 'post_tag',
 						'hide_empty' => 0,
-						'selected'  => $tag,
-						'id' => $this->get_field_id( 'tag' ),
-						'name' => $this->get_field_name( 'tag' )
+						'selected'   => $tag,
+						'id'         => $this->get_field_id( 'tag' ),
+						'name'       => $this->get_field_name( 'tag' )
 					) ); ?>
 				</p>
 				<p class="relationship">
@@ -138,6 +136,14 @@ class ct_mission_post_list extends WP_Widget {
 						<option value="OR" <?php selected( $instance['relationship'], 'OR'); ?>><?php esc_html_e( 'OR', 'mission' ); ?></option>
 					</select>
 				</p>
+				<div class="tooltip">
+					<a class="tip-icon" href="#">?</a>
+					<p class="tip">
+						<?php echo esc_html_e( 'Selecting both a category and a tag will require posts to be in both. If you\'d like to get posts from either the category or tag, switch the "Relationship" option to "OR." If you\'d like to use
+						the most recent posts from any tag or category, uncheck both "Category" and "Tag."', 'mission' ); ?>
+					</p>
+				</div>
+				
 			</div>
 			<h4><?php esc_html_e( 'Content', 'mission' ); ?></h4>
 			<div class="container">
@@ -178,18 +184,18 @@ class ct_mission_post_list extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 
-		$instance                   = array();
-		$instance['title']          = isset( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['use_category']   = isset( $new_instance['use_category'] ) ? 1 : 0;
-		$instance['category']       = isset( $new_instance['category'] ) ? absint( $new_instance['category'] ) : 1;
-		$instance['use_tag']        = isset( $new_instance['use_tag'] ) ? 1 : 0;
-		$instance['tag']            = isset( $new_instance['tag'] ) ? absint( $new_instance['tag'] ) : 1;
-		$instance['author']         = isset( $new_instance['author'] ) ? 1 : 0;
-		$instance['date']           = isset( $new_instance['date'] ) ? 1 : 0;
-		$instance['image']          = isset( $new_instance['image'] ) ? 1 : 0;
-		$instance['excerpt']        = isset( $new_instance['excerpt'] ) ? 1 : 0;
-		$instance['post_count'] = isset( $new_instance['post_count'] ) ? absint( $new_instance['post_count'] ) : 5;
-		$instance['style'] = isset( $new_instance['style'] ) ? absint( $new_instance['style'] ) : 1;
+		$instance                 = array();
+		$instance['title']        = isset( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['use_category'] = isset( $new_instance['use_category'] ) ? 1 : 0;
+		$instance['category']     = isset( $new_instance['category'] ) ? absint( $new_instance['category'] ) : 1;
+		$instance['use_tag']      = isset( $new_instance['use_tag'] ) ? 1 : 0;
+		$instance['tag']          = isset( $new_instance['tag'] ) ? absint( $new_instance['tag'] ) : 1;
+		$instance['author']       = isset( $new_instance['author'] ) ? 1 : 0;
+		$instance['date']         = isset( $new_instance['date'] ) ? 1 : 0;
+		$instance['image']        = isset( $new_instance['image'] ) ? 1 : 0;
+		$instance['excerpt']      = isset( $new_instance['excerpt'] ) ? 1 : 0;
+		$instance['post_count']   = isset( $new_instance['post_count'] ) ? absint( $new_instance['post_count'] ) : 5;
+		$instance['style']        = isset( $new_instance['style'] ) ? absint( $new_instance['style'] ) : 1;
 		$instance['relationship'] = isset( $new_instance['relationship'] ) ? strip_tags( $new_instance['relationship'] ) : 'AND';
 
 		return $instance;

@@ -6,6 +6,7 @@
   clear: both;
 }
 .mission-post-list-widget .container {
+  position: relative;
   border: solid 1px #DCDCDC;
   padding: 0 12px;
   margin: 12px 0;
@@ -21,6 +22,40 @@
 }
 .mission-post-list-widget .relationship {
   padding-bottom: 6px;
+}
+.mission-post-list-widget .tooltip {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+.mission-post-list-widget .tip-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
+  background: #05B0E7;
+  border-radius: 50%;
+  text-decoration: none;
+}
+.mission-post-list-widget .tip-icon:hover + p {
+  -webkit-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  transform: translateY(-4px);
+  opacity: 1;
+}
+.mission-post-list-widget .tip {
+  position: absolute;
+  width: 320px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 12px;
+  right: calc(100% + 6px);
+  top: -8px;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s, -webkit-transform 0.25s;
+  transition: opacity 0.25s, transform 0.25s;
 }
 
 .widgets-php #available-widgets [id*=ct_mission_post_list] .widget-top {

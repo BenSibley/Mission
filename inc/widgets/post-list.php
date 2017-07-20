@@ -18,11 +18,13 @@ class ct_mission_post_list extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		echo $args['before_widget'];
-		echo $args['before_title'];
-		if ( ! empty ( $instance['title'] ) ) {
+		echo '<div class="style-' . $instance['style'] . '">';
+
+		if ( !empty( $instance['title'] ) ) {
+			echo $args['before_title'];
 			echo esc_html( $instance['title'] );
+			echo $args['after_title'];
 		}
-		echo $args['after_title'];
 
 		$query_args = array(
 			'posts_per_page' => $instance['post_count'],
@@ -61,21 +63,33 @@ class ct_mission_post_list extends WP_Widget {
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
 				echo '<li>';
-				if ( $instance['image'] == 1 ) {
-					ct_mission_featured_image();
-				}
-				echo '<a href="' . esc_url( get_the_permalink() ) . '">' . esc_html( get_the_title() ) . '</a>';
-				if ( $instance['author'] == 1 || $instance['date'] == 1 ) {
-					ct_mission_post_byline( $instance['author'], $instance['date'] );
-				}
-				if ( $instance['excerpt'] == 1 ) {
-					echo wpautop( get_the_excerpt() );
-				}
+					echo '<div class="top">';
+						if ( $instance['image'] == 1 ) {
+							ct_mission_featured_image();
+						}
+						echo '<div class="top-inner">';
+							echo '<a href="' . esc_url( get_the_permalink() ) . '" class="title">' . esc_html( get_the_title() ) . '</a>';
+							if ( $instance['author'] == 1 || $instance['date'] == 1 ) {
+								ct_mission_post_byline( $instance['author'], $instance['date'] );
+							}
+						echo '</div>';
+					echo '</div>';
+					echo '<div class="bottom">';
+						if ( $instance['excerpt'] == 1 ) {
+							echo '<div class="excerpt">';
+								echo wpautop( get_the_excerpt() );
+							echo '</div>';
+						}
+						if ( $instance['comments'] == 1 ) {
+							get_template_part( 'content/comments-link' );
+						}
+					echo '</div>';
 				echo '</li>';
 			}
 			echo '</ul>';
 			wp_reset_postdata();
 		}
+		echo '</div>';
 		echo $args['after_widget'];
 	}
 
@@ -91,6 +105,7 @@ class ct_mission_post_list extends WP_Widget {
 		$date         = isset( $instance['date'] ) ? $instance['date'] : 0;
 		$image        = isset( $instance['image'] ) ? $instance['image'] : 0;
 		$excerpt      = isset( $instance['excerpt'] ) ? $instance['excerpt'] : 1;
+		$comments     = isset( $instance['comments'] ) ? $instance['comments'] : 1;
 		$post_count   = isset( $instance['post_count'] ) ? $instance['post_count'] : 5;
 		$style        = isset( $instance['style'] ) ? $instance['style'] : 1;
 		?>
@@ -132,8 +147,8 @@ class ct_mission_post_list extends WP_Widget {
 				<p class="relationship">
 					<label for="<?php echo $this->get_field_id( 'relationship' ); ?>"><?php esc_html_e( 'Relationship', 'mission' ); ?></label>
 					<select name="<?php echo $this->get_field_name( 'relationship' ); ?>" id="<?php echo $this->get_field_id( 'relationship' ); ?>" class="postform">
-						<option value="AND" <?php selected( $instance['relationship'], 'AND'); ?>><?php esc_html_e( 'AND', 'mission' ); ?></option>
-						<option value="OR" <?php selected( $instance['relationship'], 'OR'); ?>><?php esc_html_e( 'OR', 'mission' ); ?></option>
+						<option value="AND" <?php selected( $relationship, 'AND'); ?>><?php esc_html_e( 'AND', 'mission' ); ?></option>
+						<option value="OR" <?php selected( $relationship, 'OR'); ?>><?php esc_html_e( 'OR', 'mission' ); ?></option>
 					</select>
 				</p>
 				<div class="tooltip">
@@ -164,6 +179,10 @@ class ct_mission_post_list extends WP_Widget {
 					<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>"><?php esc_html_e( 'Show excerpt', 'mission' ); ?></label>
 				</p>
 				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $comments ); ?> id="<?php echo $this->get_field_id( 'comments' ); ?>" name="<?php echo $this->get_field_name( 'comments' ); ?>" value="<?php echo $comments; ?>" />
+					<label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php esc_html_e( 'Show comments link', 'mission' ); ?></label>
+				</p>
+				<p>
 					<input id="<?php echo $this->get_field_id( 'post_count' ); ?>" name="<?php echo $this->get_field_name( 'post_count' ); ?>" type="text" size="2" value="<?php echo esc_attr( $post_count ); ?>">
 					<label for="<?php echo $this->get_field_id( 'post_count' ); ?>"><?php esc_html_e( 'Number of posts', 'mission' ); ?></label>
 				</p>
@@ -173,8 +192,8 @@ class ct_mission_post_list extends WP_Widget {
 				<p>
 					<label for="<?php echo $this->get_field_id( 'style' ); ?>"><?php esc_html_e( 'Style', 'mission' ); ?></label>
 					<select name="<?php echo $this->get_field_name( 'style' ); ?>" id="<?php echo $this->get_field_id( 'style' ); ?>" class="postform">
-						<option value="1" <?php selected( $instance['style'], 1); ?>><?php esc_html_e( 'Style 1', 'mission' ); ?></option>
-						<option value="2" <?php selected( $instance['style'], 2); ?>><?php esc_html_e( 'Style 2', 'mission' ); ?></option>
+						<option value="1" <?php selected( $style, 1); ?>><?php esc_html_e( 'Style 1', 'mission' ); ?></option>
+						<option value="2" <?php selected( $style, 2); ?>><?php esc_html_e( 'Style 2', 'mission' ); ?></option>
 					</select>
 				</p>
 			</div>
@@ -194,6 +213,7 @@ class ct_mission_post_list extends WP_Widget {
 		$instance['date']         = isset( $new_instance['date'] ) ? 1 : 0;
 		$instance['image']        = isset( $new_instance['image'] ) ? 1 : 0;
 		$instance['excerpt']      = isset( $new_instance['excerpt'] ) ? 1 : 0;
+		$instance['comments']     = isset( $new_instance['comments'] ) ? 1 : 0;
 		$instance['post_count']   = isset( $new_instance['post_count'] ) ? absint( $new_instance['post_count'] ) : 5;
 		$instance['style']        = isset( $new_instance['style'] ) ? absint( $new_instance['style'] ) : 1;
 		$instance['relationship'] = isset( $new_instance['relationship'] ) ? strip_tags( $new_instance['relationship'] ) : 'AND';

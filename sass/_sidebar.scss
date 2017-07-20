@@ -1,5 +1,7 @@
 .sidebar-left,
 .sidebar-right {
+  padding: 0 $column * 2;
+  margin: $baseline-height 0;
 
   .widget {
     margin-bottom: $baseline-height;
@@ -13,21 +15,55 @@
   }
 }
 
+@media all and (min-width: $six-hundred) {
+
+  .sidebar {
+    padding: 0 $column;
+    width: 50%;
+  }
+  .sidebar-left {
+    position: relative;
+    float: left;
+    padding-right: $baseline-height * 0.75;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -1px;
+      bottom: 0;
+      width: 1px;
+      background: $color-gray-86;
+    }
+  }
+  .sidebar-right {
+    float: right;
+    padding-left: $baseline-height * 0.75;
+    border-left: solid 1px $color-gray-86;
+  }
+}
+
 @media all and (min-width: $eight-hundred) {
 
   .sidebar {
     flex: 1;
+    margin: 0;
+    float: none;
+    width: $column * 8;
   }
   .sidebar-left {
     order: 1;
     margin-left: $column;
+    padding-left: 0;
     border-right: solid 1px $color-gray-86;
-    padding-right: $baseline-height * 0.75;
+
+    &:before {
+      display: none;
+    }
   }
   .sidebar-right {
     order: 3;
     margin-right: $column;
-    border-left: solid 1px $color-gray-86;
-    padding-left: $baseline-height * 0.75;
+    padding-right: 0;
   }
 }

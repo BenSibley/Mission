@@ -1,5 +1,6 @@
 .main {
   padding: 0 $column * 2;
+  border-bottom: solid 1px $color-gray-86;
 }
 
 @media all and (min-width: $six-hundred) {

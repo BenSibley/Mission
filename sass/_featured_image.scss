@@ -1,7 +1,36 @@
+.featured-image {
+  position: relative;
+  line-height: 0;
+
+  > a {
+    font-size: 0;
+    transition: opacity 0.25s;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 0.9;
+    }
+  }
+  img {
+    width: 100%;
+  }
+  .ccfic {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 4px 4px 4px 12px;
+    font-size: 13px;
+  }
+}
 .layout-double .double,
 .layout-rows .rows,
 .layout-rows-excerpt .rows-excerpt,
-.widget_ct_mission_post_list .style-2 {
+.widget_ct_mission_post_list .style-2,
+.more-from-category {
 
   .featured-image {
     height: 0;

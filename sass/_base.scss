@@ -75,6 +75,7 @@ p {
 }
 a {
   color: $color-blue;
+  transition: color 0.25s;
 
   &:link,
   &:visited {

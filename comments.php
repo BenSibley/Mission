@@ -6,8 +6,13 @@ if ( post_password_required() || ( ! have_comments() && ! comments_open() && ! p
 
 if ( comments_open() ) { ?>
     <section id="comments" class="comments">
+        <div class="comments-number">
+            <h2>
+                <?php comments_number( __( 'Be First to Comment', 'mission' ), __( 'One Comment', 'mission' ), _x( '% Comments', 'noun: 5 comments', 'mission' ) ); ?>
+            </h2>
+        </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_startup_blog_customize_comments' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_mission_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -21,8 +26,13 @@ if ( comments_open() ) { ?>
     <?php
 } elseif ( ! comments_open() && have_comments() && pings_open() ) { ?>
     <section id="comments" class="comments">
+        <div class="comments-number">
+            <h2>
+                <?php comments_number( __( 'Be First to Comment', 'mission' ), __( 'One Comment', 'mission' ), _x( '% Comments', 'noun: 5 comments', 'mission' ) ); ?>
+            </h2>
+        </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_startup_blog_customize_comments' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_mission_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>
@@ -41,8 +51,13 @@ if ( comments_open() ) { ?>
     <?php
 } elseif ( ! comments_open() && have_comments() ) { ?>
     <section id="comments" class="comments">
+        <div class="comments-number">
+            <h2>
+                <?php comments_number( __( 'Be First to Comment', 'mission' ), __( 'One Comment', 'mission' ), _x( '% Comments', 'noun: 5 comments', 'mission' ) ); ?>
+            </h2>
+        </div>
         <ol class="comment-list">
-            <?php wp_list_comments( array( 'callback' => 'ct_startup_blog_customize_comments' ) ); ?>
+            <?php wp_list_comments( array( 'callback' => 'ct_mission_customize_comments' ) ); ?>
         </ol>
         <?php
         if ( ( get_option( 'page_comments' ) == 1 ) && ( get_comment_pages_count() > 1 ) ) { ?>

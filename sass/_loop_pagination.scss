@@ -1,3 +1,26 @@
 .pagination {
   clear: both;
+  margin: $baseline-height/2 0;
+
+  a,
+  span {
+    display: inline-block;
+    padding: 7px 13px;
+    border: solid 1px $color-gray-86;
+    margin: 0 $baseline-height/4 $baseline-height/4 0;
+  }
+  .prev {
+    margin-left: 0;
+  }
+  .next {
+    margin-right: 0;
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .pagination {
+    border-top: solid 1px $color-gray-86;
+    padding-top: $baseline-height;
+  }
 }

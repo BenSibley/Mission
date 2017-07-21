@@ -87,6 +87,7 @@ if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
 				echo get_avatar( get_comment_author_email(), 36, '', get_comment_author() );
 				?>
 				<span class="author-name"><?php comment_author_link(); ?></span>
+				<span class="comment-date"><?php comment_date(); ?></span>
 			</div>
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
@@ -96,17 +97,12 @@ if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
 				<?php comment_text(); ?>
 			</div>
 			<div class="comment-footer">
-				<span class="comment-date"><?php comment_date(); ?></span>
 				<?php comment_reply_link( array_merge( $args, array(
 					'reply_text' => esc_html__( 'Reply', 'mission' ),
 					'depth'      => $depth,
-					'max_depth'  => $args['max_depth'],
-					'before'     => '<i class="fa fa-reply" aria-hidden="true"></i>'
+					'max_depth'  => $args['max_depth']
 				) ) ); ?>
-				<?php edit_comment_link(
-					esc_html__( 'Edit', 'mission' ),
-					'<i class="fa fa-pencil" aria-hidden="true"></i>'
-				); ?>
+				<?php edit_comment_link( esc_html__( 'Edit', 'mission' ) ); ?>
 			</div>
 		</article>
 		<?php

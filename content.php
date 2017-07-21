@@ -21,8 +21,9 @@ $date   = get_theme_mod( 'post_byline_date' );
 		<div class="post-meta">
 			<?php get_template_part( 'content/post-categories' ); ?>
 			<?php get_template_part( 'content/post-tags' ); ?>
-			<?php get_template_part( 'content/post-nav' ); ?>
+			<?php get_template_part( 'content/post-author' ); ?>
 		</div>
+		<?php get_template_part( 'content/more-from-category' ); ?>
 	</article>
 	<?php comments_template(); ?>
 </div>

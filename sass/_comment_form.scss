@@ -1,0 +1,26 @@
+.comment-respond {
+  margin-top: $baseline-height * 1.25;
+
+  .comment-reply-title {
+    @extend %twenty-one-pixels;
+  }
+  .comment-notes {
+    @extend %fourteen-pixels;
+  }
+  .comment-form-comment,
+  .comment-form-author,
+  .comment-form-email,
+  .comment-form-url {
+    margin: $baseline-height/2 0;
+  }
+  label {
+    @extend %twelve-pixels;
+    display: block;
+    font-family: $pt-sans;
+    margin-bottom: 3px;
+  }
+  .submit {
+    @extend %uppercase;
+    font-weight: 700;
+  }
+}

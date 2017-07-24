@@ -111,6 +111,12 @@
     visibility: visible;
   }
 }
+.admin-bar {
+
+  .search-form-popup {
+    top: 46px;
+  }
+}
 .search-form-popup {
   position: fixed;
   z-index: 49;
@@ -146,6 +152,7 @@
     position: absolute;
     top: $baseline-height * 0.75;
     left: $column * 2;
+    margin-left: 8px;
 
     svg g {
       transition: fill 0.15s;
@@ -180,6 +187,7 @@
     line-height: 1.143; /* 24px */
   }
   .search-form-popup {
+    padding: $baseline-height * 2.5 $column;
 
     .title {
       font-size: 1.3125em; /* 21px / 16px */
@@ -190,6 +198,16 @@
       max-width: 560px;
       margin: 0 auto;
     }
+    .close {
+      left: $column;
+    }
+  }
+}
+
+@media all and (min-width: 783px) {
+
+  .admin-bar .search-form-popup {
+    top: 32px;
   }
 }
 

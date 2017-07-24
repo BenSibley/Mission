@@ -46,7 +46,8 @@ body {
 
   body {
 
-    &.noscroll {
+    &.noscroll,
+    &.display-search {
 
       #wpadminbar {
         top: 0;

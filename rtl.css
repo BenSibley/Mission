@@ -148,7 +148,7 @@ body.display-search #wpadminbar {
   }
 }
 @media all and (min-width: 600px) {
-  body.noscroll #wpadminbar {
+  body.noscroll #wpadminbar, body.display-search #wpadminbar {
     top: 0;
   }
 }
@@ -718,6 +718,10 @@ a img {
   visibility: visible;
 }
 
+.admin-bar .search-form-popup {
+  top: 46px;
+}
+
 .search-form-popup {
   position: fixed;
   z-index: 49;
@@ -755,6 +759,7 @@ a img {
   position: absolute;
   top: 1.125em;
   right: 5.556%;
+  margin-right: 8px;
 }
 .search-form-popup .close svg g {
   -webkit-transition: fill 0.15s;
@@ -784,6 +789,9 @@ a img {
     /* 24px */
   }
 
+  .search-form-popup {
+    padding: 3.75em 2.778%;
+  }
   .search-form-popup .title {
     font-size: 1.3125em;
     /* 21px / 16px */
@@ -794,6 +802,14 @@ a img {
   .search-form-popup .search-form {
     max-width: 560px;
     margin: 0 auto;
+  }
+  .search-form-popup .close {
+    right: 2.778%;
+  }
+}
+@media all and (min-width: 783px) {
+  .admin-bar .search-form-popup {
+    top: 32px;
   }
 }
 @media all and (min-width: 50em) {

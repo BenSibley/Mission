@@ -87,7 +87,15 @@ if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
 				echo get_avatar( get_comment_author_email(), 36, '', get_comment_author() );
 				?>
 				<span class="author-name"><?php comment_author_link(); ?></span>
-				<span class="comment-date"><?php comment_date(); ?></span>
+				<span class="comment-date">
+					<?php
+					global $post;
+					if ( $comment->user_id === $post->post_author ) {
+						echo '<span>' . esc_html__( 'Post author', 'mission' ) . ' | </span>';
+					}
+					comment_date();
+					?>
+				</span>
 			</div>
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>

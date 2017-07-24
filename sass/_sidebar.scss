@@ -1,8 +1,11 @@
 .sidebar-left,
 .sidebar-right {
-  padding: 0 $column * 2;
-  margin: $baseline-height 0;
 
+  .inner {
+    padding: $baseline-height $column * 2 0;
+    margin: $baseline-height/2 0;
+    border-top: solid 1px $color-gray-86;
+  }
   .widget {
     margin-bottom: $baseline-height;
   }
@@ -14,16 +17,31 @@
     color: $color-gray-40;
   }
 }
+.sidebar-left {
+  display: table-row-group;
+}
+.sidebar-right {
+  display: table-footer-group;
+}
 
 @media all and (min-width: $six-hundred) {
 
   .sidebar {
-    padding: 0 $column;
-    width: 50%;
+
+    .inner {
+      padding: $baseline-height $column 0;
+    }
+    .widget {
+      width: 49%;
+      float: left;
+
+      &:nth-child(odd) {
+        margin-right: 2%;
+      }
+    }
   }
   .sidebar-left {
     position: relative;
-    float: left;
     padding-right: $baseline-height * 0.75;
 
     &:before {
@@ -37,33 +55,43 @@
     }
   }
   .sidebar-right {
-    float: right;
     padding-left: $baseline-height * 0.75;
-    border-left: solid 1px $color-gray-86;
   }
 }
 
 @media all and (min-width: $eight-hundred) {
 
   .sidebar {
-    flex: 1;
+    display: block;
     margin: 0;
-    float: none;
-    width: $column * 8;
+    width: 22%; // $column * 8
+
+    .inner {
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+    .widget {
+      width: 100%;
+      float: none;
+
+      &:nth-child(odd) {
+        margin-right: 0;
+      }
+    }
   }
   .sidebar-left {
-    order: 1;
-    margin-left: $column;
+    margin-left: 3%; // $column
     padding-left: 0;
-    border-right: solid 1px $color-gray-86;
+    float: left;
 
     &:before {
       display: none;
     }
   }
   .sidebar-right {
-    order: 3;
-    margin-right: $column;
+    margin-right: 3%; // $column
     padding-right: 0;
+    float: right;
   }
 }

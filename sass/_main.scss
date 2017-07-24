@@ -1,22 +1,53 @@
 .main {
-  padding: 0 $column * 2;
-  border-bottom: solid 1px $color-gray-86;
+  display: table-header-group;
+
+  .loop-container {
+    padding: 0 $column * 2;
+  }
 }
 
 @media all and (min-width: $six-hundred) {
 
   .main {
-    padding: 0 $column;
+
+    .loop-container {
+      padding: 0 $column;
+    }
   }
 }
 
 @media all and (min-width: $eight-hundred) {
 
   .content-container {
-    display: flex;
+
+    &:after {
+      @include clearfix;
+    }
   }
   .main {
-    width: $column * 18;
-    order: 2;
+    position: relative;
+    width: 50%; // $column * 16
+    float: left;
+    padding: 0 $column;
+    display: block;
+
+    .loop-container {
+      padding: 0;
+    }
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: -9999px;
+      width: 1px;
+      background: $color-gray-86;
+    }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
   }
 }

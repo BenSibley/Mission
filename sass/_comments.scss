@@ -8,7 +8,7 @@
     margin: 0;
 
     li {
-      margin: $baseline-height 0;
+      margin: $baseline-height * 1.5 0;
     }
   }
   .comment-author {
@@ -30,9 +30,16 @@
       font-weight: 700;
       color: $color-gray-40;
     }
+    .author-tag {
+      font-style: italic;
+      font-size: 10px;
+      line-height: 18px;
+      margin-left: 4px;
+    }
   }
   .comment-content {
     @extend %fourteen-pixels;
+    margin: $baseline-height/2 0;
 
     p:first-child {
       margin-top: 12px;
@@ -56,5 +63,28 @@
     margin: 0;
     padding-left: $baseline-height;
     border-left: solid 1px $color-gray-86;
+  }
+}
+.comments-closed {
+  margin: $baseline-height * 1.5 0;
+}
+.bypostauthor {
+
+  .comment-author {
+    position: relative;
+  }
+}
+.comment-pagination {
+
+  p {
+    width: 48%;
+    display: inline-block;
+
+    &:first-child {
+      margin-right: 2%;
+    }
+  }
+  .next-comment {
+    text-align: right;
   }
 }

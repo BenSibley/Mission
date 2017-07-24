@@ -1,3 +1,9 @@
 .site-footer {
+  position: relative;
+  z-index: 9;
   clear: both;
+  background: #fff;
+  text-align: center;
+  border-top: solid 1px $color-gray-86;
+  padding: $baseline-height $column * 2;
 }

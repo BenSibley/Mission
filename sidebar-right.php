@@ -1,5 +1,7 @@
 <?php if ( is_active_sidebar( 'right' ) ) : ?>
 	<aside class="sidebar sidebar-right" id="sidebar-right" role="complementary">
-		<?php dynamic_sidebar( 'right' ); ?>
+		<div class="inner">
+			<?php dynamic_sidebar( 'right' ); ?>
+		</div>
 	</aside>
 <?php endif;

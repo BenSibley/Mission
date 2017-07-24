@@ -74,11 +74,9 @@
   border-top: solid 1px $color-gray-86;
   border-bottom: solid 1px $color-gray-86;
 
-  display: flex;
-
   .avatar-container {
     float: left;
-    margin-right: 15px;
+    margin-right: $baseline-height/2;
   }
   .avatar {
     border-radius: 50%;

@@ -37,6 +37,7 @@
 		</header>
 		<?php do_action( 'ct_mission_after_header' ); ?>
 		<div class="content-container">
+			<?php get_sidebar( 'left' ); ?>
 			<section id="main" class="main" role="main">
 				<?php do_action( 'ct_mission_main_top' );
 				if ( function_exists( 'yoast_breadcrumb' ) ) {

@@ -1,13 +1,41 @@
 .archive-header {
-  margin: 0 $column * 2;
+  margin: 0 $column * 2 $baseline-height * 0.75;
+  padding-bottom: $baseline-height/2;
   border-bottom: solid 1px $color-gray-86;
 
   h1 {
     font-size: 1em;
     line-height: 1.5;
     font-family: $pt-sans;
+    font-weight: 700;
+
+    + p {
+      margin-top: $baseline-height/4;
+    }
+  }
+  i {
+    margin-right: 3px;
   }
   p {
     @extend %fourteen-pixels;
+    font-style: italic;
+
+    &:last-child {
+      margin-bottom: $baseline-height/4;
+    }
+  }
+}
+
+@media all and (min-width: $six-hundred) {
+
+  .archive-header {
+    margin: 0 $column $baseline-height * 0.75;
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .archive-header {
+    margin: 0 0 $baseline-height * 0.75;
   }
 }

@@ -430,15 +430,39 @@ a img {
 }
 
 .archive-header {
-  margin: 0 5.556%;
+  margin: 0 5.556% 1.125em;
+  padding-bottom: 0.75em;
   border-bottom: solid 1px #DCDCDC;
 }
 .archive-header h1 {
   font-size: 1em;
   line-height: 1.5;
   font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+}
+.archive-header h1 + p {
+  margin-top: 0.375em;
+}
+.archive-header i {
+  margin-left: 3px;
+}
+.archive-header p {
+  font-style: italic;
+}
+.archive-header p:last-child {
+  margin-bottom: 0.375em;
 }
 
+@media all and (min-width: 37.5em) {
+  .archive-header {
+    margin: 0 2.778% 1.125em;
+  }
+}
+@media all and (min-width: 50em) {
+  .archive-header {
+    margin: 0 0 1.125em;
+  }
+}
 .comment-respond {
   margin-top: 1.875em;
 }

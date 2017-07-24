@@ -101,8 +101,8 @@ class ct_mission_post_list extends WP_Widget {
 		$use_tag      = isset( $instance['use_tag'] ) ? $instance['use_tag'] : 0;
 		$tag          = isset( $instance['tag'] ) ? $instance['tag'] : 1;
 		$relationship = isset( $instance['relationship'] ) ? $instance['relationship'] : 'AND';
-		$author       = isset( $instance['author'] ) ? $instance['author'] : 1;
-		$date         = isset( $instance['date'] ) ? $instance['date'] : 0;
+		$author       = isset( $instance['author'] ) ? $instance['author'] : 'yes';
+		$date         = isset( $instance['date'] ) ? $instance['date'] : 'no';
 		$image        = isset( $instance['image'] ) ? $instance['image'] : 0;
 		$excerpt      = isset( $instance['excerpt'] ) ? $instance['excerpt'] : 1;
 		$comments     = isset( $instance['comments'] ) ? $instance['comments'] : 1;
@@ -163,11 +163,11 @@ class ct_mission_post_list extends WP_Widget {
 			<h4><?php esc_html_e( 'Content', 'mission' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $author ); ?> id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" value="<?php echo $author; ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $author, 'yes' ); ?> id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" value="<?php echo $author; ?>" />
 					<label for="<?php echo $this->get_field_id( 'author' ); ?>"><?php esc_html_e( 'Show author in byline', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $date ); ?> id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" value="<?php echo $date; ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $date, 'yes' ); ?> id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" value="<?php echo $date; ?>" />
 					<label for="<?php echo $this->get_field_id( 'date' ); ?>"><?php esc_html_e( 'Show date in byline', 'mission' ); ?></label>
 				</p>
 				<p>
@@ -209,8 +209,8 @@ class ct_mission_post_list extends WP_Widget {
 		$instance['category']     = isset( $new_instance['category'] ) ? absint( $new_instance['category'] ) : 1;
 		$instance['use_tag']      = isset( $new_instance['use_tag'] ) ? 1 : 0;
 		$instance['tag']          = isset( $new_instance['tag'] ) ? absint( $new_instance['tag'] ) : 1;
-		$instance['author']       = isset( $new_instance['author'] ) ? 1 : 0;
-		$instance['date']         = isset( $new_instance['date'] ) ? 1 : 0;
+		$instance['author']       = isset( $new_instance['author'] ) ? 'yes' : 'no';
+		$instance['date']         = isset( $new_instance['date'] ) ? 'yes' : 'no';
 		$instance['image']        = isset( $new_instance['image'] ) ? 1 : 0;
 		$instance['excerpt']      = isset( $new_instance['excerpt'] ) ? 1 : 0;
 		$instance['comments']     = isset( $new_instance['comments'] ) ? 1 : 0;

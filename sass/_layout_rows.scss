@@ -61,3 +61,19 @@
     }
   }
 }
+
+@media all and (min-width: $eleven-hundred) {
+
+  .layout-rows,
+  .layout-rows-excerpt {
+
+    .rows,
+    .rows-excerpt {
+
+      .post-title {
+        font-size: 1.3125em; /* 21px / 16px */
+        line-height: 1.333; /* 28px */
+      }
+    }
+  }
+}

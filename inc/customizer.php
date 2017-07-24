@@ -241,7 +241,6 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'ct_mission_layout', array(
 		'title'    => __( 'Layout', 'mission' ),
 		'priority' => 25,
-		'description' => sprintf( __( 'Want more layouts? Check out the <a target="_blank" href="%1$s">%2$s Pro plugin</a>.', 'mission' ), 'https://www.competethemes.com/mission/', wp_get_theme( get_template() ) )
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(
@@ -362,7 +361,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 
 	/***** Show/Hide *****/
 
-	// section
+	// section - Header
 	$wp_customize->add_section( 'ct_mission_show_hide_header', array(
 		'title'    => __( 'Header', 'mission' ),
 		'panel'    => 'ct_mission_show_hide_panel',
@@ -432,6 +431,62 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
+	// section - Blog & Archives
+	$wp_customize->add_section( 'ct_mission_show_hide_blog_archives', array(
+		'title'    => __( 'Blog & Archives', 'mission' ),
+		'description' => __( 'These settings apply to the main posts page and all archives.', 'mission' ),
+		'panel'    => 'ct_mission_show_hide_panel',
+		'priority' => 2
+	) );
+	// setting
+	$wp_customize->add_setting( 'featured_image_blog_archives', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'featured_image_blog_archives', array(
+		'label'    => __( 'Show the Featured Images?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_blog_archives',
+		'settings' => 'featured_image_blog_archives',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_author_blog_archives', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_author_blog_archives', array(
+		'label'    => __( 'Show the post author?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_blog_archives',
+		'settings' => 'post_author_blog_archives',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_date_blog_archives', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_date_blog_archives', array(
+		'label'    => __( 'Show the post date?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_blog_archives',
+		'settings' => 'post_date_blog_archives',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+
 //	// setting
 //	$wp_customize->add_setting( 'post_byline_date', array(
 //		'default'           => 'yes',

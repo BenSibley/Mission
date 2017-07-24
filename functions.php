@@ -218,6 +218,11 @@ add_filter( 'the_content_more_link', 'ct_mission_remove_more_link_scroll' );
 if ( ! function_exists( 'ct_mission_featured_image' ) ) {
 	function ct_mission_featured_image() {
 
+		// don't display on archives when turned off via Customizer setting
+		if ( ( is_home() || is_archive() || is_search() ) && get_theme_mod( 'featured_image_blog_archives' ) == 'no' ) {
+			return;
+		}
+
 		global $post;
 		$featured_image = '';
 
@@ -601,9 +606,10 @@ if ( ! function_exists( 'ct_mission_sanitize_css' ) ) {
 	}
 }
 
+// Note: using function instead of template part b/c widget needs to pass in variables
 function ct_mission_post_byline( $author, $date ) {
 
-	if ( $author === 0 && $date === 0 ) {
+	if ( $author == 'no' && $date == 'no' ) {
 		return;
 	}
 	$post_author = get_the_author();
@@ -615,9 +621,9 @@ function ct_mission_post_byline( $author, $date ) {
 	$post_date = date_i18n( get_option( 'date_format' ), strtotime( get_the_date() ) );
 
 	echo '<div class="post-byline">';
-		if ( $author === 0 ) {
+		if ( $author == 'no' ) {
 			echo esc_html( $post_date );
-		} elseif ( $date === 0 ) {
+		} elseif ( $date == 'no' ) {
 			// translators: %s = the author who published the post
 			printf( esc_html_x( 'By %s', 'This blog post was published by some author', 'mission' ), esc_html( $post_author ) );
 		} else {

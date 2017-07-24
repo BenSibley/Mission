@@ -1,6 +1,6 @@
 <?php
-$author = get_theme_mod( 'post_byline_author' );
-$date   = get_theme_mod( 'post_byline_date' );
+$author = get_theme_mod( 'post_author_blog_archives' );
+$date   = get_theme_mod( 'post_date_blog_archives' );
 ?>
 <div <?php post_class(); ?>>
 	<?php do_action( 'ct_mission_archive_post_before' ); ?>

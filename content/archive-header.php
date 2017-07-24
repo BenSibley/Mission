@@ -1,6 +1,7 @@
 <?php
 
-if ( ! is_archive() ) {
+// if not archive or title & description hid via Customizer
+if ( ! is_archive() || ( get_theme_mod( 'archive_title' ) == 'no' ) && get_theme_mod( 'archive_description' ) == 'no' ) {
 	return;
 }
 
@@ -21,6 +22,7 @@ if ( is_tag() ) {
 ?>
 
 <div class='archive-header'>
+	<?php if ( get_theme_mod( 'archive_title' ) != 'no' ) : ?>
 	<h1>
 		<i class="fa fa-<?php echo esc_attr( $icon_class ); ?>"></i>
 		<?php
@@ -28,7 +30,8 @@ if ( is_tag() ) {
 		the_archive_title( '&ldquo;', '&rdquo;' );
 		?>
 	</h1>
-	<?php if ( get_the_archive_description() != '' ) : ?>
+	<?php endif; ?>
+	<?php if ( get_the_archive_description() != '' && get_theme_mod( 'archive_description' ) != 'no' ) : ?>
 		<?php the_archive_description(); ?>
 	<?php endif; ?>
 </div>

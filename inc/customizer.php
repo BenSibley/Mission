@@ -486,6 +486,45 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
+	// section - Archives
+	$wp_customize->add_section( 'ct_mission_show_hide_archives', array(
+		'title'    => __( 'Archives', 'mission' ),
+		'description' => __( 'These settings apply to the category, tag, date, and author archives.', 'mission' ),
+		'panel'    => 'ct_mission_show_hide_panel',
+		'priority' => 3
+	) );
+	// setting
+	$wp_customize->add_setting( 'archive_title', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'archive_title', array(
+		'label'    => __( 'Show the archive title?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_archives',
+		'settings' => 'archive_title',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'archive_description', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'archive_description', array(
+		'label'    => __( 'Show the archive description?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_archives',
+		'settings' => 'archive_description',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
 
 //	// setting
 //	$wp_customize->add_setting( 'post_byline_date', array(

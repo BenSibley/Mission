@@ -450,6 +450,9 @@ a img {
 .archive-header p {
   font-style: italic;
 }
+.archive-header p:first-child {
+  margin-top: 0;
+}
 .archive-header p:last-child {
   margin-bottom: 0.375em;
 }

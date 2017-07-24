@@ -304,6 +304,10 @@ if ( ! function_exists( 'ct_mission_social_array' ) ) {
 if ( ! function_exists( 'ct_mission_social_icons_output' ) ) {
 	function ct_mission_social_icons_output( $source = 'header' ) {
 
+		if ( $source == 'header' && get_theme_mod( 'social_icons_header' ) == 'no' ) {
+			return;
+		}
+		
 		$social_sites = ct_mission_social_array();
 
 		// store the site name and url

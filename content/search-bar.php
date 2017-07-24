@@ -1,5 +1,5 @@
 <?php
-if ( get_theme_mod( 'search_bar' ) == 'hide' ) {
+if ( get_theme_mod( 'search' ) == 'no' ) {
 	return;
 }
 ?>

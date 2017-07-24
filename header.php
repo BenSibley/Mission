@@ -20,10 +20,12 @@
 				</div>
 				<?php ct_mission_social_icons_output(); ?>
 			</div>
-			<div id="title-container" class="title-container">
-				<?php get_template_part( 'logo' ) ?>
-				<p class="date"><?php echo date_i18n( get_option( 'date_format' ), strtotime( '<script>new Date();</script>' ) ); ?></p>
-				<?php if ( get_bloginfo( 'description' ) ) {
+			<div id="title-container" class="title-container"><?php
+				get_template_part( 'logo' );
+				if ( get_theme_mod( 'date' ) != 'no' ) {
+					echo '<p class="date">' . date_i18n( get_option( "date_format" ), strtotime( "<script>new Date();</script>" ) ) . '</p>';
+				}
+				if ( get_bloginfo( 'description' ) && get_theme_mod( 'tagline_header' ) != 'no' ) {
 					echo '<p class="tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';
 				} ?>
 			</div>

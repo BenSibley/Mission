@@ -5,6 +5,9 @@
   margin-bottom: $baseline-height * .75;
   text-align: center;
 
+  &:after {
+    @include clearfix;
+  }
   .date {
     @extend %ten-pixels;
     margin: 0;

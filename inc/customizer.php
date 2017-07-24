@@ -39,6 +39,18 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		}
 	}
 
+	/********** Add Panels **********/
+
+	// Add panel for colors
+	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
+
+		$wp_customize->add_panel( 'ct_mission_show_hide_panel', array(
+			'priority'    => 2,
+			'title'       => __( 'Show/Hide Elements', ' mission' ),
+			'description' => __( 'Choose which elements you want displayed on the site.', 'mission' )
+		) );
+	}
+
 	/***** Startup Blog Pro Section *****/
 
 	// don't add if Startup Blog Pro is active
@@ -351,141 +363,188 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	/***** Show/Hide *****/
 
 	// section
-	$wp_customize->add_section( 'ct_mission_show_hide', array(
-		'title'    => __( 'Show/Hide Elements', 'mission' ),
-		'priority' => 25
+	$wp_customize->add_section( 'ct_mission_show_hide_header', array(
+		'title'    => __( 'Header', 'mission' ),
+		'panel'    => 'ct_mission_show_hide_panel',
+		'priority' => 1
 	) );
 	// setting
-	$wp_customize->add_setting( 'tagline', array(
-		'default'           => 'header-footer',
-		'sanitize_callback' => 'ct_mission_sanitize_tagline_settings'
+	$wp_customize->add_setting( 'date', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
-	$wp_customize->add_control( 'tagline', array(
+	$wp_customize->add_control( 'date', array(
+		'label'    => __( 'Show today\'s date?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_header',
+		'settings' => 'date',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'social_icons_header', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'social_icons_header', array(
+		'label'    => __( 'Show the social icons?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_header',
+		'settings' => 'social_icons_header',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'tagline_header', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'tagline_header', array(
 		'label'    => __( 'Show the tagline?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'tagline',
+		'section'  => 'ct_mission_show_hide_header',
+		'settings' => 'tagline_header',
 		'type'     => 'radio',
-		'choices'  => array(
-			'header-footer' => __( 'Yes, in the header & footer', 'mission' ),
-			'header'        => __( 'Yes, in the header', 'mission' ),
-			'footer'        => __( 'Yes, in the footer', 'mission' ),
-			'no'            => __( 'No', 'mission' )
-		)
-	) );
-	// setting
-	$wp_customize->add_setting( 'post_byline_date', array(
-		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
-	) );
-	// control
-	$wp_customize->add_control( 'post_byline_date', array(
-		'label'    => __( 'Show date in post byline?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'post_byline_date',
-		'type'     => 'radio',
-		'choices'  => array(
+		'choices' => array(
 			'yes' => __( 'Yes', 'mission' ),
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
 	// setting
-	$wp_customize->add_setting( 'post_byline_author', array(
+	$wp_customize->add_setting( 'search', array(
 		'default'           => 'yes',
 		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
 	) );
 	// control
-	$wp_customize->add_control( 'post_byline_author', array(
-		'label'    => __( 'Show author name in post byline?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'post_byline_author',
+	$wp_customize->add_control( 'search', array(
+		'label'    => __( 'Show the search bar?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_header',
+		'settings' => 'search',
 		'type'     => 'radio',
-		'choices'  => array(
+		'choices' => array(
 			'yes' => __( 'Yes', 'mission' ),
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
-	// setting
-	$wp_customize->add_setting( 'author_avatars', array(
-		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
-	) );
-	// control
-	$wp_customize->add_control( 'author_avatars', array(
-		'label'    => __( 'Show post author avatars?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'author_avatars',
-		'type'     => 'radio',
-		'choices'  => array(
-			'yes' => __( 'Yes', 'mission' ),
-			'no'  => __( 'No', 'mission' )
-		)
-	) );
-	// setting
-	$wp_customize->add_setting( 'author_box', array(
-		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
-	) );
-	// control
-	$wp_customize->add_control( 'author_box', array(
-		'label'    => __( 'Show author box after posts?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'author_box',
-		'type'     => 'radio',
-		'choices'  => array(
-			'yes' => __( 'Yes', 'mission' ),
-			'no'  => __( 'No', 'mission' )
-		)
-	) );
-	// setting
-	$wp_customize->add_setting( 'post_categories', array(
-		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
-	) );
-	// control
-	$wp_customize->add_control( 'post_categories', array(
-		'label'    => __( 'Show categories after the post?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'post_categories',
-		'type'     => 'radio',
-		'choices'  => array(
-			'yes' => __( 'Yes', 'mission' ),
-			'no'  => __( 'No', 'mission' )
-		)
-	) );
-	// setting
-	$wp_customize->add_setting( 'post_tags', array(
-		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
-	) );
-	// control
-	$wp_customize->add_control( 'post_tags', array(
-		'label'    => __( 'Show tags after the post?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'post_tags',
-		'type'     => 'radio',
-		'choices'  => array(
-			'yes' => __( 'Yes', 'mission' ),
-			'no'  => __( 'No', 'mission' )
-		)
-	) );
-	// setting
-	$wp_customize->add_setting( 'sidebar', array(
-		'default'           => 'after',
-		'sanitize_callback' => 'ct_mission_sanitize_sidebar_settings'
-	) );
-	// control
-	$wp_customize->add_control( 'sidebar', array(
-		'label'    => __( 'Show sidebar on mobile devices?', 'mission' ),
-		'section'  => 'ct_mission_show_hide',
-		'settings' => 'sidebar',
-		'type'     => 'radio',
-		'choices'  => array(
-			'after'  => __( 'Yes, after main content', 'mission' ),
-			'before' => __( 'Yes, before main content', 'mission' ),
-			'no'     => __( 'No', 'mission' )
-		)
-	) );
+//	// setting
+//	$wp_customize->add_setting( 'post_byline_date', array(
+//		'default'           => 'yes',
+//		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'post_byline_date', array(
+//		'label'    => __( 'Show date in post byline?', 'mission' ),
+//		'section'  => 'ct_mission_show_hide',
+//		'settings' => 'post_byline_date',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'yes' => __( 'Yes', 'mission' ),
+//			'no'  => __( 'No', 'mission' )
+//		)
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'post_byline_author', array(
+//		'default'           => 'yes',
+//		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'post_byline_author', array(
+//		'label'    => __( 'Show author name in post byline?', 'mission' ),
+//		'section'  => 'ct_mission_show_hide',
+//		'settings' => 'post_byline_author',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'yes' => __( 'Yes', 'mission' ),
+//			'no'  => __( 'No', 'mission' )
+//		)
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'author_avatars', array(
+//		'default'           => 'yes',
+//		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'author_avatars', array(
+//		'label'    => __( 'Show post author avatars?', 'mission' ),
+//		'section'  => 'ct_mission_show_hide',
+//		'settings' => 'author_avatars',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'yes' => __( 'Yes', 'mission' ),
+//			'no'  => __( 'No', 'mission' )
+//		)
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'author_box', array(
+//		'default'           => 'yes',
+//		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'author_box', array(
+//		'label'    => __( 'Show author box after posts?', 'mission' ),
+//		'section'  => 'ct_mission_show_hide',
+//		'settings' => 'author_box',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'yes' => __( 'Yes', 'mission' ),
+//			'no'  => __( 'No', 'mission' )
+//		)
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'post_categories', array(
+//		'default'           => 'yes',
+//		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'post_categories', array(
+//		'label'    => __( 'Show categories after the post?', 'mission' ),
+//		'section'  => 'ct_mission_show_hide',
+//		'settings' => 'post_categories',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'yes' => __( 'Yes', 'mission' ),
+//			'no'  => __( 'No', 'mission' )
+//		)
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'post_tags', array(
+//		'default'           => 'yes',
+//		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'post_tags', array(
+//		'label'    => __( 'Show tags after the post?', 'mission' ),
+//		'section'  => 'ct_mission_show_hide',
+//		'settings' => 'post_tags',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'yes' => __( 'Yes', 'mission' ),
+//			'no'  => __( 'No', 'mission' )
+//		)
+//	) );
+//	// setting
+//	$wp_customize->add_setting( 'sidebar', array(
+//		'default'           => 'after',
+//		'sanitize_callback' => 'ct_mission_sanitize_sidebar_settings'
+//	) );
+//	// control
+//	$wp_customize->add_control( 'sidebar', array(
+//		'label'    => __( 'Show sidebar on mobile devices?', 'mission' ),
+//		'section'  => 'ct_mission_show_hide',
+//		'settings' => 'sidebar',
+//		'type'     => 'radio',
+//		'choices'  => array(
+//			'after'  => __( 'Yes, after main content', 'mission' ),
+//			'before' => __( 'Yes, before main content', 'mission' ),
+//			'no'     => __( 'No', 'mission' )
+//		)
+//	) );
 
 	/***** Blog *****/
 

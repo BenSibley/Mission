@@ -685,6 +685,14 @@ a img {
   margin-bottom: 1.125em;
   text-align: center;
 }
+.site-header:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
 .site-header .date {
   margin: 0;
 }

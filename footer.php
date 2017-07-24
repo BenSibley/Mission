@@ -6,15 +6,23 @@
 
 <footer id="site-footer" class="site-footer" role="contentinfo">
     <?php do_action( 'ct_mission_footer_top' ); ?>
+    <div class="footer-title-container">
+        <?php get_template_part( 'logo' ) ?>
+        <?php if ( get_bloginfo( 'description' ) ) {
+            echo '<p class="footer-tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';
+        } ?>
+        <?php ct_mission_social_icons_output(); ?>
+    </div>
     <div class="design-credit">
         <span>
             <?php
-            $footer_text = sprintf( __( '<a href="%s">Mission News Theme</a> by Compete Themes.', 'mission' ), 'https://www.competethemes.com/mission/' );
+            $footer_text = sprintf( __( '<a href="%s">Mission Theme</a> by Compete Themes.', 'mission' ), 'https://www.competethemes.com/mission/' );
             $footer_text = apply_filters( 'ct_mission_footer_text', $footer_text );
             echo wp_kses_post( $footer_text );
             ?>
         </span>
     </div>
+    <?php do_action( 'ct_mission_footer_bottom' ); ?>
 </footer>
 </div><!-- .max-width -->
 </div><!-- .overflow-container -->

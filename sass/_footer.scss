@@ -5,5 +5,57 @@
   background: #fff;
   text-align: center;
   border-top: solid 1px $color-gray-86;
-  padding: $baseline-height $column * 2;
+  padding: $baseline-height $column * 2 $baseline-height * 0.75;;
+
+  .site-title {
+    @extend %twenty-one-pixels;
+  }
+  .social-media-icons {
+
+    a {
+      @extend %black-link;
+      border-color: #000;
+    }
+  }
+  .footer-tagline {
+    @extend %fourteen-pixels;
+    font-style: italic;
+    margin: 0;
+  }
+  .design-credit {
+    @extend %twelve-pixels;
+    font-family: $pt-sans;
+    margin-top: $baseline-height * 1.75;
+
+    a {
+      @extend %black-link;
+      font-weight: 700;
+    }
+  }
+}
+
+@media all and (min-width: $six-hundred) {
+
+  .site-footer {
+    padding: $baseline-height $column $baseline-height * 0.75;;
+
+    .site-title {
+      font-size: 1.75em; /* 28px / 16px */
+      line-height: 1.357; /* 38px */
+    }
+    .footer-tagline {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .site-footer {
+
+    .social-media-icons {
+      margin: $baseline-height * 0.75;
+    }
+  }
 }

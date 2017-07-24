@@ -26,7 +26,7 @@ h1 {
   /* 38px */
 }
 
-h2, .comment-respond .comment-reply-title, .toggle-dropdown {
+h2, .comment-respond .comment-reply-title, .site-footer .site-title, .toggle-dropdown {
   font-size: 1.3125em;
   /* 21px / 16px */
   line-height: 1.143;
@@ -55,7 +55,7 @@ textarea, input[type="submit"], .comments .comment-author .author-name, .comment
   /* 18px */
 }
 
-textarea, .comment-respond .comment-notes, .comments .comment-content, .tagline, .widget_ct_mission_post_list .style-2 .excerpt {
+textarea, .comment-respond .comment-notes, .comments .comment-content, .site-footer .footer-tagline, .tagline, .widget_ct_mission_post_list .style-2 .excerpt {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.571;
@@ -63,7 +63,7 @@ textarea, .comment-respond .comment-notes, .comments .comment-content, .tagline,
 }
 
 .wp-caption-text,
-.gallery-caption, .comment-respond label, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_post_list .comments-link, .widget_calendar table caption {
+.gallery-caption, .comment-respond label, .site-footer .design-credit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_post_list .comments-link, .widget_calendar table caption {
   font-size: 0.75em;
   /* 12px / 16px */
   line-height: 1.5;
@@ -83,30 +83,30 @@ textarea, .comment-respond .comment-notes, .comments .comment-content, .tagline,
   letter-spacing: 0.03em;
 }
 
-.site-title a, .post-title a, .post-tags a, .more-from-category .title, .widget_ct_mission_post_list .title, .widget_ct_mission_post_list .comments-link a {
+.site-footer .social-media-icons a, .site-footer .design-credit a, .site-title a, .post-title a, .post-tags a, .more-from-category .title, .widget_ct_mission_post_list .title, .widget_ct_mission_post_list .comments-link a {
   color: #000;
   text-decoration: none;
 }
-.site-title a:link, .post-title a:link, .post-tags a:link, .more-from-category .title:link, .widget_ct_mission_post_list .title:link, .widget_ct_mission_post_list .comments-link a:link, .site-title a:visited, .post-title a:visited, .post-tags a:visited, .more-from-category .title:visited, .widget_ct_mission_post_list .title:visited, .widget_ct_mission_post_list .comments-link a:visited {
+.site-footer .social-media-icons a:link, .site-footer .design-credit a:link, .site-title a:link, .post-title a:link, .post-tags a:link, .more-from-category .title:link, .widget_ct_mission_post_list .title:link, .widget_ct_mission_post_list .comments-link a:link, .site-footer .social-media-icons a:visited, .site-footer .design-credit a:visited, .site-title a:visited, .post-title a:visited, .post-tags a:visited, .more-from-category .title:visited, .widget_ct_mission_post_list .title:visited, .widget_ct_mission_post_list .comments-link a:visited {
   color: #000;
 }
-.site-title a:hover, .post-title a:hover, .post-tags a:hover, .more-from-category .title:hover, .widget_ct_mission_post_list .title:hover, .widget_ct_mission_post_list .comments-link a:hover, .site-title a:active, .post-title a:active, .post-tags a:active, .more-from-category .title:active, .widget_ct_mission_post_list .title:active, .widget_ct_mission_post_list .comments-link a:active, .site-title a:focus, .post-title a:focus, .post-tags a:focus, .more-from-category .title:focus, .widget_ct_mission_post_list .title:focus, .widget_ct_mission_post_list .comments-link a:focus {
+.site-footer .social-media-icons a:hover, .site-footer .design-credit a:hover, .site-title a:hover, .post-title a:hover, .post-tags a:hover, .more-from-category .title:hover, .widget_ct_mission_post_list .title:hover, .widget_ct_mission_post_list .comments-link a:hover, .site-footer .social-media-icons a:active, .site-footer .design-credit a:active, .site-title a:active, .post-title a:active, .post-tags a:active, .more-from-category .title:active, .widget_ct_mission_post_list .title:active, .widget_ct_mission_post_list .comments-link a:active, .site-footer .social-media-icons a:focus, .site-footer .design-credit a:focus, .site-title a:focus, .post-title a:focus, .post-tags a:focus, .more-from-category .title:focus, .widget_ct_mission_post_list .title:focus, .widget_ct_mission_post_list .comments-link a:focus {
   color: #666666;
 }
 
-.social-media-icons a, .menu-primary-items a,
+.site-header .social-media-icons a, .menu-primary-items a,
 .menu-unset ul a, .dropdown-navigation a {
   color: #fff;
   text-decoration: none;
 }
-.social-media-icons a:link, .menu-primary-items a:link,
-.menu-unset ul a:link, .dropdown-navigation a:link, .social-media-icons a:visited, .menu-primary-items a:visited,
+.site-header .social-media-icons a:link, .menu-primary-items a:link,
+.menu-unset ul a:link, .dropdown-navigation a:link, .site-header .social-media-icons a:visited, .menu-primary-items a:visited,
 .menu-unset ul a:visited, .dropdown-navigation a:visited {
   color: #fff;
 }
-.social-media-icons a:hover, .menu-primary-items a:hover,
-.menu-unset ul a:hover, .dropdown-navigation a:hover, .social-media-icons a:active, .menu-primary-items a:active,
-.menu-unset ul a:active, .dropdown-navigation a:active, .social-media-icons a:focus, .menu-primary-items a:focus,
+.site-header .social-media-icons a:hover, .menu-primary-items a:hover,
+.menu-unset ul a:hover, .dropdown-navigation a:hover, .site-header .social-media-icons a:active, .menu-primary-items a:active,
+.menu-unset ul a:active, .dropdown-navigation a:active, .site-header .social-media-icons a:focus, .menu-primary-items a:focus,
 .menu-unset ul a:focus, .dropdown-navigation a:focus {
   color: #F3F3F3;
 }
@@ -525,9 +525,43 @@ a img {
   background: #fff;
   text-align: center;
   border-top: solid 1px #DCDCDC;
-  padding: 1.5em 5.556%;
+  padding: 1.5em 5.556% 1.125em;
+}
+.site-footer .social-media-icons a {
+  border-color: #000;
+}
+.site-footer .footer-tagline {
+  font-style: italic;
+  margin: 0;
+}
+.site-footer .design-credit {
+  font-family: "PT Sans", sans-serif;
+  margin-top: 2.625em;
+}
+.site-footer .design-credit a {
+  font-weight: 700;
 }
 
+@media all and (min-width: 37.5em) {
+  .site-footer {
+    padding: 1.5em 2.778% 1.125em;
+  }
+  .site-footer .site-title {
+    font-size: 1.75em;
+    /* 28px / 16px */
+    line-height: 1.357;
+    /* 38px */
+  }
+  .site-footer .footer-tagline {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+}
+@media all and (min-width: 50em) {
+  .site-footer .social-media-icons {
+    margin: 1.125em;
+  }
+}
 /**
  * 14.2 Galleries
  */
@@ -642,17 +676,7 @@ a img {
 }
 
 .social-media-icons {
-  margin: -12px 0 3em;
   list-style: none;
-  display: none;
-  padding: 0 5.556%;
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: -webkit-transform 0.25s;
-  transition: transform 0.25s;
-}
-.social-media-icons.moved {
-  display: block;
 }
 .social-media-icons li {
   display: inline-block;
@@ -675,6 +699,19 @@ a img {
 }
 .social-media-icons i {
   vertical-align: middle;
+}
+
+.site-header .social-media-icons {
+  margin: -12px 0 3em;
+  display: none;
+  padding: 0 5.556%;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: -webkit-transform 0.25s;
+  transition: transform 0.25s;
+}
+.site-header .social-media-icons.moved {
+  display: block;
 }
 
 .search-toggle {
@@ -858,10 +895,6 @@ a img {
   }
 
   .social-media-icons {
-    display: block;
-    margin: 0;
-    padding: 0;
-    float: left;
     line-height: 0;
   }
   .social-media-icons a {
@@ -869,15 +902,23 @@ a img {
     line-height: 18px;
     width: 24px;
     height: 24px;
-    color: #000;
     border: solid 1px #000;
   }
-  .social-media-icons a:link, .social-media-icons a:visited {
+
+  .site-header .social-media-icons {
+    display: block;
+    margin: 0;
+    padding: 0;
+    float: left;
+  }
+  .site-header .social-media-icons a {
     color: #000;
   }
-  .social-media-icons a:hover, .social-media-icons a:active, .social-media-icons a:focus {
+  .site-header .social-media-icons a:link, .site-header .social-media-icons a:visited {
+    color: #000;
+  }
+  .site-header .social-media-icons a:hover, .site-header .social-media-icons a:active, .site-header .social-media-icons a:focus {
     color: #666666;
-    border-color: #666666;
   }
 
   .search-toggle {

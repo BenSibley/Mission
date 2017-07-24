@@ -231,6 +231,7 @@ textarea {
 input[type="submit"] {
   @extend %fourteen-pixels-title;
   font-family: $pt-sans;
+  font-weight: 700;
   padding: 10px 18px;
   color: white;
   background: #000;

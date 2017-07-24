@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-    <div class="post-header search-header">
-        <h1 class="post-title">
-            <?php printf( esc_html__( 'Search Results for %s', 'ct_mission' ), '<span>&ldquo;' . get_search_query() . '&rdquo;</span>' ); ?>
+    <div class="archive-header search-box">
+        <h1>
+            <?php printf( esc_html__( 'Search Results for %s', 'mission' ), '<span>&ldquo;' . get_search_query() . '&rdquo;</span>' ); ?>
         </h1>
         <?php get_search_form(); ?>
     </div>
@@ -10,7 +10,7 @@
         if ( have_posts() ) :
             while ( have_posts() ) :
                 the_post();
-                get_template_part( 'content-archive', get_post_type() );
+                ct_mission_get_content_template();
             endwhile;
         endif;
         ?>
@@ -18,8 +18,8 @@
 
 <?php the_posts_pagination(); ?>
 
-    <div class="search-bottom">
-    <p><?php esc_html_e( "Can't find what you're looking for?  Try refining your search:", "ct_mission" ); ?></p>
+    <div class="search-box bottom">
+    <p><?php esc_html_e( "Can't find what you're looking for?  Try refining your search:", "mission" ); ?></p>
     <?php get_search_form(); ?>
 </div>
 

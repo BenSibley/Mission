@@ -545,7 +545,7 @@ if ( ! function_exists( 'ct_mission_get_content_template' ) ) {
 
 		$layout = get_theme_mod( 'layout' );
 
-		if ( is_home() || is_archive() ) {
+		if ( is_home() || is_archive() || is_search() ) {
 			if ( !empty( $layout ) && $layout != 'simple' && $wp_query->current_post != 0 ) {
 				get_template_part( 'content-archive-' . $layout, get_post_type() );
 			} else {

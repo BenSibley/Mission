@@ -29,8 +29,6 @@ if ( is_tag() ) {
 		?>
 	</h1>
 	<?php if ( get_the_archive_description() != '' ) : ?>
-		<p class="description">
-			<?php the_archive_description(); ?>
-		</p>
+		<?php the_archive_description(); ?>
 	<?php endif; ?>
 </div>

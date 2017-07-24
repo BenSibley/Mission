@@ -1,3 +1,8 @@
+.content-container {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
 .main {
   display: table-header-group;
 
@@ -19,6 +24,7 @@
 @media all and (min-width: $eight-hundred) {
 
   .content-container {
+    display: block;
 
     &:after {
       @include clearfix;

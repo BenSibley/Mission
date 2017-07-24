@@ -38,6 +38,12 @@
     @include clearfix;
   }
 }
+.single .post-content {
+  margin-bottom: $baseline-height * 0.75;
+}
+.post-meta {
+  border-bottom: solid 1px $color-gray-86;
+}
 .post-categories {
   font-style: italic;
   margin-bottom: $baseline-height * 0.75;
@@ -69,10 +75,9 @@
   }
 }
 .post-author {
-  padding: $baseline-height 0;
+  padding: $baseline-height 0 $baseline-height/4;
   margin: $baseline-height * 0.75 0;
   border-top: solid 1px $color-gray-86;
-  border-bottom: solid 1px $color-gray-86;
 
   &:after {
     @include clearfix;
@@ -174,6 +179,7 @@
       &:nth-child(odd) {
         padding-right: $baseline-height/2;
         border-right: solid 1px $color-gray-86;
+        clear: left;
       }
       &:nth-child(even) {
         padding-left: $baseline-height/2;

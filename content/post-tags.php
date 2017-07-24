@@ -1,5 +1,5 @@
 <?php
-if ( get_theme_mod( 'post_tags') == 'no' ) return;
+if ( get_theme_mod( 'tag_links_posts') == 'no' ) return;
 
 $tags   = get_the_tags( $post->ID );
 $output = '';

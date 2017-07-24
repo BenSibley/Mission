@@ -1841,6 +1841,14 @@ a img {
   height: 0;
 }
 
+.single .post-content {
+  margin-bottom: 1.125em;
+}
+
+.post-meta {
+  border-bottom: solid 1px #DCDCDC;
+}
+
 .post-categories {
   font-style: italic;
   margin-bottom: 1.125em;
@@ -1869,10 +1877,9 @@ a img {
 }
 
 .post-author {
-  padding: 1.5em 0;
+  padding: 1.5em 0 0.375em;
   margin: 1.125em 0;
   border-top: solid 1px #DCDCDC;
-  border-bottom: solid 1px #DCDCDC;
 }
 .post-author:after {
   content: ".";
@@ -1974,6 +1981,7 @@ a img {
   .more-from-category li:nth-child(odd) {
     padding-left: 0.75em;
     border-left: solid 1px #DCDCDC;
+    clear: right;
   }
   .more-from-category li:nth-child(even) {
     padding-right: 0.75em;

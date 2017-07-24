@@ -1,4 +1,6 @@
 <?php
+if ( get_theme_mod( 'more_from_posts' ) == 'no' ) return;
+
 global $post;
 $categories = wp_get_post_categories( $post->ID );
 ?>

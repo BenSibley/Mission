@@ -218,8 +218,11 @@ add_filter( 'the_content_more_link', 'ct_mission_remove_more_link_scroll' );
 if ( ! function_exists( 'ct_mission_featured_image' ) ) {
 	function ct_mission_featured_image() {
 
-		// don't display on archives when turned off via Customizer setting
-		if ( ( is_home() || is_archive() || is_search() ) && get_theme_mod( 'featured_image_blog_archives' ) == 'no' ) {
+		// don't output on archives or post pages when turned off via Customizer setting
+		if (
+			( (  is_home() || is_archive() || is_search() ) && get_theme_mod( 'featured_image_blog_archives' ) == 'no' )
+			|| ( is_singular( 'post' ) && get_theme_mod( 'featured_image_posts' ) == 'no' )
+		) {
 			return;
 		}
 

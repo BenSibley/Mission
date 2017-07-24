@@ -525,6 +525,141 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
+	// section - Posts
+	$wp_customize->add_section( 'ct_mission_show_hide_posts', array(
+		'title'    => __( 'Posts', 'mission' ),
+		'description' => __( 'These settings apply to individual post pages.', 'mission' ),
+		'panel'    => 'ct_mission_show_hide_panel',
+		'priority' => 4
+	) );
+	// setting
+	$wp_customize->add_setting( 'featured_image_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'featured_image_posts', array(
+		'label'    => __( 'Show the Featured Image?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'featured_image_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_author_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_author_posts', array(
+		'label'    => __( 'Show the post author?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'post_author_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_date_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_date_posts', array(
+		'label'    => __( 'Show the post date?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'post_date_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'category_links_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'category_links_posts', array(
+		'label'    => __( 'Show the category links?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'category_links_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'tag_links_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'tag_links_posts', array(
+		'label'    => __( 'Show the tag links?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'tag_links_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'author_avatar_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'author_avatar_posts', array(
+		'label'    => __( 'Show avatar in the author box?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'author_avatar_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'author_box_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'author_box_posts', array(
+		'label'    => __( 'Show the author box?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'author_box_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'more_from_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'more_from_posts', array(
+		'label'    => __( 'Show the "More from..." section?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_posts',
+		'settings' => 'more_from_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
 
 //	// setting
 //	$wp_customize->add_setting( 'post_byline_date', array(

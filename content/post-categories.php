@@ -1,5 +1,5 @@
 <?php
-if ( get_theme_mod( 'post_categories') == 'no' ) return;
+if ( get_theme_mod( 'category_links_posts') == 'no' ) return;
 
 $categories = get_the_category( $post->ID );
 $separator  = ', ';

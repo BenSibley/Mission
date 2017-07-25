@@ -1,7 +1,8 @@
 .pagination {
   clear: both;
   margin: $baseline-height/2 0;
-  padding: 0 $column * 2;
+  padding: $baseline-height $column * 2 0;
+  border-top: solid 1px $color-gray-86;
 
   a,
   span {
@@ -21,8 +22,7 @@
 @media all and (min-width: $six-hundred) {
 
   .pagination {
-    padding: $baseline-height/2 $column 0;
-    border-top: solid 1px $color-gray-86;
+    padding: $baseline-height $column 0;
   }
 }
 

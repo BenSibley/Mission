@@ -467,6 +467,13 @@ a img {
     margin: 0 0 1.125em;
   }
 }
+.blog .entry:last-child,
+.archive .entry:last-child,
+.search .entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 .comment-respond {
   margin-top: 1.875em;
 }
@@ -1027,7 +1034,8 @@ a img {
 .pagination {
   clear: both;
   margin: 0.75em 0;
-  padding: 0 5.556%;
+  padding: 1.5em 5.556% 0;
+  border-top: solid 1px #DCDCDC;
 }
 .pagination a,
 .pagination span {
@@ -1045,8 +1053,7 @@ a img {
 
 @media all and (min-width: 37.5em) {
   .pagination {
-    padding: 0.75em 2.778% 0;
-    border-top: solid 1px #DCDCDC;
+    padding: 1.5em 2.778% 0;
   }
 }
 @media all and (min-width: 50em) {
@@ -1065,17 +1072,18 @@ a img {
   display: table-header-group;
 }
 .main .loop-container {
-  padding: 0 5.556%;
+  padding: 0 5.556% 1.5em;
 }
 
 @media all and (min-width: 37.5em) {
   .main .loop-container {
-    padding: 0 2.778%;
+    padding: 0 2.778% 1.5em;
   }
 }
 @media all and (min-width: 50em) {
   .content-container {
     display: block;
+    min-height: calc(100vh - 430px);
   }
   .content-container:after {
     content: ".";
@@ -1090,7 +1098,7 @@ a img {
     position: relative;
     width: 50%;
     float: left;
-    padding: 0 2.778%;
+    padding: 0 2.778% 1.5em;
     display: block;
   }
   .main .loop-container {

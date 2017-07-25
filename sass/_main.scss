@@ -7,7 +7,7 @@
   display: table-header-group;
 
   .loop-container {
-    padding: 0 $column * 2;
+    padding: 0 $column * 2 $baseline-height;
   }
 }
 
@@ -16,7 +16,7 @@
   .main {
 
     .loop-container {
-      padding: 0 $column;
+      padding: 0 $column $baseline-height;
     }
   }
 }
@@ -25,6 +25,7 @@
 
   .content-container {
     display: block;
+    min-height: calc(100vh - 430px);
 
     &:after {
       @include clearfix;
@@ -34,7 +35,7 @@
     position: relative;
     width: 50%; // $column * 16
     float: left;
-    padding: 0 $column;
+    padding: 0 $column $baseline-height;
     display: block;
 
     .loop-container {

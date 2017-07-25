@@ -2223,6 +2223,30 @@ a img {
     float: left;
   }
 }
+.widget-area-below-header,
+.widget-area-above-main,
+.widget-area-after-post,
+.widget-area-after-page,
+.widget-area-after-first-post {
+  text-align: center;
+}
+
+.widget-area-below-header {
+  margin-bottom: 1.125em;
+}
+
+.widget-area-above-main {
+  margin-bottom: 0.75em;
+}
+
+.widget-area-after-post {
+  margin: 1.5em 0;
+}
+
+.widget-area-after-page {
+  margin-top: 2.25em;
+}
+
 .widget-title {
   margin-bottom: 1.125em;
 }

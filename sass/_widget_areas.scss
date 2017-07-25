@@ -1,0 +1,19 @@
+.widget-area-below-header,
+.widget-area-above-main,
+.widget-area-after-post,
+.widget-area-after-page,
+.widget-area-after-first-post {
+  text-align: center;
+}
+.widget-area-below-header {
+  margin-bottom: $baseline-height * 0.75;
+}
+.widget-area-above-main {
+  margin-bottom: $baseline-height/2;
+}
+.widget-area-after-post {
+  margin: $baseline-height 0;
+}
+.widget-area-after-page {
+  margin-top: $baseline-height * 1.5;
+}

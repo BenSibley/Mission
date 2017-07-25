@@ -58,17 +58,61 @@ if ( ! function_exists( ( 'ct_mission_register_widget_areas' ) ) ) {
 		register_sidebar( array(
 			'name'          => esc_html__( 'Left Sidebar', 'mission' ),
 			'id'            => 'left',
-			'description'   => esc_html__( 'Widgets in this area will be shown left of the main post content', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown left of the main post content.', 'mission' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
-		
 		register_sidebar( array(
 			'name'          => esc_html__( 'Right Sidebar', 'mission' ),
 			'id'            => 'right',
-			'description'   => esc_html__( 'Widgets in this area will be shown right of the main post content', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown right of the main post content.', 'mission' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'Ad Spot - Below Header', 'mission' ),
+			'id'            => 'below-header',
+			'description'   => esc_html__( 'Widgets in this area will be shown below the header and above the posts and sidebars.', 'mission' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'Ad Spot - Above Posts', 'mission' ),
+			'id'            => 'above-main',
+			'description'   => esc_html__( 'Widgets in this area will be shown in the center column above the posts.', 'mission' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'Ad Spot - After Post Content', 'mission' ),
+			'id'            => 'after-post',
+			'description'   => esc_html__( 'Widgets in this area will be shown on post pages after the content.', 'mission' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'Ad Spot - After Page Content', 'mission' ),
+			'id'            => 'after-page',
+			'description'   => esc_html__( 'Widgets in this area will be shown on pages after the content.', 'mission' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'Ad Spot - After First Post', 'mission' ),
+			'id'            => 'after-first-post',
+			'description'   => esc_html__( 'Widgets in this area will be shown on the blog after the first post.', 'mission' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -559,8 +603,12 @@ if ( ! function_exists( ( 'ct_mission_infinite_scroll_render' ) ) ) {
 if ( ! function_exists( 'ct_mission_get_content_template' ) ) {
 	function ct_mission_get_content_template() {
 		global $wp_query;
-
 		$layout = get_theme_mod( 'layout' );
+
+		// output ad widget area after first post
+		if ( is_main_query() && $wp_query->current_post == 1 ) {
+			get_sidebar( 'after-first-post' );
+		}
 
 		if ( is_home() || is_archive() || is_search() ) {
 			if ( !empty( $layout ) && $layout != 'simple' && $wp_query->current_post != 0 ) {

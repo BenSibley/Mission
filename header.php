@@ -38,10 +38,12 @@
 			</div>
 		</header>
 		<?php do_action( 'ct_mission_after_header' ); ?>
+		<?php get_sidebar( 'below-header' ); ?>
 		<div class="content-container">
 			<?php get_sidebar( 'left' ); ?>
 			<section id="main" class="main" role="main">
 				<?php do_action( 'ct_mission_main_top' );
+				get_sidebar( 'above-main' );
 				if ( function_exists( 'yoast_breadcrumb' ) ) {
 					yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
 				}

@@ -21,6 +21,7 @@ $date   = get_theme_mod( 'post_date_posts' );
 		<div class="post-meta">
 			<?php get_template_part( 'content/post-categories' ); ?>
 			<?php get_template_part( 'content/post-tags' ); ?>
+			<?php get_sidebar( 'after-post' ); ?>
 			<?php get_template_part( 'content/post-author' ); ?>
 		</div>
 		<?php get_template_part( 'content/more-from-category' ); ?>

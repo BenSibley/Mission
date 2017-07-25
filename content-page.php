@@ -12,6 +12,7 @@
 				'after'  => '</p>',
 			) ); ?>
 			<?php do_action( 'ct_mission_page_after' ); ?>
+			<?php get_sidebar( 'after-page' ); ?>
 		</div>
 	</article>
 	<?php comments_template(); ?>

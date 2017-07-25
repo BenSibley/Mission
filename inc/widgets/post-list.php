@@ -33,7 +33,7 @@ class ct_mission_post_list extends WP_Widget {
 			'post_type'      => 'post',
 			'post_status'    => 'publish'
 		);
-		if ( $instance['use_category'] == 1 && $instance['use_tag'] == 1 && $instance['relationship'] == 'OR' ) {
+		if ( $instance['use_category'] == 'yes' && $instance['use_tag'] == 'yes' && $instance['relationship'] == 'OR' ) {
 			$query_args['tax_query'] = array(
 				'relation' => 'OR',
 				array(
@@ -48,10 +48,10 @@ class ct_mission_post_list extends WP_Widget {
 			    ),
 			);
 		} else {
-			if ( $instance['use_category'] == 1 ) {
+			if ( $instance['use_category'] == 'yes' ) {
 				$query_args['cat'] = $instance['category'];
 			}
-			if ( $instance['use_tag'] == 1 ) {
+			if ( $instance['use_tag'] == 'yes' ) {
 				$query_args['tag_id'] = $instance['tag'];
 			}
 		}
@@ -64,23 +64,23 @@ class ct_mission_post_list extends WP_Widget {
 				$the_query->the_post();
 				echo '<li>';
 					echo '<div class="top">';
-						if ( $instance['image'] == 1 ) {
+						if ( $instance['image'] == 'yes' ) {
 							ct_mission_featured_image();
 						}
 						echo '<div class="top-inner">';
 							echo '<a href="' . esc_url( get_the_permalink() ) . '" class="title">' . esc_html( get_the_title() ) . '</a>';
-							if ( $instance['author'] == 1 || $instance['date'] == 1 ) {
+							if ( $instance['author'] == 'yes' || $instance['date'] == 'yes' ) {
 								ct_mission_post_byline( $instance['author'], $instance['date'] );
 							}
 						echo '</div>';
 					echo '</div>';
 					echo '<div class="bottom">';
-						if ( $instance['excerpt'] == 1 ) {
+						if ( $instance['excerpt'] == 'yes' ) {
 							echo '<div class="excerpt">';
 								echo wpautop( get_the_excerpt() );
 							echo '</div>';
 						}
-						if ( $instance['comments'] == 1 ) {
+						if ( $instance['comments'] == 'yes' ) {
 							get_template_part( 'content/comments-link' );
 						}
 					echo '</div>';
@@ -96,16 +96,16 @@ class ct_mission_post_list extends WP_Widget {
 	public function form( $instance ) {
 
 		$title        = isset( $instance['title'] ) ? $instance['title'] : '';
-		$use_category = isset( $instance['use_category'] ) ? $instance['use_category'] : 1;
+		$use_category = isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes';
 		$category     = isset( $instance['category'] ) ? $instance['category'] : 1;
-		$use_tag      = isset( $instance['use_tag'] ) ? $instance['use_tag'] : 0;
+		$use_tag      = isset( $instance['use_tag'] ) ? $instance['use_tag'] : 'no';
 		$tag          = isset( $instance['tag'] ) ? $instance['tag'] : 1;
 		$relationship = isset( $instance['relationship'] ) ? $instance['relationship'] : 'AND';
 		$author       = isset( $instance['author'] ) ? $instance['author'] : 'yes';
 		$date         = isset( $instance['date'] ) ? $instance['date'] : 'no';
-		$image        = isset( $instance['image'] ) ? $instance['image'] : 0;
-		$excerpt      = isset( $instance['excerpt'] ) ? $instance['excerpt'] : 1;
-		$comments     = isset( $instance['comments'] ) ? $instance['comments'] : 1;
+		$image        = isset( $instance['image'] ) ? $instance['image'] : 'no';
+		$excerpt      = isset( $instance['excerpt'] ) ? $instance['excerpt'] : 'yes';
+		$comments     = isset( $instance['comments'] ) ? $instance['comments'] : 'yes';
 		$post_count   = isset( $instance['post_count'] ) ? $instance['post_count'] : 5;
 		$style        = isset( $instance['style'] ) ? $instance['style'] : 1;
 		?>
@@ -117,7 +117,7 @@ class ct_mission_post_list extends WP_Widget {
 			<h4><?php esc_html_e( 'Post Source', 'mission' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $use_category, 1 ); ?> id="<?php echo $this->get_field_id( 'use_category' ); ?>" name="<?php echo $this->get_field_name( 'use_category' ); ?>" value="<?php echo $use_category; ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $use_category, 'yes' ); ?> id="<?php echo $this->get_field_id( 'use_category' ); ?>" name="<?php echo $this->get_field_name( 'use_category' ); ?>" value="<?php echo $use_category; ?>" />
 					<label for="<?php echo $this->get_field_id( 'use_category' ); ?>"><?php esc_html_e( 'Category', 'mission' ); ?></label>
 				</p>
 				<p class="category">
@@ -131,7 +131,7 @@ class ct_mission_post_list extends WP_Widget {
 					) ); ?>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $use_tag, 1 ); ?> id="<?php echo $this->get_field_id( 'use_tag' ); ?>" name="<?php echo $this->get_field_name( 'use_tag' ); ?>" value="<?php echo $use_tag; ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $use_tag, 'yes' ); ?> id="<?php echo $this->get_field_id( 'use_tag' ); ?>" name="<?php echo $this->get_field_name( 'use_tag' ); ?>" value="<?php echo $use_tag; ?>" />
 					<label for="<?php echo $this->get_field_id( 'use_tag' ); ?>"><?php esc_html_e( 'Tag', 'mission' ); ?></label>
 				</p>
 				<p class="tag">
@@ -171,15 +171,15 @@ class ct_mission_post_list extends WP_Widget {
 					<label for="<?php echo $this->get_field_id( 'date' ); ?>"><?php esc_html_e( 'Show date in byline', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $image ); ?> id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php echo $image; ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $image, 'yes' ); ?> id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php echo $image; ?>" />
 					<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php esc_html_e( 'Show Featured Images', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $excerpt ); ?> id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" value="<?php echo $excerpt; ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $excerpt, 'yes' ); ?> id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" value="<?php echo $excerpt; ?>" />
 					<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>"><?php esc_html_e( 'Show excerpt', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $comments ); ?> id="<?php echo $this->get_field_id( 'comments' ); ?>" name="<?php echo $this->get_field_name( 'comments' ); ?>" value="<?php echo $comments; ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $comments, 'yes' ); ?> id="<?php echo $this->get_field_id( 'comments' ); ?>" name="<?php echo $this->get_field_name( 'comments' ); ?>" value="<?php echo $comments; ?>" />
 					<label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php esc_html_e( 'Show comments link', 'mission' ); ?></label>
 				</p>
 				<p>
@@ -205,15 +205,15 @@ class ct_mission_post_list extends WP_Widget {
 
 		$instance                 = array();
 		$instance['title']        = isset( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['use_category'] = isset( $new_instance['use_category'] ) ? 1 : 0;
+		$instance['use_category'] = isset( $new_instance['use_category'] ) ? 'yes' : 'no';
 		$instance['category']     = isset( $new_instance['category'] ) ? absint( $new_instance['category'] ) : 1;
-		$instance['use_tag']      = isset( $new_instance['use_tag'] ) ? 1 : 0;
+		$instance['use_tag']      = isset( $new_instance['use_tag'] ) ? 'yes' : 'no';
 		$instance['tag']          = isset( $new_instance['tag'] ) ? absint( $new_instance['tag'] ) : 1;
 		$instance['author']       = isset( $new_instance['author'] ) ? 'yes' : 'no';
 		$instance['date']         = isset( $new_instance['date'] ) ? 'yes' : 'no';
-		$instance['image']        = isset( $new_instance['image'] ) ? 1 : 0;
-		$instance['excerpt']      = isset( $new_instance['excerpt'] ) ? 1 : 0;
-		$instance['comments']     = isset( $new_instance['comments'] ) ? 1 : 0;
+		$instance['image']        = isset( $new_instance['image'] ) ? 'yes' : 'no';
+		$instance['excerpt']      = isset( $new_instance['excerpt'] ) ? 'yes' : 'no';
+		$instance['comments']     = isset( $new_instance['comments'] ) ? 'yes' : 'no';
 		$instance['post_count']   = isset( $new_instance['post_count'] ) ? absint( $new_instance['post_count'] ) : 5;
 		$instance['style']        = isset( $new_instance['style'] ) ? absint( $new_instance['style'] ) : 1;
 		$instance['relationship'] = isset( $new_instance['relationship'] ) ? strip_tags( $new_instance['relationship'] ) : 'AND';

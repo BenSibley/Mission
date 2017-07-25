@@ -151,6 +151,24 @@
     margin-top: $baseline-height/2;
   }
 }
+.post-password-form {
+
+  p:last-child {
+    display: flex;
+
+    label {
+      flex-grow: 1;
+
+      input {
+        margin-top: 6px;
+      }
+    }
+    input[type="submit"] {
+      align-self: flex-end;
+      padding: 9px 18px;
+    }
+  }
+}
 
 @media all and (min-width: $five-hundred) {
 

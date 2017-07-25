@@ -1,4 +1,4 @@
-.content-container {
+.layout-container {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -24,7 +24,27 @@
 @media all and (min-width: $eight-hundred) {
 
   .content-container {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: $color-gray-86;
+    }
+    &:before {
+      left: 25%;
+    }
+    &:after {
+      right: 25%;
+    }
+  }
+  .layout-container {
     display: block;
+    position: relative;
     min-height: calc(100vh - 430px);
 
     &:after {
@@ -32,29 +52,14 @@
     }
   }
   .main {
+    display: block;
     position: relative;
     width: 50%; // $column * 16
     float: left;
     padding: 0 $column $baseline-height;
-    display: block;
 
     .loop-container {
       padding: 0;
-    }
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: -9999px;
-      width: 1px;
-      background: $color-gray-86;
-    }
-    &:before {
-      left: 0;
-    }
-    &:after {
-      right: 0;
     }
   }
 }

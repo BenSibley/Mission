@@ -154,9 +154,9 @@ body.display-search #wpadminbar {
 }
 .overflow-container {
   position: relative;
-  overflow: hidden;
   height: auto;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .main {
@@ -1083,7 +1083,7 @@ a img {
     padding: 1.5em 0 0 0;
   }
 }
-.content-container {
+.layout-container {
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -1103,10 +1103,29 @@ a img {
 }
 @media all and (min-width: 50em) {
   .content-container {
-    display: block;
-    min-height: calc(100vh - 430px);
+    position: relative;
+  }
+  .content-container:before, .content-container:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #DCDCDC;
+  }
+  .content-container:before {
+    left: 25%;
   }
   .content-container:after {
+    right: 25%;
+  }
+
+  .layout-container {
+    display: block;
+    position: relative;
+    min-height: calc(100vh - 430px);
+  }
+  .layout-container:after {
     content: ".";
     display: block;
     clear: both;
@@ -1116,28 +1135,14 @@ a img {
   }
 
   .main {
+    display: block;
     position: relative;
     width: 50%;
     float: left;
     padding: 0 2.778% 1.5em;
-    display: block;
   }
   .main .loop-container {
     padding: 0;
-  }
-  .main:before, .main:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: -9999px;
-    width: 1px;
-    background: #DCDCDC;
-  }
-  .main:before {
-    left: 0;
-  }
-  .main:after {
-    right: 0;
   }
 }
 .toggle-navigation {
@@ -1979,6 +1984,26 @@ a img {
 .more-from-category .title {
   display: block;
   margin-top: 0.75em;
+}
+
+.post-password-form p:last-child {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.post-password-form p:last-child label {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.post-password-form p:last-child label input {
+  margin-top: 6px;
+}
+.post-password-form p:last-child input[type="submit"] {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  padding: 9px 18px;
 }
 
 @media all and (min-width: 31.25em) {

@@ -702,3 +702,12 @@ function ct_mission_post_byline( $author, $date ) {
 		}
 	echo '</div>';
 }
+
+// provide a fallback title on the off-chance a post is untitled so it remains clickable on the blog
+function ct_mission_no_missing_titles( $title, $id = null ) {
+	if ( $title == '' ) {
+		$title = esc_html__( '(title)', 'startup-blog' );
+	}
+	return $title;
+}
+add_filter( 'the_title', 'ct_mission_no_missing_titles', 10, 2 );

@@ -57,12 +57,11 @@ body {
 }
 .overflow-container {
   position: relative;
-  overflow: hidden;
   height: auto;
   min-height: 100%;
+  overflow: hidden;
 }
 .main {
-//  background: $background;
   margin: 0 auto;
 }
 .loop-container {

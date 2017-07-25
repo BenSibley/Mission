@@ -2,6 +2,7 @@
 </section> <!-- .main -->
 <?php do_action( 'ct_mission_after_main' ); ?>
 <?php get_sidebar( 'right' ); ?>
+</div><!-- layout-container -->
 </div><!-- content-container -->
 
 <footer id="site-footer" class="site-footer" role="contentinfo">

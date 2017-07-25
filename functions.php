@@ -457,7 +457,7 @@ if ( ! function_exists( ( 'ct_mission_sticky_post_marker' ) ) ) {
 		}
 	}
 }
-add_action( 'sticky_post_status', 'ct_mission_sticky_post_marker' );
+add_action( 'ct_mission_sticky_post_status', 'ct_mission_sticky_post_marker' );
 
 if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
 	function ct_mission_reset_customizer_options() {

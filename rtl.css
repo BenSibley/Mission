@@ -63,7 +63,7 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
 }
 
 .wp-caption-text,
-.gallery-caption, .comment-respond label, .site-footer .design-credit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_post_list .comments-link, .widget_calendar table caption {
+.gallery-caption, .sticky-status, .comment-respond label, .site-footer .design-credit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_post_list .comments-link, .widget_calendar table caption {
   font-size: 0.75em;
   /* 12px / 16px */
   line-height: 1.5;
@@ -77,7 +77,7 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
   /* 18px */
 }
 
-.comments .comment-author .comment-date, .search-toggle span, .search-form-popup .search-submit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .sidebar-left .widget-title,
+.sticky-status, .comments .comment-author .comment-date, .search-toggle span, .search-form-popup .search-submit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .sidebar-left .widget-title,
 .sidebar-right .widget-title, .widget_ct_mission_post_list .style-2 .post-byline, .widget_ct_mission_post_list .style-2 .widget_recent_entries .post-date, .widget_recent_entries .widget_ct_mission_post_list .style-2 .post-date, .widget_ct_mission_post_list .style-2 .widget_rss .rss-date, .widget_rss .widget_ct_mission_post_list .style-2 .rss-date, .widget_calendar table caption {
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -472,6 +472,21 @@ a img {
 .search .entry:last-child {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+.entry.sticky {
+  position: relative;
+}
+
+.sticky-status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #000;
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+  padding: 6px 12px;
+  font-weight: 700;
 }
 
 .comment-respond {

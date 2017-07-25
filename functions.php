@@ -462,7 +462,7 @@ add_action( 'ct_mission_sticky_post_status', 'ct_mission_sticky_post_marker' );
 if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
 	function ct_mission_reset_customizer_options() {
 
-		if ( empty( $_POST['ct_mission_reset_customizer'] ) || 'ct_mission_reset_customizer_settings' !== $_POST['ct_mission_reset_customizer'] ) {
+		if ( !isset( $_POST['mission_reset_customizer'] ) || 'mission_reset_customizer_settings' !== $_POST['mission_reset_customizer'] ) {
 			return;
 		}
 
@@ -475,14 +475,28 @@ if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
 		}
 
 		$mods_array = array(
-			'logo_upload',
-			'search_bar',
+			'layout',
+			'date',
+			'social_icons_header',
+			'tagline_header',
+			'search',
+			'featured_image_blog_archives',
+			'post_author_blog_archives',
+			'post_date_blog_archives',
+			'archive_title',
+			'archive_description',
+			'featured_image_posts',
+			'post_author_posts',
+			'post_date_posts',
+			'category_links_posts',
+			'tag_links_posts',
+			'author_avatar_posts',
+			'author_box_posts',
+			'more_from_posts',
+			'comment_date',
+			'author_label',
 			'full_post',
-			'excerpt_length',
-			'read_more_text',
-			'full_width_post',
-			'author_byline',
-			'custom_css'
+			'excerpt_length'
 		);
 
 		$social_sites = ct_mission_social_array();

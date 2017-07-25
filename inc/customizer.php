@@ -27,15 +27,15 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			$link = 'https://www.competethemes.com/mission-pro/';
 			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/mission-pro.gif' /></a>";
 			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'mission'), $link, wp_get_theme( get_template() ) ) . "</p>";
-			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Startup Blog Pro adds the following features:', 'mission'), wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Mission Pro adds the following features:', 'mission'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
 					<li>" . esc_html__('6 new layouts', 'mission') . "</li>
 					<li>" . esc_html__('4 post templates', 'mission') . "</li>
 					<li>" . esc_html__('61 advanced color controls', 'mission') . "</li>
 					<li>" . esc_html__('+ 5 more features', 'mission') . "</li>
 				  </ul>";
-			// translators: placeholder is "Startup Blog"
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='mission-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Startup Blog Pro', 'mission'), wp_get_theme( get_template() ) ) . "</a></p>";
+			// translators: placeholder is "Mission Pro"
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='mission-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Mission Pro', 'mission'), wp_get_theme( get_template() ) ) . "</a></p>";
 		}
 	}
 
@@ -51,10 +51,10 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		) );
 	}
 
-	/***** Startup Blog Pro Section *****/
+	/***** Mission Pro Section *****/
 
-	// don't add if Startup Blog Pro is active
-	if ( !defined( 'ct_mission_PRO_FILE' ) ) {
+	// don't add if Mission Pro is active
+	if ( !defined( 'MISSION_PRO_FILE' ) ) {
 		// section
 		$wp_customize->add_section( 'ct_mission_pro', array(
 			'title'    => sprintf( __( '%s Pro', 'mission' ), wp_get_theme( get_template() ) ),

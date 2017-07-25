@@ -1,7 +1,7 @@
 <?php
 
 function ct_mission_register_theme_page() {
-	add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission' ), wp_get_theme( get_template() ) ), wp_get_theme( get_template() ), 'edit_theme_options', 'mission-options', 'ct_mission_options_content', 'ct_mission_options_content' );
+	add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission' ), wp_get_theme( get_template() ) ), sprintf( esc_html__( '%s Dashboard', 'mission' ), wp_get_theme( get_template() ) ), 'edit_theme_options', 'mission-options', 'ct_mission_options_content', 'ct_mission_options_content' );
 }
 add_action( 'admin_menu', 'ct_mission_register_theme_page' );
 
@@ -30,7 +30,7 @@ function ct_mission_options_content() {
 			</div>
 			<?php if ( !function_exists( 'ct_mission_pro_init' ) ) : ?>
 				<div class="content content-premium-upgrade">
-					<h3><?php printf( esc_html__( 'Startup Blog Pro', 'mission' ), wp_get_theme( get_template() ) ); ?></h3>
+					<h3><?php printf( esc_html__( 'Mission Pro', 'mission' ), wp_get_theme( get_template() ) ); ?></h3>
 					<p><?php printf( esc_html__( 'Download the %s Pro plugin and unlock six new layouts, four post templates, advanced color controls, and more.', 'mission' ), wp_get_theme( get_template() ) ); ?></p>
 					<p>
 						<a target="_blank" class="button-primary"

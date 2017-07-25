@@ -78,18 +78,20 @@
 
 /* Theme options page */
 
-#ct_mission-dashboard-wrap {
+#mission-dashboard-wrap {
 
   h2 {
     margin-bottom: 24px;
   }
   .content {
+    box-sizing: border-box;
     margin-top: 12px;
     padding: 12px 24px 24px;
     border: solid 1px #e5e5e5;
     background: white;
 
-    .button-primary {
+    .button-primary,
+    #delete {
       margin: 12px 0;
     }
     ul {
@@ -102,23 +104,20 @@
 /* 600px */
 @media all and (min-width: 37.5em) {
 
-  #ct_mission-dashboard-wrap {
+  #mission-dashboard-wrap {
 
     .content {
-      width: 39%;
+      width: 49%;
       float: left;
+      margin-right: 2%;
+      min-height: 250px;
 
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
       p {
         min-height: 57px;
       }
-    }
-    .content-review {
-      min-height: 192px;
-    }
-    .content-customization,
-    .content-premium-upgrade,
-    .content-review {
-      margin-right: 2%;
     }
   }
 }
@@ -126,22 +125,20 @@
 /* 1100px */
 @media all and (min-width: 68.75em) {
 
-  #ct_mission-dashboard-wrap {
+  #mission-dashboard-wrap {
 
     .content {
-      width: 27%;
-    }
-    .content-resources {
-      clear: left;
-    }
-    .content-customization,
-    .content-support,
-    .content-resources,
-    .content-review {
-      margin-right: 1%;
-    }
-    .content-premium-upgrade {
-      margin-right: 0;
+      width: 32%;
+
+      &:nth-child(2n) {
+        margin-right: 2%;
+      }
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+      &:nth-child(4n) {
+        clear: left;
+      }
     }
   }
 }

@@ -68,56 +68,52 @@
 }
 
 /* Theme options page */
-#ct_mission-dashboard-wrap h2 {
+#mission-dashboard-wrap h2 {
   margin-bottom: 24px;
 }
-#ct_mission-dashboard-wrap .content {
+#mission-dashboard-wrap .content {
+  box-sizing: border-box;
   margin-top: 12px;
   padding: 12px 24px 24px;
   border: solid 1px #e5e5e5;
   background: white;
 }
-#ct_mission-dashboard-wrap .content .button-primary {
+#mission-dashboard-wrap .content .button-primary,
+#mission-dashboard-wrap .content #delete {
   margin: 12px 0;
 }
-#ct_mission-dashboard-wrap .content ul {
+#mission-dashboard-wrap .content ul {
   list-style: disc;
   margin-left: 36px;
 }
 
 /* 600px */
 @media all and (min-width: 37.5em) {
-  #ct_mission-dashboard-wrap .content {
-    width: 39%;
+  #mission-dashboard-wrap .content {
+    width: 49%;
     float: left;
-  }
-  #ct_mission-dashboard-wrap .content p {
-    min-height: 57px;
-  }
-  #ct_mission-dashboard-wrap .content-review {
-    min-height: 192px;
-  }
-  #ct_mission-dashboard-wrap .content-customization,
-  #ct_mission-dashboard-wrap .content-premium-upgrade,
-  #ct_mission-dashboard-wrap .content-review {
     margin-right: 2%;
+    min-height: 250px;
+  }
+  #mission-dashboard-wrap .content:nth-child(2n) {
+    margin-right: 0;
+  }
+  #mission-dashboard-wrap .content p {
+    min-height: 57px;
   }
 }
 /* 1100px */
 @media all and (min-width: 68.75em) {
-  #ct_mission-dashboard-wrap .content {
-    width: 27%;
+  #mission-dashboard-wrap .content {
+    width: 32%;
   }
-  #ct_mission-dashboard-wrap .content-resources {
-    clear: left;
+  #mission-dashboard-wrap .content:nth-child(2n) {
+    margin-right: 2%;
   }
-  #ct_mission-dashboard-wrap .content-customization,
-  #ct_mission-dashboard-wrap .content-support,
-  #ct_mission-dashboard-wrap .content-resources,
-  #ct_mission-dashboard-wrap .content-review {
-    margin-right: 1%;
-  }
-  #ct_mission-dashboard-wrap .content-premium-upgrade {
+  #mission-dashboard-wrap .content:nth-child(3n) {
     margin-right: 0;
+  }
+  #mission-dashboard-wrap .content:nth-child(4n) {
+    clear: left;
   }
 }

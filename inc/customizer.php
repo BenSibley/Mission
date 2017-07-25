@@ -660,6 +660,45 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
+	// section - Comments
+	$wp_customize->add_section( 'ct_mission_show_hide_comments', array(
+		'title'       => __( 'Comments', 'mission' ),
+		'description' => __( 'These settings apply to post comments.', 'mission' ),
+		'panel'       => 'ct_mission_show_hide_panel',
+		'priority'    => 5
+	) );
+	// setting
+	$wp_customize->add_setting( 'comment_date', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'comment_date', array(
+		'label'    => __( 'Show the comment date?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_comments',
+		'settings' => 'comment_date',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'author_label', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'author_label', array(
+		'label'    => __( 'Show the "Post Author" label?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_comments',
+		'settings' => 'author_label',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
 
 //	// setting
 //	$wp_customize->add_setting( 'post_byline_date', array(

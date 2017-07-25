@@ -90,10 +90,15 @@ if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
 				<span class="comment-date">
 					<?php
 					global $post;
-					if ( $comment->user_id === $post->post_author ) {
-						echo '<span>' . esc_html__( 'Post author', 'mission' ) . ' | </span>';
+					if ( $comment->user_id === $post->post_author && get_theme_mod( 'author_label' ) != 'no' ) {
+						echo '<span>' . esc_html__( 'Post author', 'mission' ) . '</span>';
+						if ( get_theme_mod( 'comment_date' ) != 'no' ) {
+							echo ' | ';
+						}
 					}
-					comment_date();
+					if ( get_theme_mod( 'comment_date' ) != 'no' ) {
+						comment_date();
+					}
 					?>
 				</span>
 			</div>

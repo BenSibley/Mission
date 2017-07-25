@@ -176,21 +176,21 @@ if ( ! function_exists( 'ct_mission_update_fields' ) ) {
 
 		$fields['author'] =
 			'<p class="comment-form-author">
-	            <label for="author">' . esc_html__( "Name", "ct_mission" ) . esc_html( $label ) . '</label>
-	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "ct_mission" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
+	            <label for="author">' . esc_html__( "Name", "mission" ) . esc_html( $label ) . '</label>
+	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "mission" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['email'] =
 			'<p class="comment-form-email">
-	            <label for="email">' . esc_html__( "Email", "ct_mission" ) . esc_html( $label ) . '</label>
-	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "ct_mission" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
+	            <label for="email">' . esc_html__( "Email", "mission" ) . esc_html( $label ) . '</label>
+	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "mission" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['url'] =
 			'<p class="comment-form-url">
-	            <label for="url">' . esc_html__( "Website", "ct_mission" ) . '</label>
+	            <label for="url">' . esc_html__( "Website", "mission" ) . '</label>
 	            <input id="url" name="url" type="url" placeholder="http://google.com" value="' . esc_attr( $commenter['comment_author_url'] ) .
 			'" size="30" />
 	            </p>';
@@ -205,7 +205,7 @@ if ( ! function_exists( 'ct_mission_update_comment_field' ) ) {
 
 		$comment_field =
 			'<p class="comment-form-comment">
-	            <label for="comment">' . esc_html__( "Comment", "ct_mission" ) . '</label>
+	            <label for="comment">' . esc_html__( "Comment", "mission" ) . '</label>
 	            <textarea required id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 	        </p>';
 
@@ -440,7 +440,7 @@ if ( ! function_exists( ( 'ct_mission_nav_dropdown_buttons' ) ) ) {
 		if ( $args->theme_location == 'primary' || $args->theme_location == 'secondary' ) {
 
 			if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
-				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "ct_mission" ) . '</span><i class="fa fa-angle-right"></i></button>', $item_output );
+				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "mission" ) . '</span><i class="fa fa-angle-right"></i></button>', $item_output );
 			}
 		}
 
@@ -453,7 +453,7 @@ if ( ! function_exists( ( 'ct_mission_sticky_post_marker' ) ) ) {
 	function ct_mission_sticky_post_marker() {
 
 		if ( is_sticky() && ! is_archive() ) {
-			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "ct_mission" ) . '</span></div>';
+			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "mission" ) . '</span></div>';
 		}
 	}
 }

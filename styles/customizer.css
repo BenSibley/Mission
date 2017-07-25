@@ -31,3 +31,9 @@
   -webkit-transition: right 0.15s ease-in-out;
   transition: right 0.15s ease-in-out;
 }
+
+#sub-accordion-section-ct_mission_social_media_icons #customize-control-email-form {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: solid 1px #d5d5d5;
+}

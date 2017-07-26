@@ -795,9 +795,8 @@ a img {
   border: solid 1px #DCDCDC;
   border-radius: 3px;
   background: none;
-  margin: 0;
+  margin: 0 0 0 -36px;
   padding: 8px 10px;
-  margin-left: -36px;
   -webkit-transition: border-color 0.35s;
   transition: border-color 0.35s;
 }
@@ -1000,6 +999,11 @@ a img {
     border: none;
     padding: 0;
     margin: 0 0 0 18px;
+  }
+  .search-toggle::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+    margin-top: -1px;
   }
   .search-toggle span {
     display: inline-block;

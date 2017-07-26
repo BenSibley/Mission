@@ -1691,6 +1691,7 @@ a img {
   .menu-secondary-container {
     display: block;
     float: left;
+    text-align: left;
   }
 
   .menu-secondary {
@@ -2345,12 +2346,6 @@ a img {
   margin-bottom: 0.75em;
 }
 .widget_ct_mission_post_list .style-2 .top {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
   margin-bottom: 6px;
 }
 .widget_ct_mission_post_list .style-2 .top:after {
@@ -2380,9 +2375,11 @@ a img {
   float: left;
   margin: 0 12px 0 0;
   padding-bottom: 22.5%;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
+}
+
+.widget_ct_mission_post_list.style-2 .has-image .top-inner {
+  float: right;
+  width: calc(70% - 13px);
 }
 
 .widget > ul {
@@ -2513,6 +2510,11 @@ a img {
     width: 100%;
     padding-bottom: 75%;
     margin: 0 0 6px 0;
+  }
+
+  .widget_ct_mission_post_list.style-2 .has-image .top-inner {
+    float: none;
+    width: auto;
   }
 
   .widget_search form {

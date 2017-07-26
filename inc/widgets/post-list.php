@@ -62,7 +62,11 @@ class ct_mission_post_list extends WP_Widget {
 			echo '<ul>';
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
-				echo '<li>';
+				$classes = 'post-item';
+				if ( $instance['image'] == 'yes' ) {
+					$classes .= ' has-image';
+				}
+				echo '<li class="'. $classes .'">';
 					echo '<div class="top">';
 						if ( $instance['image'] == 'yes' ) {
 							ct_mission_featured_image();
@@ -74,16 +78,18 @@ class ct_mission_post_list extends WP_Widget {
 							}
 						echo '</div>';
 					echo '</div>';
-					echo '<div class="bottom">';
+					if ( $instance['excerpt'] == 'yes' || $instance['comments'] == 'yes' ) {
+						echo '<div class="bottom">';
 						if ( $instance['excerpt'] == 'yes' ) {
 							echo '<div class="excerpt">';
-								echo wpautop( get_the_excerpt() );
+							echo wpautop( get_the_excerpt() );
 							echo '</div>';
 						}
 						if ( $instance['comments'] == 'yes' ) {
 							get_template_part( 'content/comments-link' );
 						}
-					echo '</div>';
+						echo '</div>';
+					}
 				echo '</li>';
 			}
 			echo '</ul>';

@@ -58,8 +58,6 @@
       margin-bottom: $baseline-height/2;
     }
     .top {
-      display: flex;
-      align-items: center;
       margin-bottom: 6px;
 
       &:after {
@@ -95,9 +93,12 @@
       float: left;
       margin: 0 12px 0 0;
       padding-bottom: 22.5%; // 75% * 0.3 width
-      flex-shrink: 0;
     }
   }
+}
+.widget_ct_mission_post_list.style-2 .has-image .top-inner {
+  float: right;
+  width: calc(70% - 13px);
 }
 .widget {
 
@@ -215,11 +216,9 @@
   }
   .rssSummary {
     margin: $baseline-height/2 0;
-    //color: $color-gray-40;
 
     + cite {
       display: block;
-
     }
   }
   .rss-date {
@@ -262,6 +261,10 @@
         margin: 0 0 6px 0;
       }
     }
+  }
+  .widget_ct_mission_post_list.style-2 .has-image .top-inner {
+    float: none;
+    width: auto;
   }
   .widget_search {
 

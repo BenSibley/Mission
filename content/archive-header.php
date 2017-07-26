@@ -1,6 +1,6 @@
 <?php
 
-// if not archive or title & description hid via Customizer
+// if not archive or title & description hidden via Customizer
 if ( ! is_archive() || ( get_theme_mod( 'archive_title' ) == 'no' ) && get_theme_mod( 'archive_description' ) == 'no' ) {
 	return;
 }
@@ -30,8 +30,15 @@ if ( is_tag() ) {
 		the_archive_title( '&ldquo;', '&rdquo;' );
 		?>
 	</h1>
-	<?php endif; ?>
-	<?php if ( get_the_archive_description() != '' && get_theme_mod( 'archive_description' ) != 'no' ) : ?>
-		<?php the_archive_description(); ?>
-	<?php endif; ?>
+	<?php endif;
+	if ( get_the_archive_description() != '' && get_theme_mod( 'archive_description' ) != 'no' ) :
+		// the_archive_description doesn't output paragraph tags for author bios...
+		if ( is_author() ) {
+			echo '<p>';
+			the_archive_description();
+			echo '</p>';
+		} else {
+			the_archive_description();
+		}
+	endif; ?>
 </div>

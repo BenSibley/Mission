@@ -8,18 +8,30 @@
     padding-bottom: $baseline-height/2;
 
     > article {
-      display: flex;
-      align-items: center;
+
+      &:after {
+        @include clearfix;
+      }
     }
     .featured-image {
-      float: left;
-      width: 28.57%;
+      //float: left;
+      display: inline-block;
+      vertical-align: middle;
+      width: 30%;
       padding-bottom: 18.8562%;
       margin-right: 12px;
     }
     .post-header {
-      flex: 1;
       margin: 0;
+    }
+    &.has-post-thumbnail {
+
+      .post-header {
+        //float: right;
+        display: inline-block;
+        vertical-align: middle;
+        width: calc(70% - 17px);
+      }
     }
   }
 }

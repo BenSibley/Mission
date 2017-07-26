@@ -32,11 +32,12 @@
       padding: $baseline-height $column 0;
     }
     .widget {
-      width: 49%;
-      float: left;
+      width: 48%;
+      float: right;
 
       &:nth-child(odd) {
-        margin-right: 2%;
+        margin-right: 4%;
+        float: left;
       }
     }
   }

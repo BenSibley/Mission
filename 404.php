@@ -3,7 +3,7 @@
 		<article>
 			<div class="post-padding-container">
 				<div class='post-header'>
-					<h1 class='post-title'><?php esc_html__e('404: Page Not Found', 'mission'); ?></h1>
+					<h1 class='post-title'><?php esc_html_e('404: Page Not Found', 'mission'); ?></h1>
 				</div>
 				<div class="post-content">
 					<p><?php esc_html_e('Sorry, we couldn\'t find a page at this URL', 'mission' ); ?></p>

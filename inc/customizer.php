@@ -46,7 +46,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 
 		$wp_customize->add_panel( 'ct_mission_show_hide_panel', array(
 			'priority'    => 30,
-			'title'       => __( 'Show/Hide Elements', ' mission' ),
+			'title'       => __( 'Show/Hide Elements', 'mission' ),
 			'description' => __( 'Choose which elements you want displayed on the site.', 'mission' )
 		) );
 	}

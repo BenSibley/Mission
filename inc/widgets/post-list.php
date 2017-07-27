@@ -18,7 +18,7 @@ class ct_mission_post_list extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		echo $args['before_widget'];
-		echo '<div class="style-' . $instance['style'] . '">';
+		echo '<div class="style-' . esc_attr( $instance['style'] ) . '">';
 
 		if ( !empty( $instance['title'] ) ) {
 			echo $args['before_title'];
@@ -66,7 +66,7 @@ class ct_mission_post_list extends WP_Widget {
 				if ( $instance['image'] == 'yes' ) {
 					$classes .= ' has-image';
 				}
-				echo '<li class="'. $classes .'">';
+				echo '<li class="'. esc_attr( $classes ) .'">';
 					echo '<div class="top">';
 						if ( $instance['image'] == 'yes' ) {
 							ct_mission_featured_image();
@@ -117,17 +117,17 @@ class ct_mission_post_list extends WP_Widget {
 		?>
 		<div class="mission-post-list-widget">
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title', 'mission' ); ?></label>
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'mission' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( esc_attr( $title ) ); ?>">
 			</p>
 			<h4><?php esc_html_e( 'Post Source', 'mission' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $use_category, 'yes' ); ?> id="<?php echo $this->get_field_id( 'use_category' ); ?>" name="<?php echo $this->get_field_name( 'use_category' ); ?>" value="<?php echo $use_category; ?>" />
-					<label for="<?php echo $this->get_field_id( 'use_category' ); ?>"><?php esc_html_e( 'Category', 'mission' ); ?></label>
+					<input class="checkbox" type="checkbox" <?php checked( $use_category, 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_category' ) ); ?>" value="<?php echo esc_attr( $use_category ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>"><?php esc_html_e( 'Category', 'mission' ); ?></label>
 				</p>
 				<p class="category">
-					<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Category', 'mission' ); ?></label>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'category' ) ); ?>"><?php esc_html_e( 'Category', 'mission' ); ?></label>
 					<?php
 					wp_dropdown_categories( array(
 						'hide_empty' => 0,
@@ -137,11 +137,11 @@ class ct_mission_post_list extends WP_Widget {
 					) ); ?>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $use_tag, 'yes' ); ?> id="<?php echo $this->get_field_id( 'use_tag' ); ?>" name="<?php echo $this->get_field_name( 'use_tag' ); ?>" value="<?php echo $use_tag; ?>" />
-					<label for="<?php echo $this->get_field_id( 'use_tag' ); ?>"><?php esc_html_e( 'Tag', 'mission' ); ?></label>
+					<input class="checkbox" type="checkbox" <?php checked( $use_tag, 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_tag' ) ); ?>" value="<?php echo esc_attr( $use_tag ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>"><?php esc_html_e( 'Tag', 'mission' ); ?></label>
 				</p>
 				<p class="tag">
-					<label for="<?php echo $this->get_field_id( 'tag' ); ?>"><?php esc_html_e( 'Tag', 'mission' ); ?></label>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'tag' ) ); ?>"><?php esc_html_e( 'Tag', 'mission' ); ?></label>
 					<?php wp_dropdown_categories( array(
 						'taxonomy'   => 'post_tag',
 						'hide_empty' => 0,
@@ -151,8 +151,8 @@ class ct_mission_post_list extends WP_Widget {
 					) ); ?>
 				</p>
 				<p class="relationship">
-					<label for="<?php echo $this->get_field_id( 'relationship' ); ?>"><?php esc_html_e( 'Relationship', 'mission' ); ?></label>
-					<select name="<?php echo $this->get_field_name( 'relationship' ); ?>" id="<?php echo $this->get_field_id( 'relationship' ); ?>" class="postform">
+					<label for="<?php echo esc_attr( $this->get_field_id( 'relationship' ) ); ?>"><?php esc_html_e( 'Relationship', 'mission' ); ?></label>
+					<select name="<?php echo esc_attr( $this->get_field_name( 'relationship' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'relationship' ) ); ?>" class="postform">
 						<option value="AND" <?php selected( $relationship, 'AND'); ?>><?php esc_html_e( 'AND', 'mission' ); ?></option>
 						<option value="OR" <?php selected( $relationship, 'OR'); ?>><?php esc_html_e( 'OR', 'mission' ); ?></option>
 					</select>
@@ -169,35 +169,35 @@ class ct_mission_post_list extends WP_Widget {
 			<h4><?php esc_html_e( 'Content', 'mission' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $author, 'yes' ); ?> id="<?php echo $this->get_field_id( 'author' ); ?>" name="<?php echo $this->get_field_name( 'author' ); ?>" value="<?php echo $author; ?>" />
-					<label for="<?php echo $this->get_field_id( 'author' ); ?>"><?php esc_html_e( 'Show author in byline', 'mission' ); ?></label>
+					<input class="checkbox" type="checkbox" <?php checked( $author, 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'author' ) ); ?>" value="<?php echo esc_attr( $author ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>"><?php esc_html_e( 'Show author in byline', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $date, 'yes' ); ?> id="<?php echo $this->get_field_id( 'date' ); ?>" name="<?php echo $this->get_field_name( 'date' ); ?>" value="<?php echo $date; ?>" />
-					<label for="<?php echo $this->get_field_id( 'date' ); ?>"><?php esc_html_e( 'Show date in byline', 'mission' ); ?></label>
+					<input class="checkbox" type="checkbox" <?php checked( $date, 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" value="<?php echo esc_attr( $date ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php esc_html_e( 'Show date in byline', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $image, 'yes' ); ?> id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" value="<?php echo $image; ?>" />
-					<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php esc_html_e( 'Show Featured Images', 'mission' ); ?></label>
+					<input class="checkbox" type="checkbox" <?php checked( $image, 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_attr( $image ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>"><?php esc_html_e( 'Show Featured Images', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $excerpt, 'yes' ); ?> id="<?php echo $this->get_field_id( 'excerpt' ); ?>" name="<?php echo $this->get_field_name( 'excerpt' ); ?>" value="<?php echo $excerpt; ?>" />
-					<label for="<?php echo $this->get_field_id( 'excerpt' ); ?>"><?php esc_html_e( 'Show excerpt', 'mission' ); ?></label>
+					<input class="checkbox" type="checkbox" <?php checked( $excerpt, 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt' ) ); ?>" value="<?php echo esc_attr( $excerpt ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>"><?php esc_html_e( 'Show excerpt', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $comments, 'yes' ); ?> id="<?php echo $this->get_field_id( 'comments' ); ?>" name="<?php echo $this->get_field_name( 'comments' ); ?>" value="<?php echo $comments; ?>" />
-					<label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php esc_html_e( 'Show comments link', 'mission' ); ?></label>
+					<input class="checkbox" type="checkbox" <?php checked( $comments, 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'comments' ) ); ?>" value="<?php echo esc_attr( $comments ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>"><?php esc_html_e( 'Show comments link', 'mission' ); ?></label>
 				</p>
 				<p>
-					<input id="<?php echo $this->get_field_id( 'post_count' ); ?>" name="<?php echo $this->get_field_name( 'post_count' ); ?>" type="text" size="2" value="<?php echo esc_attr( $post_count ); ?>">
-					<label for="<?php echo $this->get_field_id( 'post_count' ); ?>"><?php esc_html_e( 'Number of posts', 'mission' ); ?></label>
+					<input id="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_count' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $post_count ); ?>">
+					<label for="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>"><?php esc_html_e( 'Number of posts', 'mission' ); ?></label>
 				</p>
 			</div>
 			<h4><?php esc_html_e( 'Style', 'mission' ); ?></h4>
 			<div class="container">
 				<p>
-					<label for="<?php echo $this->get_field_id( 'style' ); ?>"><?php esc_html_e( 'Style', 'mission' ); ?></label>
-					<select name="<?php echo $this->get_field_name( 'style' ); ?>" id="<?php echo $this->get_field_id( 'style' ); ?>" class="postform">
+					<label for="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>"><?php esc_html_e( 'Style', 'mission' ); ?></label>
+					<select name="<?php echo esc_attr( $this->get_field_name( 'style' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>" class="postform">
 						<option value="1" <?php selected( $style, 1); ?>><?php esc_html_e( 'Style 1', 'mission' ); ?></option>
 						<option value="2" <?php selected( $style, 2); ?>><?php esc_html_e( 'Style 2', 'mission' ); ?></option>
 					</select>

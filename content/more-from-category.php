@@ -16,7 +16,8 @@ $categories = wp_get_post_categories( $post->ID );
 		echo '<div class="category-container">';
 			echo '<div class="top">';
 				echo '<span class="section-title">' . esc_html_x( 'More from', 'More from POST CATEGORY', 'mission' ) . ' <span>' . esc_html( get_cat_name( $category ) ) . '</span></span>';
-				echo '<a class="category-link" href="' . esc_url( get_category_link( $category ) ) . '">' . sprintf( esc_html__( 'More posts in %s', 'mission' ), get_cat_name( $category ) ) . ' &raquo;</a>';
+			// Translators: %s is the name of the post category
+			echo '<a class="category-link" href="' . esc_url( get_category_link( $category ) ) . '">' . sprintf( esc_html__( 'More posts in %s', 'mission' ), get_cat_name( $category ) ) . ' &raquo;</a>';
 			echo '</div>';
 			echo '<ul>';
 				foreach ( $cat_posts as $cat_post ) {

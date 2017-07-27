@@ -17,6 +17,7 @@
     <div class="design-credit">
         <span>
             <?php
+            // Translators: %s is the URL of the theme
             $footer_text = sprintf( __( '<a href="%s">Mission Theme</a> by Compete Themes.', 'mission' ), 'https://www.competethemes.com/mission/' );
             $footer_text = apply_filters( 'ct_mission_footer_text', $footer_text );
             echo wp_kses_post( $footer_text );

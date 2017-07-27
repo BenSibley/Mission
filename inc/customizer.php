@@ -26,7 +26,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/mission-pro/';
 			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/mission-pro.gif' /></a>";
+			// Translators: %1$s is the URL of the upgrade. %2$s is the name of the theme (Mission)
 			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'mission'), $link, wp_get_theme( get_template() ) ) . "</p>";
+			// Translators: %s is the name of the theme (Mission)
 			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Mission Pro adds the following features:', 'mission'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
 					<li>" . esc_html__('6 new layouts', 'mission') . "</li>
@@ -57,6 +59,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	if ( !defined( 'MISSION_PRO_FILE' ) ) {
 		// section
 		$wp_customize->add_section( 'ct_mission_pro', array(
+			// Translators: %s is the name of the theme (Mission)
 			'title'    => sprintf( __( '%s Pro', 'mission' ), wp_get_theme( get_template() ) ),
 			'priority' => 1
 		) );
@@ -175,6 +178,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 				$wp_customize->add_control( $social_site, array(
 					'type'        => 'url',
 					'label'       => $label,
+					// Translators: %s is the URL of a blog post
 					'description' => sprintf( __( 'Accepts Skype link protocol (<a href="%s" target="_blank">learn more</a>)', 'mission' ), 'https://www.competethemes.com/blog/skype-links-wordpress/' ),
 					'section'     => 'ct_mission_social_media_icons',
 					'priority'    => $priority

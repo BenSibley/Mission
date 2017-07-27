@@ -718,7 +718,7 @@ function ct_mission_post_byline( $author, $date ) {
 // provide a fallback title on the off-chance a post is untitled so it remains clickable on the blog
 function ct_mission_no_missing_titles( $title, $id = null ) {
 	if ( $title == '' ) {
-		$title = esc_html__( '(title)', 'startup-blog' );
+		$title = esc_html__( '(title)', 'mission' );
 	}
 	return $title;
 }

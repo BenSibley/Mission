@@ -32,7 +32,6 @@ jQuery(document).ready(function($){
         if( menuPrimaryContainer.hasClass('open') ) {
             menuPrimaryContainer.removeClass('open');
             $(this).removeClass('open');
-            body.removeClass('noscroll');
             
             // remove status of open menus
             menuPrimaryContainer.find('.current').removeClass('current');
@@ -54,16 +53,30 @@ jQuery(document).ready(function($){
             // change aria text
             $(this).attr('aria-expanded', 'false');
 
+            // allow scrolling again
+            body.off('scroll mousewheel touchmove', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+
         } else {
             menuPrimaryContainer.addClass('open');
             $(this).addClass('open');
-            body.addClass('noscroll');
 
             // change screen reader text
             $(this).children('span').text(objectL10n.closeMenu);
 
             // change aria text
             $(this).attr('aria-expanded', 'true');
+
+            /* can't use overflow: hidden; b/c IE (Windows) will then remove the scrollbar
+             shifting the whole site over to the right. Also, theme check thinks Mission is "hiding" wpadminbar */
+            body.on('scroll mousewheel touchmove', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
         }
     }
 
@@ -176,7 +189,7 @@ jQuery(document).ready(function($){
             siteHeader.find('.search-field').attr('tabindex', -1);
 
             // allow scrolling again
-            $('body').off('scroll mousewheel touchmove', function(e) {
+            body.off('scroll mousewheel touchmove', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 return false;
@@ -191,8 +204,8 @@ jQuery(document).ready(function($){
             }, 250);
 
             /* can't use overflow: hidden; b/c IE (Windows) will then remove the scrollbar
-            shifting the whole site over to the right */
-            $('body').on('scroll mousewheel touchmove', function(e) {
+            shifting the whole site over to the right. Also, theme check thinks Mission is "hiding" wpadminbar */
+            body.on('scroll mousewheel touchmove', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 return false;

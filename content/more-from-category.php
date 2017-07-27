@@ -15,8 +15,8 @@ $categories = wp_get_post_categories( $post->ID );
 		if ( count( $cat_posts ) < 1 ) continue;
 		echo '<div class="category-container">';
 			echo '<div class="top">';
-				echo '<span class="section-title">' . sprintf( __( 'More from <span>%s</span>' ), get_cat_name( $category ) ) . '</span>';
-				echo '<a class="category-link" href="' . esc_url( get_category_link( $category ) ) . '">' . sprintf( esc_html__( 'More posts in %s' ), get_cat_name( $category ) ) . ' &raquo;</a>';
+				echo '<span class="section-title">' . sprintf( __( 'More from <span>%s</span>', 'mission' ), get_cat_name( $category ) ) . '</span>';
+				echo '<a class="category-link" href="' . esc_url( get_category_link( $category ) ) . '">' . sprintf( esc_html__( 'More posts in %s', 'mission' ), get_cat_name( $category ) ) . ' &raquo;</a>';
 			echo '</div>';
 			echo '<ul>';
 				foreach ( $cat_posts as $cat_post ) {

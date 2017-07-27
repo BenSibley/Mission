@@ -15,16 +15,6 @@ body {
   color: #000;
   background: #fff;
   -webkit-font-smoothing: antialiased;
-
-  &.display-search {
-    overflow-x: hidden;
-    width: 100%;
-    position: fixed;
-
-    #wpadminbar {
-      top: -46px;
-    }
-  }
 }
 // if mobile menu open and then screen resized, body becomes scollable again
 @media all and (max-width: 799px) {
@@ -46,8 +36,7 @@ body {
 
   body {
 
-    &.noscroll,
-    &.display-search {
+    &.noscroll {
 
       #wpadminbar {
         top: 0;

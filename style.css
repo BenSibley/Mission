@@ -128,14 +128,6 @@ body {
   background: #fff;
   -webkit-font-smoothing: antialiased;
 }
-body.display-search {
-  overflow-x: hidden;
-  width: 100%;
-  position: fixed;
-}
-body.display-search #wpadminbar {
-  top: -46px;
-}
 
 @media all and (max-width: 799px) {
   body.noscroll {
@@ -148,7 +140,7 @@ body.display-search #wpadminbar {
   }
 }
 @media all and (min-width: 600px) {
-  body.noscroll #wpadminbar, body.display-search #wpadminbar {
+  body.noscroll #wpadminbar {
     top: 0;
   }
 }
@@ -736,7 +728,7 @@ a img {
 }
 
 .site-title {
-  font-family: "Abril Fatface", cursive;
+  font-family: "Abril Fatface", "Arial Black", cursive;
 }
 .site-title a {
   -webkit-transition: color 0.15s;
@@ -864,6 +856,7 @@ a img {
   border-radius: 0 18px 18px 0;
   margin-left: 0;
   font-weight: 700;
+  min-width: 87px;
 }
 .search-form-popup .close {
   position: absolute;
@@ -2177,9 +2170,16 @@ a img {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    width: 100%;
+  }
+  .search-box .search-field {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
   }
   .search-box .search-submit {
     width: auto;
+    min-width: 80px;
   }
 }
 @media all and (min-width: 37.5em) {

@@ -154,6 +154,7 @@
     border-radius: 0 18px 18px 0;
     margin-left: 0;
     font-weight: 700;
+    min-width: 87px; // may not work great with all languages but required b/c IE 10/11 doesn't use box-sizing for flex children...
   }
   .close {
     position: absolute;

@@ -32,13 +32,6 @@ if ( is_tag() ) {
 	</h1>
 	<?php endif;
 	if ( get_the_archive_description() != '' && get_theme_mod( 'archive_description' ) != 'no' ) :
-		// the_archive_description doesn't output paragraph tags for author bios...
-		if ( is_author() ) {
-			echo '<p>';
-			the_archive_description();
-			echo '</p>';
-		} else {
-			the_archive_description();
-		}
+		the_archive_description();
 	endif; ?>
 </div>

@@ -666,6 +666,18 @@ if ( ! function_exists( 'ct_mission_modify_archive_titles' ) ) {
 }
 add_filter( 'get_the_archive_title', 'ct_mission_modify_archive_titles' );
 
+// add paragraph tags for author bio (the_archive_description) includes them for category & tag descriptions
+if ( ! function_exists( 'ct_mission_modify_archive_descriptions' ) ) {
+	function ct_mission_modify_archive_descriptions( $description ) {
+
+		if ( is_author() ) {
+			$description = wpautop( $description );
+		}
+		return $description;
+	}
+}
+add_filter( 'get_the_archive_description', 'ct_mission_modify_archive_descriptions' );
+
 // sanitize CSS and convert HTML character codes back into ">" character so direct descendant CSS selectors work
 if ( ! function_exists( 'ct_mission_sanitize_css' ) ) {
 	function ct_mission_sanitize_css( $css ) {

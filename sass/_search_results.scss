@@ -20,9 +20,14 @@
 
     .search-form {
       display: flex;
+      width: 100%;
+    }
+    .search-field {
+      flex-shrink: 1;
     }
     .search-submit {
       width: auto;
+      min-width: 80px; // may not work great with all languages but required b/c IE 10/11 doesn't use box-sizing for flex children...
     }
   }
 }

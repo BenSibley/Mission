@@ -257,6 +257,13 @@ jQuery(document).ready(function($){
             body.removeClass('display-search');
             // make search input inaccessible to keyboards
             siteHeader.find('.search-field').attr('tabindex', -1);
+
+            // allow scrolling again
+            $('body').off('scroll mousewheel touchmove', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
         } else {
             body.addClass('display-search');
             // make search input keyboard accessible
@@ -265,6 +272,14 @@ jQuery(document).ready(function($){
             setTimeout( function() {
                 $('#search-form-popup').find('#search-field').focus();
             }, 250);
+
+            /* can't use overflow: hidden; b/c IE (Windows) will then remove the scrollbar
+            shifting the whole site over to the right */
+            $('body').on('scroll mousewheel touchmove', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
         }
     }
 

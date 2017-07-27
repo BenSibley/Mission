@@ -1,71 +1,30 @@
+=== Mission ===
+Contributors: bensibley
+Tags: two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, education, news
+Requires at least: 4.5
+Tested up to: 4.8
+Stable tag: 0.1
 
-Thanks for downloading ct_mission!
+For publishers on a mission.
 
--------------------------------------------------------
-    Support
--------------------------------------------------------
+== Description ==
 
-You can find tutorials and other support resources for ct_mission in the ct_mission Support Center:
-https://www.competethemes.com/documentation/ct_mission-support-center/
+Mission is a news theme for publishers who want their content to be seen and heard. Premium-quality design adds credibility to every word you publish, and a fully responsive layout ensures your site looks amazing on every screen. The aesthetic is timeless and modeled after classic news sites like the New York Times.
 
-Additional support resources:
+**Live Demo**
 
-Support forum: http://wordpress.org/support/theme/ct_mission
-Changelog: https://www.competethemes.com/ct_mission-changelog/
-ct_mission on Github: https://github.com/BenSibley/ct_mission
+View a fully-setup live demo of Mission here: [Live demo](https://www.competethemes.com/demos/?theme=mission)
 
--------------------------------------------------------
-    Features
--------------------------------------------------------
+**Features**
 
-ct_mission includes the following features:
+Mission comes packed with features:
 
-    * Custom logo
-    * Social media icons
-    * Show full posts or excerpts
-    * Custom excerpt length
-    * Custom Read More button text
-    * Make first post on blog extra wide
-    * Hide/Show display controls
-    * Custom CSS
-
-ct_mission also has a premium plugin upgrade called ct_mission Pro that includes the following features:
-
-    * Custom colors
-    * Featured sliders
-    * Featured videos
-    * Additional layouts
-    * Flexible header image
-    * Google fonts
-    * More widget areas
-    * Display controls
-    * Custom footer text
-
-ct_mission Pro: https://www.competethemes.com/ct_mission-pro/
-
--------------------------------------------------------
-    Additional Info:
--------------------------------------------------------
-
-    * All menus in ct_mission can have 1-3 tiers
-    * Featured Images have a 2x1 ratio at all screen sizes
-    * ct_mission is child theme compatible. Download a starter child theme here:
-        https://www.competethemes.com/help/child-theme-ct_mission/
-
-
--------------------------------------------------------
-    Licenses:
--------------------------------------------------------
-
-ct_mission WordPress Theme, Copyright 2016 Compete Themes
-ct_mission is distributed under the terms of the GNU GPL
-
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-ct_mission also uses:
-
-* Fitvids, by Chris Coyier & Dave Rupert, https://github.com/davatron5000/FitVids.js/, licensed under the WTFPL license.
-* Google Fonts, http://google.com/fonts, licensed under open source licenses, see: https://developers.google.com/fonts/faq#Any_Page_OK.
-* Font Awesome by Dave Gandy, licensed under open source licenses, see: http://fortawesome.github.io/Font-Awesome/license/.
-* New York city image in screenshot.png by Anthony Indraus, http://unsplash.com, licensed under Public Domain
+* 4 homepage content layouts
+* Controls to show/hide 19 different elements on the site
+* Over 50+ social media icons
+* Custom excerpt word count
+* Show excerpts or full posts on the homepage
+* 2 sidebar widget areas
+* 5 additional widget areas for advertisements
+* "Recent Posts Extended" widget
+* Beautiful modern search bar

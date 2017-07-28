@@ -17,3 +17,26 @@
 .widget-area-after-page {
   margin-top: $baseline-height * 1.5;
 }
+.widget-area-below-header,
+.widget-area-above-main {
+  padding: 0 $column * 2;
+
+  figure {
+    margin: 0;
+  }
+}
+
+@media all and (min-width: $six-hundred) {
+
+  .widget-area-below-header,
+  .widget-area-above-main {
+    padding: 0 $column;
+  }
+}
+
+@media all and (min-width: $eight-hundred) {
+
+  .widget-area-above-main {
+    padding: 0;
+  }
+}

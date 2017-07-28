@@ -2409,6 +2409,26 @@ a img {
   margin-top: 2.25em;
 }
 
+.widget-area-below-header,
+.widget-area-above-main {
+  padding: 0 5.556%;
+}
+.widget-area-below-header figure,
+.widget-area-above-main figure {
+  margin: 0;
+}
+
+@media all and (min-width: 37.5em) {
+  .widget-area-below-header,
+  .widget-area-above-main {
+    padding: 0 2.778%;
+  }
+}
+@media all and (min-width: 50em) {
+  .widget-area-above-main {
+    padding: 0;
+  }
+}
 .widget-title {
   margin-bottom: 1.125em;
 }

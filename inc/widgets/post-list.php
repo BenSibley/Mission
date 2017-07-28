@@ -69,7 +69,7 @@ class ct_mission_post_list extends WP_Widget {
 				echo '<li class="'. esc_attr( $classes ) .'">';
 					echo '<div class="top">';
 						if ( $instance['image'] == 'yes' ) {
-							ct_mission_featured_image();
+							echo '<div class="featured-image"><a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . get_the_post_thumbnail( get_the_ID(), 'medium' ) . '</a></div>';
 						}
 						echo '<div class="top-inner">';
 							echo '<a href="' . esc_url( get_the_permalink() ) . '" class="title">' . esc_html( get_the_title() ) . '</a>';

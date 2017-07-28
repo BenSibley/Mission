@@ -37,9 +37,11 @@
     }
     &:before {
       left: 25%;
+      right: auto;
     }
     &:after {
       right: 25%;
+      left: auto;
     }
   }
   .layout-container {

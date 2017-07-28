@@ -173,6 +173,10 @@
     }
   }
 }
+.rtl .search-form-popup .close {
+  right: auto;
+  left: $column * 2;
+}
 
 @media all and (min-width: $five-hundred) {
 
@@ -210,6 +214,9 @@
       left: $column;
     }
   }
+  .rtl .search-form-popup .close {
+    left: $column;
+  }
 }
 
 @media all and (min-width: 783px) {
@@ -229,6 +236,7 @@
       display: inline-block;
       position: absolute;
       left: 0;
+      right: auto;
       bottom: -18px;
       font-family: $pt-sans;
       font-size: 12px;

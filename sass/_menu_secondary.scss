@@ -181,6 +181,7 @@
       z-index: 19;
       top: calc(100% + 4px);
       left: $baseline-height/2;
+      right: auto;
       width: auto;
       min-width: 100%;
       padding: 0;
@@ -265,7 +266,46 @@
       ul ul ul,
       ul ul ul ul {
         left: calc(100% + 12px);
+        right: auto;
         top: 0;
+      }
+    }
+  }
+  .rtl {
+
+    .menu-secondary-items {
+
+      li {
+
+        &.menu-item-has-children {
+
+          ul a:after {
+            transform: rotate(180deg);
+            left: auto;
+            right: 6px;
+          }
+        }
+      }
+      a {
+
+        &:hover,
+        &:active,
+        &:focus {
+
+          ~ ul {
+            transform: translateX(12px);
+          }
+        }
+      }
+      ul {
+
+        &:hover {
+          transform: translateX(12px);
+        }
+        a,
+        ul a {
+          padding: 6px 36px 6px 12px;
+        }
       }
     }
   }

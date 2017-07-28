@@ -36,3 +36,8 @@
     left: 0;
   }
 }
+.rtl .has-post-thumbnail .sticky-status {
+  left: 0;
+  right: auto;
+  margin-left: 0;
+}

@@ -28,12 +28,12 @@
       padding: $baseline-height/2 0;
       margin: 0;
 
-      &:nth-child(odd) {
+      &:nth-of-type(odd) {
         padding-left: $baseline-height/2;
         margin-left: -1px;
         border-left: solid 1px $color-gray-86;
       }
-      &:nth-child(even) {
+      &:nth-of-type(even) {
         padding-right: $baseline-height/2;
         clear: left;
         border-right: solid 1px $color-gray-86;

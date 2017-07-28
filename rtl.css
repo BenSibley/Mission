@@ -2680,12 +2680,12 @@ a img {
     padding: 0.75em 0;
     margin: 0;
   }
-  .layout-double .double:nth-child(odd) {
+  .layout-double .double:nth-of-type(odd) {
     padding-right: 0.75em;
     margin-right: -1px;
     border-right: solid 1px #DCDCDC;
   }
-  .layout-double .double:nth-child(even) {
+  .layout-double .double:nth-of-type(even) {
     padding-left: 0.75em;
     clear: right;
     border-left: solid 1px #DCDCDC;

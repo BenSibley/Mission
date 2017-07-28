@@ -118,12 +118,6 @@
     visibility: visible;
   }
 }
-.admin-bar {
-
-  .search-form-popup {
-    top: 46px;
-  }
-}
 .search-form-popup {
   position: fixed;
   z-index: 49;
@@ -137,6 +131,11 @@
   visibility: hidden;
   transition: opacity 0.25s, visibility 0.25s;
 
+  .inner {
+    position: relative;
+    max-width: 1210px;
+    margin: 0 auto;
+  }
   .title {
     margin-bottom: 18px;
     font-weight: 700;
@@ -158,8 +157,8 @@
   }
   .close {
     position: absolute;
-    top: $baseline-height * 0.75;
-    left: $column * 2;
+    top: 0;
+    left: 0;
     margin-left: 8px;
 
     svg g {
@@ -175,7 +174,7 @@
 }
 .rtl .search-form-popup .close {
   right: auto;
-  left: $column * 2;
+  left: 0;
 }
 
 @media all and (min-width: $five-hundred) {
@@ -210,12 +209,6 @@
       max-width: 560px;
       margin: 0 auto;
     }
-    .close {
-      left: $column;
-    }
-  }
-  .rtl .search-form-popup .close {
-    left: $column;
   }
 }
 
@@ -329,6 +322,9 @@
     .search-submit {
       padding: 15px 18px;
       border-radius: 0 24px 24px 0;
+    }
+    .close {
+      top: -54px;
     }
   }
 }

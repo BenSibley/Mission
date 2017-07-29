@@ -37,3 +37,31 @@
   margin-bottom: 24px;
   border-bottom: solid 1px #d5d5d5;
 }
+
+#customize-control-layout .customize-control-title {
+  margin-bottom: 18px;
+}
+#customize-control-layout label {
+  display: inline-block;
+  margin-bottom: 12px;
+  margin-left: 0;
+  padding: 0;
+  text-align: center;
+  font-weight: 500;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+#customize-control-layout label img {
+  margin-top: 4px;
+}
+#customize-control-layout label.selected img {
+  outline: solid 2px #05B0E7;
+}
+
+#customize-control-layout label:hover {
+  opacity: 0.8;
+}
+
+#customize-control-layout input {
+  display: none;
+}

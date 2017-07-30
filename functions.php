@@ -688,21 +688,22 @@ if ( ! function_exists( 'ct_mission_sanitize_css' ) ) {
 	}
 }
 
-// Note: using function instead of template part b/c widget needs to pass in variables
-function ct_mission_post_byline( $author, $date ) {
+// TRT Note: using function instead of template part b/c widget needs to pass in variables
+if ( ! function_exists( ( 'ct_mission_post_byline' ) ) ) {
+	function ct_mission_post_byline( $author, $date ) {
 
-	if ( $author == 'no' && $date == 'no' ) {
-		return;
-	}
-	$post_author = get_the_author();
-	// add compatibility when used in header before loop
-	if ( empty( $post_author ) ) {
-		global $post;
-		$post_author = get_the_author_meta( 'display_name', $post->post_author );
-	}
-	$post_date = date_i18n( get_option( 'date_format' ), strtotime( get_the_date() ) );
+		if ( $author == 'no' && $date == 'no' ) {
+			return;
+		}
+		$post_author = get_the_author();
+		// add compatibility when used in header before loop
+		if ( empty( $post_author ) ) {
+			global $post;
+			$post_author = get_the_author_meta( 'display_name', $post->post_author );
+		}
+		$post_date = date_i18n( get_option( 'date_format' ), strtotime( get_the_date() ) );
 
-	echo '<div class="post-byline">';
+		echo '<div class="post-byline">';
 		if ( $author == 'no' ) {
 			echo esc_html( $post_date );
 		} elseif ( $date == 'no' ) {
@@ -712,106 +713,120 @@ function ct_mission_post_byline( $author, $date ) {
 			// translators: %1$s = the author who published the post. %2$s = the date it was published
 			printf( esc_html_x( 'By %1$s on %2$s', 'This blog post was published by some author on some date ', 'mission' ), esc_html( $post_author ), esc_html( $post_date ) );
 		}
-	echo '</div>';
+		echo '</div>';
+	}
 }
 
-// provide a fallback title on the off-chance a post is untitled so it remains clickable on the blog
-function ct_mission_no_missing_titles( $title, $id = null ) {
-	if ( $title == '' ) {
-		$title = esc_html__( '(title)', 'mission' );
+/* Providing a fallback title on the off-chance a post is untitled so it remains clickable on the blog.
+* Copying "(title)" which WordPress uses in the admin dashboard. */
+if ( ! function_exists( ( 'ct_mission_no_missing_titles' ) ) ) {
+	function ct_mission_no_missing_titles( $title, $id = null ) {
+		if ( $title == '' ) {
+			$title = esc_html__( '(title)', 'mission' );
+		}
+
+		return $title;
 	}
-	return $title;
 }
 add_filter( 'the_title', 'ct_mission_no_missing_titles', 10, 2 );
 
-/* TRT Note: Meta box is added as a purely presentation tool. It lets users override the global layout setting in the Customizer.
-* Post templates (as added in 4.7) are not used b/c the post content doesn't change between layouts. */
-function ct_mission_add_post_layout_meta_box() {
+/* TRT Note: Meta box is added purely as a presentational tool. It lets users override the global layout setting in the Customizer.
+* Post templates (as added in 4.7) are not used instead b/c the post content doesn't change between layouts. */
+if ( ! function_exists( ( 'ct_mission_add_post_layout_meta_box' ) ) ) {
+	function ct_mission_add_post_layout_meta_box() {
 
-	$screens = array( 'post' );
+		$screens = array( 'post' );
 
-	foreach ( $screens as $screen ) {
+		foreach ( $screens as $screen ) {
 
-		add_meta_box(
-			'ct_mission_post_layout',
-			esc_html__( 'Layout', 'mission' ),
-			'ct_mission_post_layout_callback',
-			$screen,
-			'side'
-		);
+			add_meta_box(
+				'ct_mission_post_layout',
+				esc_html__( 'Layout', 'mission' ),
+				'ct_mission_post_layout_callback',
+				$screen,
+				'side'
+			);
+		}
 	}
 }
 add_action( 'add_meta_boxes', 'ct_mission_add_post_layout_meta_box' );
 
-function ct_mission_post_layout_callback( $post ) {
+if ( ! function_exists( ( 'ct_mission_post_layout_callback' ) ) ) {
+	function ct_mission_post_layout_callback( $post ) {
 
-	wp_nonce_field( 'ct_mission_post_layout', 'ct_mission_post_layout_nonce' );
+		wp_nonce_field( 'ct_mission_post_layout', 'ct_mission_post_layout_nonce' );
 
-	$layout = get_post_meta( $post->ID, 'ct_mission_post_layout_key', true );
-	?>
-	<p>
-		<select name="mission-post-layout" id="mission-post-layout" class="widefat">
-			<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission' ); ?></option>
-			<option value="double-sidebar" <?php if ( $layout == 'double-sidebar' ) {
-				echo 'selected';
-			} ?>><?php esc_html_e( 'Double sidebar', 'mission' ); ?>
-			</option>
-			<option value="left-sidebar" <?php if ( $layout == 'left-sidebar' ) {
-				echo 'selected';
-			} ?>><?php esc_html_e( 'Left sidebar', 'mission' ); ?>
-			</option>
-			<option value="right-sidebar" <?php if ( $layout == 'right-sidebar' ) {
-				echo 'selected';
-			} ?>><?php esc_html_e( 'Right sidebar', 'mission' ); ?>
-			</option>
-			<option value="no-sidebar" <?php if ( $layout == 'no-sidebar' ) {
-				echo 'selected';
-			} ?>><?php esc_html_e( 'No sidebar', 'mission' ); ?>
-			</option>
-		</select>
-	</p> <?php
+		$layout = get_post_meta( $post->ID, 'ct_mission_post_layout_key', true );
+		?>
+		<p>
+			<select name="mission-post-layout" id="mission-post-layout" class="widefat">
+				<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission' ); ?></option>
+				<option value="double-sidebar" <?php if ( $layout == 'double-sidebar' ) {
+					echo 'selected';
+				} ?>><?php esc_html_e( 'Double sidebar', 'mission' ); ?>
+				</option>
+				<option value="left-sidebar" <?php if ( $layout == 'left-sidebar' ) {
+					echo 'selected';
+				} ?>><?php esc_html_e( 'Left sidebar', 'mission' ); ?>
+				</option>
+				<option value="right-sidebar" <?php if ( $layout == 'right-sidebar' ) {
+					echo 'selected';
+				} ?>><?php esc_html_e( 'Right sidebar', 'mission' ); ?>
+				</option>
+				<option value="no-sidebar" <?php if ( $layout == 'no-sidebar' ) {
+					echo 'selected';
+				} ?>><?php esc_html_e( 'No sidebar', 'mission' ); ?>
+				</option>
+			</select>
+		</p> <?php
+	}
 }
 
-function ct_mission_post_layout_save_data( $post_id ) {
+if ( ! function_exists( ( 'ct_mission_post_layout_save_data' ) ) ) {
+	function ct_mission_post_layout_save_data( $post_id ) {
 
-	global $post;
+		global $post;
 
-	if ( ! isset( $_POST['ct_mission_post_layout_nonce'] ) ) {
-		return;
-	}
-	if ( ! wp_verify_nonce( $_POST['ct_mission_post_layout_nonce'], 'ct_mission_post_layout' ) ) {
-		return;
-	}
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return;
-	}
-	if ( ! current_user_can( 'edit_post', $post_id ) ) {
-		return;
-	}
+		if ( ! isset( $_POST['ct_mission_post_layout_nonce'] ) ) {
+			return;
+		}
+		if ( ! wp_verify_nonce( $_POST['ct_mission_post_layout_nonce'], 'ct_mission_post_layout' ) ) {
+			return;
+		}
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return;
+		}
 
-	if ( isset( $_POST['mission-post-layout'] ) ) {
+		if ( isset( $_POST['mission-post-layout'] ) ) {
 
-		$layout            = $_POST['mission-post-layout'];
-		$acceptable_values = array( 'default', 'double-sidebar', 'left-sidebar', 'right-sidebar', 'no-sidebar' );
+			$layout            = $_POST['mission-post-layout'];
+			$acceptable_values = array( 'default', 'double-sidebar', 'left-sidebar', 'right-sidebar', 'no-sidebar' );
 
-		if ( in_array( $layout, $acceptable_values ) ) {
-			update_post_meta( $post_id, 'ct_mission_post_layout_key', $layout );
+			if ( in_array( $layout, $acceptable_values ) ) {
+				update_post_meta( $post_id, 'ct_mission_post_layout_key', $layout );
+			}
 		}
 	}
 }
 add_action( 'pre_post_update', 'ct_mission_post_layout_save_data' );
 
 // Allow individual posts to override the global layout setting in the Customizer (set via meta box)
-function ct_mission_filter_layout( $layout ) {
+if ( ! function_exists( ( 'ct_mission_filter_layout' ) ) ) {
+	function ct_mission_filter_layout( $layout ) {
 
-	if ( is_singular( 'post' ) ) {
-		global $post;
-		$post_layout = get_post_meta( $post->ID, 'ct_mission_post_layout_key', true );
+		if ( is_singular( 'post' ) ) {
+			global $post;
+			$post_layout = get_post_meta( $post->ID, 'ct_mission_post_layout_key', true );
 
-		if ( ! empty( $post_layout ) && $post_layout != 'default' ) {
-			$layout = $post_layout;
+			if ( ! empty( $post_layout ) && $post_layout != 'default' ) {
+				$layout = $post_layout;
+			}
 		}
+
+		return $layout;
 	}
-	return $layout;
 }
 add_filter( 'ct_mission_layout_filter', 'ct_mission_filter_layout' );

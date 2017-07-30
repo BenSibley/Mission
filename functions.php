@@ -4,9 +4,6 @@ require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' 
 require_once( trailingslashit( get_template_directory() ) . 'inc/widgets/post-list.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/scripts.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
-//foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*' ) as $filename ) {
-//	include $filename;
-//}
 
 if ( ! function_exists( ( 'ct_mission_set_content_width' ) ) ) {
 	function ct_mission_set_content_width() {
@@ -542,7 +539,7 @@ if ( ! function_exists( ( 'ct_mission_body_class' ) ) ) {
 		global $post;
 		$full_post   = get_theme_mod( 'full_post' );
 		$layout      = get_theme_mod( 'layout' );
-		$layout_post = get_theme_mod( 'layout_posts' );
+		$layout_post = apply_filters( 'ct_mission_layout_filter', get_theme_mod( 'layout_posts' ) );
 
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
@@ -726,3 +723,95 @@ function ct_mission_no_missing_titles( $title, $id = null ) {
 	return $title;
 }
 add_filter( 'the_title', 'ct_mission_no_missing_titles', 10, 2 );
+
+/* TRT Note: Meta box is added as a purely presentation tool. It lets users override the global layout setting in the Customizer.
+* Post templates (as added in 4.7) are not used b/c the post content doesn't change between layouts. */
+function ct_mission_add_post_layout_meta_box() {
+
+	$screens = array( 'post' );
+
+	foreach ( $screens as $screen ) {
+
+		add_meta_box(
+			'ct_mission_post_layout',
+			esc_html__( 'Layout', 'mission' ),
+			'ct_mission_post_layout_callback',
+			$screen,
+			'side'
+		);
+	}
+}
+add_action( 'add_meta_boxes', 'ct_mission_add_post_layout_meta_box' );
+
+function ct_mission_post_layout_callback( $post ) {
+
+	wp_nonce_field( 'ct_mission_post_layout', 'ct_mission_post_layout_nonce' );
+
+	$layout = get_post_meta( $post->ID, 'ct_mission_post_layout_key', true );
+	?>
+	<p>
+		<select name="mission-post-layout" id="mission-post-layout" class="widefat">
+			<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission' ); ?></option>
+			<option value="double-sidebar" <?php if ( $layout == 'double-sidebar' ) {
+				echo 'selected';
+			} ?>><?php esc_html_e( 'Double sidebar', 'mission' ); ?>
+			</option>
+			<option value="left-sidebar" <?php if ( $layout == 'left-sidebar' ) {
+				echo 'selected';
+			} ?>><?php esc_html_e( 'Left sidebar', 'mission' ); ?>
+			</option>
+			<option value="right-sidebar" <?php if ( $layout == 'right-sidebar' ) {
+				echo 'selected';
+			} ?>><?php esc_html_e( 'Right sidebar', 'mission' ); ?>
+			</option>
+			<option value="no-sidebar" <?php if ( $layout == 'no-sidebar' ) {
+				echo 'selected';
+			} ?>><?php esc_html_e( 'No sidebar', 'mission' ); ?>
+			</option>
+		</select>
+	</p> <?php
+}
+
+function ct_mission_post_layout_save_data( $post_id ) {
+
+	global $post;
+
+	if ( ! isset( $_POST['ct_mission_post_layout_nonce'] ) ) {
+		return;
+	}
+	if ( ! wp_verify_nonce( $_POST['ct_mission_post_layout_nonce'], 'ct_mission_post_layout' ) ) {
+		return;
+	}
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	if ( isset( $_POST['mission-post-layout'] ) ) {
+
+		$layout            = $_POST['mission-post-layout'];
+		$acceptable_values = array( 'default', 'double-sidebar', 'left-sidebar', 'right-sidebar', 'no-sidebar' );
+
+		if ( in_array( $layout, $acceptable_values ) ) {
+			update_post_meta( $post_id, 'ct_mission_post_layout_key', $layout );
+		}
+	}
+}
+add_action( 'pre_post_update', 'ct_mission_post_layout_save_data' );
+
+// Allow individual posts to override the global layout setting in the Customizer (set via meta box)
+function ct_mission_filter_layout( $layout ) {
+
+	if ( is_singular( 'post' ) ) {
+		global $post;
+		$post_layout = get_post_meta( $post->ID, 'ct_mission_post_layout_key', true );
+
+		if ( ! empty( $post_layout ) && $post_layout != 'default' ) {
+			$layout = $post_layout;
+		}
+	}
+	return $layout;
+}
+add_filter( 'ct_mission_layout_filter', 'ct_mission_filter_layout' );

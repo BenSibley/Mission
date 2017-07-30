@@ -43,13 +43,20 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 
 	/********** Add Panels **********/
 
-	// Add panel for colors
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
 
 		$wp_customize->add_panel( 'ct_mission_show_hide_panel', array(
 			'priority'    => 30,
 			'title'       => __( 'Show/Hide Elements', 'mission' ),
 			'description' => __( 'Choose which elements you want displayed on the site.', 'mission' )
+		) );
+	}
+	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
+
+		$wp_customize->add_panel( 'ct_mission_layout_panel', array(
+			'priority'    => 25,
+			'title'       => __( 'Layout', 'mission' ),
+			'description' => __( 'Change the layout of the main content and posts.', 'mission' )
 		) );
 	}
 
@@ -80,8 +87,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 
 	// section
 	$wp_customize->add_section( 'ct_mission_layout', array(
-		'title'    => __( 'Layout', 'mission' ),
-		'priority' => 25,
+		'title'    => __( 'Blog', 'mission' ),
+		'panel'    => 'ct_mission_layout_panel',
+		'priority' => 1,
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(
@@ -90,7 +98,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	) );
 	// control
 	$wp_customize->add_control( 'layout', array(
-		'label'    => __( 'Main Content Layout', 'mission' ),
+		'label'    => __( 'Blog layout', 'mission' ),
 		'section'  => 'ct_mission_layout',
 		'settings' => 'layout',
 		'type'     => 'radio',
@@ -99,6 +107,31 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'double'       => __( 'Double', 'mission' ),
 			'rows'         => __( 'Rows', 'mission' ),
 			'rows-excerpt' => __( 'Rows with excerpts', 'mission' )
+		)
+	) );
+	// section
+	$wp_customize->add_section( 'ct_mission_layout_posts', array(
+		'title'    => __( 'Posts', 'mission' ),
+		'panel'    => 'ct_mission_layout_panel',
+		'priority' => 2,
+	) );
+	// setting
+	$wp_customize->add_setting( 'layout_posts', array(
+		'default'           => 'double-sidebar',
+		'sanitize_callback' => 'ct_mission_sanitize_layout_posts'
+	) );
+	// control
+	$wp_customize->add_control( 'layout_posts', array(
+		'label'       => __( 'Post layout', 'mission' ),
+		'description' => __( 'Layouts can be changed for individual posts in the post editor.', 'mission' ),
+		'section'     => 'ct_mission_layout_posts',
+		'settings'    => 'layout_posts',
+		'type'        => 'radio',
+		'choices'     => array(
+			'double-sidebar' => __( 'Double sidebar', 'mission' ),
+			'left-sidebar'   => __( 'Left sidebar', 'mission' ),
+			'right-sidebar'  => __( 'Right sidebar', 'mission' ),
+			'no-sidebar'     => __( 'No sidebar', 'mission' )
 		)
 	) );
 
@@ -607,6 +640,18 @@ function ct_mission_sanitize_layout( $input ) {
 		'double'       => __( 'Double', 'mission' ),
 		'rows'         => __( 'Rows', 'mission' ),
 		'rows-excerpt' => __( 'Rows with excerpts', 'mission' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
+}
+
+function ct_mission_sanitize_layout_posts( $input ) {
+
+	$valid = array(
+		'double-sidebar' => __( 'Double sidebar', 'mission' ),
+		'left-sidebar'   => __( 'Left sidebar', 'mission' ),
+		'right-sidebar'  => __( 'Right sidebar', 'mission' ),
+		'no-sidebar'     => __( 'No sidebar', 'mission' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

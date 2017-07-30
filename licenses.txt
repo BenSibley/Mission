@@ -16,4 +16,4 @@ Mission also uses:
 * Berries image in screenshot.png : CC0 by Pixabay, https://www.pexels.com/photo/close-up-of-raspberries-in-bowl-on-table-326131/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
 * Woman stretching image in screenshot.png : CC0 by Pixabay, https://www.pexels.com/photo/action-adult-athletic-backlit-267968/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
 * Athletic woman image in double.png, rows.png, and rows-excerpt.png : CC0 by Pixabay, https://www.pexels.com/photo/abs-adult-advertising-athletic-girl-209895/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
-* Carrote image in double.png and rows.png : CC0 by Pixabay, https://www.pexels.com/photo/carrots-juice-162670/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Carrot image in double.png and rows.png : CC0 by Pixabay, https://www.pexels.com/photo/carrots-juice-162670/, licensed under Public Domain, see: https://www.pexels.com/photo-license/

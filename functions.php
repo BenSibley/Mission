@@ -540,13 +540,16 @@ if ( ! function_exists( ( 'ct_mission_body_class' ) ) ) {
 	function ct_mission_body_class( $classes ) {
 
 		global $post;
-		$full_post = get_theme_mod( 'full_post' );
-		$layout = get_theme_mod( 'layout' );
+		$full_post   = get_theme_mod( 'full_post' );
+		$layout      = get_theme_mod( 'layout' );
+		$layout_post = get_theme_mod( 'layout_posts' );
 
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
 		} if ( !empty( $layout ) ) {
-			$classes[] = 'layout-' . $layout;
+			$classes[] = 'layout-' . esc_attr( $layout );
+		} if ( !empty( $layout_post ) ) {
+			$classes[] = 'layout-post-' . esc_attr( $layout_post );
 		}
 
 		return $classes;

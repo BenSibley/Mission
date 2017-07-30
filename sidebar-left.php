@@ -1,4 +1,9 @@
-<?php if ( is_active_sidebar( 'left' ) ) : ?>
+<?php
+$layout = get_theme_mod( 'layout_posts' );
+if ( is_singular( 'post' ) && ( $layout == 'right-sidebar' || $layout == 'no-sidebar' ) ) {
+    return;
+}
+if ( is_active_sidebar( 'left' ) ) : ?>
     <aside class="sidebar sidebar-left" id="sidebar-left" role="complementary">
         <div class="inner">
             <?php dynamic_sidebar( 'left' ); ?>

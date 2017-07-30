@@ -626,7 +626,7 @@ if ( ! function_exists( 'ct_mission_get_content_template' ) ) {
 
 		if ( is_home() || is_archive() || is_search() ) {
 			if ( !empty( $layout ) && $layout != 'simple' && $wp_query->current_post != 0 ) {
-				get_template_part( 'content-archive-' . $layout, get_post_type() );
+				get_template_part( 'content-archive-' . esc_attr( $layout ), get_post_type() );
 			} else {
 				get_template_part( 'content-archive', get_post_type() );
 			}
@@ -666,7 +666,7 @@ if ( ! function_exists( 'ct_mission_modify_archive_titles' ) ) {
 }
 add_filter( 'get_the_archive_title', 'ct_mission_modify_archive_titles' );
 
-// add paragraph tags for author bio (the_archive_description) includes them for category & tag descriptions
+// add paragraph tags for author bio. the_archive_description only uses them for category & tag descriptions
 if ( ! function_exists( 'ct_mission_modify_archive_descriptions' ) ) {
 	function ct_mission_modify_archive_descriptions( $description ) {
 

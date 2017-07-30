@@ -1,0 +1,19 @@
+Mission WordPress Theme, Copyright 2017 Compete Themes
+Mission is distributed under the terms of the GNU GPL
+
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Mission also uses:
+
+* Fitvids, by Chris Coyier & Dave Ruper, https://github.com/davatron5000/FitVids.js/, licensed under the WTFPL license.
+* Google Fonts, http://google.com/fonts, licensed under open source licenses, see: https://developers.google.com/fonts/faq#Any_Page_OK.
+* Font Awesome by Dave Gandy, licensed under open source licenses, see: http://fortawesome.github.io/Font-Awesome/license/.
+* Primary image in screenshot.png : CC0 by Lum3n.com, https://www.pexels.com/photo/blur-bottle-bread-bun-287354/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Woman jogging image in screenshot.png : CC0 by Lum3n.com, https://www.pexels.com/photo/blur-bottle-bread-bun-287354/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Woman doing yoga image in screenshot.png : CC0 by Chevanon Photography, httpshttps://www.pexels.com/photo/low-angle-view-of-woman-relaxing-on-beach-against-blue-sky-317157/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Waist measurement image in screenshot.png : CC0 by Public Domain Pictures, https://www.pexels.com/photo/woman-girl-fat-fitness-42069/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Berries image in screenshot.png : CC0 by Pixabay, https://www.pexels.com/photo/close-up-of-raspberries-in-bowl-on-table-326131/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Woman stretching image in screenshot.png : CC0 by Pixabay, https://www.pexels.com/photo/action-adult-athletic-backlit-267968/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Athletic woman image in double.png, rows.png, and rows-excerpt.png : CC0 by Pixabay, https://www.pexels.com/photo/abs-adult-advertising-athletic-girl-209895/, licensed under Public Domain, see: https://www.pexels.com/photo-license/
+* Carrote image in double.png and rows.png : CC0 by Pixabay, https://www.pexels.com/photo/carrots-juice-162670/, licensed under Public Domain, see: https://www.pexels.com/photo-license/

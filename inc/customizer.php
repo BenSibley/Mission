@@ -5,23 +5,28 @@ add_action( 'customize_register', 'ct_mission_add_customizer_content' );
 
 function ct_mission_add_customizer_content( $wp_customize ) {
 
-	/***** Reorder default sections *****/
-
+	//----------------------------------------------------------------------------------
+	// Reorder default sections
+	//----------------------------------------------------------------------------------
 	$wp_customize->get_section( 'title_tagline' )->priority = 2;
 
-	// check if exists in case user has no pages
+	//----------------------------------------------------------------------------------
+	// Make sure Front Page setting exists before moving. (Doesn't show if user has no published pages)
+	//----------------------------------------------------------------------------------
 	if ( is_object( $wp_customize->get_section( 'static_front_page' ) ) ) {
 		$wp_customize->get_section( 'static_front_page' )->priority = 5;
 		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'mission' );
 	}
 
-	/***** Add PostMessage Support *****/
-
+	//----------------------------------------------------------------------------------
+	// Add postMessage support for site title and tagline
+	//----------------------------------------------------------------------------------
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-	/***** Custom Controls *****/
-
+	//----------------------------------------------------------------------------------
+	// Custom control for Mission Pro advertisement
+	//----------------------------------------------------------------------------------
 	class ct_mission_pro_ad extends WP_Customize_Control {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/mission-pro/';
@@ -41,8 +46,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		}
 	}
 
-	/********** Add Panels **********/
-
+	//----------------------------------------------------------------------------------
+	// Add panels
+	//----------------------------------------------------------------------------------
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
 
 		$wp_customize->add_panel( 'ct_mission_show_hide_panel', array(
@@ -60,8 +66,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		) );
 	}
 
-	/***** Mission Pro Section *****/
-
+	//----------------------------------------------------------------------------------
+	// Section: Mission Pro
+	//----------------------------------------------------------------------------------
 	// don't add if Mission Pro is active
 	if ( !defined( 'MISSION_PRO_FILE' ) ) {
 		// section
@@ -83,9 +90,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		) );
 	}
 
-	/***** Layout *****/
-
-	// section
+	//----------------------------------------------------------------------------------
+	// Section: Layout
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_layout', array(
 		'title'    => __( 'Blog', 'mission' ),
 		'panel'    => 'ct_mission_layout_panel',
@@ -135,20 +142,20 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		)
 	) );
 
-	/***** Social Media Icons *****/
+	//----------------------------------------------------------------------------------
+	// Section: Social Media Icons
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_social_media_icons', array(
+		'title'       => __( 'Social Media Icons', 'mission' ),
+		'priority'    => 20,
+		'description' => __( 'Add the URL for each of your social profiles.', 'mission' )
+	) );
 
 	// get the social sites array
 	$social_sites = ct_mission_social_array();
 
 	// set a priority used to order the social sites
 	$priority = 5;
-
-	// section
-	$wp_customize->add_section( 'ct_mission_social_media_icons', array(
-		'title'       => __( 'Social Media Icons', 'mission' ),
-		'priority'    => 20,
-		'description' => __( 'Add the URL for each of your social profiles.', 'mission' )
-	) );
 
 	// create a setting and control for each social site
 	foreach ( $social_sites as $social_site => $value ) {
@@ -234,9 +241,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		$priority = $priority + 5;
 	}
 
-	/***** Show/Hide *****/
-
-	// section - Header
+	//----------------------------------------------------------------------------------
+	// Section: Show/Hide Elements
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_show_hide_header', array(
 		'title'    => __( 'Header', 'mission' ),
 		'panel'    => 'ct_mission_show_hide_panel',
@@ -575,9 +582,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		)
 	) );
 
-	/***** Excerpts *****/
-
-	// section
+	//----------------------------------------------------------------------------------
+	// Section: Excerpts
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_excerpts', array(
 		'title'    => __( 'Excerpts', 'mission' ),
 		'priority' => 50
@@ -612,13 +619,16 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	) );
 }
 
-/***** Custom Sanitization Functions *****/
-
+//----------------------------------------------------------------------------------
+// Sanitize email
+//----------------------------------------------------------------------------------
 function ct_mission_sanitize_email( $input ) {
 	return sanitize_email( $input );
 }
 
-// sanitize yes/no settings
+//----------------------------------------------------------------------------------
+// Sanitize yes/no settings
+//----------------------------------------------------------------------------------
 function ct_mission_sanitize_yes_no_settings( $input ) {
 
 	$valid = array(
@@ -629,10 +639,16 @@ function ct_mission_sanitize_yes_no_settings( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize Skype URI
+//----------------------------------------------------------------------------------
 function ct_mission_sanitize_skype( $input ) {
 	return esc_url_raw( $input, array( 'http', 'https', 'skype' ) );
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize layout
+//----------------------------------------------------------------------------------
 function ct_mission_sanitize_layout( $input ) {
 	
 	$valid = array(
@@ -645,6 +661,9 @@ function ct_mission_sanitize_layout( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
+//----------------------------------------------------------------------------------
+// Sanitize post layout
+//----------------------------------------------------------------------------------
 function ct_mission_sanitize_layout_posts( $input ) {
 
 	$valid = array(

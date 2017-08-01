@@ -1,5 +1,7 @@
 <?php
-// Front-end scripts
+//----------------------------------------------------------------------------------
+// Load scripts and stylesheets for the front-end
+//----------------------------------------------------------------------------------
 function ct_mission_load_scripts_styles() {
 
 	wp_enqueue_style( 'ct-mission-google-fonts', '//fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,700|PT+Serif:400,400i,700,700i' );
@@ -20,7 +22,9 @@ function ct_mission_load_scripts_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'ct_mission_load_scripts_styles' );
 
-// Back-end scripts
+//----------------------------------------------------------------------------------
+// Load stylesheet for the widget & theme options page
+//----------------------------------------------------------------------------------
 function ct_mission_enqueue_admin_styles( $hook ) {
 
 	if ( $hook == 'appearance_page_mission-options' || $hook == 'widgets.php' ) {
@@ -29,19 +33,19 @@ function ct_mission_enqueue_admin_styles( $hook ) {
 }
 add_action( 'admin_enqueue_scripts', 'ct_mission_enqueue_admin_styles' );
 
-// Customizer scripts
+//----------------------------------------------------------------------------------
+// Load script and stylesheet for Customizer
+//----------------------------------------------------------------------------------
 function ct_mission_enqueue_customizer_scripts() {
 	wp_enqueue_style( 'ct-mission-customizer-styles', get_template_directory_uri() . '/styles/customizer.min.css' );
 	wp_enqueue_script( 'ct-mission-customizer-js', get_template_directory_uri() . '/js/build/customizer.min.js', array( 'jquery' ), '', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'ct_mission_enqueue_customizer_scripts' );
 
-/*
- * Script for live updating with customizer options. Has to be loaded separately on customize_preview_init hook
- * transport => postMessage
- */
+//----------------------------------------------------------------------------------
+// Load script for postMessage support in Customizer
+//----------------------------------------------------------------------------------
 function ct_mission_enqueue_customizer_post_message_scripts() {
 	wp_enqueue_script( 'ct-mission-customizer-post-message-js', get_template_directory_uri() . '/js/build/postMessage.min.js', array( 'jquery' ), '', true );
-
 }
 add_action( 'customize_preview_init', 'ct_mission_enqueue_customizer_post_message_scripts' );

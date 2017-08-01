@@ -1,19 +1,29 @@
 <?php
 
+//----------------------------------------------------------------------------------
+//	Include all required files
+//----------------------------------------------------------------------------------
 require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/widgets/post-list.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/scripts.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
+foreach ( glob( trailingslashit( get_template_directory() ) . 'inc/*.php' ) as $filename ) {
+	include $filename;
+}
 
+//----------------------------------------------------------------------------------
+//	Set content width variable
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_set_content_width' ) ) ) {
 	function ct_mission_set_content_width() {
 		if ( ! isset( $content_width ) ) {
-			$content_width = 780;
+			$content_width = 569;
 		}
 	}
 }
 add_action( 'after_setup_theme', 'ct_mission_set_content_width', 0 );
 
+//----------------------------------------------------------------------------------
+//	Add theme support for various features, register menus, load text domain
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_theme_setup' ) ) ) {
 	function ct_mission_theme_setup() {
 
@@ -49,6 +59,9 @@ if ( ! function_exists( ( 'ct_mission_theme_setup' ) ) ) {
 }
 add_action( 'after_setup_theme', 'ct_mission_theme_setup' );
 
+//----------------------------------------------------------------------------------
+//	Register widget areas
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_register_widget_areas' ) ) ) {
 	function ct_mission_register_widget_areas() {
 
@@ -119,106 +132,9 @@ if ( ! function_exists( ( 'ct_mission_register_widget_areas' ) ) ) {
 }
 add_action( 'widgets_init', 'ct_mission_register_widget_areas' );
 
-if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
-	function ct_mission_customize_comments( $comment, $args, $depth ) { ?>
-		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<article id="comment-<?php comment_ID(); ?>" class="comment">
-			<div class="comment-author">
-				<?php
-				echo get_avatar( get_comment_author_email(), 36, '', get_comment_author() );
-				?>
-				<span class="author-name"><?php comment_author_link(); ?></span>
-				<span class="comment-date">
-					<?php
-					global $post;
-					if ( $comment->user_id === $post->post_author && get_theme_mod( 'author_label' ) != 'no' ) {
-						echo '<span>' . esc_html__( 'Post author', 'mission' ) . '</span>';
-						if ( get_theme_mod( 'comment_date' ) != 'no' ) {
-							echo ' | ';
-						}
-					}
-					if ( get_theme_mod( 'comment_date' ) != 'no' ) {
-						comment_date();
-					}
-					?>
-				</span>
-			</div>
-			<div class="comment-content">
-				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'mission' ) ?></em>
-					<br/>
-				<?php endif; ?>
-				<?php comment_text(); ?>
-			</div>
-			<div class="comment-footer">
-				<?php comment_reply_link( array_merge( $args, array(
-					'reply_text' => esc_html__( 'Reply', 'mission' ),
-					'depth'      => $depth,
-					'max_depth'  => $args['max_depth']
-				) ) ); ?>
-				<?php edit_comment_link( esc_html__( 'Edit', 'mission' ) ); ?>
-			</div>
-		</article>
-		<?php
-	}
-}
-
-if ( ! function_exists( 'ct_mission_update_fields' ) ) {
-	function ct_mission_update_fields( $fields ) {
-
-		$commenter = wp_get_current_commenter();
-		$req       = get_option( 'require_name_email' );
-		$label     = $req ? '*' : ' ' . esc_html__( '(optional)', 'mission' );
-		$aria_req  = $req ? "aria-required='true'" : '';
-
-		$fields['author'] =
-			'<p class="comment-form-author">
-	            <label for="author">' . esc_html__( "Name", "mission" ) . esc_html( $label ) . '</label>
-	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "mission" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
-			'" size="30" ' . esc_html( $aria_req ) . ' />
-	        </p>';
-
-		$fields['email'] =
-			'<p class="comment-form-email">
-	            <label for="email">' . esc_html__( "Email", "mission" ) . esc_html( $label ) . '</label>
-	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "mission" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
-			'" size="30" ' . esc_html( $aria_req ) . ' />
-	        </p>';
-
-		$fields['url'] =
-			'<p class="comment-form-url">
-	            <label for="url">' . esc_html__( "Website", "mission" ) . '</label>
-	            <input id="url" name="url" type="url" placeholder="http://google.com" value="' . esc_attr( $commenter['comment_author_url'] ) .
-			'" size="30" />
-	            </p>';
-
-		return $fields;
-	}
-}
-add_filter( 'comment_form_default_fields', 'ct_mission_update_fields' );
-
-if ( ! function_exists( 'ct_mission_update_comment_field' ) ) {
-	function ct_mission_update_comment_field( $comment_field ) {
-
-		$comment_field =
-			'<p class="comment-form-comment">
-	            <label for="comment">' . esc_html__( "Comment", "mission" ) . '</label>
-	            <textarea required id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
-	        </p>';
-
-		return $comment_field;
-	}
-}
-add_filter( 'comment_form_field_comment', 'ct_mission_update_comment_field' );
-
-if ( ! function_exists( 'ct_mission_remove_comments_notes_after' ) ) {
-	function ct_mission_remove_comments_notes_after( $defaults ) {
-		$defaults['comment_notes_after'] = '';
-		return $defaults;
-	}
-}
-add_action( 'comment_form_defaults', 'ct_mission_remove_comments_notes_after' );
-
+//----------------------------------------------------------------------------------
+//	Output excerpt/content
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_excerpt' ) ) {
 	function ct_mission_excerpt() {
 		if ( get_theme_mod( 'full_post' ) == 'yes' ) {
@@ -229,6 +145,9 @@ if ( ! function_exists( 'ct_mission_excerpt' ) ) {
 	}
 }
 
+//----------------------------------------------------------------------------------
+//	Update excerpt length. Allow user input from Customizer.
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_custom_excerpt_length' ) ) {
 	function ct_mission_custom_excerpt_length( $length ) {
 
@@ -245,7 +164,9 @@ if ( ! function_exists( 'ct_mission_custom_excerpt_length' ) ) {
 }
 add_filter( 'excerpt_length', 'ct_mission_custom_excerpt_length', 99 );
 
-// add plain ellipsis for automatic excerpts (removes [])
+//----------------------------------------------------------------------------------
+// Add plain ellipsis for automatic excerpts ("[...]" => "...")
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_excerpt_ellipsis' ) ) {
 	function ct_mission_excerpt_ellipsis() {
 		return '&#8230;';
@@ -253,6 +174,9 @@ if ( ! function_exists( 'ct_mission_excerpt_ellipsis' ) ) {
 }
 add_filter( 'excerpt_more', 'ct_mission_excerpt_ellipsis', 10 );
 
+//----------------------------------------------------------------------------------
+// Don't scroll to text after clicking a "more tag" link
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_remove_more_link_scroll' ) ) {
 	function ct_mission_remove_more_link_scroll( $link ) {
 		$link = preg_replace( '|#more-[0-9]+|', '', $link );
@@ -261,6 +185,9 @@ if ( ! function_exists( 'ct_mission_remove_more_link_scroll' ) ) {
 }
 add_filter( 'the_content_more_link', 'ct_mission_remove_more_link_scroll' );
 
+//----------------------------------------------------------------------------------
+// Output the Featured Image
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_featured_image' ) ) {
 	function ct_mission_featured_image() {
 
@@ -292,134 +219,10 @@ if ( ! function_exists( 'ct_mission_featured_image' ) ) {
 	}
 }
 
-if ( ! function_exists( 'ct_mission_social_array' ) ) {
-	function ct_mission_social_array() {
-
-		$social_sites = array(
-			'twitter'       => 'ct_mission_twitter_profile',
-			'facebook'      => 'ct_mission_facebook_profile',
-			'instagram'     => 'ct_mission_instagram_profile',
-			'linkedin'      => 'ct_mission_linkedin_profile',
-			'pinterest'     => 'ct_mission_pinterest_profile',
-			'google-plus'   => 'ct_mission_googleplus_profile',
-			'youtube'       => 'ct_mission_youtube_profile',
-			'email'         => 'ct_mission_email_profile',
-			'email-form'    => 'ct_mission_email_form_profile',
-			'500px'         => 'ct_mission_500px_profile',
-			'amazon'        => 'ct_mission_amazon_profile',
-			'bandcamp'      => 'ct_mission_bandcamp_profile',
-			'behance'       => 'ct_mission_behance_profile',
-			'codepen'       => 'ct_mission_codepen_profile',
-			'delicious'     => 'ct_mission_delicious_profile',
-			'deviantart'    => 'ct_mission_deviantart_profile',
-			'digg'          => 'ct_mission_digg_profile',
-			'dribbble'      => 'ct_mission_dribbble_profile',
-			'etsy'          => 'ct_mission_etsy_profile',
-			'flickr'        => 'ct_mission_flickr_profile',
-			'foursquare'    => 'ct_mission_foursquare_profile',
-			'github'        => 'ct_mission_github_profile',
-			'google-wallet' => 'ct_mission_google_wallet_profile',
-			'hacker-news'   => 'ct_mission_hacker-news_profile',
-			'meetup'        => 'ct_mission_meetup_profile',
-			'paypal'        => 'ct_mission_paypal_profile',
-			'podcast'       => 'ct_mission_podcast_profile',
-			'quora'         => 'ct_mission_quora_profile',
-			'qq'            => 'ct_mission_qq_profile',
-			'ravelry'       => 'ct_mission_ravelry_profile',
-			'reddit'        => 'ct_mission_reddit_profile',
-			'rss'           => 'ct_mission_rss_profile',
-			'skype'         => 'ct_mission_skype_profile',
-			'slack'         => 'ct_mission_slack_profile',
-			'slideshare'    => 'ct_mission_slideshare_profile',
-			'snapchat'      => 'ct_mission_snapchat_profile',
-			'soundcloud'    => 'ct_mission_soundcloud_profile',
-			'spotify'       => 'ct_mission_spotify_profile',
-			'steam'         => 'ct_mission_steam_profile',
-			'stumbleupon'   => 'ct_mission_stumbleupon_profile',
-			'telegram'      => 'ct_mission_telegram_profile',
-			'tencent-weibo' => 'ct_mission_tencent_weibo_profile',
-			'tumblr'        => 'ct_mission_tumblr_profile',
-			'twitch'        => 'ct_mission_twitch_profile',
-			'vimeo'         => 'ct_mission_vimeo_profile',
-			'vine'          => 'ct_mission_vine_profile',
-			'vk'            => 'ct_mission_vk_profile',
-			'wechat'        => 'ct_mission_wechat_profile',
-			'weibo'         => 'ct_mission_weibo_profile',
-			'whatsapp'      => 'ct_mission_whatsapp_profile',
-			'xing'          => 'ct_mission_xing_profile',
-			'yahoo'         => 'ct_mission_yahoo_profile',
-			'yelp'          => 'ct_mission_yelp_profile'
-		);
-
-		return apply_filters( 'ct_mission_social_array_filter', $social_sites );
-	}
-}
-
-if ( ! function_exists( 'ct_mission_social_icons_output' ) ) {
-	function ct_mission_social_icons_output( $source = 'header' ) {
-
-		if ( $source == 'header' && get_theme_mod( 'social_icons_header' ) == 'no' ) {
-			return;
-		}
-		
-		$social_sites = ct_mission_social_array();
-
-		// store the site name and url
-		foreach ( $social_sites as $social_site => $profile ) {
-
-			if ( $source == 'header' ) {
-				if ( strlen( get_theme_mod( $social_site ) ) > 0 ) {
-					$active_sites[ $social_site ] = $social_site;
-				}
-			} elseif ( $source == 'author' ) {
-				if ( strlen( get_the_author_meta( $profile ) ) > 0 ) {
-					$active_sites[ $profile ] = $social_site;
-				}
-			}
-		}
-
-		if ( ! empty( $active_sites ) ) {
-
-			echo "<ul id='social-media-icons' class='social-media-icons'>";
-
-			foreach ( $active_sites as $key => $active_site ) {
-
-				if ( $active_site == 'email-form' ) {
-					$class = 'fa fa-envelope-o';
-				} else {
-					$class = 'fa fa-' . $active_site;
-				}
-
-				echo '<li>';
-				if ( $active_site == 'email' ) { ?>
-					<a class="email" target="_blank"
-					   href="mailto:<?php echo antispambot( is_email( get_theme_mod( $key ) ) ); ?>">
-						<i class="fa fa-envelope" title="<?php esc_attr_e( 'email', 'mission' ); ?>"></i>
-					</a>
-				<?php } elseif ( $active_site == 'skype' ) { ?>
-					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
-					   href="<?php echo esc_url( get_theme_mod( $key ), array( 'http', 'https', 'skype' ) ); ?>">
-						<i class="<?php echo esc_attr( $class ); ?>"
-						   title="<?php echo esc_attr( $active_site ); ?>"></i>
-					</a>
-				<?php } else { ?>
-					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
-					   href="<?php echo esc_url( get_theme_mod( $key ) ); ?>">
-						<i class="<?php echo esc_attr( $class ); ?>"
-						   title="<?php echo esc_attr( $active_site ); ?>"></i>
-					</a>
-					<?php
-				}
-				echo '</li>';
-			}
-			echo "</ul>";
-		}
-	}
-}
 
 /*
  * WP will apply the ".menu-primary-items" class & id to the containing <div> instead of <ul>
- * making styling difficult and confusing. Using this wrapper to add a unique class to make styling easier.
+ * making styling confusing. This simple wrapper adds a unique class to make styling easier.
  */
 if ( ! function_exists( ( 'ct_mission_wp_page_menu' ) ) ) {
 	function ct_mission_wp_page_menu() {
@@ -431,6 +234,9 @@ if ( ! function_exists( ( 'ct_mission_wp_page_menu' ) ) ) {
 	}
 }
 
+//----------------------------------------------------------------------------------
+// Add toggle buttons for tier 3+ sub-menus. Used in mobile menu.
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_nav_dropdown_buttons' ) ) ) {
 	function ct_mission_nav_dropdown_buttons( $item_output, $item, $depth, $args ) {
 
@@ -446,6 +252,9 @@ if ( ! function_exists( ( 'ct_mission_nav_dropdown_buttons' ) ) ) {
 }
 add_filter( 'walker_nav_menu_start_el', 'ct_mission_nav_dropdown_buttons', 10, 4 );
 
+//----------------------------------------------------------------------------------
+// Add a label to "sticky" posts on archive pages
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_sticky_post_marker' ) ) ) {
 	function ct_mission_sticky_post_marker() {
 
@@ -456,6 +265,9 @@ if ( ! function_exists( ( 'ct_mission_sticky_post_marker' ) ) ) {
 }
 add_action( 'ct_mission_sticky_post_status', 'ct_mission_sticky_post_marker' );
 
+//----------------------------------------------------------------------------------
+// Reset Customizer settings added by Mission. Button added in theme-options.php.
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
 	function ct_mission_reset_customizer_options() {
 
@@ -519,6 +331,9 @@ if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
 }
 add_action( 'admin_init', 'ct_mission_reset_customizer_options' );
 
+//----------------------------------------------------------------------------------
+// Notice to let users know when their Customizer settings have been reset
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_delete_settings_notice' ) ) ) {
 	function ct_mission_delete_settings_notice() {
 
@@ -533,6 +348,9 @@ if ( ! function_exists( ( 'ct_mission_delete_settings_notice' ) ) ) {
 }
 add_action( 'admin_notices', 'ct_mission_delete_settings_notice' );
 
+//----------------------------------------------------------------------------------
+// Add body classes for styling purposes
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_body_class' ) ) ) {
 	function ct_mission_body_class( $classes ) {
 
@@ -554,12 +372,15 @@ if ( ! function_exists( ( 'ct_mission_body_class' ) ) ) {
 }
 add_filter( 'body_class', 'ct_mission_body_class' );
 
+//----------------------------------------------------------------------------------
+// Add classes to post element for styling purposes
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_post_class' ) ) ) {
 	function ct_mission_post_class( $classes ) {
 		global $wp_query;
 		$layout = get_theme_mod( 'layout' );
 
-		// add a shared class for post divs on archive and single pages
+		// adding a shared class for post divs on archive and single pages
 		$classes[] = 'entry';
 
 		if ( !empty( $layout ) && $wp_query->current_post != 0 ) {
@@ -571,6 +392,9 @@ if ( ! function_exists( ( 'ct_mission_post_class' ) ) ) {
 }
 add_filter( 'post_class', 'ct_mission_post_class' );
 
+//----------------------------------------------------------------------------------
+// Used to get messy SVG HTML out of content markup.
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_svg_output' ) ) ) {
 	function ct_mission_svg_output( $type ) {
 
@@ -585,6 +409,9 @@ if ( ! function_exists( ( 'ct_mission_svg_output' ) ) ) {
 	}
 }
 
+//----------------------------------------------------------------------------------
+// Add meta elements for the charset, viewport, and template
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_add_meta_elements' ) ) ) {
 	function ct_mission_add_meta_elements() {
 
@@ -602,6 +429,9 @@ if ( ! function_exists( ( 'ct_mission_add_meta_elements' ) ) ) {
 }
 add_action( 'wp_head', 'ct_mission_add_meta_elements', 1 );
 
+//----------------------------------------------------------------------------------
+// Get the right template for Jetpack infinite scroll
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_infinite_scroll_render' ) ) ) {
 	function ct_mission_infinite_scroll_render() {
 		while ( have_posts() ) {
@@ -611,9 +441,10 @@ if ( ! function_exists( ( 'ct_mission_infinite_scroll_render' ) ) ) {
 	}
 }
 
-/* Routing templates this way to follow DRY coding patterns
-* (using index.php file only instead of duplicating loop in page.php, post.php, etc.)
-*/
+//----------------------------------------------------------------------------------
+// Template routing function. Setup to follow DRY coding patterns. 
+// (Using index.php file only instead of duplicating loop in page.php, post.php, etc.)
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_get_content_template' ) ) {
 	function ct_mission_get_content_template() {
 		global $wp_query;
@@ -636,7 +467,9 @@ if ( ! function_exists( 'ct_mission_get_content_template' ) ) {
 	}
 }
 
-// allow skype URIs to be used
+//----------------------------------------------------------------------------------
+// Allow Skype URIs to be used. Used for the Skype social icon in Customizer 
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_allow_skype_protocol' ) ) {
 	function ct_mission_allow_skype_protocol( $protocols ) {
 		$protocols[] = 'skype';
@@ -646,7 +479,10 @@ if ( ! function_exists( 'ct_mission_allow_skype_protocol' ) ) {
 }
 add_filter( 'kses_allowed_protocols' , 'ct_mission_allow_skype_protocol' );
 
-// Remove label that can't be edited with the_archive_title() e.g. "Category: Business" => "Business"
+//----------------------------------------------------------------------------------
+// Filters the_archive_title() like this: "Category: Business" => "Business" 
+// the_archive_title() is used in content/archive-header.php
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_modify_archive_titles' ) ) {
 	function ct_mission_modify_archive_titles( $title ) {
 
@@ -666,7 +502,10 @@ if ( ! function_exists( 'ct_mission_modify_archive_titles' ) ) {
 }
 add_filter( 'get_the_archive_title', 'ct_mission_modify_archive_titles' );
 
-// add paragraph tags for author bio. the_archive_description only uses them for category & tag descriptions
+//----------------------------------------------------------------------------------
+// Add paragraph tags for author bio displayed in content/archive-header.php.
+// the_archive_description includes paragraph tags for tag and category descriptions, but not the author bio. 
+//----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_modify_archive_descriptions' ) ) {
 	function ct_mission_modify_archive_descriptions( $description ) {
 
@@ -678,17 +517,10 @@ if ( ! function_exists( 'ct_mission_modify_archive_descriptions' ) ) {
 }
 add_filter( 'get_the_archive_description', 'ct_mission_modify_archive_descriptions' );
 
-// sanitize CSS and convert HTML character codes back into ">" character so direct descendant CSS selectors work
-if ( ! function_exists( 'ct_mission_sanitize_css' ) ) {
-	function ct_mission_sanitize_css( $css ) {
-		$css = wp_kses( $css, '' );
-		$css = str_replace( '&gt;', '>', $css );
-
-		return $css;
-	}
-}
-
-// TRT Note: using function instead of template part b/c widget needs to pass in variables
+//----------------------------------------------------------------------------------
+// Output the post byline. Used in content-archive.php and inc/widgets/post-list.php
+// Using function instead of template part so widget can pass in variables 
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_post_byline' ) ) ) {
 	function ct_mission_post_byline( $author, $date ) {
 
@@ -717,8 +549,10 @@ if ( ! function_exists( ( 'ct_mission_post_byline' ) ) ) {
 	}
 }
 
-/* Providing a fallback title on the off-chance a post is untitled so it remains clickable on the blog.
-* Copying "(title)" which WordPress uses in the admin dashboard. */
+//----------------------------------------------------------------------------------
+// Providing a fallback title on the off-chance a post is untitled so it remains clickable on the blog.
+// Copying "(title)" which WordPress uses in the admin dashboard.
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_no_missing_titles' ) ) ) {
 	function ct_mission_no_missing_titles( $title, $id = null ) {
 		if ( $title == '' ) {
@@ -730,90 +564,10 @@ if ( ! function_exists( ( 'ct_mission_no_missing_titles' ) ) ) {
 }
 add_filter( 'the_title', 'ct_mission_no_missing_titles', 10, 2 );
 
-/* TRT Note: Meta box is added purely as a presentational tool. It lets users override the global layout setting in the Customizer.
-* Post templates (as added in 4.7) are not used instead b/c the post content doesn't change between layouts. */
-if ( ! function_exists( ( 'ct_mission_add_post_layout_meta_box' ) ) ) {
-	function ct_mission_add_post_layout_meta_box() {
 
-		$screens = array( 'post' );
-
-		foreach ( $screens as $screen ) {
-
-			add_meta_box(
-				'ct_mission_post_layout',
-				esc_html__( 'Layout', 'mission' ),
-				'ct_mission_post_layout_callback',
-				$screen,
-				'side'
-			);
-		}
-	}
-}
-add_action( 'add_meta_boxes', 'ct_mission_add_post_layout_meta_box' );
-
-if ( ! function_exists( ( 'ct_mission_post_layout_callback' ) ) ) {
-	function ct_mission_post_layout_callback( $post ) {
-
-		wp_nonce_field( 'ct_mission_post_layout', 'ct_mission_post_layout_nonce' );
-
-		$layout = get_post_meta( $post->ID, 'ct_mission_post_layout_key', true );
-		?>
-		<p>
-			<select name="mission-post-layout" id="mission-post-layout" class="widefat">
-				<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission' ); ?></option>
-				<option value="double-sidebar" <?php if ( $layout == 'double-sidebar' ) {
-					echo 'selected';
-				} ?>><?php esc_html_e( 'Double sidebar', 'mission' ); ?>
-				</option>
-				<option value="left-sidebar" <?php if ( $layout == 'left-sidebar' ) {
-					echo 'selected';
-				} ?>><?php esc_html_e( 'Left sidebar', 'mission' ); ?>
-				</option>
-				<option value="right-sidebar" <?php if ( $layout == 'right-sidebar' ) {
-					echo 'selected';
-				} ?>><?php esc_html_e( 'Right sidebar', 'mission' ); ?>
-				</option>
-				<option value="no-sidebar" <?php if ( $layout == 'no-sidebar' ) {
-					echo 'selected';
-				} ?>><?php esc_html_e( 'No sidebar', 'mission' ); ?>
-				</option>
-			</select>
-		</p> <?php
-	}
-}
-
-if ( ! function_exists( ( 'ct_mission_post_layout_save_data' ) ) ) {
-	function ct_mission_post_layout_save_data( $post_id ) {
-
-		global $post;
-
-		if ( ! isset( $_POST['ct_mission_post_layout_nonce'] ) ) {
-			return;
-		}
-		if ( ! wp_verify_nonce( $_POST['ct_mission_post_layout_nonce'], 'ct_mission_post_layout' ) ) {
-			return;
-		}
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return;
-		}
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return;
-		}
-
-		if ( isset( $_POST['mission-post-layout'] ) ) {
-
-			$layout            = $_POST['mission-post-layout'];
-			$acceptable_values = array( 'default', 'double-sidebar', 'left-sidebar', 'right-sidebar', 'no-sidebar' );
-
-			if ( in_array( $layout, $acceptable_values ) ) {
-				update_post_meta( $post_id, 'ct_mission_post_layout_key', $layout );
-			}
-		}
-	}
-}
-add_action( 'pre_post_update', 'ct_mission_post_layout_save_data' );
-
-// Allow individual posts to override the global layout setting in the Customizer (set via meta box)
+//----------------------------------------------------------------------------------
+// Allow individual posts to override the global layout (via meta box) set in the Customizer 
+//----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_filter_layout' ) ) ) {
 	function ct_mission_filter_layout( $layout ) {
 

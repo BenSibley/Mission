@@ -97,7 +97,7 @@ class ct_mission_post_list extends WP_Widget {
 						echo '<div class="bottom">';
 						if ( $instance['excerpt'] == 'yes' ) {
 							echo '<div class="excerpt">';
-							echo wpautop( get_the_excerpt() );
+							echo wp_kses_post( wpautop( get_the_excerpt() ) );
 							echo '</div>';
 						}
 						if ( $instance['comments'] == 'yes' ) {

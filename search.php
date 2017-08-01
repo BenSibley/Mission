@@ -6,7 +6,7 @@
             $total_results = $wp_query->found_posts;
             if ( $total_results ) {
                 // translators: %1$s = number of results. %2$s = search query
-                printf( esc_html( _n( '%1$s search result for %2$s', '%1$s search results for %2$s', $total_results, 'mission' ) ), $total_results, '&ldquo;' . get_search_query() . '&rdquo;' );
+                printf( esc_html( _n( '%1$s search result for %2$s', '%1$s search results for %2$s', absint( $total_results ), 'mission' ) ), $total_results, '&ldquo;' . get_search_query() . '&rdquo;' );
             } else {
                 printf( esc_html__( 'No search results for "%s"', 'mission' ), get_search_query() );
             }

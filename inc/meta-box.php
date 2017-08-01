@@ -69,7 +69,7 @@ if ( ! function_exists( ( 'ct_mission_post_layout_save_data' ) ) ) {
 		if ( ! isset( $_POST['ct_mission_post_layout_nonce'] ) ) {
 			return;
 		}
-		if ( ! wp_verify_nonce( $_POST['ct_mission_post_layout_nonce'], 'ct_mission_post_layout' ) ) {
+		if ( ! wp_verify_nonce( wp_unslash( $_POST['ct_mission_post_layout_nonce'] ), 'ct_mission_post_layout' ) ) {
 			return;
 		}
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -81,7 +81,7 @@ if ( ! function_exists( ( 'ct_mission_post_layout_save_data' ) ) ) {
 
 		if ( isset( $_POST['mission-post-layout'] ) ) {
 
-			$layout            = $_POST['mission-post-layout'];
+			$layout            = wp_unslash( $_POST['mission-post-layout'] );
 			$acceptable_values = array( 'default', 'double-sidebar', 'left-sidebar', 'right-sidebar', 'no-sidebar' );
 
 			if ( in_array( $layout, $acceptable_values ) ) {

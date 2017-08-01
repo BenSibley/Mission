@@ -1,12 +1,18 @@
 <?php
 
+//----------------------------------------------------------------------------------
+// Create post list widget
+//----------------------------------------------------------------------------------
 class ct_mission_post_list extends WP_Widget {
 
+	//----------------------------------------------------------------------------------
+	// Initialize widget
+	//----------------------------------------------------------------------------------
 	function __construct() {
 
 		$widget_options = array(
 			'classname'   => 'widget_ct_mission_post_list',
-			'description' => __( 'A more robust recent posts widget. Added by the Mission theme.', 'mission' )
+			'description' => esc_html__( 'A more robust recent posts widget. Added by the Mission theme.', 'mission' )
 		);
 		parent::__construct(
 			'ct_mission_post_list',
@@ -15,16 +21,12 @@ class ct_mission_post_list extends WP_Widget {
 		);
 	}
 
+	//----------------------------------------------------------------------------------
+	// Output the widget's contents on the front-end
+	//----------------------------------------------------------------------------------
 	public function widget( $args, $instance ) {
 
-		echo $args['before_widget'];
-		echo '<div class="style-' . esc_attr( $instance['style'] ) . '">';
-
-		if ( !empty( $instance['title'] ) ) {
-			echo $args['before_title'];
-			echo esc_html( $instance['title'] );
-			echo $args['after_title'];
-		}
+		/***** Prepare the query to get posts *****/
 
 		$query_args = array(
 			'posts_per_page' => $instance['post_count'],
@@ -33,6 +35,7 @@ class ct_mission_post_list extends WP_Widget {
 			'post_type'      => 'post',
 			'post_status'    => 'publish'
 		);
+		// If using posts in either a category or a tag
 		if ( $instance['use_category'] == 'yes' && $instance['use_tag'] == 'yes' && $instance['relationship'] == 'OR' ) {
 			$query_args['tax_query'] = array(
 				'relation' => 'OR',
@@ -40,24 +43,36 @@ class ct_mission_post_list extends WP_Widget {
 					'taxonomy' => 'category',
 					'field' => 'term_id',
 					'terms' => $instance['category']
-				    ),
-			    array(
-				    'taxonomy' => 'post_tag',
-				    'field' => 'term_id',
-				    'terms' => $instance['tag']
-			    ),
+				),
+				array(
+					'taxonomy' => 'post_tag',
+					'field' => 'term_id',
+					'terms' => $instance['tag']
+				),
 			);
 		} else {
+			// add category as post requirement
 			if ( $instance['use_category'] == 'yes' ) {
 				$query_args['cat'] = $instance['category'];
 			}
+			// add tag as post requirement
 			if ( $instance['use_tag'] == 'yes' ) {
 				$query_args['tag_id'] = $instance['tag'];
 			}
 		}
 
+		// create the query
 		$the_query = new WP_Query( $query_args );
 
+		/***** Output the widget's contents *****/
+
+		echo $args['before_widget'];
+		echo '<div class="style-' . esc_attr( $instance['style'] ) . '">';
+		if ( !empty( $instance['title'] ) ) {
+			echo $args['before_title'];
+			echo esc_html( $instance['title'] );
+			echo $args['after_title'];
+		}
 		if ( $the_query->have_posts() ) {
 			echo '<ul>';
 			while ( $the_query->have_posts() ) {
@@ -99,8 +114,12 @@ class ct_mission_post_list extends WP_Widget {
 		echo $args['after_widget'];
 	}
 
+	//----------------------------------------------------------------------------------
+	// Output the widget's contents on the back-end
+	//----------------------------------------------------------------------------------
 	public function form( $instance ) {
 
+		// prepare saved values
 		$title        = isset( $instance['title'] ) ? $instance['title'] : '';
 		$use_category = isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes';
 		$category     = isset( $instance['category'] ) ? $instance['category'] : 1;
@@ -207,6 +226,9 @@ class ct_mission_post_list extends WP_Widget {
 		<?php
 	}
 
+	//----------------------------------------------------------------------------------
+	// Save the widget settings
+	//----------------------------------------------------------------------------------
 	public function update( $new_instance, $old_instance ) {
 
 		$instance                 = array();
@@ -228,6 +250,9 @@ class ct_mission_post_list extends WP_Widget {
 	}
 }
 
+//----------------------------------------------------------------------------------
+// Register the widget
+//----------------------------------------------------------------------------------
 function register_ct_mission_post_list_widget() {
 	register_widget( 'ct_mission_post_list' );
 }

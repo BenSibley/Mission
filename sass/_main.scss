@@ -59,6 +59,9 @@
     width: 50%; // $column * 16
     float: left;
     padding: 0 $column $baseline-height;
+    margin-left: 25%;
+    /* margin-left added in case left-sidebar has no widgets.
+    ** This is a real possibility for a fresh install. */
 
     .loop-container {
       padding: 0;

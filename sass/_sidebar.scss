@@ -89,6 +89,9 @@
     &:before {
       display: none;
     }
+    ~ .main {
+      margin-left: 0;
+    }
   }
   .sidebar-right {
     margin-right: 3%; // $column

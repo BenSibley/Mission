@@ -1137,6 +1137,9 @@ a img {
     width: 50%;
     float: left;
     padding: 0 2.778% 1.5em;
+    margin-left: 25%;
+    /* margin-left added in case left-sidebar has no widgets.
+    ** This is a real possibility for a fresh install. */
   }
   .main .loop-container {
     padding: 0;
@@ -2375,6 +2378,9 @@ a img {
   }
   .sidebar-left:before {
     display: none;
+  }
+  .sidebar-left ~ .main {
+    margin-left: 0;
   }
 
   .sidebar-right {

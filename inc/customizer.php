@@ -242,7 +242,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	}
 
 	//----------------------------------------------------------------------------------
-	// Section: Show/Hide Elements
+	// Panel: Show/Hide Elements. Section: Header
 	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_show_hide_header', array(
 		'title'    => __( 'Header', 'mission' ),
@@ -313,7 +313,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
-	// section - Blog & Archives
+	//----------------------------------------------------------------------------------
+	// Panel: Show/Hide Elements. Section: Blog & Archives
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_show_hide_blog_archives', array(
 		'title'    => __( 'Blog & Archives', 'mission' ),
 		'description' => __( 'These settings apply to the main posts page and all archives.', 'mission' ),
@@ -368,7 +370,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
-	// section - Archives
+	//----------------------------------------------------------------------------------
+	// Panel: Show/Hide Elements. Section: Archivess
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_show_hide_archives', array(
 		'title'    => __( 'Archives', 'mission' ),
 		'description' => __( 'These settings apply to the category, tag, date, and author archives.', 'mission' ),
@@ -407,7 +411,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
-	// section - Posts
+	//----------------------------------------------------------------------------------
+	// Panel: Show/Hide Elements. Section: Posts
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_show_hide_posts', array(
 		'title'    => __( 'Posts', 'mission' ),
 		'description' => __( 'These settings apply to individual post pages.', 'mission' ),
@@ -542,7 +548,9 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission' )
 		)
 	) );
-	// section - Comments
+	//----------------------------------------------------------------------------------
+	// Panel: Show/Hide Elements. Section: Comments
+	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_show_hide_comments', array(
 		'title'       => __( 'Comments', 'mission' ),
 		'description' => __( 'These settings apply to post comments.', 'mission' ),
@@ -575,6 +583,47 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		'label'    => __( 'Show the "Post Author" label?', 'mission' ),
 		'section'  => 'ct_mission_show_hide_comments',
 		'settings' => 'author_label',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	//----------------------------------------------------------------------------------
+	// Panel: Show/Hide Elements. Section: Footer
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_show_hide_footer', array(
+		'title'       => __( 'Footer', 'mission' ),
+		'description' => __( 'These settings apply to the footer.', 'mission' ),
+		'panel'       => 'ct_mission_show_hide_panel',
+		'priority'    => 6
+	) );
+	// setting
+	$wp_customize->add_setting( 'social_icons_footer', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'social_icons_footer', array(
+		'label'    => __( 'Show the social icons?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_footer',
+		'settings' => 'social_icons_footer',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission' ),
+			'no'  => __( 'No', 'mission' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'tagline_footer', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'tagline_footer', array(
+		'label'    => __( 'Show the tagline?', 'mission' ),
+		'section'  => 'ct_mission_show_hide_footer',
+		'settings' => 'tagline_footer',
 		'type'     => 'radio',
 		'choices' => array(
 			'yes' => __( 'Yes', 'mission' ),

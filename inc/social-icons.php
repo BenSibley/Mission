@@ -75,20 +75,17 @@ if ( ! function_exists( 'ct_mission_social_icons_output' ) ) {
 		if ( $source == 'header' && get_theme_mod( 'social_icons_header' ) == 'no' ) {
 			return;
 		}
+		if ( $source == 'footer' && get_theme_mod( 'social_icons_footer' ) == 'no' ) {
+			return;
+		}
 
 		$social_sites = ct_mission_social_array();
 
 		// store the site name and url
 		foreach ( $social_sites as $social_site => $profile ) {
 
-			if ( $source == 'header' ) {
-				if ( strlen( get_theme_mod( $social_site ) ) > 0 ) {
-					$active_sites[ $social_site ] = $social_site;
-				}
-			} elseif ( $source == 'author' ) {
-				if ( strlen( get_the_author_meta( $profile ) ) > 0 ) {
-					$active_sites[ $profile ] = $social_site;
-				}
+			if ( strlen( get_theme_mod( $social_site ) ) > 0 ) {
+				$active_sites[ $social_site ] = $social_site;
 			}
 		}
 

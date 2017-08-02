@@ -9,10 +9,10 @@
     <?php do_action( 'ct_mission_footer_top' ); ?>
     <div class="footer-title-container">
         <?php get_template_part( 'logo' ) ?>
-        <?php if ( get_bloginfo( 'description' ) ) {
+        <?php if ( get_bloginfo( 'description' ) && get_theme_mod( 'tagline_footer' ) != 'no' ) {
             echo '<p class="footer-tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';
         } ?>
-        <?php ct_mission_social_icons_output(); ?>
+        <?php ct_mission_social_icons_output( 'footer' ); ?>
     </div>
     <div class="design-credit">
         <span>

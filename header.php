@@ -18,7 +18,7 @@
 				<div id="menu-secondary-container" class="menu-secondary-container">
 					<?php get_template_part( 'menu', 'secondary' ); ?>
 				</div>
-				<?php ct_mission_social_icons_output(); ?>
+				<?php ct_mission_social_icons_output( 'header' ); ?>
 			</div>
 			<div id="title-container" class="title-container"><?php
 				get_template_part( 'logo' );

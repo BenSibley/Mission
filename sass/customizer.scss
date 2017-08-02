@@ -1,37 +1,76 @@
 @import "variables";
 
-.upgrades-ad {
-  text-align: center;
-  border-bottom: solid 1px #eee;
+// Mission Pro section
+#accordion-section-ct_mission_pro {
 
-  a {
-    display: block;
-    padding: 9px 0;
-    color: white;
-    background: #43b3c4;
-    transition: background 0.15s ease-in-out;
+  .accordion-section-title {
+    color: #fff;
+    background: #05B0E7;
+    transition: background 0.2s;
 
-    &:link,
-    &:visited,
-    &:hover,
-    &:active,
-    &:focus  {
-      color: white;
+    &:after {
+      color: #fff;
     }
+
     &:hover,
     &:active,
     &:focus {
-      background: #3ea5b3;
+      background: #3A96B5 !important;
+      color: #fff !important;
 
-      span {
-        right: -3px;
+      &:after {
+        color: #fff !important;
       }
     }
   }
-  span {
+}
+#customize-control-mission_pro {
+  background: white;
+  border: solid 1px $color-gray-86;
+  padding: 6px 24px;
+  box-sizing: border-box;
+
+  ul {
+    list-style: disc;
+    padding-left: 15px;
+  }
+  img {
     position: relative;
-    right: 0;
-    transition: right 0.15s ease-in-out;
+    max-width: calc(100% + 48px);
+    top: -6px;
+    left: -24px;
+    border-bottom: solid 1px $color-gray-86;
+  }
+  .bold {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .button-wrapper {
+    text-align: center;
+  }
+  .mission-pro-button {
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 15px 24px;
+    margin: 12px auto;
+    background: #FF931E;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s;
+
+    &:before {
+      content: '\f06e';
+      font-family: 'FontAwesome';
+      margin-right: 6px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: #FF8A23;
+    }
   }
 }
 

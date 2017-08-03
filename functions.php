@@ -266,7 +266,7 @@ if ( ! function_exists( ( 'ct_mission_sticky_post_marker' ) ) ) {
 add_action( 'ct_mission_sticky_post_status', 'ct_mission_sticky_post_marker' );
 
 //----------------------------------------------------------------------------------
-// Reset Customizer settings added by Mission. Button added in theme-options.php.
+// Reset Customizer settings added by Mission News. Button added in theme-options.php.
 //----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
 	function ct_mission_reset_customizer_options() {

@@ -242,7 +242,7 @@ msgstr ""
 
 #: inc/customizer.php:30
 #. Translators: %1$s is the URL of the upgrade. %2$s is the name of the theme
-#. (Mission)
+#. (Mission News)
 msgid ""
 "<a target=\"_blank\" href=\"%1$s\">%2$s Pro</a> makes advanced "
 "customization simple - and fun too!"
@@ -273,7 +273,7 @@ msgid "Choose which elements you want displayed on the site."
 msgstr ""
 
 #: inc/customizer.php:63
-#. Translators: %s is the name of the theme (Mission)
+#. Translators: %s is the name of the theme (Mission News)
 msgid "%s Pro"
 msgstr ""
 
@@ -567,7 +567,7 @@ msgid " Search for..."
 msgstr ""
 
 #: theme-options.php:5 theme-options.php:23
-#. Translators: %s is the name of the theme (Mission)
+#. Translators: %s is the name of the theme (Mission News)
 msgid "%s Dashboard"
 msgstr ""
 
@@ -576,7 +576,7 @@ msgid "Get Started"
 msgstr ""
 
 #: theme-options.php:31
-#. Translators: %1$s and %2$s are the name of the theme (Mission)
+#. Translators: %1$s and %2$s are the name of the theme (Mission News)
 msgid ""
 "Not sure where to start? The %1$s Support Center is filled with tutorials "
 "that will take you step-by-step through every feature in %1$s."
@@ -591,7 +591,7 @@ msgid "Mission Pro"
 msgstr ""
 
 #: theme-options.php:43
-#. Translators: %s is the name of the theme (Mission)
+#. Translators: %s is the name of the theme (Mission News)
 msgid ""
 "Download the %s Pro plugin and unlock six new layouts, four post templates, "
 "advanced color controls, and more."
@@ -606,7 +606,7 @@ msgid "Leave a Review"
 msgstr ""
 
 #: theme-options.php:55
-#. Translators: %s is the name of the theme (Mission)
+#. Translators: %s is the name of the theme (Mission News)
 msgid "Help others find %s by leaving a review on wordpress.org."
 msgstr ""
 
@@ -616,7 +616,7 @@ msgstr ""
 
 #: theme-options.php:63
 #. Translators:  %1$s is the URL of the Customizer. %2$s is the name of the
-#. theme (Mission)
+#. theme (Mission News)
 msgid ""
 "<strong>Warning:</strong> Clicking this button will erase the %2$s theme's "
 "current settings in the <a href=\"%1$s\">Customizer</a>."
@@ -694,7 +694,7 @@ msgid "By %1$s on %2$s"
 msgstr ""
 
 #: inc/customizer.php:32
-#. Translators: %s is the name of the theme (Mission)
+#. Translators: %s is the name of the theme (Mission News)
 msgctxt "Mission Pro adds the following features:"
 msgid "%s Pro adds the following features:"
 msgstr ""

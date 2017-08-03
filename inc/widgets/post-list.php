@@ -12,7 +12,7 @@ class ct_mission_post_list extends WP_Widget {
 
 		$widget_options = array(
 			'classname'   => 'widget_ct_mission_post_list',
-			'description' => esc_html__( 'A more robust recent posts widget. Added by the Mission theme.', 'mission' )
+			'description' => esc_html__( 'A more robust recent posts widget. Added by the Mission News theme.', 'mission' )
 		);
 		parent::__construct(
 			'ct_mission_post_list',

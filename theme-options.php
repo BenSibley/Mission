@@ -2,12 +2,12 @@
 
 //----------------------------------------------------------------------------------
 // Add menu item for Startup Blog options page
-// TRT Note: wp_get_theme( get_template() ) is used extensively to remove "Mission" from the translation.
+// TRT Note: wp_get_theme( get_template() ) is used extensively to remove "Mission News" from the translation.
 // This makes a lot more strings identical across my themes allowing for greater reuse of translations
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_register_theme_page' ) ) {
 	function ct_mission_register_theme_page() {
-		// Translators: %s is the name of the theme (Mission)
+		// Translators: %s is the name of the theme (Mission News)
 		add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) ), sprintf( esc_html__( '%s Dashboard', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) ), 'edit_theme_options', 'mission-options', 'ct_mission_options_content', 'ct_mission_options_content' );
 	}
 }
@@ -30,7 +30,7 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 		?>
 		<div id="mission-dashboard-wrap" class="wrap">
 			<h2><?php
-				// Translators: %s is the name of the theme (Mission)
+				// Translators: %s is the name of the theme (Mission News)
 				printf( esc_html__( '%s Dashboard', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) );
 				?></h2>
 			<?php do_action( 'ct_mission_theme_options_before' ); ?>
@@ -38,7 +38,7 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 				<div class="content content-support">
 					<h3><?php esc_html_e( 'Get Started', 'mission' ); ?></h3>
 					<p><?php
-						// Translators: %1$s and %2$s are the name of the theme (Mission)
+						// Translators: %1$s and %2$s are the name of the theme (Mission News)
 						printf( esc_html__( 'Not sure where to start? The %1$s Support Center is filled with tutorials that will take you step-by-step through every feature in %1$s.', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) );
 						?></p>
 					<p>
@@ -48,9 +48,9 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 				</div>
 				<?php if ( ! function_exists( 'ct_mission_pro_init' ) ) : ?>
 					<div class="content content-premium-upgrade">
-						<h3><?php printf( esc_html__( 'Mission Pro', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) ); ?></h3>
+						<h3><?php printf( esc_html__( 'Mission News Pro', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) ); ?></h3>
 						<p><?php
-							// Translators: %s is the name of the theme (Mission)
+							// Translators: %s is the name of the theme (Mission News)
 							printf( esc_html__( 'Download the %s Pro plugin and unlock six new layouts, four post templates, advanced color controls, and more.', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) );
 							?></p>
 						<p>
@@ -62,7 +62,7 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 				<div class="content content-review">
 					<h3><?php esc_html_e( 'Leave a Review', 'mission' ); ?></h3>
 					<p><?php
-						// Translators: %s is the name of the theme (Mission)
+						// Translators: %s is the name of the theme (Mission News)
 						printf( esc_html__( 'Help others find %s by leaving a review on wordpress.org.', 'mission' ), esc_attr( wp_get_theme( get_template() ) ) );
 						?></p>
 					<a target="_blank" class="button-primary"
@@ -71,7 +71,7 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 				<div class="content content-delete-settings">
 					<h3><?php esc_html_e( 'Reset Customizer Settings', 'mission' ); ?></h3>
 					<p><?php
-						// Translators:  %1$s is the URL of the Customizer. %2$s is the name of the theme (Mission)
+						// Translators:  %1$s is the URL of the Customizer. %2$s is the name of the theme (Mission News)
 						printf( __( '<strong>Warning:</strong> Clicking this button will erase the %2$s theme\'s current settings in the <a href="%1$s">Customizer</a>.', 'mission' ), esc_url( $customizer_url ), esc_attr( wp_get_theme( get_template() ) ) );
 						?></p>
 					<form method="post">

@@ -150,7 +150,7 @@ jQuery(document).ready(function($){
             $(this).attr('aria-expanded', 'true');
 
             /* can't use overflow: hidden; b/c IE (Windows) will then remove the scrollbar
-             shifting the whole site over to the right. Also, theme check thinks Mission is "hiding" wpadminbar */
+             shifting the whole site over to the right. Also, theme check thinks Mission News is "hiding" wpadminbar */
             body.on('scroll mousewheel touchmove', stopScrolling);
         }
     }
@@ -281,7 +281,7 @@ jQuery(document).ready(function($){
             }, 250);
 
             /* can't use overflow: hidden; b/c IE (Windows) will then remove the scrollbar
-            shifting the whole site over to the right. Also, theme check thinks Mission is "hiding" wpadminbar */
+            shifting the whole site over to the right. Also, theme check thinks Mission News is "hiding" wpadminbar */
             body.on('scroll mousewheel touchmove', stopScrolling);
         }
     }

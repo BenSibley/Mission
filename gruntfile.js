@@ -116,14 +116,14 @@ module.exports = function(grunt) {
             zip: {
                 command: [
                     // delete existing copies (if they exist)
-                    'rm -R /Users/bensibley/Documents/compete-themes/dist/mission || true',
-                    'rm -R /Users/bensibley/Documents/compete-themes/dist/mission.zip || true',
+                    'rm -R /Users/bensibley/Documents/compete-themes/dist/mission-news || true',
+                    'rm -R /Users/bensibley/Documents/compete-themes/dist/mission-news.zip || true',
                     // copy folder without any project/meta files
-                    'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/mission /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
+                    'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/mission-news /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
                     // open dist
                     'cd /Users/bensibley/Documents/compete-themes/dist/',
                     // zip the ct_mission folder
-                    'zip -r mission.zip mission'
+                    'zip -r mission-news.zip mission-news'
                 ].join('&&')
             }
         }

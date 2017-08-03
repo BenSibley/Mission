@@ -8,7 +8,7 @@
 if ( ! function_exists( 'ct_mission_register_theme_page' ) ) {
 	function ct_mission_register_theme_page() {
 		// Translators: %s is the name of the theme (Mission News)
-		add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) ), sprintf( esc_html__( '%s Dashboard', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) ), 'edit_theme_options', 'mission-options', 'ct_mission_options_content', 'ct_mission_options_content' );
+		add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) ), esc_attr( wp_get_theme( get_template() ) ), 'edit_theme_options', 'mission-options', 'ct_mission_options_content', 'ct_mission_options_content' );
 	}
 }
 add_action( 'admin_menu', 'ct_mission_register_theme_page' );

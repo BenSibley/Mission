@@ -6,18 +6,18 @@ if ( ! is_archive() || ( get_theme_mod( 'archive_title' ) == 'no' ) && get_theme
 }
 
 $icon_class = 'folder-open';
-$prefix = esc_html_x( 'Posts published in', 'Posts published in CATEGORY', 'mission' );
+$prefix = esc_html_x( 'Posts published in', 'Posts published in CATEGORY', 'mission-news' );
 
 if ( is_tag() ) {
 	$icon_class = 'tag';
-	$prefix = esc_html__( 'Posts tagged as', 'mission' );
+	$prefix = esc_html__( 'Posts tagged as', 'mission-news' );
 } elseif ( is_author() ) {
 	$icon_class = 'user';
-	$prefix = esc_html_x( 'Posts published by', 'Posts published by AUTHOR', 'mission' );
+	$prefix = esc_html_x( 'Posts published by', 'Posts published by AUTHOR', 'mission-news' );
 } elseif ( is_date() ) {
 	$icon_class = 'calendar';
 	// Repeating default value to add new translator note - context may change word choice
-	$prefix = esc_html_x( 'Posts published in', 'Posts published in MONTH', 'mission' );
+	$prefix = esc_html_x( 'Posts published in', 'Posts published in MONTH', 'mission-news' );
 }
 ?>
 

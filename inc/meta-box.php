@@ -14,7 +14,7 @@ if ( ! function_exists( ( 'ct_mission_add_post_layout_meta_box' ) ) ) {
 
 			add_meta_box(
 				'ct_mission_post_layout',
-				esc_html__( 'Layout', 'mission' ),
+				esc_html__( 'Layout', 'mission-news' ),
 				'ct_mission_post_layout_callback',
 				$screen,
 				'side'
@@ -36,22 +36,22 @@ if ( ! function_exists( ( 'ct_mission_post_layout_callback' ) ) ) {
 		?>
 		<p>
 			<select name="mission-post-layout" id="mission-post-layout" class="widefat">
-				<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission' ); ?></option>
+				<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission-news' ); ?></option>
 				<option value="double-sidebar" <?php if ( $layout == 'double-sidebar' ) {
 					echo 'selected';
-				} ?>><?php esc_html_e( 'Double sidebar', 'mission' ); ?>
+				} ?>><?php esc_html_e( 'Double sidebar', 'mission-news' ); ?>
 				</option>
 				<option value="left-sidebar" <?php if ( $layout == 'left-sidebar' ) {
 					echo 'selected';
-				} ?>><?php esc_html_e( 'Left sidebar', 'mission' ); ?>
+				} ?>><?php esc_html_e( 'Left sidebar', 'mission-news' ); ?>
 				</option>
 				<option value="right-sidebar" <?php if ( $layout == 'right-sidebar' ) {
 					echo 'selected';
-				} ?>><?php esc_html_e( 'Right sidebar', 'mission' ); ?>
+				} ?>><?php esc_html_e( 'Right sidebar', 'mission-news' ); ?>
 				</option>
 				<option value="no-sidebar" <?php if ( $layout == 'no-sidebar' ) {
 					echo 'selected';
-				} ?>><?php esc_html_e( 'No sidebar', 'mission' ); ?>
+				} ?>><?php esc_html_e( 'No sidebar', 'mission-news' ); ?>
 				</option>
 			</select>
 		</p> <?php

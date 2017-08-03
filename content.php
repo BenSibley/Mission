@@ -13,7 +13,7 @@ $date   = get_theme_mod( 'post_date_posts' );
 		<div class="post-content">
 			<?php the_content(); ?>
 			<?php wp_link_pages( array(
-				'before' => '<p class="singular-pagination">' . esc_html__( 'Pages:', 'mission' ),
+				'before' => '<p class="singular-pagination">' . esc_html__( 'Pages:', 'mission-news' ),
 				'after'  => '</p>',
 			) ); ?>
 			<?php do_action( 'ct_mission_post_after' ); ?>

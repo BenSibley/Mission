@@ -50,11 +50,11 @@ if ( ! function_exists( ( 'ct_mission_theme_setup' ) ) ) {
 		) );
 
 		register_nav_menus( array(
-			'primary'   => esc_html__( 'Primary', 'mission' ),
-			'secondary' => esc_html__( 'Secondary', 'mission' )
+			'primary'   => esc_html__( 'Primary', 'mission-news' ),
+			'secondary' => esc_html__( 'Secondary', 'mission-news' )
 		) );
 
-		load_theme_textdomain( 'mission', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'mission-news', get_template_directory() . '/languages' );
 	}
 }
 add_action( 'after_setup_theme', 'ct_mission_theme_setup' );
@@ -66,63 +66,63 @@ if ( ! function_exists( ( 'ct_mission_register_widget_areas' ) ) ) {
 	function ct_mission_register_widget_areas() {
 
 		register_sidebar( array(
-			'name'          => esc_html__( 'Left Sidebar', 'mission' ),
+			'name'          => esc_html__( 'Left Sidebar', 'mission-news' ),
 			'id'            => 'left',
-			'description'   => esc_html__( 'Widgets in this area will be shown left of the main post content.', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown left of the main post content.', 'mission-news' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
 		register_sidebar( array(
-			'name'          => esc_html__( 'Right Sidebar', 'mission' ),
+			'name'          => esc_html__( 'Right Sidebar', 'mission-news' ),
 			'id'            => 'right',
-			'description'   => esc_html__( 'Widgets in this area will be shown right of the main post content.', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown right of the main post content.', 'mission-news' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
 		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - Below Header', 'mission' ),
+			'name'          => esc_html__( 'Ad Spot - Below Header', 'mission-news' ),
 			'id'            => 'below-header',
-			'description'   => esc_html__( 'Widgets in this area will be shown below the header and above the posts and sidebars.', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown below the header and above the posts and sidebars.', 'mission-news' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
 		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - Above Posts', 'mission' ),
+			'name'          => esc_html__( 'Ad Spot - Above Posts', 'mission-news' ),
 			'id'            => 'above-main',
-			'description'   => esc_html__( 'Widgets in this area will be shown in the center column above the posts.', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown in the center column above the posts.', 'mission-news' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
 		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - After Post Content', 'mission' ),
+			'name'          => esc_html__( 'Ad Spot - After Post Content', 'mission-news' ),
 			'id'            => 'after-post',
-			'description'   => esc_html__( 'Widgets in this area will be shown on post pages after the content.', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown on post pages after the content.', 'mission-news' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
 		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - After Page Content', 'mission' ),
+			'name'          => esc_html__( 'Ad Spot - After Page Content', 'mission-news' ),
 			'id'            => 'after-page',
-			'description'   => esc_html__( 'Widgets in this area will be shown on pages after the content.', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown on pages after the content.', 'mission-news' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
 		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - After First Post', 'mission' ),
+			'name'          => esc_html__( 'Ad Spot - After First Post', 'mission-news' ),
 			'id'            => 'after-first-post',
-			'description'   => esc_html__( 'Widgets in this area will be shown on the blog after the first post.', 'mission' ),
+			'description'   => esc_html__( 'Widgets in this area will be shown on the blog after the first post.', 'mission-news' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -243,7 +243,7 @@ if ( ! function_exists( ( 'ct_mission_nav_dropdown_buttons' ) ) ) {
 		if ( $args->theme_location == 'primary' || $args->theme_location == 'secondary' ) {
 
 			if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
-				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "mission" ) . '</span><i class="fa fa-angle-right"></i></button>', $item_output );
+				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "mission-news" ) . '</span><i class="fa fa-angle-right"></i></button>', $item_output );
 			}
 		}
 
@@ -259,7 +259,7 @@ if ( ! function_exists( ( 'ct_mission_sticky_post_marker' ) ) ) {
 	function ct_mission_sticky_post_marker() {
 
 		if ( is_sticky() && !is_archive() && !is_search() ) {
-			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "mission" ) . '</span></div>';
+			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "mission-news" ) . '</span></div>';
 		}
 	}
 }
@@ -340,7 +340,7 @@ if ( ! function_exists( ( 'ct_mission_delete_settings_notice' ) ) ) {
 		if ( isset( $_GET['ct_mission_status'] ) ) {
 			?>
 			<div class="updated">
-				<p><?php esc_html_e( 'Customizer settings deleted', 'mission' ); ?>.</p>
+				<p><?php esc_html_e( 'Customizer settings deleted', 'mission-news' ); ?>.</p>
 			</div>
 			<?php
 		}
@@ -540,10 +540,10 @@ if ( ! function_exists( ( 'ct_mission_post_byline' ) ) ) {
 			echo esc_html( $post_date );
 		} elseif ( $date == 'no' ) {
 			// translators: %s = the author who published the post
-			printf( esc_html_x( 'By %s', 'This blog post was published by some author', 'mission' ), esc_html( $post_author ) );
+			printf( esc_html_x( 'By %s', 'This blog post was published by some author', 'mission-news' ), esc_html( $post_author ) );
 		} else {
 			// translators: %1$s = the author who published the post. %2$s = the date it was published
-			printf( esc_html_x( 'By %1$s on %2$s', 'This blog post was published by some author on some date ', 'mission' ), esc_html( $post_author ), esc_html( $post_date ) );
+			printf( esc_html_x( 'By %1$s on %2$s', 'This blog post was published by some author on some date ', 'mission-news' ), esc_html( $post_author ), esc_html( $post_date ) );
 		}
 		echo '</div>';
 	}
@@ -556,7 +556,7 @@ if ( ! function_exists( ( 'ct_mission_post_byline' ) ) ) {
 if ( ! function_exists( ( 'ct_mission_no_missing_titles' ) ) ) {
 	function ct_mission_no_missing_titles( $title, $id = null ) {
 		if ( $title == '' ) {
-			$title = esc_html__( '(title)', 'mission' );
+			$title = esc_html__( '(title)', 'mission-news' );
 		}
 
 		return $title;

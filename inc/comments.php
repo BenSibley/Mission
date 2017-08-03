@@ -16,7 +16,7 @@ if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
 					<?php
 					global $post;
 					if ( $comment->user_id === $post->post_author && get_theme_mod( 'author_label' ) != 'no' ) {
-						echo '<span>' . esc_html__( 'Post author', 'mission' ) . '</span>';
+						echo '<span>' . esc_html__( 'Post author', 'mission-news' ) . '</span>';
 						if ( get_theme_mod( 'comment_date' ) != 'no' ) {
 							echo ' | ';
 						}
@@ -29,18 +29,18 @@ if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
 			</div>
 			<div class="comment-content">
 				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'mission' ) ?></em>
+					<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'mission-news' ) ?></em>
 					<br/>
 				<?php endif; ?>
 				<?php comment_text(); ?>
 			</div>
 			<div class="comment-footer">
 				<?php comment_reply_link( array_merge( $args, array(
-					'reply_text' => esc_html__( 'Reply', 'mission' ),
+					'reply_text' => esc_html__( 'Reply', 'mission-news' ),
 					'depth'      => $depth,
 					'max_depth'  => $args['max_depth']
 				) ) ); ?>
-				<?php edit_comment_link( esc_html__( 'Edit', 'mission' ) ); ?>
+				<?php edit_comment_link( esc_html__( 'Edit', 'mission-news' ) ); ?>
 			</div>
 		</article>
 		<?php
@@ -55,26 +55,26 @@ if ( ! function_exists( 'ct_mission_update_fields' ) ) {
 
 		$commenter = wp_get_current_commenter();
 		$req       = get_option( 'require_name_email' );
-		$label     = $req ? '*' : ' ' . esc_html__( '(optional)', 'mission' );
+		$label     = $req ? '*' : ' ' . esc_html__( '(optional)', 'mission-news' );
 		$aria_req  = $req ? "aria-required='true'" : '';
 
 		$fields['author'] =
 			'<p class="comment-form-author">
-	            <label for="author">' . esc_html__( "Name", "mission" ) . esc_html( $label ) . '</label>
-	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "mission" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
+	            <label for="author">' . esc_html__( "Name", "mission-news" ) . esc_html( $label ) . '</label>
+	            <input id="author" name="author" type="text" placeholder="' . esc_attr__( "Jane Doe", "mission-news" ) . '" value="' . esc_attr( $commenter['comment_author'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['email'] =
 			'<p class="comment-form-email">
-	            <label for="email">' . esc_html__( "Email", "mission" ) . esc_html( $label ) . '</label>
-	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "mission" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
+	            <label for="email">' . esc_html__( "Email", "mission-news" ) . esc_html( $label ) . '</label>
+	            <input id="email" name="email" type="email" placeholder="' . esc_attr__( "name@email.com", "mission-news" ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) .
 			'" size="30" ' . esc_html( $aria_req ) . ' />
 	        </p>';
 
 		$fields['url'] =
 			'<p class="comment-form-url">
-	            <label for="url">' . esc_html__( "Website", "mission" ) . '</label>
+	            <label for="url">' . esc_html__( "Website", "mission-news" ) . '</label>
 	            <input id="url" name="url" type="url" placeholder="http://google.com" value="' . esc_attr( $commenter['comment_author_url'] ) .
 			'" size="30" />
 	            </p>';
@@ -92,7 +92,7 @@ if ( ! function_exists( 'ct_mission_update_comment_field' ) ) {
 
 		$comment_field =
 			'<p class="comment-form-comment">
-	            <label for="comment">' . esc_html__( "Comment", "mission" ) . '</label>
+	            <label for="comment">' . esc_html__( "Comment", "mission-news" ) . '</label>
 	            <textarea required id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 	        </p>';
 

@@ -105,7 +105,7 @@ if ( ! function_exists( 'ct_mission_social_icons_output' ) ) {
 				if ( $active_site == 'email' ) { ?>
 					<a class="email" target="_blank"
 					   href="mailto:<?php echo antispambot( is_email( get_theme_mod( $key ) ) ); ?>">
-						<i class="fa fa-envelope" title="<?php esc_attr_e( 'email', 'mission' ); ?>"></i>
+						<i class="fa fa-envelope" title="<?php esc_attr_e( 'email', 'mission-news' ); ?>"></i>
 					</a>
 				<?php } elseif ( $active_site == 'skype' ) { ?>
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"

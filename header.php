@@ -40,6 +40,7 @@
 		<?php do_action( 'ct_mission_after_header' ); ?>
 		<?php get_sidebar( 'below-header' ); ?>
 		<div class="content-container">
+			<?php do_action( 'ct_mission_content_container_top' ); ?>
 			<div class="layout-container">
 				<?php get_sidebar( 'left' ); ?>
 				<section id="main" class="main" role="main">

@@ -271,7 +271,7 @@ add_action( 'ct_mission_sticky_post_status', 'ct_mission_sticky_post_marker' );
 if ( ! function_exists( ( 'ct_mission_reset_customizer_options' ) ) ) {
 	function ct_mission_reset_customizer_options() {
 
-		if ( !isset( $_POST['mission_reset_customizer'] ) || 'mission_reset_customizer_settings' !== $_POST['mission_reset_customizer'] ) {
+		if ( !isset( $_POST['ct_mission_reset_customizer'] ) || 'ct_mission_reset_customizer_settings' !== $_POST['ct_mission_reset_customizer'] ) {
 			return;
 		}
 

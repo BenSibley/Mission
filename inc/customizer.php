@@ -25,28 +25,6 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	//----------------------------------------------------------------------------------
-	// Custom control for Mission News Pro advertisement
-	//----------------------------------------------------------------------------------
-	class ct_mission_pro_ad extends WP_Customize_Control {
-		public function render_content() {
-			$link = 'https://www.competethemes.com/mission-pro/';
-			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/mission-pro.gif' /></a>";
-			// Translators: %1$s is the URL of the upgrade. %2$s is the name of the theme (Mission News)
-			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> makes advanced customization simple - and fun too!', 'mission-news'), $link, esc_attr( wp_get_theme( get_template() ) ) ) . "</p>";
-			// Translators: %s is the name of the theme (Mission News)
-			echo "<p>" . sprintf( esc_html_x('%s Pro adds the following features:', 'Mission News Pro adds the following features:', 'mission-news'), esc_attr( wp_get_theme( get_template() ) ) ) . "</p>";
-			echo "<ul>
-					<li>" . esc_html__('6 new layouts', 'mission-news') . "</li>
-					<li>" . esc_html__('4 post templates', 'mission-news') . "</li>
-					<li>" . esc_html__('61 advanced color controls', 'mission-news') . "</li>
-					<li>" . esc_html__('+ 5 more features', 'mission-news') . "</li>
-				  </ul>";
-			// translators: placeholder is "Mission News Pro"
-			echo "<p class='button-wrapper'><a target=\"_blank\" class='mission-pro-button' href='" . $link . "'>" . sprintf( esc_html_x('View %s Pro', 'View Mission News Pro', 'mission-news'), esc_attr( wp_get_theme( get_template() ) ) ) . "</a></p>";
-		}
-	}
-
-	//----------------------------------------------------------------------------------
 	// Add panels
 	//----------------------------------------------------------------------------------
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
@@ -65,31 +43,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			'description' => __( 'Change the layout of the main content and posts.', 'mission-news' )
 		) );
 	}
-
-	//----------------------------------------------------------------------------------
-	// Section: Mission News Pro
-	//----------------------------------------------------------------------------------
-	// don't add if Mission News Pro is active
-	if ( !defined( 'MISSION_NEWS_PRO_FILE' ) ) {
-		// section
-		$wp_customize->add_section( 'ct_mission_pro', array(
-			// Translators: %s is the name of the theme (Mission News)
-			'title'    => sprintf( __( '%s Pro', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) ),
-			'priority' => 1
-		) );
-		// setting
-		$wp_customize->add_setting( 'ct_mission_pro', array(
-			'sanitize_callback' => 'absint'
-		) );
-		// control
-		$wp_customize->add_control( new ct_mission_pro_ad(
-			$wp_customize, 'ct_mission_pro', array(
-				'section'  => 'ct_mission_pro',
-				'settings' => 'ct_mission_pro'
-			)
-		) );
-	}
-
+	
 	//----------------------------------------------------------------------------------
 	// Section: Layout
 	//----------------------------------------------------------------------------------

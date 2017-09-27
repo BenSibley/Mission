@@ -43,22 +43,9 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 						?></p>
 					<p>
 						<a target="_blank" class="button-primary"
-						   href="https://www.competethemes.com/documentation/mission-support-center/"><?php esc_html_e( 'Visit Support Center', 'mission-news' ); ?></a>
+						   href="https://www.competethemes.com/documentation/mission-news-support-center/"><?php esc_html_e( 'Visit Support Center', 'mission-news' ); ?></a>
 					</p>
 				</div>
-				<?php if ( ! function_exists( 'ct_mission_pro_init' ) ) : ?>
-					<div class="content content-premium-upgrade">
-						<h3><?php printf( esc_html__( 'Mission News Pro', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) ); ?></h3>
-						<p><?php
-							// Translators: %s is the name of the theme (Mission News)
-							printf( esc_html__( 'Download the %s Pro plugin and unlock six new layouts, four post templates, advanced color controls, and more.', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) );
-							?></p>
-						<p>
-							<a target="_blank" class="button-primary"
-							   href="https://www.competethemes.com/mission-pro/"><?php esc_html_e( 'See Full Feature List', 'mission-news' ); ?></a>
-						</p>
-					</div>
-				<?php endif; ?>
 				<div class="content content-review">
 					<h3><?php esc_html_e( 'Leave a Review', 'mission-news' ); ?></h3>
 					<p><?php
@@ -66,7 +53,7 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 						printf( esc_html__( 'Help others find %s by leaving a review on wordpress.org.', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) );
 						?></p>
 					<a target="_blank" class="button-primary"
-					   href="https://wordpress.org/support/theme/mission/reviews/"><?php esc_html_e( 'Leave a Review', 'mission-news' ); ?></a>
+					   href="https://wordpress.org/support/theme/mission-news/reviews/"><?php esc_html_e( 'Leave a Review', 'mission-news' ); ?></a>
 				</div>
 				<div class="content content-delete-settings">
 					<h3><?php esc_html_e( 'Reset Customizer Settings', 'mission-news' ); ?></h3>

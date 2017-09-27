@@ -1144,6 +1144,10 @@ a img {
   .main .loop-container {
     padding: 0;
   }
+
+  .rtl .main {
+    margin-right: 0;
+  }
 }
 .toggle-navigation {
   position: relative;
@@ -1352,7 +1356,7 @@ a img {
   color: #999999;
 }
 
-.dropdown-navigation i {
+.rtl .dropdown-navigation i {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);

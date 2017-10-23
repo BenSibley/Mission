@@ -4,20 +4,20 @@
 /* Social Media Brand Colors */
 /*===== Mixins =====*/
 /***** Silent Classes *****/
-#accordion-section-ct_mission_pro .accordion-section-title {
+#accordion-section-ct_mission_news_pro .accordion-section-title {
   color: #fff;
   background: #05B0E7;
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
 }
-#accordion-section-ct_mission_pro .accordion-section-title:after {
+#accordion-section-ct_mission_news_pro .accordion-section-title:after {
   color: #fff;
 }
-#accordion-section-ct_mission_pro .accordion-section-title:hover, #accordion-section-ct_mission_pro .accordion-section-title:active, #accordion-section-ct_mission_pro .accordion-section-title:focus {
+#accordion-section-ct_mission_news_pro .accordion-section-title:hover, #accordion-section-ct_mission_news_pro .accordion-section-title:active, #accordion-section-ct_mission_news_pro .accordion-section-title:focus {
   background: #3A96B5 !important;
   color: #fff !important;
 }
-#accordion-section-ct_mission_pro .accordion-section-title:hover:after, #accordion-section-ct_mission_pro .accordion-section-title:active:after, #accordion-section-ct_mission_pro .accordion-section-title:focus:after {
+#accordion-section-ct_mission_news_pro .accordion-section-title:hover:after, #accordion-section-ct_mission_news_pro .accordion-section-title:active:after, #accordion-section-ct_mission_news_pro .accordion-section-title:focus:after {
   color: #fff !important;
 }
 
@@ -67,7 +67,7 @@
   background: #FF8A23;
 }
 
-#sub-accordion-section-ct_mission_social_media_icons #customize-control-email-form {
+#sub-accordion-section-ct_mission_news_social_media_icons #customize-control-email-form {
   padding-bottom: 24px;
   margin-bottom: 24px;
   border-bottom: solid 1px #d5d5d5;

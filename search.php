@@ -20,7 +20,7 @@
         if ( have_posts() ) :
             while ( have_posts() ) :
                 the_post();
-                ct_mission_get_content_template();
+                ct_mission_news_get_content_template();
             endwhile;
         endif;
         ?>

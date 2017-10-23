@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------------
 // Create post list widget
 //----------------------------------------------------------------------------------
-class ct_mission_post_list extends WP_Widget {
+class ct_mission_news_post_list extends WP_Widget {
 
 	//----------------------------------------------------------------------------------
 	// Initialize widget
@@ -11,11 +11,11 @@ class ct_mission_post_list extends WP_Widget {
 	function __construct() {
 
 		$widget_options = array(
-			'classname'   => 'widget_ct_mission_post_list',
+			'classname'   => 'widget_ct_mission_news_post_list',
 			'description' => esc_html__( 'A more robust recent posts widget. Added by the Mission News theme.', 'mission-news' )
 		);
 		parent::__construct(
-			'ct_mission_post_list',
+			'ct_mission_news_post_list',
 			esc_html__( 'Recent Posts Extended', 'mission-news' ),
 			$widget_options
 		);
@@ -89,7 +89,7 @@ class ct_mission_post_list extends WP_Widget {
 						echo '<div class="top-inner">';
 							echo '<a href="' . esc_url( get_the_permalink() ) . '" class="title">' . esc_html( get_the_title() ) . '</a>';
 							if ( $instance['author'] == 'yes' || $instance['date'] == 'yes' ) {
-								ct_mission_post_byline( $instance['author'], $instance['date'] );
+								ct_mission_news_post_byline( $instance['author'], $instance['date'] );
 							}
 						echo '</div>';
 					echo '</div>';
@@ -253,7 +253,7 @@ class ct_mission_post_list extends WP_Widget {
 //----------------------------------------------------------------------------------
 // Register the widget
 //----------------------------------------------------------------------------------
-function register_ct_mission_post_list_widget() {
-	register_widget( 'ct_mission_post_list' );
+function register_ct_mission_news_post_list_widget() {
+	register_widget( 'ct_mission_news_post_list' );
 }
-add_action( 'widgets_init', 'register_ct_mission_post_list_widget' );
+add_action( 'widgets_init', 'register_ct_mission_news_post_list_widget' );

@@ -60,10 +60,10 @@
   transition: opacity 0.25s, transform 0.25s;
 }
 
-.widgets-php #available-widgets [id*=ct_mission_post_list] .widget-top {
+.widgets-php #available-widgets [id*=ct_mission_news_post_list] .widget-top {
   background: #05B0E7;
 }
-.widgets-php #available-widgets [id*=ct_mission_post_list] .widget-top h3 {
+.widgets-php #available-widgets [id*=ct_mission_news_post_list] .widget-top h3 {
   color: white;
 }
 

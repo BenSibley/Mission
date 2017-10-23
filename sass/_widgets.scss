@@ -1,7 +1,7 @@
 .widget-title {
   margin-bottom: $baseline-height * 0.75;
 }
-.widget_ct_mission_post_list {
+.widget_ct_mission_news_post_list {
 
   ul {
     margin: 0;
@@ -96,7 +96,7 @@
     }
   }
 }
-.widget_ct_mission_post_list.style-2 .has-image .top-inner {
+.widget_ct_mission_news_post_list.style-2 .has-image .top-inner {
   float: right;
   width: calc(70% - 13px);
 }
@@ -244,7 +244,7 @@
 
 @media all and (min-width: $eight-hundred) and (max-width: $eleven-hundred) {
 
-  .widget_ct_mission_post_list {
+  .widget_ct_mission_news_post_list {
 
     .style-2 {
 
@@ -262,7 +262,7 @@
       }
     }
   }
-  .widget_ct_mission_post_list.style-2 .has-image .top-inner {
+  .widget_ct_mission_news_post_list.style-2 .has-image .top-inner {
     float: none;
     width: auto;
   }
@@ -279,7 +279,7 @@
 
 @media all and (min-width: $one-thousand) {
 
-  .widget_ct_mission_post_list {
+  .widget_ct_mission_news_post_list {
 
     .style-1 {
 

@@ -5,19 +5,19 @@
 // TRT Note: wp_get_theme( get_template() ) is used extensively to remove "Mission News" from the translation.
 // This makes a lot more strings identical across my themes allowing for greater reuse of translations
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_register_theme_page' ) ) {
-	function ct_mission_register_theme_page() {
+if ( ! function_exists( 'ct_mission_news_register_theme_page' ) ) {
+	function ct_mission_news_register_theme_page() {
 		// Translators: %s is the name of the theme (Mission News)
-		add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) ), esc_attr( wp_get_theme( get_template() ) ), 'edit_theme_options', 'mission-options', 'ct_mission_options_content', 'ct_mission_options_content' );
+		add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) ), esc_attr( wp_get_theme( get_template() ) ), 'edit_theme_options', 'mission-options', 'ct_mission_news_options_content', 'ct_mission_news_options_content' );
 	}
 }
-add_action( 'admin_menu', 'ct_mission_register_theme_page' );
+add_action( 'admin_menu', 'ct_mission_news_register_theme_page' );
 
 //----------------------------------------------------------------------------------
 // Output the markup for the theme options page
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_options_content' ) ) {
-	function ct_mission_options_content() {
+if ( ! function_exists( 'ct_mission_news_options_content' ) ) {
+	function ct_mission_news_options_content() {
 
 		$support_url    = 'https://www.competethemes.com/documentation/mission-support-center/';
 		$customizer_url = add_query_arg(
@@ -33,7 +33,7 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 				// Translators: %s is the name of the theme (Mission News)
 				printf( esc_html__( '%s Dashboard', 'mission-news' ), esc_attr( wp_get_theme( get_template() ) ) );
 				?></h2>
-			<?php do_action( 'ct_mission_theme_options_before' ); ?>
+			<?php do_action( 'ct_mission_news_theme_options_before' ); ?>
 			<div class="content-boxes">
 				<div class="content content-support">
 					<h3><?php esc_html_e( 'Get Started', 'mission-news' ); ?></h3>
@@ -62,16 +62,16 @@ if ( ! function_exists( 'ct_mission_options_content' ) ) {
 						printf( __( '<strong>Warning:</strong> Clicking this button will erase the %2$s theme\'s current settings in the <a href="%1$s">Customizer</a>.', 'mission-news' ), esc_url( $customizer_url ), esc_attr( wp_get_theme( get_template() ) ) );
 						?></p>
 					<form method="post">
-						<input type="hidden" name="ct_mission_reset_customizer"
-						       value="ct_mission_reset_customizer_settings"/>
+						<input type="hidden" name="ct_mission_news_reset_customizer"
+						       value="ct_mission_news_reset_customizer_settings"/>
 						<p>
-							<?php wp_nonce_field( 'ct_mission_reset_customizer_nonce', 'ct_mission_reset_customizer_nonce' ); ?>
+							<?php wp_nonce_field( 'ct_mission_news_reset_customizer_nonce', 'ct_mission_news_reset_customizer_nonce' ); ?>
 							<?php submit_button( esc_html__( 'Reset Customizer Settings', 'mission-news' ), 'delete', 'delete', false ); ?>
 						</p>
 					</form>
 				</div>
 			</div>
-			<?php do_action( 'ct_mission_theme_options_after' ); ?>
+			<?php do_action( 'ct_mission_news_theme_options_after' ); ?>
 		</div>
 	<?php }
 }

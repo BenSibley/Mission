@@ -3,12 +3,12 @@ $author = get_theme_mod( 'post_author_posts' );
 $date   = get_theme_mod( 'post_date_posts' );
 ?>
 <div <?php post_class(); ?>>
-	<?php do_action( 'ct_mission_post_before' ); ?>
+	<?php do_action( 'ct_mission_news_post_before' ); ?>
 	<article>
-		<?php ct_mission_featured_image(); ?>
+		<?php ct_mission_news_featured_image(); ?>
 		<div class='post-header'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
-			<?php ct_mission_post_byline( $author, $date ); ?>
+			<?php ct_mission_news_post_byline( $author, $date ); ?>
 		</div>
 		<div class="post-content">
 			<?php the_content(); ?>
@@ -16,7 +16,7 @@ $date   = get_theme_mod( 'post_date_posts' );
 				'before' => '<p class="singular-pagination">' . esc_html__( 'Pages:', 'mission-news' ),
 				'after'  => '</p>',
 			) ); ?>
-			<?php do_action( 'ct_mission_post_after' ); ?>
+			<?php do_action( 'ct_mission_news_post_after' ); ?>
 		</div>
 		<div class="post-meta">
 			<?php get_template_part( 'content/post-categories' ); ?>

@@ -8,6 +8,6 @@ if ( get_theme_mod( 'search' ) == 'no' ) {
 	<div class="inner">
 		<div class="title"><?php echo esc_html__( 'Search', 'mission-news' ) . ' ' . esc_html( get_bloginfo('name') ); ?></div>
 		<?php get_search_form(); ?>
-		<a id="close-search" class="close" href="#"><?php echo ct_mission_svg_output( 'close' ); ?></a>
+		<a id="close-search" class="close" href="#"><?php echo ct_mission_news_svg_output( 'close' ); ?></a>
 	</div>
 </div>

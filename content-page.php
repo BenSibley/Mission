@@ -1,7 +1,7 @@
 <div <?php post_class(); ?>>
-	<?php do_action( 'ct_mission_page_before' ); ?>
+	<?php do_action( 'ct_mission_news_page_before' ); ?>
 	<article>
-		<?php ct_mission_featured_image(); ?>
+		<?php ct_mission_news_featured_image(); ?>
 		<div class='post-header'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
 		</div>
@@ -11,7 +11,7 @@
 				'before' => '<p class="singular-pagination">' . esc_html__( 'Pages:', 'mission-news' ),
 				'after'  => '</p>',
 			) ); ?>
-			<?php do_action( 'ct_mission_page_after' ); ?>
+			<?php do_action( 'ct_mission_news_page_after' ); ?>
 			<?php get_sidebar( 'after-page' ); ?>
 		</div>
 	</article>

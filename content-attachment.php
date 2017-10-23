@@ -1,5 +1,5 @@
 <div <?php post_class(); ?>>
-	<?php do_action( 'ct_mission_attachment_before' ); ?>
+	<?php do_action( 'ct_mission_news_attachment_before' ); ?>
 	<article>
 		<div class='post-header'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
@@ -9,6 +9,6 @@
 			<?php get_template_part( 'content/post-nav-attachment' ); ?>
 		</div>
 	</article>
-	<?php do_action( 'ct_mission_attachment_after' ); ?>
+	<?php do_action( 'ct_mission_news_attachment_after' ); ?>
 	<?php comments_template(); ?>
 </div>

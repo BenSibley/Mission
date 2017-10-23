@@ -3,8 +3,8 @@
 //----------------------------------------------------------------------------------
 // Update the markup of individual comments
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
-	function ct_mission_customize_comments( $comment, $args, $depth ) { ?>
+if ( ! function_exists( ( 'ct_mission_news_customize_comments' ) ) ) {
+	function ct_mission_news_customize_comments( $comment, $args, $depth ) { ?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<div class="comment-author">
@@ -50,8 +50,8 @@ if ( ! function_exists( ( 'ct_mission_customize_comments' ) ) ) {
 //----------------------------------------------------------------------------------
 // Update the form fields in the comment form
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_update_fields' ) ) {
-	function ct_mission_update_fields( $fields ) {
+if ( ! function_exists( 'ct_mission_news_update_fields' ) ) {
+	function ct_mission_news_update_fields( $fields ) {
 
 		$commenter = wp_get_current_commenter();
 		$req       = get_option( 'require_name_email' );
@@ -82,13 +82,13 @@ if ( ! function_exists( 'ct_mission_update_fields' ) ) {
 		return $fields;
 	}
 }
-add_filter( 'comment_form_default_fields', 'ct_mission_update_fields' );
+add_filter( 'comment_form_default_fields', 'ct_mission_news_update_fields' );
 
 //----------------------------------------------------------------------------------
 // Update the comment textarea field
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_update_comment_field' ) ) {
-	function ct_mission_update_comment_field( $comment_field ) {
+if ( ! function_exists( 'ct_mission_news_update_comment_field' ) ) {
+	function ct_mission_news_update_comment_field( $comment_field ) {
 
 		$comment_field =
 			'<p class="comment-form-comment">
@@ -99,15 +99,15 @@ if ( ! function_exists( 'ct_mission_update_comment_field' ) ) {
 		return $comment_field;
 	}
 }
-add_filter( 'comment_form_field_comment', 'ct_mission_update_comment_field' );
+add_filter( 'comment_form_field_comment', 'ct_mission_news_update_comment_field' );
 
 //----------------------------------------------------------------------------------
 // Remove comment notes with markup that displays after the comment form
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_remove_comments_notes_after' ) ) {
-	function ct_mission_remove_comments_notes_after( $defaults ) {
+if ( ! function_exists( 'ct_mission_news_remove_comments_notes_after' ) ) {
+	function ct_mission_news_remove_comments_notes_after( $defaults ) {
 		$defaults['comment_notes_after'] = '';
 		return $defaults;
 	}
 }
-add_action( 'comment_form_defaults', 'ct_mission_remove_comments_notes_after' );
+add_action( 'comment_form_defaults', 'ct_mission_news_remove_comments_notes_after' );

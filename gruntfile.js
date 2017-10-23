@@ -122,7 +122,7 @@ module.exports = function(grunt) {
                     'rsync -r /Applications/MAMP/htdocs/wordpress/wp-content/themes/mission-news /Users/bensibley/Documents/compete-themes/dist/ <%= excludeFiles %>',
                     // open dist
                     'cd /Users/bensibley/Documents/compete-themes/dist/',
-                    // zip the ct_mission folder
+                    // zip the ct_mission_news folder
                     'zip -r mission-news.zip mission-news'
                 ].join('&&')
             }

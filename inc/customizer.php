@@ -1,9 +1,9 @@
 <?php
 
 /* Add customizer panels, sections, settings, and controls */
-add_action( 'customize_register', 'ct_mission_add_customizer_content' );
+add_action( 'customize_register', 'ct_mission_news_add_customizer_content' );
 
-function ct_mission_add_customizer_content( $wp_customize ) {
+function ct_mission_news_add_customizer_content( $wp_customize ) {
 
 	//----------------------------------------------------------------------------------
 	// Reorder default sections
@@ -29,7 +29,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
 
-		$wp_customize->add_panel( 'ct_mission_show_hide_panel', array(
+		$wp_customize->add_panel( 'ct_mission_news_show_hide_panel', array(
 			'priority'    => 30,
 			'title'       => __( 'Show/Hide Elements', 'mission-news' ),
 			'description' => __( 'Choose which elements you want displayed on the site.', 'mission-news' )
@@ -37,7 +37,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	}
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
 
-		$wp_customize->add_panel( 'ct_mission_layout_panel', array(
+		$wp_customize->add_panel( 'ct_mission_news_layout_panel', array(
 			'priority'    => 25,
 			'title'       => __( 'Layout', 'mission-news' ),
 			'description' => __( 'Change the layout of the main content and posts.', 'mission-news' )
@@ -47,20 +47,20 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Section: Layout
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_layout', array(
+	$wp_customize->add_section( 'ct_mission_news_layout', array(
 		'title'    => __( 'Blog', 'mission-news' ),
-		'panel'    => 'ct_mission_layout_panel',
+		'panel'    => 'ct_mission_news_layout_panel',
 		'priority' => 1,
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(
 		'default'           => 'simple',
-		'sanitize_callback' => 'ct_mission_sanitize_layout'
+		'sanitize_callback' => 'ct_mission_news_sanitize_layout'
 	) );
 	// control
 	$wp_customize->add_control( 'layout', array(
 		'label'    => __( 'Blog layout', 'mission-news' ),
-		'section'  => 'ct_mission_layout',
+		'section'  => 'ct_mission_news_layout',
 		'settings' => 'layout',
 		'type'     => 'radio',
 		'choices'  => array(
@@ -71,21 +71,21 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// section
-	$wp_customize->add_section( 'ct_mission_layout_posts', array(
+	$wp_customize->add_section( 'ct_mission_news_layout_posts', array(
 		'title'    => __( 'Posts', 'mission-news' ),
-		'panel'    => 'ct_mission_layout_panel',
+		'panel'    => 'ct_mission_news_layout_panel',
 		'priority' => 2,
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout_posts', array(
 		'default'           => 'double-sidebar',
-		'sanitize_callback' => 'ct_mission_sanitize_layout_posts'
+		'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
 	) );
 	// control
 	$wp_customize->add_control( 'layout_posts', array(
 		'label'       => __( 'Post layout', 'mission-news' ),
 		'description' => __( 'Layouts can be changed for individual posts in the post editor.', 'mission-news' ),
-		'section'     => 'ct_mission_layout_posts',
+		'section'     => 'ct_mission_news_layout_posts',
 		'settings'    => 'layout_posts',
 		'type'        => 'radio',
 		'choices'     => array(
@@ -99,14 +99,14 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Section: Social Media Icons
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_social_media_icons', array(
+	$wp_customize->add_section( 'ct_mission_news_social_media_icons', array(
 		'title'       => __( 'Social Media Icons', 'mission-news' ),
 		'priority'    => 20,
 		'description' => __( 'Add the URL for each of your social profiles.', 'mission-news' )
 	) );
 
 	// get the social sites array
-	$social_sites = ct_mission_social_array();
+	$social_sites = ct_mission_news_social_array();
 
 	// set a priority used to order the social sites
 	$priority = 5;
@@ -117,12 +117,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 		if ( $social_site == 'email' ) {
 			// setting
 			$wp_customize->add_setting( $social_site, array(
-				'sanitize_callback' => 'ct_mission_sanitize_email'
+				'sanitize_callback' => 'ct_mission_news_sanitize_email'
 			) );
 			// control
 			$wp_customize->add_control( $social_site, array(
 				'label'    => __( 'Email Address', 'mission-news' ),
-				'section'  => 'ct_mission_social_media_icons',
+				'section'  => 'ct_mission_news_social_media_icons',
 				'priority' => $priority
 			) );
 		} else {
@@ -166,7 +166,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 			if ( $social_site == 'skype' ) {
 				// setting
 				$wp_customize->add_setting( $social_site, array(
-					'sanitize_callback' => 'ct_mission_sanitize_skype'
+					'sanitize_callback' => 'ct_mission_news_sanitize_skype'
 				) );
 				// control
 				$wp_customize->add_control( $social_site, array(
@@ -174,7 +174,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 					'label'       => $label,
 					// Translators: %s is the URL of a blog post
 					'description' => sprintf( __( 'Accepts Skype link protocol (<a href="%s" target="_blank">learn more</a>)', 'mission-news' ), 'https://www.competethemes.com/blog/skype-links-wordpress/' ),
-					'section'     => 'ct_mission_social_media_icons',
+					'section'     => 'ct_mission_news_social_media_icons',
 					'priority'    => $priority
 				) );
 			} else {
@@ -186,7 +186,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 				$wp_customize->add_control( $social_site, array(
 					'type'     => 'url',
 					'label'    => $label,
-					'section'  => 'ct_mission_social_media_icons',
+					'section'  => 'ct_mission_news_social_media_icons',
 					'priority' => $priority
 				) );
 			}
@@ -198,20 +198,20 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Header
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_show_hide_header', array(
+	$wp_customize->add_section( 'ct_mission_news_show_hide_header', array(
 		'title'    => __( 'Header', 'mission-news' ),
-		'panel'    => 'ct_mission_show_hide_panel',
+		'panel'    => 'ct_mission_news_show_hide_panel',
 		'priority' => 1
 	) );
 	// setting
 	$wp_customize->add_setting( 'date', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'date', array(
 		'label'    => __( 'Show today\'s date?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_header',
+		'section'  => 'ct_mission_news_show_hide_header',
 		'settings' => 'date',
 		'type'     => 'radio',
 		'choices' => array(
@@ -222,12 +222,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'social_icons_header', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'social_icons_header', array(
 		'label'    => __( 'Show the social icons?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_header',
+		'section'  => 'ct_mission_news_show_hide_header',
 		'settings' => 'social_icons_header',
 		'type'     => 'radio',
 		'choices' => array(
@@ -238,12 +238,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'tagline_header', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'tagline_header', array(
 		'label'    => __( 'Show the tagline?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_header',
+		'section'  => 'ct_mission_news_show_hide_header',
 		'settings' => 'tagline_header',
 		'type'     => 'radio',
 		'choices' => array(
@@ -254,12 +254,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'search', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'search', array(
 		'label'    => __( 'Show the search bar?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_header',
+		'section'  => 'ct_mission_news_show_hide_header',
 		'settings' => 'search',
 		'type'     => 'radio',
 		'choices' => array(
@@ -270,21 +270,21 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Blog & Archives
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_show_hide_blog_archives', array(
+	$wp_customize->add_section( 'ct_mission_news_show_hide_blog_archives', array(
 		'title'    => __( 'Blog & Archives', 'mission-news' ),
 		'description' => __( 'These settings apply to the main posts page and all archives.', 'mission-news' ),
-		'panel'    => 'ct_mission_show_hide_panel',
+		'panel'    => 'ct_mission_news_show_hide_panel',
 		'priority' => 2
 	) );
 	// setting
 	$wp_customize->add_setting( 'featured_image_blog_archives', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'featured_image_blog_archives', array(
 		'label'    => __( 'Show the Featured Images?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_blog_archives',
+		'section'  => 'ct_mission_news_show_hide_blog_archives',
 		'settings' => 'featured_image_blog_archives',
 		'type'     => 'radio',
 		'choices' => array(
@@ -295,12 +295,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_author_blog_archives', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_author_blog_archives', array(
 		'label'    => __( 'Show the post author?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_blog_archives',
+		'section'  => 'ct_mission_news_show_hide_blog_archives',
 		'settings' => 'post_author_blog_archives',
 		'type'     => 'radio',
 		'choices' => array(
@@ -311,12 +311,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_date_blog_archives', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_date_blog_archives', array(
 		'label'    => __( 'Show the post date?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_blog_archives',
+		'section'  => 'ct_mission_news_show_hide_blog_archives',
 		'settings' => 'post_date_blog_archives',
 		'type'     => 'radio',
 		'choices' => array(
@@ -327,21 +327,21 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Archivess
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_show_hide_archives', array(
+	$wp_customize->add_section( 'ct_mission_news_show_hide_archives', array(
 		'title'    => __( 'Archives', 'mission-news' ),
 		'description' => __( 'These settings apply to the category, tag, date, and author archives.', 'mission-news' ),
-		'panel'    => 'ct_mission_show_hide_panel',
+		'panel'    => 'ct_mission_news_show_hide_panel',
 		'priority' => 3
 	) );
 	// setting
 	$wp_customize->add_setting( 'archive_title', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'archive_title', array(
 		'label'    => __( 'Show the archive title?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_archives',
+		'section'  => 'ct_mission_news_show_hide_archives',
 		'settings' => 'archive_title',
 		'type'     => 'radio',
 		'choices' => array(
@@ -352,12 +352,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'archive_description', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'archive_description', array(
 		'label'    => __( 'Show the archive description?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_archives',
+		'section'  => 'ct_mission_news_show_hide_archives',
 		'settings' => 'archive_description',
 		'type'     => 'radio',
 		'choices' => array(
@@ -368,21 +368,21 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Posts
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_show_hide_posts', array(
+	$wp_customize->add_section( 'ct_mission_news_show_hide_posts', array(
 		'title'    => __( 'Posts', 'mission-news' ),
 		'description' => __( 'These settings apply to individual post pages.', 'mission-news' ),
-		'panel'    => 'ct_mission_show_hide_panel',
+		'panel'    => 'ct_mission_news_show_hide_panel',
 		'priority' => 4
 	) );
 	// setting
 	$wp_customize->add_setting( 'featured_image_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'featured_image_posts', array(
 		'label'    => __( 'Show the Featured Image?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'featured_image_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -393,12 +393,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_author_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_author_posts', array(
 		'label'    => __( 'Show the post author?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'post_author_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -409,12 +409,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'post_date_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'post_date_posts', array(
 		'label'    => __( 'Show the post date?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'post_date_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -425,12 +425,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'category_links_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'category_links_posts', array(
 		'label'    => __( 'Show the category links?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'category_links_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -441,12 +441,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'tag_links_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'tag_links_posts', array(
 		'label'    => __( 'Show the tag links?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'tag_links_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -457,12 +457,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'author_avatar_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'author_avatar_posts', array(
 		'label'    => __( 'Show avatar in the author box?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'author_avatar_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -473,12 +473,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'author_box_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'author_box_posts', array(
 		'label'    => __( 'Show the author box?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'author_box_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -489,12 +489,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'more_from_posts', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'more_from_posts', array(
 		'label'    => __( 'Show the "More from..." section?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_posts',
+		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'more_from_posts',
 		'type'     => 'radio',
 		'choices' => array(
@@ -505,21 +505,21 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Comments
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_show_hide_comments', array(
+	$wp_customize->add_section( 'ct_mission_news_show_hide_comments', array(
 		'title'       => __( 'Comments', 'mission-news' ),
 		'description' => __( 'These settings apply to post comments.', 'mission-news' ),
-		'panel'       => 'ct_mission_show_hide_panel',
+		'panel'       => 'ct_mission_news_show_hide_panel',
 		'priority'    => 5
 	) );
 	// setting
 	$wp_customize->add_setting( 'comment_date', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'comment_date', array(
 		'label'    => __( 'Show the comment date?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_comments',
+		'section'  => 'ct_mission_news_show_hide_comments',
 		'settings' => 'comment_date',
 		'type'     => 'radio',
 		'choices' => array(
@@ -530,12 +530,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'author_label', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'author_label', array(
 		'label'    => __( 'Show the "Post Author" label?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_comments',
+		'section'  => 'ct_mission_news_show_hide_comments',
 		'settings' => 'author_label',
 		'type'     => 'radio',
 		'choices' => array(
@@ -546,21 +546,21 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Footer
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_show_hide_footer', array(
+	$wp_customize->add_section( 'ct_mission_news_show_hide_footer', array(
 		'title'       => __( 'Footer', 'mission-news' ),
 		'description' => __( 'These settings apply to the footer.', 'mission-news' ),
-		'panel'       => 'ct_mission_show_hide_panel',
+		'panel'       => 'ct_mission_news_show_hide_panel',
 		'priority'    => 6
 	) );
 	// setting
 	$wp_customize->add_setting( 'social_icons_footer', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'social_icons_footer', array(
 		'label'    => __( 'Show the social icons?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_footer',
+		'section'  => 'ct_mission_news_show_hide_footer',
 		'settings' => 'social_icons_footer',
 		'type'     => 'radio',
 		'choices' => array(
@@ -571,12 +571,12 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// setting
 	$wp_customize->add_setting( 'tagline_footer', array(
 		'default'           => 'yes',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'tagline_footer', array(
 		'label'    => __( 'Show the tagline?', 'mission-news' ),
-		'section'  => 'ct_mission_show_hide_footer',
+		'section'  => 'ct_mission_news_show_hide_footer',
 		'settings' => 'tagline_footer',
 		'type'     => 'radio',
 		'choices' => array(
@@ -588,19 +588,19 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Section: Excerpts
 	//----------------------------------------------------------------------------------
-	$wp_customize->add_section( 'ct_mission_excerpts', array(
+	$wp_customize->add_section( 'ct_mission_news_excerpts', array(
 		'title'    => __( 'Excerpts', 'mission-news' ),
 		'priority' => 50
 	) );
 	// setting
 	$wp_customize->add_setting( 'full_post', array(
 		'default'           => 'no',
-		'sanitize_callback' => 'ct_mission_sanitize_yes_no_settings'
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
 	$wp_customize->add_control( 'full_post', array(
 		'label'    => __( 'Show full posts on blog?', 'mission-news' ),
-		'section'  => 'ct_mission_excerpts',
+		'section'  => 'ct_mission_news_excerpts',
 		'settings' => 'full_post',
 		'type'     => 'radio',
 		'choices'  => array(
@@ -616,7 +616,7 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 	// control
 	$wp_customize->add_control( 'excerpt_length', array(
 		'label'    => __( 'Excerpt word count', 'mission-news' ),
-		'section'  => 'ct_mission_excerpts',
+		'section'  => 'ct_mission_news_excerpts',
 		'settings' => 'excerpt_length',
 		'type'     => 'number'
 	) );
@@ -625,14 +625,14 @@ function ct_mission_add_customizer_content( $wp_customize ) {
 //----------------------------------------------------------------------------------
 // Sanitize email
 //----------------------------------------------------------------------------------
-function ct_mission_sanitize_email( $input ) {
+function ct_mission_news_sanitize_email( $input ) {
 	return sanitize_email( $input );
 }
 
 //----------------------------------------------------------------------------------
 // Sanitize yes/no settings
 //----------------------------------------------------------------------------------
-function ct_mission_sanitize_yes_no_settings( $input ) {
+function ct_mission_news_sanitize_yes_no_settings( $input ) {
 
 	$valid = array(
 		'yes' => __( 'Yes', 'mission-news' ),
@@ -645,14 +645,14 @@ function ct_mission_sanitize_yes_no_settings( $input ) {
 //----------------------------------------------------------------------------------
 // Sanitize Skype URI
 //----------------------------------------------------------------------------------
-function ct_mission_sanitize_skype( $input ) {
+function ct_mission_news_sanitize_skype( $input ) {
 	return esc_url_raw( $input, array( 'http', 'https', 'skype' ) );
 }
 
 //----------------------------------------------------------------------------------
 // Sanitize layout
 //----------------------------------------------------------------------------------
-function ct_mission_sanitize_layout( $input ) {
+function ct_mission_news_sanitize_layout( $input ) {
 	
 	$valid = array(
 		'simple'       => __( 'Simple', 'mission-news' ),
@@ -667,7 +667,7 @@ function ct_mission_sanitize_layout( $input ) {
 //----------------------------------------------------------------------------------
 // Sanitize post layout
 //----------------------------------------------------------------------------------
-function ct_mission_sanitize_layout_posts( $input ) {
+function ct_mission_news_sanitize_layout_posts( $input ) {
 
 	$valid = array(
 		'double-sidebar' => __( 'Double sidebar', 'mission-news' ),

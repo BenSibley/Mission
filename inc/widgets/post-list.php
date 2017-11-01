@@ -253,7 +253,7 @@ class ct_mission_news_post_list extends WP_Widget {
 //----------------------------------------------------------------------------------
 // Register the widget
 //----------------------------------------------------------------------------------
-function register_ct_mission_news_post_list_widget() {
+function ct_mission_news_register_post_list_widget() {
 	register_widget( 'ct_mission_news_post_list' );
 }
-add_action( 'widgets_init', 'register_ct_mission_news_post_list_widget' );
+add_action( 'widgets_init', 'ct_mission_news_register_post_list_widget' );

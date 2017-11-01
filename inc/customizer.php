@@ -158,7 +158,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			} elseif ( $social_site == 'paypal' ) {
 				$label = 'PayPal';
 			} elseif ( $social_site == 'email-form' ) {
-				$label = 'Contact Form';
+				$label = __('Contact Form', 'mission-news');
 			} elseif ( $social_site == 'google-wallet' ) {
 				$label = 'Google Wallet';
 			}

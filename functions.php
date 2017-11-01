@@ -33,7 +33,6 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', array(
-			'search-form',
 			'comment-form',
 			'comment-list',
 			'gallery',

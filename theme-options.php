@@ -22,7 +22,7 @@ if ( ! function_exists( 'ct_mission_news_options_content' ) ) {
 		$support_url    = 'https://www.competethemes.com/documentation/mission-support-center/';
 		$customizer_url = add_query_arg(
 			array(
-				'url'    => get_home_url(),
+				'url'    => home_url(),
 				'return' => add_query_arg( 'page', 'mission-options', admin_url( 'themes.php' ) )
 			),
 			admin_url( 'customize.php' )

@@ -152,6 +152,9 @@ if ( ! function_exists( 'ct_mission_news_excerpt' ) ) {
 if ( ! function_exists( 'ct_mission_news_custom_excerpt_length' ) ) {
 	function ct_mission_news_custom_excerpt_length( $length ) {
 
+		if ( is_admin() ) {
+			return $length;
+		}
 		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
 
 		if ( ! empty( $new_excerpt_length ) && $new_excerpt_length != 25 ) {
@@ -180,6 +183,9 @@ add_filter( 'excerpt_more', 'ct_mission_news_excerpt_ellipsis', 10 );
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_news_remove_more_link_scroll' ) ) {
 	function ct_mission_news_remove_more_link_scroll( $link ) {
+		if ( is_admin() ) {
+			return $link;
+		}
 		$link = preg_replace( '|#more-[0-9]+|', '', $link );
 		return $link;
 	}

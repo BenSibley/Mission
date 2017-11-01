@@ -232,7 +232,7 @@ class ct_mission_news_post_list extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 
 		$instance                 = array();
-		$instance['title']        = isset( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['use_category'] = isset( $new_instance['use_category'] ) ? 'yes' : 'no';
 		$instance['category']     = isset( $new_instance['category'] ) ? absint( $new_instance['category'] ) : 1;
 		$instance['use_tag']      = isset( $new_instance['use_tag'] ) ? 'yes' : 'no';
@@ -244,7 +244,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		$instance['comments']     = isset( $new_instance['comments'] ) ? 'yes' : 'no';
 		$instance['post_count']   = isset( $new_instance['post_count'] ) ? absint( $new_instance['post_count'] ) : 5;
 		$instance['style']        = isset( $new_instance['style'] ) ? absint( $new_instance['style'] ) : 1;
-		$instance['relationship'] = isset( $new_instance['relationship'] ) ? strip_tags( $new_instance['relationship'] ) : 'AND';
+		$instance['relationship'] = isset( $new_instance['relationship'] ) ? sanitize_text_field( $new_instance['relationship'] ) : 'AND';
 
 		return $instance;
 	}

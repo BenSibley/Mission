@@ -162,34 +162,17 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			} elseif ( $social_site == 'google-wallet' ) {
 				$label = 'Google Wallet';
 			}
-
-			if ( $social_site == 'skype' ) {
-				// setting
-				$wp_customize->add_setting( $social_site, array(
-					'sanitize_callback' => 'ct_mission_news_sanitize_skype'
-				) );
-				// control
-				$wp_customize->add_control( $social_site, array(
-					'type'        => 'url',
-					'label'       => $label,
-					// Translators: %s is the URL of a blog post
-					'description' => sprintf( __( 'Accepts Skype link protocol (<a href="%s" target="_blank">learn more</a>)', 'mission-news' ), 'https://www.competethemes.com/blog/skype-links-wordpress/' ),
-					'section'     => 'ct_mission_news_social_media_icons',
-					'priority'    => $priority
-				) );
-			} else {
-				// setting
-				$wp_customize->add_setting( $social_site, array(
-					'sanitize_callback' => 'esc_url_raw'
-				) );
-				// control
-				$wp_customize->add_control( $social_site, array(
-					'type'     => 'url',
-					'label'    => $label,
-					'section'  => 'ct_mission_news_social_media_icons',
-					'priority' => $priority
-				) );
-			}
+			// setting
+			$wp_customize->add_setting( $social_site, array(
+				'sanitize_callback' => 'esc_url_raw'
+			) );
+			// control
+			$wp_customize->add_control( $social_site, array(
+				'type'     => 'url',
+				'label'    => $label,
+				'section'  => 'ct_mission_news_social_media_icons',
+				'priority' => $priority
+			) );
 		}
 		// increment the priority for next site
 		$priority = $priority + 5;

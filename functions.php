@@ -475,18 +475,6 @@ if ( ! function_exists( 'ct_mission_news_get_content_template' ) ) {
 }
 
 //----------------------------------------------------------------------------------
-// Allow Skype URIs to be used. Used for the Skype social icon in Customizer 
-//----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_allow_skype_protocol' ) ) {
-	function ct_mission_news_allow_skype_protocol( $protocols ) {
-		$protocols[] = 'skype';
-
-		return $protocols;
-	}
-}
-add_filter( 'kses_allowed_protocols' , 'ct_mission_news_allow_skype_protocol' );
-
-//----------------------------------------------------------------------------------
 // Filters the_archive_title() like this: "Category: Business" => "Business" 
 // the_archive_title() is used in content/archive-header.php
 //----------------------------------------------------------------------------------

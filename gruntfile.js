@@ -86,7 +86,7 @@ module.exports = function(grunt) {
                 options: {
                     domainPath: '/languages',
                     exclude: ['library/.*/.*'],
-                    potFilename: 'mission.pot',
+                    potFilename: 'mission-news.pot',
                     type: 'wp-theme',
                     processPot: function( pot ) {
                         var translation,

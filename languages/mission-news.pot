@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mission News 1.05\n"
+"Project-Id-Version: Mission News 1.07\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-11-01 15:00:31+00:00\n"
+"POT-Creation-Date: 2017-11-07 16:10:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -102,81 +102,88 @@ msgstr ""
 msgid "<a href=\"%s\">Mission News Theme</a> by Compete Themes."
 msgstr ""
 
-#: functions.php:54
+#: functions.php:23
+msgid ""
+"Hey! Sorry to interrupt, but you've been using Mission News for a little "
+"while now. If you're happy with this theme, could you take a minute to "
+"leave a review? <i>You won't see this notice again after closing it.</i>"
+msgstr ""
+
+#: functions.php:66
 msgid "Primary"
 msgstr ""
 
-#: functions.php:55
+#: functions.php:67
 msgid "Secondary"
 msgstr ""
 
-#: functions.php:70
+#: functions.php:82
 msgid "Left Sidebar"
 msgstr ""
 
-#: functions.php:72
+#: functions.php:84
 msgid "Widgets in this area will be shown left of the main post content."
 msgstr ""
 
-#: functions.php:79
+#: functions.php:91
 msgid "Right Sidebar"
 msgstr ""
 
-#: functions.php:81
+#: functions.php:93
 msgid "Widgets in this area will be shown right of the main post content."
 msgstr ""
 
-#: functions.php:88
+#: functions.php:100
 msgid "Ad Spot - Below Header"
 msgstr ""
 
-#: functions.php:90
+#: functions.php:102
 msgid ""
 "Widgets in this area will be shown below the header and above the posts and "
 "sidebars."
 msgstr ""
 
-#: functions.php:97
+#: functions.php:109
 msgid "Ad Spot - Above Posts"
 msgstr ""
 
-#: functions.php:99
+#: functions.php:111
 msgid "Widgets in this area will be shown in the center column above the posts."
 msgstr ""
 
-#: functions.php:106
+#: functions.php:118
 msgid "Ad Spot - After Post Content"
 msgstr ""
 
-#: functions.php:108
+#: functions.php:120
 msgid "Widgets in this area will be shown on post pages after the content."
 msgstr ""
 
-#: functions.php:115
+#: functions.php:127
 msgid "Ad Spot - After Page Content"
 msgstr ""
 
-#: functions.php:117
+#: functions.php:129
 msgid "Widgets in this area will be shown on pages after the content."
 msgstr ""
 
-#: functions.php:124
+#: functions.php:136
 msgid "Ad Spot - After First Post"
 msgstr ""
 
-#: functions.php:126
+#: functions.php:138
 msgid "Widgets in this area will be shown on the blog after the first post."
 msgstr ""
 
-#: functions.php:269
+#: functions.php:281
 msgid "Featured"
 msgstr ""
 
-#: functions.php:350
+#: functions.php:362
 msgid "Customizer settings deleted"
 msgstr ""
 
-#: functions.php:554
+#: functions.php:566
 msgid "(title)"
 msgstr ""
 
@@ -316,8 +323,68 @@ msgstr ""
 msgid "Email Address"
 msgstr ""
 
+#: inc/customizer.php:133
+msgid "Google Plus"
+msgstr ""
+
+#: inc/customizer.php:135
+msgid "RSS"
+msgstr ""
+
+#: inc/customizer.php:137
+msgid "SoundCloud"
+msgstr ""
+
+#: inc/customizer.php:139
+msgid "SlideShare"
+msgstr ""
+
+#: inc/customizer.php:141
+msgid "CodePen"
+msgstr ""
+
+#: inc/customizer.php:143
+msgid "StumbleUpon"
+msgstr ""
+
+#: inc/customizer.php:145
+msgid "DeviantArt"
+msgstr ""
+
+#: inc/customizer.php:147
+msgid "Hacker News"
+msgstr ""
+
+#: inc/customizer.php:149
+msgid "WhatsApp"
+msgstr ""
+
+#: inc/customizer.php:151
+msgid "QQ"
+msgstr ""
+
+#: inc/customizer.php:153
+msgid "VK"
+msgstr ""
+
+#: inc/customizer.php:155
+msgid "WeChat"
+msgstr ""
+
+#: inc/customizer.php:157
+msgid "Tencent Weibo"
+msgstr ""
+
+#: inc/customizer.php:159
+msgid "PayPal"
+msgstr ""
+
 #: inc/customizer.php:161
 msgid "Contact Form"
+msgstr ""
+
+#: inc/customizer.php:163
+msgid "Google Wallet"
 msgstr ""
 
 #: inc/customizer.php:185
@@ -466,6 +533,10 @@ msgstr ""
 msgid "Use layout set in Customizer"
 msgstr ""
 
+#: inc/review.php:113
+msgid "Click here to leave your review"
+msgstr ""
+
 #: inc/scripts.php:11
 msgid "close menu"
 msgstr ""
@@ -599,12 +670,12 @@ msgstr ""
 #: theme-options.php:42
 #. Translators: %1$s and %2$s are the name of the theme (Mission News)
 msgid ""
-"Not sure where to start? The %1$s Support Center is filled with tutorials "
-"that will take you step-by-step through every feature in %1$s."
+"Not sure where to start? The %1$s Getting Started Guide will take you "
+"step-by-step through every feature in %1$s."
 msgstr ""
 
 #: theme-options.php:46
-msgid "Visit Support Center"
+msgid "View Guide"
 msgstr ""
 
 #: theme-options.php:50 theme-options.php:56
@@ -681,18 +752,18 @@ msgctxt "View all posts in post category"
 msgid "View all posts in %s"
 msgstr ""
 
-#: functions.php:253
+#: functions.php:265
 msgctxt "verb: open the menu"
 msgid "open menu"
 msgstr ""
 
-#: functions.php:538
+#: functions.php:550
 #. translators: %s = the author who published the post
 msgctxt "This blog post was published by some author"
 msgid "By %s"
 msgstr ""
 
-#: functions.php:541
+#: functions.php:553
 #. translators: %1$s = the author who published the post. %2$s = the date it
 #. was published
 msgctxt "This blog post was published by some author on some date "

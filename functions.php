@@ -8,9 +8,21 @@ require_once( trailingslashit( get_template_directory() ) . 'inc/widgets/post-li
 require_once( trailingslashit( get_template_directory() ) . 'inc/comments.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/meta-box.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/review.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/scripts.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/social-icons.php' );
 
+//----------------------------------------------------------------------------------
+//	Include review request
+//----------------------------------------------------------------------------------
+require_once( trailingslashit( get_template_directory() ) . 'dnh/handler.php' );
+new WP_Review_Me( array(
+		'days_after' => 14,
+		'type'       => 'theme',
+		'slug'       => 'mission-news',
+		'message'    => __( 'Hey! Sorry to interrupt, but you\'ve been using Mission News for a little while now. If you\'re happy with this theme, could you take a minute to leave a review? <i>You won\'t see this notice again after closing it.</i>', 'mission-news' )
+	)
+);
 //----------------------------------------------------------------------------------
 //	Set content width variable
 //----------------------------------------------------------------------------------

@@ -8,7 +8,7 @@
 if ( ! function_exists( ( 'ct_mission_news_add_post_layout_meta_box' ) ) ) {
 	function ct_mission_news_add_post_layout_meta_box() {
 
-		$screens = array( 'post' );
+		$screens = array( 'post', 'page' );
 
 		foreach ( $screens as $screen ) {
 

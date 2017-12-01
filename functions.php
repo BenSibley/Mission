@@ -580,12 +580,12 @@ add_filter( 'the_title', 'ct_mission_news_no_missing_titles', 10, 2 );
 if ( ! function_exists( ( 'ct_mission_news_filter_layout' ) ) ) {
 	function ct_mission_news_filter_layout( $layout ) {
 
-		if ( is_singular( 'post' ) ) {
+		if ( is_singular( 'post' ) || is_singular( 'page' ) ) {
 			global $post;
-			$post_layout = get_post_meta( $post->ID, 'ct_mission_news_post_layout_key', true );
+			$single_layout = get_post_meta( $post->ID, 'ct_mission_news_post_layout_key', true );
 
-			if ( ! empty( $post_layout ) && $post_layout != 'default' ) {
-				$layout = $post_layout;
+			if ( ! empty( $single_layout ) && $single_layout != 'default' ) {
+				$layout = $single_layout;
 			}
 		}
 

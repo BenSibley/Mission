@@ -38,7 +38,6 @@ add_action( 'admin_enqueue_scripts', 'ct_mission_news_enqueue_admin_styles' );
 //----------------------------------------------------------------------------------
 function ct_mission_news_enqueue_customizer_scripts() {
 	wp_enqueue_style( 'ct-mission-news-customizer-styles', get_template_directory_uri() . '/styles/customizer.min.css' );
-	wp_enqueue_script( 'ct-mission-news-customizer-js', get_template_directory_uri() . '/js/build/customizer.min.js', array( 'jquery' ), '', true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'ct_mission_news_enqueue_customizer_scripts' );
 

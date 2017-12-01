@@ -82,33 +82,3 @@
     border-bottom: solid 1px #d5d5d5;
   }
 }
-
-// layout picture controls
-#customize-control-layout {
-
-  .customize-control-title {
-    margin-bottom: 18px;
-  }
-  label {
-    display: inline-block;
-    margin-bottom: 12px;
-    margin-left: 0;
-    padding: 0;
-    text-align: center;
-    font-weight: 500;
-    transition: opacity 0.2s ease;
-
-    img {
-      margin-top: 4px;
-    }
-    &.selected img {
-      outline: solid 2px #05B0E7;
-    }
-  }
-}
-#customize-control-layout label:hover {
-  opacity: 0.8;
-}
-#customize-control-layout input {
-  display: none;
-}

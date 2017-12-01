@@ -1,6 +1,7 @@
 @media all and (min-width: $eight-hundred) {
 
-  .single-post.layout-post-right-sidebar {
+  .single-post.layout-post-right-sidebar,
+  .page.layout-page-right-sidebar {
 
     .content-container {
 
@@ -16,7 +17,8 @@
       width: 156%;
     }
   }
-  .single-post.layout-post-left-sidebar {
+  .single-post.layout-post-left-sidebar,
+  .page.layout-page-left-sidebar {
 
     .content-container {
 
@@ -28,7 +30,8 @@
       width: 156%;
     }
   }
-  .single-post.layout-post-no-sidebar {
+  .single-post.layout-post-no-sidebar,
+  .page.layout-page-no-sidebar {
 
     .content-container {
 

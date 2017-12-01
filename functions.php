@@ -377,6 +377,7 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 		$full_post   = get_theme_mod( 'full_post' );
 		$layout      = get_theme_mod( 'layout' );
 		$layout_post = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_posts' ) );
+		$layout_page = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_pages' ) );
 
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
@@ -384,8 +385,9 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout );
 		} if ( !empty( $layout_post ) ) {
 			$classes[] = 'layout-post-' . esc_attr( $layout_post );
+		} if ( !empty( $layout_page ) ) {
+			$classes[] = 'layout-page-' . esc_attr( $layout_page );
 		}
-
 		return $classes;
 	}
 }

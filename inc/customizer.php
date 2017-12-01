@@ -95,6 +95,31 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'no-sidebar'     => __( 'No sidebar', 'mission-news' )
 		)
 	) );
+	// section - Pages
+	$wp_customize->add_section( 'ct_mission_news_layout_pages', array(
+		'title'    => __( 'Pages', 'mission-news' ),
+		'panel'    => 'ct_mission_news_layout_panel',
+		'priority' => 3,
+	) );
+	// setting
+	$wp_customize->add_setting( 'layout_pages', array(
+		'default'           => 'double-sidebar',
+		'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
+	) );
+	// control
+	$wp_customize->add_control( 'layout_pages', array(
+		'label'       => __( 'Page layout', 'mission-news' ),
+		'description' => __( 'Layouts can be changed for individual pages in the page editor.', 'mission-news' ),
+		'section'     => 'ct_mission_news_layout_pages',
+		'settings'    => 'layout_pages',
+		'type'        => 'radio',
+		'choices'     => array(
+			'double-sidebar' => __( 'Double sidebar', 'mission-news' ),
+			'left-sidebar'   => __( 'Left sidebar', 'mission-news' ),
+			'right-sidebar'  => __( 'Right sidebar', 'mission-news' ),
+			'no-sidebar'     => __( 'No sidebar', 'mission-news' )
+		)
+	) );
 
 	//----------------------------------------------------------------------------------
 	// Section: Social Media Icons

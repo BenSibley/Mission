@@ -2788,42 +2788,53 @@ a img {
   }
 }
 @media all and (min-width: 50em) {
-  .single-post.layout-post-right-sidebar .content-container:before {
+  .single-post.layout-post-right-sidebar .content-container:before,
+  .page.layout-page-right-sidebar .content-container:before {
     display: none;
   }
-  .single-post.layout-post-right-sidebar .main {
+  .single-post.layout-post-right-sidebar .main,
+  .page.layout-page-right-sidebar .main {
     margin-left: 25%;
   }
-  .single-post.layout-post-right-sidebar .entry article > .featured-image {
+  .single-post.layout-post-right-sidebar .entry article > .featured-image,
+  .page.layout-page-right-sidebar .entry article > .featured-image {
     left: -56%;
     width: 156%;
   }
 
-  .single-post.layout-post-left-sidebar .content-container:after {
+  .single-post.layout-post-left-sidebar .content-container:after,
+  .page.layout-page-left-sidebar .content-container:after {
     display: none;
   }
-  .single-post.layout-post-left-sidebar .entry article > .featured-image {
+  .single-post.layout-post-left-sidebar .entry article > .featured-image,
+  .page.layout-page-left-sidebar .entry article > .featured-image {
     width: 156%;
   }
 
-  .single-post.layout-post-no-sidebar .content-container:before, .single-post.layout-post-no-sidebar .content-container:after {
+  .single-post.layout-post-no-sidebar .content-container:before, .single-post.layout-post-no-sidebar .content-container:after,
+  .page.layout-page-no-sidebar .content-container:before,
+  .page.layout-page-no-sidebar .content-container:after {
     display: none;
   }
-  .single-post.layout-post-no-sidebar .main {
+  .single-post.layout-post-no-sidebar .main,
+  .page.layout-page-no-sidebar .main {
     float: none;
   }
-  .single-post.layout-post-no-sidebar .entry article > .featured-image {
+  .single-post.layout-post-no-sidebar .entry article > .featured-image,
+  .page.layout-page-no-sidebar .entry article > .featured-image {
     left: -28%;
     width: 156%;
   }
-  .single-post.layout-post-no-sidebar .post-header {
+  .single-post.layout-post-no-sidebar .post-header,
+  .page.layout-page-no-sidebar .post-header {
     position: relative;
     left: -14%;
     width: 128%;
     text-align: center;
     margin: 1.125em 0 1.5em;
   }
-  .single-post.layout-post-no-sidebar .post-title {
+  .single-post.layout-post-no-sidebar .post-title,
+  .page.layout-page-no-sidebar .post-title {
     font-size: 2.375em;
     /* 38px / 16px */
     line-height: 1.342;

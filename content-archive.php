@@ -14,7 +14,7 @@ $date   = get_theme_mod( 'post_date_blog_archives' );
 			<?php ct_mission_news_post_byline( $author, $date ); ?>
 		</div>
 		<div class="post-content">
-			<?php echo wp_kses_post( ct_mission_news_excerpt() ); ?>
+			<?php echo ct_mission_news_excerpt(); ?>
 		</div>
 	</article>
 	<?php do_action( 'ct_mission_news_archive_post_after' ); ?>

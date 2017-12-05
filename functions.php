@@ -151,9 +151,9 @@ add_action( 'widgets_init', 'ct_mission_news_register_widget_areas' );
 if ( ! function_exists( 'ct_mission_news_excerpt' ) ) {
 	function ct_mission_news_excerpt() {
 		if ( get_theme_mod( 'full_post' ) == 'yes' ) {
-			return wpautop( do_shortcode( get_the_content() ) );
+			return wpautop( do_shortcode( wp_kses_post( get_the_content() ) ) );
 		} else {
-			return wpautop( get_the_excerpt() );
+			return wpautop( wp_kses_post( get_the_excerpt() ) );
 		}
 	}
 }

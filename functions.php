@@ -147,11 +147,16 @@ add_action( 'widgets_init', 'ct_mission_news_register_widget_areas' );
 
 //----------------------------------------------------------------------------------
 //	Output excerpt/content
+//  Can't return the_content() so need to use get_the_content()
+//  Apply same filter and str_replace() as the_content(): https://developer.wordpress.org/reference/functions/the_content/
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_news_excerpt' ) ) {
 	function ct_mission_news_excerpt() {
-		if ( get_theme_mod( 'full_post' ) == 'yes' ) {
-			return wpautop( do_shortcode( wp_kses_post( get_the_content() ) ) );
+		if ( get_theme_mod( 'full_post' ) == 'yes' ) {		
+			$content = get_the_content();
+			$content = apply_filters( 'the_content', $content );
+			$content = str_replace( ']]>', ']]&gt;', $content );
+			return $content;
 		} else {
 			return wpautop( wp_kses_post( get_the_excerpt() ) );
 		}

@@ -24,7 +24,7 @@ class ct_mission_news_post_list extends WP_Widget {
 	//----------------------------------------------------------------------------------
 	// Prepare default values
 	//----------------------------------------------------------------------------------
-	function defaults($instance) {
+	function defaults($instance) {;
 		$defaults = array(
 		'title' 			 => isset( $instance['title'] ) ? sanitize_text_field($instance['title']) : '',
 		'use_category' => isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes',
@@ -36,6 +36,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		'date'         => isset( $instance['date'] ) ? $instance['date'] : 'no',
 		'image'        => isset( $instance['image'] ) ? $instance['image'] : 'no',
 		'excerpt'      => isset( $instance['excerpt'] ) ? $instance['excerpt'] : 'yes',
+		'excerpt_length' => isset( $instance['excerpt_length'] ) ? absint($instance['excerpt_length']) : 25,
 		'comments'     => isset( $instance['comments'] ) ? $instance['comments'] : 'yes',
 		'post_count'   => isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
 		'style'        => isset( $instance['style'] ) ? absint($instance['style']) : 1,
@@ -121,7 +122,7 @@ class ct_mission_news_post_list extends WP_Widget {
 						echo '<div class="bottom">';
 						if ( $instance['excerpt'] == 'yes' ) {
 							echo '<div class="excerpt">';
-							echo wp_kses_post( wpautop( get_the_excerpt() ) );
+							echo wp_kses_post(strip_shortcodes(wp_trim_words(get_the_content(),$instance['excerpt_length'])));
 							echo '</div>';
 						}
 						if ( $instance['comments'] == 'yes' ) {
@@ -224,6 +225,10 @@ class ct_mission_news_post_list extends WP_Widget {
 					<input id="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_count' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $instance['post_count'] ); ?>">
 					<label for="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>"><?php esc_html_e( 'Number of posts', 'mission-news' ); ?></label>
 				</p>
+				<p>
+					<input id="<?php echo esc_attr( $this->get_field_id( 'excerpt_length' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt_length' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $instance['excerpt_length'] ); ?>">
+					<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt_length' ) ); ?>"><?php esc_html_e( 'Excerpt word count', 'mission-news' ); ?></label>
+				</p>
 			</div>
 			<h4><?php esc_html_e( 'Style', 'mission-news' ); ?></h4>
 			<div class="container">
@@ -254,6 +259,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		$instance['date']         = isset( $new_instance['date'] ) ? 'yes' : 'no';
 		$instance['image']        = isset( $new_instance['image'] ) ? 'yes' : 'no';
 		$instance['excerpt']      = isset( $new_instance['excerpt'] ) ? 'yes' : 'no';
+		$instance['excerpt_length'] = isset( $new_instance['excerpt_length'] ) ? absint($new_instance['excerpt_length']) : 25;
 		$instance['comments']     = isset( $new_instance['comments'] ) ? 'yes' : 'no';
 		$instance['post_count']   = isset( $new_instance['post_count'] ) ? absint( $new_instance['post_count'] ) : 5;
 		$instance['style']        = isset( $new_instance['style'] ) ? absint( $new_instance['style'] ) : 1;

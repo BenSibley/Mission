@@ -186,6 +186,13 @@ if ( ! function_exists( 'ct_mission_news_custom_excerpt_length' ) ) {
 add_filter( 'excerpt_length', 'ct_mission_news_custom_excerpt_length', 99 );
 
 //----------------------------------------------------------------------------------
+//	Only using named function so it can be removed by name
+//----------------------------------------------------------------------------------
+function ct_mission_news_widget_excerpt_length($length) {
+	return $length;
+}
+
+//----------------------------------------------------------------------------------
 // Add plain ellipsis for automatic excerpts ("[...]" => "...")
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_news_excerpt_ellipsis' ) ) {

@@ -26,19 +26,19 @@ class ct_mission_news_post_list extends WP_Widget {
 	//----------------------------------------------------------------------------------
 	function defaults($instance) {
 		$defaults = array(
-		'title' 			 => isset( $instance['title'] ) ? $instance['title'] : '',
+		'title' 			 => isset( $instance['title'] ) ? sanitize_text_field($instance['title']) : '',
 		'use_category' => isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes',
-		'category'     => isset( $instance['category'] ) ? $instance['category'] : 1,
+		'category'     => isset( $instance['category'] ) ? absint($instance['category']) : 1,
 		'use_tag'      => isset( $instance['use_tag'] ) ? $instance['use_tag'] : 'no',
-		'tag'          => isset( $instance['tag'] ) ? $instance['tag'] : 1,
-		'relationship' => isset( $instance['relationship'] ) ? $instance['relationship'] : 'AND',
+		'tag'          => isset( $instance['tag'] ) ? absint($instance['tag']) : 1,
+		'relationship' => isset( $instance['relationship'] ) ? sanitize_text_field($instance['relationship']) : 'AND',
 		'author'       => isset( $instance['author'] ) ? $instance['author'] : 'yes',
 		'date'         => isset( $instance['date'] ) ? $instance['date'] : 'no',
 		'image'        => isset( $instance['image'] ) ? $instance['image'] : 'no',
 		'excerpt'      => isset( $instance['excerpt'] ) ? $instance['excerpt'] : 'yes',
 		'comments'     => isset( $instance['comments'] ) ? $instance['comments'] : 'yes',
-		'post_count'   => isset( $instance['post_count'] ) ? $instance['post_count'] : 5,
-		'style'        => isset( $instance['style'] ) ? $instance['style'] : 1,
+		'post_count'   => isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
+		'style'        => isset( $instance['style'] ) ? absint($instance['style']) : 1,
 		);
 		return $defaults;
 	}
@@ -48,8 +48,8 @@ class ct_mission_news_post_list extends WP_Widget {
 	//----------------------------------------------------------------------------------
 	public function widget( $args, $instance ) {
 
-		/***** Prepare defaults for initial use *****/
-		$instance = array_replace($this->defaults($instance), $instance);
+		// Prepare defaults and override with saved values
+		$instance = $this->defaults($instance);
 		
 		/***** Prepare the query to get posts *****/
 		$query_args = array(
@@ -143,8 +143,8 @@ class ct_mission_news_post_list extends WP_Widget {
 	//----------------------------------------------------------------------------------
 	public function form( $instance ) {
 
-		/***** Prepare defaults for initial use *****/
-		$instance = array_replace($this->defaults($instance), $instance);
+		// Prepare defaults and override with saved values
+		$instance = $this->defaults($instance);
 
 		?>
 		<div class="mission-post-list-widget">
@@ -243,9 +243,6 @@ class ct_mission_news_post_list extends WP_Widget {
 	// Save the widget settings
 	//----------------------------------------------------------------------------------
 	public function update( $new_instance, $old_instance ) {
-
-		/***** Prepare defaults for initial use *****/
-		$instance = array_replace($this->defaults($instance), $instance);
 
 		$instance                 = array();
 		$instance['title']        = isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '';

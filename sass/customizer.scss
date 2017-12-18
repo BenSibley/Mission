@@ -82,3 +82,7 @@
     border-bottom: solid 1px #d5d5d5;
   }
 }
+// Change icon for Recent Posts Extended widget
+#available-widgets [class*=ct_mission_news_post_list] .widget-title:before {
+  content: "\f109";
+}

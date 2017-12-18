@@ -72,3 +72,7 @@
   margin-bottom: 24px;
   border-bottom: solid 1px #d5d5d5;
 }
+
+#available-widgets [class*=ct_mission_news_post_list] .widget-title:before {
+  content: "\f109";
+}

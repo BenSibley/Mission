@@ -598,3 +598,11 @@ if ( ! function_exists( ( 'ct_mission_news_filter_layout' ) ) ) {
 	}
 }
 add_filter( 'ct_mission_news_layout_filter', 'ct_mission_news_filter_layout' );
+
+//----------------------------------------------------------------------------------
+// Allows site title to display in Customizer preview when logo is removed
+//----------------------------------------------------------------------------------
+function ct_mission_news_logo_refresh($wp_customize) {
+  $wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
+}
+add_action( 'customize_register', 'ct_mission_news_logo_refresh', 20 );

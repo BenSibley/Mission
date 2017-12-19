@@ -24,7 +24,7 @@ class ct_mission_news_post_list extends WP_Widget {
 	//----------------------------------------------------------------------------------
 	// Prepare default values
 	//----------------------------------------------------------------------------------
-	function defaults($instance) {;
+	function defaults($instance) {
 		$defaults = array(
 		'title' 			 => isset( $instance['title'] ) ? sanitize_text_field($instance['title']) : '',
 		'use_category' => isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes',

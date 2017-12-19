@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mission News 1.07\n"
+"Project-Id-Version: Mission News 1.10\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2017-12-01 15:39:00+00:00\n"
+"POT-Creation-Date: 2017-12-19 19:52:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -175,15 +175,15 @@ msgstr ""
 msgid "Widgets in this area will be shown on the blog after the first post."
 msgstr ""
 
-#: functions.php:281
+#: functions.php:286
 msgid "Featured"
 msgstr ""
 
-#: functions.php:362
+#: functions.php:367
 msgid "Customizer settings deleted"
 msgstr ""
 
-#: functions.php:568
+#: functions.php:573
 msgid "(title)"
 msgstr ""
 
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Press \"Enter\" to skip to content"
 msgstr ""
 
-#: header.php:33 inc/scripts.php:10
+#: header.php:33 inc/scripts.php:16
 msgid "open menu"
 msgstr ""
 
@@ -541,7 +541,7 @@ msgstr ""
 msgid "Show full posts on blog?"
 msgstr ""
 
-#: inc/customizer.php:626
+#: inc/customizer.php:626 inc/widgets/post-list.php:230
 msgid "Excerpt word count"
 msgstr ""
 
@@ -553,15 +553,15 @@ msgstr ""
 msgid "Click here to leave your review"
 msgstr ""
 
-#: inc/scripts.php:11
+#: inc/scripts.php:17
 msgid "close menu"
 msgstr ""
 
-#: inc/scripts.php:12
+#: inc/scripts.php:18
 msgid "open dropdown menu"
 msgstr ""
 
-#: inc/scripts.php:13
+#: inc/scripts.php:19
 msgid "close dropdown menu"
 msgstr ""
 
@@ -577,35 +577,35 @@ msgstr ""
 msgid "Recent Posts Extended"
 msgstr ""
 
-#: inc/widgets/post-list.php:139
+#: inc/widgets/post-list.php:153
 msgid "Title"
 msgstr ""
 
-#: inc/widgets/post-list.php:142
+#: inc/widgets/post-list.php:156
 msgid "Post Source"
 msgstr ""
 
-#: inc/widgets/post-list.php:146 inc/widgets/post-list.php:149
+#: inc/widgets/post-list.php:160 inc/widgets/post-list.php:163
 msgid "Category"
 msgstr ""
 
-#: inc/widgets/post-list.php:160 inc/widgets/post-list.php:163
+#: inc/widgets/post-list.php:174 inc/widgets/post-list.php:177
 msgid "Tag"
 msgstr ""
 
-#: inc/widgets/post-list.php:173
+#: inc/widgets/post-list.php:187
 msgid "Relationship"
 msgstr ""
 
-#: inc/widgets/post-list.php:175
+#: inc/widgets/post-list.php:189
 msgid "AND"
 msgstr ""
 
-#: inc/widgets/post-list.php:176
+#: inc/widgets/post-list.php:190
 msgid "OR"
 msgstr ""
 
-#: inc/widgets/post-list.php:182
+#: inc/widgets/post-list.php:196
 msgid ""
 "Selecting both a category and a tag will require posts to be in both. If "
 "you'd like to get posts from either the category or tag, switch the "
@@ -614,43 +614,43 @@ msgid ""
 "\"Category\" and \"Tag.\""
 msgstr ""
 
-#: inc/widgets/post-list.php:188
+#: inc/widgets/post-list.php:202
 msgid "Content"
 msgstr ""
 
-#: inc/widgets/post-list.php:192
+#: inc/widgets/post-list.php:206
 msgid "Show author in byline"
 msgstr ""
 
-#: inc/widgets/post-list.php:196
+#: inc/widgets/post-list.php:210
 msgid "Show date in byline"
 msgstr ""
 
-#: inc/widgets/post-list.php:200
+#: inc/widgets/post-list.php:214
 msgid "Show Featured Images"
 msgstr ""
 
-#: inc/widgets/post-list.php:204
+#: inc/widgets/post-list.php:218
 msgid "Show excerpt"
 msgstr ""
 
-#: inc/widgets/post-list.php:208
+#: inc/widgets/post-list.php:222
 msgid "Show comments link"
 msgstr ""
 
-#: inc/widgets/post-list.php:212
+#: inc/widgets/post-list.php:226
 msgid "Number of posts"
 msgstr ""
 
-#: inc/widgets/post-list.php:215 inc/widgets/post-list.php:218
+#: inc/widgets/post-list.php:233 inc/widgets/post-list.php:236
 msgid "Style"
 msgstr ""
 
-#: inc/widgets/post-list.php:220
+#: inc/widgets/post-list.php:238
 msgid "Style 1"
 msgstr ""
 
-#: inc/widgets/post-list.php:221
+#: inc/widgets/post-list.php:239
 msgid "Style 2"
 msgstr ""
 
@@ -768,18 +768,18 @@ msgctxt "View all posts in post category"
 msgid "View all posts in %s"
 msgstr ""
 
-#: functions.php:265
+#: functions.php:270
 msgctxt "verb: open the menu"
 msgid "open menu"
 msgstr ""
 
-#: functions.php:552
+#: functions.php:557
 #. translators: %s = the author who published the post
 msgctxt "This blog post was published by some author"
 msgid "By %s"
 msgstr ""
 
-#: functions.php:555
+#: functions.php:560
 #. translators: %1$s = the author who published the post. %2$s = the date it
 #. was published
 msgctxt "This blog post was published by some author on some date "

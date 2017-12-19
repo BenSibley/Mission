@@ -145,18 +145,18 @@ class ct_mission_news_post_list extends WP_Widget {
 	public function form( $instance ) {
 
 		// Prepare defaults and override with saved values
-		$data = $this->defaults($instance);
+		$instance = $this->defaults($instance);
 
 		?>
 		<div class="mission-post-list-widget">
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'mission-news' ); ?></label>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( esc_attr( $data['title'] ) ); ?>">
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( esc_attr( $instance['title'] ) ); ?>">
 			</p>
 			<h4><?php esc_html_e( 'Post Source', 'mission-news' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $data['use_category'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_category' ) ); ?>" value="<?php echo esc_attr( $data['use_category'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['use_category'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_category' ) ); ?>" value="<?php echo esc_attr( $instance['use_category'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>"><?php esc_html_e( 'Category', 'mission-news' ); ?></label>
 				</p>
 				<p class="category">
@@ -164,13 +164,13 @@ class ct_mission_news_post_list extends WP_Widget {
 					<?php
 					wp_dropdown_categories( array(
 						'hide_empty' => 0,
-						'selected'   => $data['category'],
+						'selected'   => $instance['category'],
 						'id'         => $this->get_field_id( 'category' ),
 						'name'       => $this->get_field_name( 'category' )
 					) ); ?>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $data['use_tag'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_tag' ) ); ?>" value="<?php echo esc_attr( $data['use_tag'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['use_tag'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_tag' ) ); ?>" value="<?php echo esc_attr( $instance['use_tag'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>"><?php esc_html_e( 'Tag', 'mission-news' ); ?></label>
 				</p>
 				<p class="tag">
@@ -178,7 +178,7 @@ class ct_mission_news_post_list extends WP_Widget {
 					<?php wp_dropdown_categories( array(
 						'taxonomy'   => 'post_tag',
 						'hide_empty' => 0,
-						'selected'   => $data['tag'],
+						'selected'   => $instance['tag'],
 						'id'         => $this->get_field_id( 'tag' ),
 						'name'       => $this->get_field_name( 'tag' )
 					) ); ?>
@@ -186,8 +186,8 @@ class ct_mission_news_post_list extends WP_Widget {
 				<p class="relationship">
 					<label for="<?php echo esc_attr( $this->get_field_id( 'relationship' ) ); ?>"><?php esc_html_e( 'Relationship', 'mission-news' ); ?></label>
 					<select name="<?php echo esc_attr( $this->get_field_name( 'relationship' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'relationship' ) ); ?>" class="postform">
-						<option value="AND" <?php selected( $data['relationship'], 'AND'); ?>><?php esc_html_e( 'AND', 'mission-news' ); ?></option>
-						<option value="OR" <?php selected( $data['relationship'], 'OR'); ?>><?php esc_html_e( 'OR', 'mission-news' ); ?></option>
+						<option value="AND" <?php selected( $instance['relationship'], 'AND'); ?>><?php esc_html_e( 'AND', 'mission-news' ); ?></option>
+						<option value="OR" <?php selected( $instance['relationship'], 'OR'); ?>><?php esc_html_e( 'OR', 'mission-news' ); ?></option>
 					</select>
 				</p>
 				<div class="tooltip">
@@ -202,31 +202,31 @@ class ct_mission_news_post_list extends WP_Widget {
 			<h4><?php esc_html_e( 'Content', 'mission-news' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $data['author'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'author' ) ); ?>" value="<?php echo esc_attr( $data['author'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['author'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'author' ) ); ?>" value="<?php echo esc_attr( $instance['author'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>"><?php esc_html_e( 'Show author in byline', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $data['date'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" value="<?php echo esc_attr( $data['date'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['date'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" value="<?php echo esc_attr( $instance['date'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php esc_html_e( 'Show date in byline', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $data['image'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_attr( $data['image'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['image'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>"><?php esc_html_e( 'Show Featured Images', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $data['excerpt'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt' ) ); ?>" value="<?php echo esc_attr( $data['excerpt'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['excerpt'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt' ) ); ?>" value="<?php echo esc_attr( $instance['excerpt'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>"><?php esc_html_e( 'Show excerpt', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $data['comments'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'comments' ) ); ?>" value="<?php echo esc_attr( $data['comments'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['comments'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'comments' ) ); ?>" value="<?php echo esc_attr( $instance['comments'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>"><?php esc_html_e( 'Show comments link', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input id="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_count' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $data['post_count'] ); ?>">
+					<input id="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_count' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $instance['post_count'] ); ?>">
 					<label for="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>"><?php esc_html_e( 'Number of posts', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input id="<?php echo esc_attr( $this->get_field_id( 'excerpt_length' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt_length' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $data['excerpt_length'] ); ?>">
+					<input id="<?php echo esc_attr( $this->get_field_id( 'excerpt_length' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt_length' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $instance['excerpt_length'] ); ?>">
 					<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt_length' ) ); ?>"><?php esc_html_e( 'Excerpt word count', 'mission-news' ); ?></label>
 				</p>
 			</div>
@@ -235,8 +235,8 @@ class ct_mission_news_post_list extends WP_Widget {
 				<p>
 					<label for="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>"><?php esc_html_e( 'Style', 'mission-news' ); ?></label>
 					<select name="<?php echo esc_attr( $this->get_field_name( 'style' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>" class="postform">
-						<option value="1" <?php selected( $data['style'], 1); ?>><?php esc_html_e( 'Style 1', 'mission-news' ); ?></option>
-						<option value="2" <?php selected( $data['style'], 2); ?>><?php esc_html_e( 'Style 2', 'mission-news' ); ?></option>
+						<option value="1" <?php selected( $instance['style'], 1); ?>><?php esc_html_e( 'Style 1', 'mission-news' ); ?></option>
+						<option value="2" <?php selected( $instance['style'], 2); ?>><?php esc_html_e( 'Style 2', 'mission-news' ); ?></option>
 					</select>
 				</p>
 			</div>

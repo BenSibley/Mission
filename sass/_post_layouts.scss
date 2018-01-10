@@ -1,7 +1,9 @@
 @media all and (min-width: $eight-hundred) {
 
   .single-post.layout-post-right-sidebar,
-  .page.layout-page-right-sidebar {
+  .page.layout-page-right-sidebar,
+  .single-post.layout-post-right-sidebar-wide,
+  .page.layout-page-right-sidebar-wide {
 
     .content-container {
 
@@ -18,7 +20,9 @@
     }
   }
   .single-post.layout-post-left-sidebar,
-  .page.layout-page-left-sidebar {
+  .page.layout-page-left-sidebar,
+  .single-post.layout-post-left-sidebar-wide,
+  .page.layout-page-left-sidebar-wide {
 
     .content-container {
 
@@ -31,7 +35,9 @@
     }
   }
   .single-post.layout-post-no-sidebar,
-  .page.layout-page-no-sidebar {
+  .page.layout-page-no-sidebar,
+  .single-post.layout-post-no-sidebar-wide,
+  .page.layout-page-no-sidebar-wide {
 
     .content-container {
 
@@ -57,6 +63,40 @@
     .post-title {
       font-size: 2.375em; /* 38px / 16px */
       line-height: 1.342; /* 51px */
+    }
+  }
+  .layout-page-left-sidebar-wide,
+  .layout-page-right-sidebar-wide {
+
+    .post-header,
+    .post-content,
+    .post-meta,
+    .more-from-category,
+    .comments {
+      position: relative;
+      width: 156%;
+    }
+  }
+  .single-post.layout-post-right-sidebar-wide,
+  .page.layout-page-right-sidebar-wide {
+   
+    .main {
+      margin-left: 0;
+    }
+    .entry article > .featured-image {
+      left: 0;
+    }
+  }
+  .single-post.layout-post-no-sidebar-wide,
+  .page.layout-page-no-sidebar-wide {
+
+    .main {
+      width: 75%;
+      margin-left: 12.5%;
+    }
+    .entry article > .featured-image {
+      left: -18%;
+      width: 136%;
     }
   }
 }

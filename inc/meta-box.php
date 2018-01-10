@@ -43,11 +43,20 @@ if ( ! function_exists( ( 'ct_mission_news_post_layout_callback' ) ) ) {
 				<option value="left-sidebar" <?php selected($layout == 'left-sidebar'); ?>>
 					<?php esc_html_e( 'Left sidebar', 'mission-news' ); ?>
 				</option>
+				<option value="left-sidebar-wide" <?php selected($layout == 'left-sidebar-wide'); ?>>
+					<?php esc_html_e( 'Left sidebar - wide', 'mission-news' ); ?>
+				</option>
 				<option value="right-sidebar"<?php selected($layout == 'right-sidebar'); ?>>
 					<?php esc_html_e( 'Right sidebar', 'mission-news' ); ?>
 				</option>
+				<option value="right-sidebar-wide"<?php selected($layout == 'right-sidebar-wide'); ?>>
+					<?php esc_html_e( 'Right sidebar - wide', 'mission-news' ); ?>
+				</option>
 				<option value="no-sidebar" <?php selected($layout == 'no-sidebar'); ?>>
 					<?php esc_html_e( 'No sidebar', 'mission-news' ); ?>
+				</option>
+				<option value="no-sidebar-wide" <?php selected($layout == 'no-sidebar-wide'); ?>>
+					<?php esc_html_e( 'No sidebar - wide', 'mission-news' ); ?>
 				</option>
 			</select>
 		</p> <?php
@@ -78,7 +87,16 @@ if ( ! function_exists( ( 'ct_mission_news_post_layout_save_data' ) ) ) {
 		if ( isset( $_POST['mission-post-layout'] ) ) {
 
 			$layout            = wp_unslash( $_POST['mission-post-layout'] );
-			$acceptable_values = array( 'default', 'double-sidebar', 'left-sidebar', 'right-sidebar', 'no-sidebar' );
+			$acceptable_values = array( 
+				'default', 
+				'double-sidebar', 
+				'left-sidebar', 
+				'left-sidebar-wide', 
+				'right-sidebar', 
+				'right-sidebar-wide', 
+				'no-sidebar', 
+				'no-sidebar-wide'
+			);
 
 			if ( in_array( $layout, $acceptable_values ) ) {
 				update_post_meta( $post_id, 'ct_mission_news_post_layout_key', $layout );

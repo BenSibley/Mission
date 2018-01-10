@@ -3,8 +3,8 @@
 $layout_post = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_posts' ) );
 $layout_page = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_pages' ) );
 if ( 
-    (is_singular( 'post' ) && ( $layout_post == 'right-sidebar' || $layout_post == 'no-sidebar' ) )
-    || (is_singular( 'page' ) && ( $layout_page == 'right-sidebar' || $layout_page == 'no-sidebar' ) )
+    (is_singular( 'post' ) && ( strpos($layout_post, 'right') !== false || strpos($layout_post, 'no-sidebar' ) !== false ) )
+    || (is_singular( 'page' ) && ( strpos($layout_page, 'right') !== false || strpos($layout_page, 'no-sidebar') !== false ))
     ){
     return;
 }

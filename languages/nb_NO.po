@@ -1,0 +1,810 @@
+# Copyright (C) 2017 Compete Themes
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Mission News 1.10\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2017-12-19 19:52:54+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-12-31 00:22+0100\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.5\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nb_NO\n"
+
+#: 404.php:5
+msgid "404: Page Not Found"
+msgstr "404: Siden ikke funnet"
+
+#: 404.php:8
+msgid "Sorry, we couldn't find a page at this URL"
+msgstr "Beklager, denne siden finnes ikke"
+
+#: 404.php:9
+msgid ""
+"Please double-check that the URL is correct or try searching our site with "
+"the form below."
+msgstr ""
+"Vennligst kontroller at URL-adressen er riktig eller du kan prøve å søke vår "
+"side med skjemaet under."
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgid "Be First to Comment"
+msgstr "Vær den første til å kommentere"
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgid "One Comment"
+msgstr "En kommentar"
+
+#. translators: placeholder is link to the trackback URL
+#: comments.php:47
+msgid ""
+"Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+"Kommentarfeltet er stengt, men <a href=«%1$s» title=«Tilbakesporing URL for "
+"dette innlegget»>tilbakesporinger</a> og pingbacks er åpen."
+
+#: comments.php:70 comments.php:77
+msgid "Comments are closed."
+msgstr "Kommentarfeltet er stengt."
+
+#: content/archive-header.php:13
+msgid "Posts tagged as"
+msgstr "Innlegg merket som"
+
+#: content/comments-link.php:3
+msgid "comment icon"
+msgstr "kommentar ikonet"
+
+#: content/comments-link.php:6
+msgid "Comments closed"
+msgstr "Kommentarfeltet er stengt"
+
+#: content/comments-link.php:6 content/comments-link.php:8
+msgid "1 Comment"
+msgstr "1 kommentar"
+
+#: content/comments-link.php:6 content/comments-link.php:8
+msgid "% Comments"
+msgstr "% Kommentarer"
+
+#: content/comments-link.php:8
+msgid "Leave a Comment"
+msgstr "Legg igjen en kommentar"
+
+#. Translators: %s is the name of the post category
+#: content/more-from-category.php:20
+msgid "More posts in %s"
+msgstr "Flere innlegg i %s"
+
+#: content/post-nav-attachment.php:3
+msgid "Previous Image"
+msgstr "Forrige bilde"
+
+#: content/post-nav-attachment.php:6
+msgid "Next Image"
+msgstr "Neste bilde"
+
+#. translators: placeholder is the name of the post tag
+#: content/post-tags.php:11
+msgid "View all posts tagged %s"
+msgstr "Vis alle innlegg merket som %s"
+
+#: content/search-bar.php:6 content/search-bar.php:9 searchform.php:4
+#: searchform.php:5
+msgid "Search"
+msgstr "Søk"
+
+#: content-page.php:11 content.php:16
+msgid "Pages:"
+msgstr "Sider:"
+
+#. Translators: %s is the URL of the theme
+#: footer.php:21
+msgid "<a href=\"%s\">Mission News Theme</a> by Compete Themes."
+msgstr "<a href=“%s”>Mission News Tema</a> av Compete Themes."
+
+#: functions.php:23
+msgid ""
+"Hey! Sorry to interrupt, but you've been using Mission News for a little "
+"while now. If you're happy with this theme, could you take a minute to leave "
+"a review? <i>You won't see this notice again after closing it.</i>"
+msgstr ""
+
+#: functions.php:66
+msgid "Primary"
+msgstr "Primær"
+
+#: functions.php:67
+msgid "Secondary"
+msgstr "Sekundær"
+
+#: functions.php:82
+msgid "Left Sidebar"
+msgstr "Venstre sidepanel"
+
+#: functions.php:84
+msgid "Widgets in this area will be shown left of the main post content."
+msgstr "Widgets i dette området vises til venstre for hovedinnlegg-innhold."
+
+#: functions.php:91
+msgid "Right Sidebar"
+msgstr "Høyre sidepanel"
+
+#: functions.php:93
+msgid "Widgets in this area will be shown right of the main post content."
+msgstr "Widgets i dette området vises til høyre for hovedinnlegg-innhold."
+
+#: functions.php:100
+msgid "Ad Spot - Below Header"
+msgstr "Reklame område – Under toppteksten/overskriften (Header)"
+
+#: functions.php:102
+msgid ""
+"Widgets in this area will be shown below the header and above the posts and "
+"sidebars."
+msgstr ""
+"Widgets i dette området vises under toppteksten (Header), over innleggene og "
+"sidepanelene."
+
+#: functions.php:109
+msgid "Ad Spot - Above Posts"
+msgstr "Reklame område – Over innlegg"
+
+#: functions.php:111
+msgid ""
+"Widgets in this area will be shown in the center column above the posts."
+msgstr "Widgets i dette området vises i midtkolonnen over innleggene."
+
+#: functions.php:118
+msgid "Ad Spot - After Post Content"
+msgstr "Reklame område – Etter innleggene"
+
+#: functions.php:120
+msgid "Widgets in this area will be shown on post pages after the content."
+msgstr "Widgets i dette området vises etter innholdet på innlegg."
+
+#: functions.php:127
+msgid "Ad Spot - After Page Content"
+msgstr "Reklame område – Etter sideinnhold"
+
+#: functions.php:129
+msgid "Widgets in this area will be shown on pages after the content."
+msgstr "Widgets i dette området vises etter innholdet på sider."
+
+#: functions.php:136
+msgid "Ad Spot - After First Post"
+msgstr "Reklame område – Etter første innlegg"
+
+#: functions.php:138
+msgid "Widgets in this area will be shown on the blog after the first post."
+msgstr "Widgets i dette området vises på bloggen etter første innlegg."
+
+#: functions.php:286
+msgid "Featured"
+msgstr "Fremhevet"
+
+#: functions.php:367
+msgid "Customizer settings deleted"
+msgstr "Tilpasserinnstillingene er slettet"
+
+#: functions.php:573
+msgid "(title)"
+msgstr "(Tittel)"
+
+#: header.php:11
+msgid "Press \"Enter\" to skip to content"
+msgstr "Trykk “Enter” for å komme videre"
+
+#: header.php:33 inc/scripts.php:16
+msgid "open menu"
+msgstr "åpne meny"
+
+#: inc/comments.php:19
+msgid "Post author"
+msgstr "Artikkelforfatter"
+
+#: inc/comments.php:32
+msgid "Your comment is awaiting moderation."
+msgstr "Kommentaren din påventer godkjenning."
+
+#: inc/comments.php:39
+msgid "Reply"
+msgstr "Svar"
+
+#: inc/comments.php:43
+msgid "Edit"
+msgstr "Rediger"
+
+#: inc/comments.php:58
+msgid "(optional)"
+msgstr "(valgfritt)"
+
+#: inc/comments.php:63
+msgid "Name"
+msgstr "Navn"
+
+#: inc/comments.php:64
+msgid "Jane Doe"
+msgstr "Kari Nordmann"
+
+#: inc/comments.php:70
+msgid "Email"
+msgstr "Email"
+
+#: inc/comments.php:71
+msgid "name@email.com"
+msgstr "navn@email.com"
+
+#: inc/comments.php:77
+msgid "Website"
+msgstr "Webside"
+
+#: inc/comments.php:95
+msgid "Comment"
+msgstr "Kommentar"
+
+#: inc/customizer.php:18
+msgid "Front Page"
+msgstr "Forsiden"
+
+#: inc/customizer.php:34
+msgid "Show/Hide Elements"
+msgstr "Vis/Skjul Elementer"
+
+#: inc/customizer.php:35
+msgid "Choose which elements you want displayed on the site."
+msgstr "Velg hvilke elementer som skal vises på siden."
+
+#: inc/customizer.php:42 inc/meta-box.php:17
+msgid "Layout"
+msgstr "Oppsett / Layout"
+
+#: inc/customizer.php:43
+msgid "Change the layout of the main content and posts."
+msgstr "Endre oppsett av hovedinnholdet og innleggene."
+
+#: inc/customizer.php:51
+msgid "Blog"
+msgstr "Blogg"
+
+#: inc/customizer.php:62
+msgid "Blog layout"
+msgstr "Oppsett av blogg (layout)"
+
+#: inc/customizer.php:67 inc/customizer.php:666
+msgid "Simple"
+msgstr "Enkel"
+
+#: inc/customizer.php:68 inc/customizer.php:667
+msgid "Double"
+msgstr "Dobbel"
+
+#: inc/customizer.php:69 inc/customizer.php:668
+msgid "Rows"
+msgstr "Rader"
+
+#: inc/customizer.php:70 inc/customizer.php:669
+msgid "Rows with excerpts"
+msgstr "Rader med utdrag"
+
+#: inc/customizer.php:75 inc/customizer.php:380
+msgid "Posts"
+msgstr "Innlegg"
+
+#: inc/customizer.php:86
+msgid "Post layout"
+msgstr "Oppsett for innlegg"
+
+#: inc/customizer.php:87
+msgid "Layouts can be changed for individual posts in the post editor."
+msgstr "Oppsett kan endres for utvalgte innlegg mens du redigerer innlegget."
+
+#: inc/customizer.php:92 inc/customizer.php:117 inc/customizer.php:681
+#: inc/meta-box.php:41
+msgid "Double sidebar"
+msgstr "Dobbelt sidepanel"
+
+#: inc/customizer.php:93 inc/customizer.php:118 inc/customizer.php:682
+#: inc/meta-box.php:44
+msgid "Left sidebar"
+msgstr "Venstre sidepanel"
+
+#: inc/customizer.php:94 inc/customizer.php:119 inc/customizer.php:683
+#: inc/meta-box.php:47
+msgid "Right sidebar"
+msgstr "Høyre sidepanel"
+
+#: inc/customizer.php:95 inc/customizer.php:120 inc/customizer.php:684
+#: inc/meta-box.php:50
+msgid "No sidebar"
+msgstr "Ingen sidepanel"
+
+#: inc/customizer.php:100
+msgid "Pages"
+msgstr "Sider"
+
+#: inc/customizer.php:111
+msgid "Page layout"
+msgstr "Sideoppsett"
+
+#: inc/customizer.php:112
+msgid "Layouts can be changed for individual pages in the page editor."
+msgstr "Oppsett kan endres for utvalgte sider når du redigerer siden."
+
+#: inc/customizer.php:128
+msgid "Social Media Icons"
+msgstr "Sosiale Media ikoner"
+
+#: inc/customizer.php:130
+msgid "Add the URL for each of your social profiles."
+msgstr "Legg til URL’en for hver av dine sosiale profiler."
+
+#: inc/customizer.php:149
+msgid "Email Address"
+msgstr "Email addresse"
+
+#: inc/customizer.php:158
+msgid "Google Plus"
+msgstr "Google Pluss"
+
+#: inc/customizer.php:160
+msgid "RSS"
+msgstr "RSS"
+
+#: inc/customizer.php:162
+msgid "SoundCloud"
+msgstr "SoundCloud"
+
+#: inc/customizer.php:164
+msgid "SlideShare"
+msgstr "SlideShare"
+
+#: inc/customizer.php:166
+msgid "CodePen"
+msgstr "CodePen"
+
+#: inc/customizer.php:168
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: inc/customizer.php:170
+msgid "DeviantArt"
+msgstr "DeviantArt"
+
+#: inc/customizer.php:172
+msgid "Hacker News"
+msgstr "Hacker News"
+
+#: inc/customizer.php:174
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: inc/customizer.php:176
+msgid "QQ"
+msgstr "QQ"
+
+#: inc/customizer.php:178
+msgid "VK"
+msgstr "VK"
+
+#: inc/customizer.php:180
+msgid "WeChat"
+msgstr "WeChat"
+
+#: inc/customizer.php:182
+msgid "Tencent Weibo"
+msgstr "Tencent Weibo"
+
+#: inc/customizer.php:184
+msgid "PayPal"
+msgstr "PayPal"
+
+#: inc/customizer.php:186
+msgid "Contact Form"
+msgstr "Kontaktskjema"
+
+#: inc/customizer.php:188
+msgid "Google Wallet"
+msgstr "Google Lommebok"
+
+#: inc/customizer.php:210
+msgid "Header"
+msgstr "Topptekst / Overskrift"
+
+#: inc/customizer.php:221
+msgid "Show today's date?"
+msgstr "Vise dagens dato?"
+
+#: inc/customizer.php:226 inc/customizer.php:242 inc/customizer.php:258
+#: inc/customizer.php:274 inc/customizer.php:299 inc/customizer.php:315
+#: inc/customizer.php:331 inc/customizer.php:356 inc/customizer.php:372
+#: inc/customizer.php:397 inc/customizer.php:413 inc/customizer.php:429
+#: inc/customizer.php:445 inc/customizer.php:461 inc/customizer.php:477
+#: inc/customizer.php:493 inc/customizer.php:509 inc/customizer.php:534
+#: inc/customizer.php:550 inc/customizer.php:575 inc/customizer.php:591
+#: inc/customizer.php:615 inc/customizer.php:646
+msgid "Yes"
+msgstr "Ja"
+
+#: inc/customizer.php:227 inc/customizer.php:243 inc/customizer.php:259
+#: inc/customizer.php:275 inc/customizer.php:300 inc/customizer.php:316
+#: inc/customizer.php:332 inc/customizer.php:357 inc/customizer.php:373
+#: inc/customizer.php:398 inc/customizer.php:414 inc/customizer.php:430
+#: inc/customizer.php:446 inc/customizer.php:462 inc/customizer.php:478
+#: inc/customizer.php:494 inc/customizer.php:510 inc/customizer.php:535
+#: inc/customizer.php:551 inc/customizer.php:576 inc/customizer.php:592
+#: inc/customizer.php:616 inc/customizer.php:647
+msgid "No"
+msgstr "Nei"
+
+#: inc/customizer.php:237 inc/customizer.php:570
+msgid "Show the social icons?"
+msgstr "Vis sosiale ikoner?"
+
+#: inc/customizer.php:253 inc/customizer.php:586
+msgid "Show the tagline?"
+msgstr "Vis undertittelen / slagordet?"
+
+#: inc/customizer.php:269
+msgid "Show the search bar?"
+msgstr "Vis søkefeltet?"
+
+#: inc/customizer.php:282
+msgid "Blog & Archives"
+msgstr "Blogg & Arkiv"
+
+#: inc/customizer.php:283
+msgid "These settings apply to the main posts page and all archives."
+msgstr "Disse innstillingene gjelder hovedinnleggsiden og alle arkiver."
+
+#: inc/customizer.php:294
+msgid "Show the Featured Images?"
+msgstr "Vis de Fremhevede Bildene?"
+
+#: inc/customizer.php:310 inc/customizer.php:408
+msgid "Show the post author?"
+msgstr "Vis artikkelforfatteren?"
+
+#: inc/customizer.php:326 inc/customizer.php:424
+msgid "Show the post date?"
+msgstr "Vis innleggsdato?"
+
+#: inc/customizer.php:339
+msgid "Archives"
+msgstr "Arkiv"
+
+#: inc/customizer.php:340
+msgid "These settings apply to the category, tag, date, and author archives."
+msgstr ""
+"Disse innstillingene gjelder for kategori, stikkord, dato, og forfatter-"
+"arkivet."
+
+#: inc/customizer.php:351
+msgid "Show the archive title?"
+msgstr "Vis tittelen på arkivet?"
+
+#: inc/customizer.php:367
+msgid "Show the archive description?"
+msgstr "Vis beskrivelsen på arkivet?"
+
+#: inc/customizer.php:381
+msgid "These settings apply to individual post pages."
+msgstr "Disse innstillingene gjelder for utvalgte innleggssider."
+
+#: inc/customizer.php:392
+msgid "Show the Featured Image?"
+msgstr "Vis det Fremhevede Bildet?"
+
+#: inc/customizer.php:440
+msgid "Show the category links?"
+msgstr "Vise kategorilenkene?"
+
+#: inc/customizer.php:456
+msgid "Show the tag links?"
+msgstr "Vis stikkordslenkene?"
+
+#: inc/customizer.php:472
+msgid "Show avatar in the author box?"
+msgstr "Vis avataren i forfatterboksen?"
+
+#: inc/customizer.php:488
+msgid "Show the author box?"
+msgstr "Vis forfatterboksen?"
+
+#: inc/customizer.php:504
+msgid "Show the \"More from...\" section?"
+msgstr "Vise “Mer fra…” seksjonen?"
+
+#: inc/customizer.php:517
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: inc/customizer.php:518
+msgid "These settings apply to post comments."
+msgstr "Disse innstillingene gjelder for kommentarer på innlegg."
+
+#: inc/customizer.php:529
+msgid "Show the comment date?"
+msgstr "Vis dato på kommentarer?"
+
+#: inc/customizer.php:545
+msgid "Show the \"Post Author\" label?"
+msgstr "Vis “Artikkelforfatter” merket?"
+
+#: inc/customizer.php:558
+msgid "Footer"
+msgstr "Bunnteksten"
+
+#: inc/customizer.php:559
+msgid "These settings apply to the footer."
+msgstr "Disse innstillingene gjelder for bunnteksten."
+
+#: inc/customizer.php:600
+msgid "Excerpts"
+msgstr "Utdrag"
+
+#: inc/customizer.php:610
+msgid "Show full posts on blog?"
+msgstr "Vis hele innlegg på bloggen?"
+
+#: inc/customizer.php:626 inc/widgets/post-list.php:230
+msgid "Excerpt word count"
+msgstr "Antall ord i utdraget"
+
+#: inc/meta-box.php:39
+msgid "Use layout set in Customizer"
+msgstr "Benytt oppsettet / layouten i Tilpasseren (tilpasningsinnstillingene)"
+
+#: inc/review.php:113
+msgid "Click here to leave your review"
+msgstr "Klikk her for å legge igjen en omtale"
+
+#: inc/scripts.php:17
+msgid "close menu"
+msgstr "lukk meny"
+
+#: inc/scripts.php:18
+msgid "open dropdown menu"
+msgstr "åpne nedtrekksmenyen"
+
+#: inc/scripts.php:19
+msgid "close dropdown menu"
+msgstr "lukk nedtrekksmenyen"
+
+#: inc/social-icons.php:108
+msgid "email"
+msgstr "email"
+
+#: inc/widgets/post-list.php:15
+msgid "A more robust recent posts widget. Added by the Mission News theme."
+msgstr ""
+"En forbedret utgave av “siste innlegg” widgeten. Lagt til av Mission News "
+"Temaet."
+
+#: inc/widgets/post-list.php:19
+msgid "Recent Posts Extended"
+msgstr "Siste Innlegg Utvidet"
+
+#: inc/widgets/post-list.php:153
+msgid "Title"
+msgstr "Tittel"
+
+#: inc/widgets/post-list.php:156
+msgid "Post Source"
+msgstr "Innleggskilde"
+
+#: inc/widgets/post-list.php:160 inc/widgets/post-list.php:163
+msgid "Category"
+msgstr "Kategori"
+
+#: inc/widgets/post-list.php:174 inc/widgets/post-list.php:177
+msgid "Tag"
+msgstr "Stikkord"
+
+#: inc/widgets/post-list.php:187
+msgid "Relationship"
+msgstr "Forhold"
+
+#: inc/widgets/post-list.php:189
+msgid "AND"
+msgstr "OG"
+
+#: inc/widgets/post-list.php:190
+msgid "OR"
+msgstr "ELLER"
+
+#: inc/widgets/post-list.php:196
+msgid ""
+"Selecting both a category and a tag will require posts to be in both. If "
+"you'd like to get posts from either the category or tag, switch the "
+"\"Relationship\" option to \"OR.\" If you'd like to use\n"
+"\t\t\t\t\t\tthe most recent posts from any tag or category, uncheck both "
+"\"Category\" and \"Tag.\""
+msgstr ""
+"Dersom du krysser av for både kategori og stikkord, må innlegg tilhøre "
+"begge. Dersom du vil hente innlegg fra enten kategori eller stikkord må du "
+"endre “Forhold” alternativet til “ELLER.” Dersom du vil vise\n"
+"\t\t\t\t\t\tde nyeste innleggene fra alle stikkord og kategorier må du "
+"fjerne markeringene på “Kategori” and “Stikkord.”"
+
+#: inc/widgets/post-list.php:202
+msgid "Content"
+msgstr "Innhold"
+
+#: inc/widgets/post-list.php:206
+msgid "Show author in byline"
+msgstr "Vis forfatter i byline"
+
+#: inc/widgets/post-list.php:210
+msgid "Show date in byline"
+msgstr "Vis dato i byline"
+
+#: inc/widgets/post-list.php:214
+msgid "Show Featured Images"
+msgstr "Vis Fremhevede Bilder"
+
+#: inc/widgets/post-list.php:218
+msgid "Show excerpt"
+msgstr "Vis utdrag"
+
+#: inc/widgets/post-list.php:222
+msgid "Show comments link"
+msgstr "Vis kommentarer–lenken"
+
+#: inc/widgets/post-list.php:226
+msgid "Number of posts"
+msgstr "Antall innlegg"
+
+#: inc/widgets/post-list.php:233 inc/widgets/post-list.php:236
+msgid "Style"
+msgstr "Stil"
+
+#: inc/widgets/post-list.php:238
+msgid "Style 1"
+msgstr "Stil 1"
+
+#: inc/widgets/post-list.php:239
+msgid "Style 2"
+msgstr "Stil 2"
+
+#. translators: %1$s = number of results. %2$s = search query
+#: search.php:9
+msgid "%1$s search result for %2$s"
+msgid_plural "%1$s search results for %2$s"
+msgstr[0] "%1$s søkeresultat for %2$s"
+msgstr[1] "%1$s søkeresultater for %2$s"
+
+#. translators: %s = search query
+#: search.php:12
+msgid "No search results for \"%s\""
+msgstr "Ingen søkeresultater for “%s”"
+
+#: search.php:34
+msgid "Can't find what you're looking for?  Try refining your search:"
+msgstr "Finner du ikke det du er ute etter? Prøv å avgrens søket ditt:"
+
+#: searchform.php:4
+msgid " Search for..."
+msgstr " Søk etter…"
+
+#. Translators: %s is the name of the theme (Mission News)
+#: theme-options.php:11 theme-options.php:34
+msgid "%s Dashboard"
+msgstr "%s Dashbord"
+
+#: theme-options.php:39
+msgid "Get Started"
+msgstr "Kom igang"
+
+#. Translators: %1$s and %2$s are the name of the theme (Mission News)
+#: theme-options.php:42
+msgid ""
+"Not sure where to start? The %1$s Getting Started Guide will take you step-"
+"by-step through every feature in %1$s."
+msgstr ""
+"Usikker på hvor du skal begynne? %1$s sin “Getting Started” guide hjelper "
+"deg steg-for-steg gjennom alle egenskapene i %1$s."
+
+#: theme-options.php:46
+msgid "View Guide"
+msgstr "Se guide"
+
+#: theme-options.php:50 theme-options.php:56
+msgid "Leave a Review"
+msgstr "Legg igjen en omtale"
+
+#. Translators: %s is the name of the theme (Mission News)
+#: theme-options.php:53
+msgid "Help others find %s by leaving a review on wordpress.org."
+msgstr "Hjelp andre å finne %s ved å skrive en omtale på wordpress.org."
+
+#: theme-options.php:59 theme-options.php:69
+msgid "Reset Customizer Settings"
+msgstr "Tilbakestill Tilpasningsinnstillingene"
+
+#. Translators:  %1$s is the URL of the Customizer. %2$s is the name of the
+#. theme (Mission News)
+#: theme-options.php:62
+msgid ""
+"<strong>Warning:</strong> Clicking this button will erase the %2$s theme's "
+"current settings in the <a href=\"%1$s\">Customizer</a>."
+msgstr ""
+"<strong>Advarsel:</strong> Ved å trykke denne knappen sletter du alle "
+"innstillingene for %2$s temaet i <a href=“%1$s”>Tilpasseren</a>."
+
+#. Description of the plugin/theme
+msgid ""
+"For publishers on a mission. Mission News is a newspaper theme for "
+"publishers who want their content to be seen and heard. Premium-quality "
+"design adds credibility to every word you write, and a fully responsive "
+"layout ensures your site looks fantastic on every screen. The aesthetic is "
+"timeless and modeled after classic news sites like the New York Times. Use "
+"Mission News to setup a news site on any subject from health to finance. "
+"View the fully-setup live demo here: https://www.competethemes.com/demos/?"
+"theme=mission"
+msgstr ""
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgctxt "noun: 5 comments"
+msgid "% Comments"
+msgstr "% Kommentarer"
+
+#: content/archive-header.php:9
+msgctxt "Posts published in CATEGORY"
+msgid "Posts published in"
+msgstr "Innlegg publisert i"
+
+#: content/archive-header.php:16
+msgctxt "Posts published by AUTHOR"
+msgid "Posts published by"
+msgstr "Innlegg skrevet av"
+
+#: content/archive-header.php:20
+msgctxt "Posts published in MONTH"
+msgid "Posts published in"
+msgstr "Innlegg publisert i"
+
+#: content/more-from-category.php:18
+msgctxt "More from POST CATEGORY"
+msgid "More from"
+msgstr "Flere innlegg i"
+
+#: content/post-categories.php:10
+msgctxt "PUBLISHED IN post category"
+msgid "Published in"
+msgstr "Publisert i"
+
+#: content/post-categories.php:14
+msgctxt "category AND category"
+msgid "and"
+msgstr "og"
+
+#. translators: placeholder is the name of the post category
+#: content/post-categories.php:17
+msgctxt "View all posts in post category"
+msgid "View all posts in %s"
+msgstr "Se alle innlegg i %s"
+
+#: functions.php:270
+msgctxt "verb: open the menu"
+msgid "open menu"
+msgstr "åpne meny"
+
+#. translators: %s = the author who published the post
+#: functions.php:557
+msgctxt "This blog post was published by some author"
+msgid "By %s"
+msgstr "Av %s"
+
+#. translators: %1$s = the author who published the post. %2$s = the date it
+#. was published
+#: functions.php:560
+msgctxt "This blog post was published by some author on some date "
+msgid "By %1$s on %2$s"
+msgstr "Av %1$s den %2$s"
+

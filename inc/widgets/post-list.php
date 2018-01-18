@@ -122,7 +122,11 @@ class ct_mission_news_post_list extends WP_Widget {
 						echo '<div class="bottom">';
 						if ( $instance['excerpt'] == 'yes' ) {
 							echo '<div class="excerpt">';
-							echo wp_kses_post(strip_shortcodes(wp_trim_words(get_the_content(),$instance['excerpt_length'])));
+							if ( has_excerpt() ) {
+								echo get_the_excerpt();
+							} else {
+								echo wp_kses_post(strip_shortcodes(wp_trim_words(get_the_content(),$instance['excerpt_length'])));
+							}
 							echo '</div>';
 						}
 						if ( $instance['comments'] == 'yes' ) {

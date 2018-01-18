@@ -2863,16 +2863,26 @@ a img {
     /* 51px */
   }
 
-  .layout-page-left-sidebar-wide .post-header,
-  .layout-page-left-sidebar-wide .post-content,
-  .layout-page-left-sidebar-wide .post-meta,
-  .layout-page-left-sidebar-wide .more-from-category,
-  .layout-page-left-sidebar-wide .comments,
-  .layout-page-right-sidebar-wide .post-header,
-  .layout-page-right-sidebar-wide .post-content,
-  .layout-page-right-sidebar-wide .post-meta,
-  .layout-page-right-sidebar-wide .more-from-category,
-  .layout-page-right-sidebar-wide .comments {
+  .single-post.layout-post-left-sidebar-wide .post-header,
+  .single-post.layout-post-left-sidebar-wide .post-content,
+  .single-post.layout-post-left-sidebar-wide .post-meta,
+  .single-post.layout-post-left-sidebar-wide .more-from-category,
+  .single-post.layout-post-left-sidebar-wide .comments,
+  .page.layout-page-left-sidebar-wide .post-header,
+  .page.layout-page-left-sidebar-wide .post-content,
+  .page.layout-page-left-sidebar-wide .post-meta,
+  .page.layout-page-left-sidebar-wide .more-from-category,
+  .page.layout-page-left-sidebar-wide .comments,
+  .single-post.layout-post-right-sidebar-wide .post-header,
+  .single-post.layout-post-right-sidebar-wide .post-content,
+  .single-post.layout-post-right-sidebar-wide .post-meta,
+  .single-post.layout-post-right-sidebar-wide .more-from-category,
+  .single-post.layout-post-right-sidebar-wide .comments,
+  .page.layout-page-right-sidebar-wide .post-header,
+  .page.layout-page-right-sidebar-wide .post-content,
+  .page.layout-page-right-sidebar-wide .post-meta,
+  .page.layout-page-right-sidebar-wide .more-from-category,
+  .page.layout-page-right-sidebar-wide .comments {
     position: relative;
     width: 156%;
   }

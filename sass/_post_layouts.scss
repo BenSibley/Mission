@@ -65,8 +65,10 @@
       line-height: 1.342; /* 51px */
     }
   }
-  .layout-page-left-sidebar-wide,
-  .layout-page-right-sidebar-wide {
+  .single-post.layout-post-left-sidebar-wide,
+  .page.layout-page-left-sidebar-wide,
+  .single-post.layout-post-right-sidebar-wide,
+  .page.layout-page-right-sidebar-wide {
 
     .post-header,
     .post-content,

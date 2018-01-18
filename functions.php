@@ -388,9 +388,9 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			$classes[] = 'full-post';
 		} if ( !empty( $layout ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout );
-		} if ( !empty( $layout_post ) ) {
+		} if ( !empty( $layout_post ) && is_singular('post') ) {
 			$classes[] = 'layout-post-' . esc_attr( $layout_post );
-		} if ( !empty( $layout_page ) ) {
+		} if ( !empty( $layout_page ) && is_singular('page') ) {
 			$classes[] = 'layout-page-' . esc_attr( $layout_page );
 		}
 		return $classes;

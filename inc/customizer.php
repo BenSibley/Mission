@@ -89,10 +89,13 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'settings'    => 'layout_posts',
 		'type'        => 'radio',
 		'choices'     => array(
-			'double-sidebar' => __( 'Double sidebar', 'mission-news' ),
-			'left-sidebar'   => __( 'Left sidebar', 'mission-news' ),
-			'right-sidebar'  => __( 'Right sidebar', 'mission-news' ),
-			'no-sidebar'     => __( 'No sidebar', 'mission-news' )
+			'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+			'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+			'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+			'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+			'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+			'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+			'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
 		)
 	) );
 	// section - Pages
@@ -114,10 +117,13 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'settings'    => 'layout_pages',
 		'type'        => 'radio',
 		'choices'     => array(
-			'double-sidebar' => __( 'Double sidebar', 'mission-news' ),
-			'left-sidebar'   => __( 'Left sidebar', 'mission-news' ),
-			'right-sidebar'  => __( 'Right sidebar', 'mission-news' ),
-			'no-sidebar'     => __( 'No sidebar', 'mission-news' )
+			'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+			'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+			'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+			'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+			'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+			'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+			'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
 		)
 	) );
 
@@ -678,10 +684,13 @@ function ct_mission_news_sanitize_layout( $input ) {
 function ct_mission_news_sanitize_layout_posts( $input ) {
 
 	$valid = array(
-		'double-sidebar' => __( 'Double sidebar', 'mission-news' ),
-		'left-sidebar'   => __( 'Left sidebar', 'mission-news' ),
-		'right-sidebar'  => __( 'Right sidebar', 'mission-news' ),
-		'no-sidebar'     => __( 'No sidebar', 'mission-news' )
+		'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+		'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+		'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+		'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+		'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+		'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+		'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

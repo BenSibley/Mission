@@ -2310,6 +2310,7 @@ a img {
 .sidebar-left .widget,
 .sidebar-right .widget {
   margin-bottom: 1.5em;
+  clear: both;
 }
 .sidebar-left .widget-title,
 .sidebar-right .widget-title {

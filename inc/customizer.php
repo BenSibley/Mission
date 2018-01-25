@@ -48,7 +48,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	// Section: Layout
 	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_news_layout', array(
-		'title'    => __( 'Blog', 'mission-news' ),
+		'title'    => __( 'Post Previews', 'mission-news' ),
 		'panel'    => 'ct_mission_news_layout_panel',
 		'priority' => 1,
 	) );
@@ -59,11 +59,12 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	) );
 	// control
 	$wp_customize->add_control( 'layout', array(
-		'label'    => __( 'Blog layout', 'mission-news' ),
-		'section'  => 'ct_mission_news_layout',
-		'settings' => 'layout',
-		'type'     => 'radio',
-		'choices'  => array(
+		'label'    		=> __( 'Post preview layout', 'mission-news' ),
+		'description' => __( 'Change the layout of the posts listed on the blog', 'mission-news' ),
+		'section'  		=> 'ct_mission_news_layout',
+		'settings' 		=> 'layout',
+		'type'     		=> 'radio',
+		'choices'  		=> array(
 			'simple'       => __( 'Simple', 'mission-news' ),
 			'double'       => __( 'Double', 'mission-news' ),
 			'rows'         => __( 'Rows', 'mission-news' ),
@@ -115,6 +116,61 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'description' => __( 'Layouts can be changed for individual pages in the page editor.', 'mission-news' ),
 		'section'     => 'ct_mission_news_layout_pages',
 		'settings'    => 'layout_pages',
+		'type'        => 'radio',
+		'choices'     => array(
+			'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+			'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+			'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+			'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+			'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+			'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+			'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
+		)
+	) );
+	// section - Blog
+	$wp_customize->add_section( 'ct_mission_news_layout_blog', array(
+		'title'    => __( 'Blog', 'mission-news' ),
+		'panel'    => 'ct_mission_news_layout_panel',
+		'priority' => 3,
+	) );
+	// setting
+	$wp_customize->add_setting( 'layout_blog', array(
+		'default'           => 'double-sidebar',
+		'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
+	) );
+	// control
+	$wp_customize->add_control( 'layout_blog', array(
+		'label'       => __( 'Blog layout', 'mission-news' ),
+		'section'     => 'ct_mission_news_layout_blog',
+		'settings'    => 'layout_blog',
+		'type'        => 'radio',
+		'choices'     => array(
+			'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+			'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+			'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+			'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+			'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+			'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+			'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
+		)
+	) );
+	// section - Archives
+	$wp_customize->add_section( 'ct_mission_news_layout_archive', array(
+		'title'    => __( 'Archives', 'mission-news' ),
+		'panel'    => 'ct_mission_news_layout_panel',
+		'priority' => 3,
+	) );
+	// setting
+	$wp_customize->add_setting( 'layout_archives', array(
+		'default'           => 'double-sidebar',
+		'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
+	) );
+	// control
+	$wp_customize->add_control( 'layout_archives', array(
+		'label'       => __( 'Archive layout', 'mission-news' ),
+		'description' => __( 'Change the layout for category, tag, date, and author archives.', 'mission-news' ),
+		'section'     => 'ct_mission_news_layout_archive',
+		'settings'    => 'layout_archives',
 		'type'        => 'radio',
 		'choices'     => array(
 			'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),

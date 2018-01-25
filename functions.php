@@ -379,10 +379,12 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 	function ct_mission_news_body_class( $classes ) {
 
 		global $post;
-		$full_post   = get_theme_mod( 'full_post' );
-		$layout      = get_theme_mod( 'layout' );
-		$layout_post = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_posts' ) );
-		$layout_page = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_pages' ) );
+		$full_post   		 = get_theme_mod( 'full_post' );
+		$layout      		 = get_theme_mod( 'layout' );
+		$layout_post 		 = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_posts' ) );
+		$layout_page 		 = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_pages' ) );
+		$layout_archives = get_theme_mod( 'layout_archives' );
+		$layout_blog 		 = get_theme_mod( 'layout_blog' );
 
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
@@ -392,6 +394,10 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			$classes[] = 'layout-post-' . esc_attr( $layout_post );
 		} if ( !empty( $layout_page ) && is_singular('page') ) {
 			$classes[] = 'layout-page-' . esc_attr( $layout_page );
+		} if ( !empty( $layout_archives ) && is_archive() ) {
+			$classes[] = 'layout-archive-' . esc_attr( $layout_archives );
+		} if ( !empty( $layout_blog ) && is_home() ) {
+			$classes[] = 'layout-blog-' . esc_attr( $layout_blog );
 		}
 		return $classes;
 	}

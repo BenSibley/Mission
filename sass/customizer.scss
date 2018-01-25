@@ -11,7 +11,6 @@
     &:after {
       color: #fff;
     }
-
     &:hover,
     &:active,
     &:focus {
@@ -24,7 +23,7 @@
     }
   }
 }
-#customize-control-mission_pro {
+#customize-control-mission_news_pro {
   background: white;
   border: solid 1px $color-gray-86;
   padding: 6px 24px;
@@ -48,7 +47,7 @@
   .button-wrapper {
     text-align: center;
   }
-  .mission-pro-button {
+  .mission-news-pro-button {
     display: inline-block;
     font-size: 12px;
     text-transform: uppercase;

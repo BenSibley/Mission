@@ -25,6 +25,25 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	//----------------------------------------------------------------------------------
+	// Mission News Pro advertisement section
+	//----------------------------------------------------------------------------------
+	class ct_mission_news_pro_ad extends WP_Customize_Control {
+		public function render_content() {
+			$link = 'https://www.competethemes.com/mission-news-pro/';
+			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/mission-news-pro.png' /></a>";
+			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> is the plugin that makes advanced customization simple - coming soon!', 'mission-news'), $link, wp_get_theme( get_template() ) ) . "</p>";
+			echo "<p>" . sprintf( __('%1$s Pro adds the following features to %1$s:', 'mission-news'), wp_get_theme( get_template() ) ) . "</p>";
+			echo "<ul>
+					<li>" . __('Breaking news ticker', 'mission-news') . "</li>
+					<li>" . __('Youtube Featured Videos', 'mission-news') . "</li>
+					<li>" . __('Over 700+ fonts', 'mission-news') . "</li>
+					<li>" . __('+ 5 more awesome features', 'mission-news') . "</li>
+				  </ul>";
+			echo "<p class='button-wrapper'><a target=\"_blank\" class='mission-news-pro-button' href='" . $link . "'>" . sprintf( __('View %s Pro', 'mission-news'), wp_get_theme( get_template() ) ) . "</a></p>";
+		}
+	}
+
+	//----------------------------------------------------------------------------------
 	// Add panels
 	//----------------------------------------------------------------------------------
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
@@ -41,6 +60,30 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'priority'    => 25,
 			'title'       => __( 'Layout', 'mission-news' ),
 			'description' => __( 'Change the layout of the main content and posts.', 'mission-news' )
+		) );
+	}
+
+	//----------------------------------------------------------------------------------
+	// Mission News Pro section
+	//----------------------------------------------------------------------------------
+
+	// don't add if Mission News Pro is active
+	if ( !function_exists( 'ct_mission_news_pro_init' ) ) {
+		// section
+		$wp_customize->add_section( 'ct_mission_news_pro', array(
+			'title'    => sprintf( __( '%s Pro', 'mission-news-pro' ), wp_get_theme( get_template() ) ),
+			'priority' => 1
+		) );
+		// Upload - setting
+		$wp_customize->add_setting( 'mission_news_pro', array(
+			'sanitize_callback' => 'absint'
+		) );
+		// Upload - control
+		$wp_customize->add_control( new ct_mission_news_pro_ad(
+			$wp_customize, 'mission_news_pro', array(
+				'section'  => 'ct_mission_news_pro',
+				'settings' => 'mission_news_pro'
+			)
 		) );
 	}
 	

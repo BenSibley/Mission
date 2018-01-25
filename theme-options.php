@@ -46,6 +46,16 @@ if ( ! function_exists( 'ct_mission_news_options_content' ) ) {
 						   href="https://www.competethemes.com/help/getting-started-mission-news/"><?php esc_html_e( 'View Guide', 'mission-news' ); ?></a>
 					</p>
 				</div>
+				<?php if ( !function_exists( 'ct_mission_news_pro_init' ) ) : ?>
+					<div class="content content-premium-upgrade">
+						<h3><?php esc_html_e( 'Mission News Pro - Coming Soon!', 'mission-news' ); ?></h3>
+						<p><?php printf( __( 'Download the %s Pro plugin and unlock the breaking news ticker, featured posts sliders, Youtube embeds, and more', 'mission-news' ), wp_get_theme( get_template() ) ); ?>...</p>
+						<p>
+							<a target="_blank" class="button-primary"
+								href="https://www.competethemes.com/mission-news-pro/"><?php _e( 'See Full Feature List', 'mission-news' ); ?></a>
+						</p>
+					</div>
+				<?php endif; ?>
 				<div class="content content-review">
 					<h3><?php esc_html_e( 'Leave a Review', 'mission-news' ); ?></h3>
 					<p><?php

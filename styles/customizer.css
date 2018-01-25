@@ -21,31 +21,31 @@
   color: #fff !important;
 }
 
-#customize-control-mission_pro {
+#customize-control-mission_news_pro {
   background: white;
   border: solid 1px #DCDCDC;
   padding: 6px 24px;
   box-sizing: border-box;
 }
-#customize-control-mission_pro ul {
+#customize-control-mission_news_pro ul {
   list-style: disc;
   padding-left: 15px;
 }
-#customize-control-mission_pro img {
+#customize-control-mission_news_pro img {
   position: relative;
   max-width: calc(100% + 48px);
   top: -6px;
   left: -24px;
   border-bottom: solid 1px #DCDCDC;
 }
-#customize-control-mission_pro .bold {
+#customize-control-mission_news_pro .bold {
   font-weight: 600;
   font-size: 16px;
 }
-#customize-control-mission_pro .button-wrapper {
+#customize-control-mission_news_pro .button-wrapper {
   text-align: center;
 }
-#customize-control-mission_pro .mission-pro-button {
+#customize-control-mission_news_pro .mission-news-pro-button {
   display: inline-block;
   font-size: 12px;
   text-transform: uppercase;
@@ -58,12 +58,12 @@
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
 }
-#customize-control-mission_pro .mission-pro-button:before {
+#customize-control-mission_news_pro .mission-news-pro-button:before {
   content: '\f06e';
   font-family: 'FontAwesome';
   margin-right: 6px;
 }
-#customize-control-mission_pro .mission-pro-button:hover, #customize-control-mission_pro .mission-pro-button:active, #customize-control-mission_pro .mission-pro-button:focus {
+#customize-control-mission_news_pro .mission-news-pro-button:hover, #customize-control-mission_news_pro .mission-news-pro-button:active, #customize-control-mission_news_pro .mission-news-pro-button:focus {
   background: #FF8A23;
 }
 

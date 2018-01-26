@@ -93,7 +93,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'ct_mission_news_layout', array(
 		'title'    => __( 'Post Previews', 'mission-news' ),
 		'panel'    => 'ct_mission_news_layout_panel',
-		'priority' => 1,
+		'priority' => 1
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout', array(
@@ -103,7 +103,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	// control
 	$wp_customize->add_control( 'layout', array(
 		'label'    		=> __( 'Post preview layout', 'mission-news' ),
-		'description' => __( 'Change the layout of the posts listed on the blog', 'mission-news' ),
+		'description' => __( 'Change the layout of the posts listed on the blog and archives.', 'mission-news' ),
 		'section'  		=> 'ct_mission_news_layout',
 		'settings' 		=> 'layout',
 		'type'     		=> 'radio',
@@ -118,7 +118,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'ct_mission_news_layout_posts', array(
 		'title'    => __( 'Posts', 'mission-news' ),
 		'panel'    => 'ct_mission_news_layout_panel',
-		'priority' => 2,
+		'priority' => 2
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout_posts', array(
@@ -146,7 +146,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'ct_mission_news_layout_pages', array(
 		'title'    => __( 'Pages', 'mission-news' ),
 		'panel'    => 'ct_mission_news_layout_panel',
-		'priority' => 3,
+		'priority' => 3
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout_pages', array(
@@ -174,7 +174,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'ct_mission_news_layout_blog', array(
 		'title'    => __( 'Blog', 'mission-news' ),
 		'panel'    => 'ct_mission_news_layout_panel',
-		'priority' => 3,
+		'priority' => 4
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout_blog', array(
@@ -201,7 +201,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	$wp_customize->add_section( 'ct_mission_news_layout_archive', array(
 		'title'    => __( 'Archives', 'mission-news' ),
 		'panel'    => 'ct_mission_news_layout_panel',
-		'priority' => 3,
+		'priority' => 5
 	) );
 	// setting
 	$wp_customize->add_setting( 'layout_archives', array(

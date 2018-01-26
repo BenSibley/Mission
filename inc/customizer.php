@@ -71,7 +71,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	if ( !function_exists( 'ct_mission_news_pro_init' ) ) {
 		// section
 		$wp_customize->add_section( 'ct_mission_news_pro', array(
-			'title'    => sprintf( __( '%s Pro', 'mission-news-pro' ), wp_get_theme( get_template() ) ),
+			'title'    => sprintf( __( '%s Pro', 'mission-news' ), wp_get_theme( get_template() ) ),
 			'priority' => 1
 		) );
 		// Upload - setting

@@ -390,14 +390,24 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			$classes[] = 'full-post';
 		} if ( !empty( $layout ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout );
-		} if ( !empty( $layout_post ) && is_singular('post') ) {
-			$classes[] = 'layout-post-' . esc_attr( $layout_post );
+		} 
+		// if ( !empty( $layout_post ) && is_singular('post') ) {
+		// 	$classes[] = 'layout-post-' . esc_attr( $layout_post );
+		// } if ( !empty( $layout_page ) && is_singular('page') ) {
+		// 	$classes[] = 'layout-page-' . esc_attr( $layout_page );
+		// } if ( !empty( $layout_archives ) && is_archive() ) {
+		// 	$classes[] = 'layout-archive-' . esc_attr( $layout_archives );
+		// } if ( !empty( $layout_blog ) && is_home() ) {
+		// 	$classes[] = 'layout-blog-' . esc_attr( $layout_blog );
+		// }
+		if ( !empty( $layout_post ) && is_singular('post') ) {
+			$classes[] = 'layout-' . esc_attr( $layout_post );
 		} if ( !empty( $layout_page ) && is_singular('page') ) {
-			$classes[] = 'layout-page-' . esc_attr( $layout_page );
+			$classes[] = 'layout-' . esc_attr( $layout_page );
 		} if ( !empty( $layout_archives ) && is_archive() ) {
-			$classes[] = 'layout-archive-' . esc_attr( $layout_archives );
+			$classes[] = 'layout-' . esc_attr( $layout_archives );
 		} if ( !empty( $layout_blog ) && is_home() ) {
-			$classes[] = 'layout-blog-' . esc_attr( $layout_blog );
+			$classes[] = 'layout-' . esc_attr( $layout_blog );
 		}
 		return $classes;
 	}

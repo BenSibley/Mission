@@ -60,6 +60,15 @@ class ct_mission_news_post_list extends WP_Widget {
 			'post_type'      => 'post',
 			'post_status'    => 'publish'
 		);
+		
+		/** @var $post WP_Post */
+        global $post;
+
+        // Exclude current post if exists
+        if ($post) {
+            $query_args['post__not_in'] = [$post->ID];
+        }
+
 		// If using posts in either a category or a tag
 		if ( $instance['use_category'] == 'yes' && $instance['use_tag'] == 'yes' && $instance['relationship'] == 'OR' ) {
 			$query_args['tax_query'] = array(

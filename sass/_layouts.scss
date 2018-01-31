@@ -46,7 +46,8 @@
   .layout-right-sidebar-wide {
 
     .loop-container,
-    .archive-header {
+    .archive-header,
+    .widget-area-above-main {
       width: 156%;
     }
   }
@@ -71,7 +72,8 @@
   .layout-right-sidebar-wide {
 
     .loop-container,
-    .archive-header {
+    .archive-header,
+    .widget-area-above-main {
       margin-left: -56%;
     }
   }
@@ -86,7 +88,9 @@
   // Enlarge and center the content & Featured Image
   .layout-no-sidebar-wide {
 
-    .loop-container {
+    .loop-container,
+    .archive-header,
+    .widget-area-above-main {
       position: relative;
       width: 156%;
       left: -28%;

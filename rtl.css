@@ -2815,8 +2815,10 @@ a img {
 
   .layout-left-sidebar-wide .loop-container,
   .layout-left-sidebar-wide .archive-header,
+  .layout-left-sidebar-wide .widget-area-above-main,
   .layout-right-sidebar-wide .loop-container,
-  .layout-right-sidebar-wide .archive-header {
+  .layout-right-sidebar-wide .archive-header,
+  .layout-right-sidebar-wide .widget-area-above-main {
     width: 156%;
   }
 
@@ -2832,7 +2834,8 @@ a img {
   }
 
   .layout-right-sidebar-wide .loop-container,
-  .layout-right-sidebar-wide .archive-header {
+  .layout-right-sidebar-wide .archive-header,
+  .layout-right-sidebar-wide .widget-area-above-main {
     margin-right: -56%;
   }
 
@@ -2841,7 +2844,9 @@ a img {
     width: 156%;
   }
 
-  .layout-no-sidebar-wide .loop-container {
+  .layout-no-sidebar-wide .loop-container,
+  .layout-no-sidebar-wide .archive-header,
+  .layout-no-sidebar-wide .widget-area-above-main {
     position: relative;
     width: 156%;
     right: -28%;

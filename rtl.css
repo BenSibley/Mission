@@ -1200,7 +1200,7 @@ a img {
 
 .menu-primary-container {
   position: fixed;
-  z-index: 9;
+  z-index: 19;
   top: 67px;
   bottom: 0;
   right: 100%;

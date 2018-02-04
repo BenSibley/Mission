@@ -26,112 +26,116 @@
       }
     }
   }
-}
-// Make Featured Image extra big
-.layout-left-sidebar,
-.layout-right-sidebar {
+  // Make Featured Image extra big
+  .layout-left-sidebar,
+  .layout-right-sidebar {
 
-  .entry:first-child .featured-image {
-    width: 156%;
+    .entry:first-child .featured-image {
+      width: 156%;
+    }
   }
-}
-// Move the Featured Image to the left
-.layout-right-sidebar {
+  // Move the Featured Image to the left
+  .layout-right-sidebar {
 
-  .entry:first-child .featured-image {
-    left: -56%;
+    .entry:first-child .featured-image {
+      left: -56%;
+    }
   }
-}
-// Increase loop-container width for wide layouts
-.layout-left-sidebar-wide,
-.layout-right-sidebar-wide {
+  // Increase loop-container width for wide layouts
+  .layout-left-sidebar-wide,
+  .layout-right-sidebar-wide {
 
-  .loop-container,
-  .archive-header {
-    width: 156%;
+    .loop-container,
+    .archive-header,
+    .widget-area-above-main {
+      width: 156%;
+    }
   }
-}
-// Larger post titles for double layout
-.layout-left-sidebar-wide,
-.layout-right-sidebar-wide,
-.layout-no-sidebar-wide {
+  // Larger post titles for double layout
+  .layout-left-sidebar-wide,
+  .layout-right-sidebar-wide,
+  .layout-no-sidebar-wide {
 
-  &.blog.layout-double,
-  &.archive.layout-double {
+    &.blog.layout-double,
+    &.archive.layout-double {
 
-    .entry:not(:first-child) {
+      .entry:not(:first-child) {
 
-      .post-title {
-        font-size: 1.3125em; /* 21px / 16px */
-        line-height: 1.143; /* 24px */
+        .post-title {
+          font-size: 1.3125em; /* 21px / 16px */
+          line-height: 1.143; /* 24px */
+        }
       }
     }
   }
-}
-// Move loop-container left for wide right-sidebar layout
-.layout-right-sidebar-wide {
+  // Move loop-container left for wide right-sidebar layout
+  .layout-right-sidebar-wide {
 
-  .loop-container,
-  .archive-header {
-    margin-left: -56%;
+    .loop-container,
+    .archive-header,
+    .widget-area-above-main {
+      margin-left: -56%;
+    }
   }
-}
-// Enlarge and center the Featured Image
-.layout-no-sidebar {
+  // Enlarge and center the Featured Image
+  .layout-no-sidebar {
 
-  .entry:first-child .featured-image {
-    left: -28%;
-    width: 156%;
+    .entry:first-child .featured-image {
+      left: -28%;
+      width: 156%;
+    }
   }
-}
-// Enlarge and center the content & Featured Image
-.layout-no-sidebar-wide {
+  // Enlarge and center the content & Featured Image
+  .layout-no-sidebar-wide {
 
-  .loop-container {
-    position: relative;
-    width: 156%;
-    left: -28%;
-  }
-  .entry:first-child .featured-image {
-    left: -18%;
-    width: 136%;
-  }
-}
-// Enlarge and center the post title
-.layout-no-sidebar,
-.layout-no-sidebar-wide {
-
-  .post-header,
-  .archive-header {
-    text-align: center;
-  }
-  .entry:first-child {
-
-    .post-header {
+    .loop-container,
+    .archive-header,
+    .widget-area-above-main {
       position: relative;
-      left: -14%;
-      width: 128%;
-      margin: $baseline-height * 0.75 0 $baseline-height;
+      width: 156%;
+      left: -28%;
     }
-    .post-title {
-      font-size: 2.375em;
-      line-height: 1.342;
+    .entry:first-child .featured-image {
+      left: -18%;
+      width: 136%;
     }
   }
-}
-// left-align non-first post in row layouts on archives & blog
-.layout-no-sidebar,
-.layout-no-sidebar-wide {
+  // Enlarge and center the post title
+  .layout-no-sidebar,
+  .layout-no-sidebar-wide {
 
-  &.blog.layout-rows,
-  &.archive.layout-rows,
-  &.blog.layout-rows-excerpt,
-  &.archive.layout-rows-excerpt {
+    .post-header,
+    .archive-header {
+      text-align: center;
+    }
+    .entry:first-child {
 
-    .entry:not(:first-child) {
+      .post-header {
+        position: relative;
+        left: -14%;
+        width: 128%;
+        margin: $baseline-height * 0.75 0 $baseline-height;
+      }
+      .post-title {
+        font-size: 2.375em;
+        line-height: 1.342;
+      }
+    }
+  }
+  // left-align non-first post in row layouts on archives & blog
+  .layout-no-sidebar,
+  .layout-no-sidebar-wide {
 
-      .post-header{
-        text-align: left;
+    &.blog.layout-rows,
+    &.archive.layout-rows,
+    &.blog.layout-rows-excerpt,
+    &.archive.layout-rows-excerpt {
+
+      .entry:not(:first-child) {
+
+        .post-header{
+          text-align: left;
+        }
       }
     }
   }

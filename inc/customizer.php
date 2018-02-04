@@ -291,6 +291,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 				$label = __('Contact Form', 'mission-news');
 			} elseif ( $social_site == 'google-wallet' ) {
 				$label = __('Google Wallet', 'mission-news');
+			} elseif ( $social_site == 'ok-ru' ) {
+				$label = __('OK.ru', 'mission-news');
 			}
 			// setting
 			$wp_customize->add_setting( $social_site, array(

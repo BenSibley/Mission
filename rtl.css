@@ -4,7 +4,7 @@ Theme URI: https://www.competethemes.com/mission-news/
 Author: Compete Themes
 Author URI: https://www.competethemes.com/
 Description: For publishers on a mission. Mission News is a newspaper theme for publishers who want their content to be seen and heard. Premium-quality design adds credibility to every word you write, and a fully responsive layout ensures your site looks fantastic on every screen. The aesthetic is timeless and modeled after classic news sites like the New York Times. Use Mission News to setup a news site on any subject from health to finance. View the fully-setup live demo here: https://www.competethemes.com/demos/?theme=mission
-Version: 1.13
+Version: 1.14
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: three-columns, left-sidebar, right-sidebar, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, entertainment, news
@@ -1200,7 +1200,7 @@ a img {
 
 .menu-primary-container {
   position: fixed;
-  z-index: 9;
+  z-index: 19;
   top: 67px;
   bottom: 0;
   right: 100%;
@@ -2803,77 +2803,83 @@ a img {
   .layout-no-sidebar-wide .content-container:after {
     display: none;
   }
-}
-.layout-left-sidebar .entry:first-child .featured-image,
-.layout-right-sidebar .entry:first-child .featured-image {
-  width: 156%;
-}
 
-.layout-right-sidebar .entry:first-child .featured-image {
-  right: -56%;
-}
+  .layout-left-sidebar .entry:first-child .featured-image,
+  .layout-right-sidebar .entry:first-child .featured-image {
+    width: 156%;
+  }
 
-.layout-left-sidebar-wide .loop-container,
-.layout-left-sidebar-wide .archive-header,
-.layout-right-sidebar-wide .loop-container,
-.layout-right-sidebar-wide .archive-header {
-  width: 156%;
-}
+  .layout-right-sidebar .entry:first-child .featured-image {
+    right: -56%;
+  }
 
-.layout-left-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title, .layout-left-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,
-.layout-right-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title,
-.layout-right-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,
-.layout-no-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title,
-.layout-no-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title {
-  font-size: 1.3125em;
-  /* 21px / 16px */
-  line-height: 1.143;
-  /* 24px */
-}
+  .layout-left-sidebar-wide .loop-container,
+  .layout-left-sidebar-wide .archive-header,
+  .layout-left-sidebar-wide .widget-area-above-main,
+  .layout-right-sidebar-wide .loop-container,
+  .layout-right-sidebar-wide .archive-header,
+  .layout-right-sidebar-wide .widget-area-above-main {
+    width: 156%;
+  }
 
-.layout-right-sidebar-wide .loop-container,
-.layout-right-sidebar-wide .archive-header {
-  margin-right: -56%;
-}
+  .layout-left-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title, .layout-left-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,
+  .layout-right-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title,
+  .layout-right-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,
+  .layout-no-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title,
+  .layout-no-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title {
+    font-size: 1.3125em;
+    /* 21px / 16px */
+    line-height: 1.143;
+    /* 24px */
+  }
 
-.layout-no-sidebar .entry:first-child .featured-image {
-  right: -28%;
-  width: 156%;
-}
+  .layout-right-sidebar-wide .loop-container,
+  .layout-right-sidebar-wide .archive-header,
+  .layout-right-sidebar-wide .widget-area-above-main {
+    margin-right: -56%;
+  }
 
-.layout-no-sidebar-wide .loop-container {
-  position: relative;
-  width: 156%;
-  right: -28%;
-}
-.layout-no-sidebar-wide .entry:first-child .featured-image {
-  right: -18%;
-  width: 136%;
-}
+  .layout-no-sidebar .entry:first-child .featured-image {
+    right: -28%;
+    width: 156%;
+  }
 
-.layout-no-sidebar .post-header,
-.layout-no-sidebar .archive-header,
-.layout-no-sidebar-wide .post-header,
-.layout-no-sidebar-wide .archive-header {
-  text-align: center;
-}
-.layout-no-sidebar .entry:first-child .post-header,
-.layout-no-sidebar-wide .entry:first-child .post-header {
-  position: relative;
-  right: -14%;
-  width: 128%;
-  margin: 1.125em 0 1.5em;
-}
-.layout-no-sidebar .entry:first-child .post-title,
-.layout-no-sidebar-wide .entry:first-child .post-title {
-  font-size: 2.375em;
-  line-height: 1.342;
-}
+  .layout-no-sidebar-wide .loop-container,
+  .layout-no-sidebar-wide .archive-header,
+  .layout-no-sidebar-wide .widget-area-above-main {
+    position: relative;
+    width: 156%;
+    right: -28%;
+  }
+  .layout-no-sidebar-wide .entry:first-child .featured-image {
+    right: -18%;
+    width: 136%;
+  }
 
-.layout-no-sidebar.blog.layout-rows .entry:not(:first-child) .post-header, .layout-no-sidebar.archive.layout-rows .entry:not(:first-child) .post-header, .layout-no-sidebar.blog.layout-rows-excerpt .entry:not(:first-child) .post-header, .layout-no-sidebar.archive.layout-rows-excerpt .entry:not(:first-child) .post-header,
-.layout-no-sidebar-wide.blog.layout-rows .entry:not(:first-child) .post-header,
-.layout-no-sidebar-wide.archive.layout-rows .entry:not(:first-child) .post-header,
-.layout-no-sidebar-wide.blog.layout-rows-excerpt .entry:not(:first-child) .post-header,
-.layout-no-sidebar-wide.archive.layout-rows-excerpt .entry:not(:first-child) .post-header {
-  text-align: right;
+  .layout-no-sidebar .post-header,
+  .layout-no-sidebar .archive-header,
+  .layout-no-sidebar-wide .post-header,
+  .layout-no-sidebar-wide .archive-header {
+    text-align: center;
+  }
+  .layout-no-sidebar .entry:first-child .post-header,
+  .layout-no-sidebar-wide .entry:first-child .post-header {
+    position: relative;
+    right: -14%;
+    width: 128%;
+    margin: 1.125em 0 1.5em;
+  }
+  .layout-no-sidebar .entry:first-child .post-title,
+  .layout-no-sidebar-wide .entry:first-child .post-title {
+    font-size: 2.375em;
+    line-height: 1.342;
+  }
+
+  .layout-no-sidebar.blog.layout-rows .entry:not(:first-child) .post-header, .layout-no-sidebar.archive.layout-rows .entry:not(:first-child) .post-header, .layout-no-sidebar.blog.layout-rows-excerpt .entry:not(:first-child) .post-header, .layout-no-sidebar.archive.layout-rows-excerpt .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-wide.blog.layout-rows .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-wide.archive.layout-rows .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-wide.blog.layout-rows-excerpt .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-wide.archive.layout-rows-excerpt .entry:not(:first-child) .post-header {
+    text-align: right;
+  }
 }

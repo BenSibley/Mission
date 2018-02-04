@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mission News 1.12\n"
+"Project-Id-Version: Mission News 1.14\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2018-01-26 18:33:36+00:00\n"
 "MIME-Version: 1.0\n"
@@ -193,6 +193,10 @@ msgstr ""
 
 #: header.php:33 inc/scripts.php:16
 msgid "open menu"
+msgstr ""
+
+#: menu-primary.php:3
+msgid "Back"
 msgstr ""
 
 #: inc/comments.php:19

@@ -165,6 +165,10 @@ jQuery(document).ready(function($){
                     newHeight += 32;
                 }
             }
+            if (body.hasClass('news-ticker')) {
+                newHeight += 36;
+            }
+
             menuPrimaryContainer.css('top', newHeight + 'px');
         }
     }

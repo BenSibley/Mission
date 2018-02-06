@@ -1,0 +1,24 @@
+.bbpress #bbpress-forums .bbp-forums,
+.bbpress #bbpress-forums .bbp-topics,
+.bbpress #bbpress-forums .bbp-replies {
+
+  .entry,
+  .bbp-header {
+    padding: 12px;
+    font-size: 16px !important;
+    line-height: 1.5;
+  }
+  .bbp-header {
+    font-family: $pt-sans;
+  }
+}
+.bbp-search-form form > div {
+  display: flex;
+}
+
+@media all and (min-width: $six-hundred) {
+
+  #bbpress-forums #bbp-search-form #bbp_search {
+    width: 240px;
+  }
+}

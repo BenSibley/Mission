@@ -2678,20 +2678,20 @@ a img {
     /* 24px */
   }
 }
-.layout-double .double {
+.layout-double:not(.bbpress) .double {
   margin-bottom: 0.75em;
   padding-bottom: 0.75em;
 }
-.layout-double .double .post-header {
+.layout-double:not(.bbpress) .double .post-header {
   margin-bottom: 0;
 }
 
 @media all and (min-width: 37.5em) {
-  .layout-double .entry:first-child {
+  .layout-double:not(.bbpress) .entry:first-child {
     border-bottom: none;
     padding-bottom: 0;
   }
-  .layout-double .double {
+  .layout-double:not(.bbpress) .double {
     width: 50%;
     float: left;
     border-bottom: none;
@@ -2699,17 +2699,17 @@ a img {
     padding: 0.75em 0;
     margin: 0;
   }
-  .layout-double .double:nth-of-type(odd) {
+  .layout-double:not(.bbpress) .double:nth-of-type(odd) {
     padding-left: 0.75em;
     margin-left: -1px;
     border-left: solid 1px #DCDCDC;
   }
-  .layout-double .double:nth-of-type(even) {
+  .layout-double:not(.bbpress) .double:nth-of-type(even) {
     padding-right: 0.75em;
     clear: left;
     border-right: solid 1px #DCDCDC;
   }
-  .layout-double .double .post-title {
+  .layout-double:not(.bbpress) .double .post-title {
     font-size: 1.125em;
     /* 18px / 16px */
     line-height: 1.333;
@@ -2901,5 +2901,32 @@ a img {
   .layout-no-sidebar-wide.blog.layout-rows-excerpt .entry:not(:first-child) .post-header,
   .layout-no-sidebar-wide.archive.layout-rows-excerpt .entry:not(:first-child) .post-header {
     text-align: left;
+  }
+}
+.bbpress #bbpress-forums .bbp-forums .entry,
+.bbpress #bbpress-forums .bbp-forums .bbp-header,
+.bbpress #bbpress-forums .bbp-topics .entry,
+.bbpress #bbpress-forums .bbp-topics .bbp-header,
+.bbpress #bbpress-forums .bbp-replies .entry,
+.bbpress #bbpress-forums .bbp-replies .bbp-header {
+  padding: 12px;
+  font-size: 16px !important;
+  line-height: 1.5;
+}
+.bbpress #bbpress-forums .bbp-forums .bbp-header,
+.bbpress #bbpress-forums .bbp-topics .bbp-header,
+.bbpress #bbpress-forums .bbp-replies .bbp-header {
+  font-family: "PT Sans", sans-serif;
+}
+
+.bbp-search-form form > div {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media all and (min-width: 37.5em) {
+  #bbpress-forums #bbp-search-form #bbp_search {
+    width: 240px;
   }
 }

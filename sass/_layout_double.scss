@@ -1,4 +1,4 @@
-.layout-double {
+.layout-double:not(.bbpress) {
 
   // .entry
   .double {
@@ -13,7 +13,7 @@
 
 @media all and (min-width: $six-hundred) {
 
-  .layout-double {
+  .layout-double:not(.bbpress) {
 
     .entry:first-child {
       border-bottom: none;

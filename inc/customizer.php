@@ -225,6 +225,36 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
 		)
 	) );
+	if ( function_exists('is_bbpress') ) {
+		// section - bbPress
+		$wp_customize->add_section( 'ct_mission_news_layout_bbpress', array(
+			'title'    => __( 'bbPress', 'mission-news' ),
+			'panel'    => 'ct_mission_news_layout_panel',
+			'priority' => 5
+		) );
+		// setting
+		$wp_customize->add_setting( 'layout_bbpress', array(
+			'default'           => 'double-sidebar',
+			'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
+		) );
+		// control
+		$wp_customize->add_control( 'layout_bbpress', array(
+			'label'       => __( 'Forums layout', 'mission-news' ),
+			'description' => __( 'Change the layout for all bbPress forum pages.', 'mission-news' ),
+			'section'     => 'ct_mission_news_layout_bbpress',
+			'settings'    => 'layout_bbpress',
+			'type'        => 'radio',
+			'choices'     => array(
+				'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+				'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+				'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+				'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+				'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+				'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+				'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
+			)
+		) );
+	}
 
 	//----------------------------------------------------------------------------------
 	// Section: Social Media Icons

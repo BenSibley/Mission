@@ -68,7 +68,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 
 	// don't add if Mission News Pro is active
-	if ( !function_exists( 'ct_mission_news_pro_init' ) ) {
+	if ( !function_exists( 'ct_mission_news_pro_activation_notice' ) ) {
 		// section
 		$wp_customize->add_section( 'ct_mission_news_pro', array(
 			'title'    => sprintf( __( '%s Pro', 'mission-news' ), wp_get_theme( get_template() ) ),

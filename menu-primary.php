@@ -1,4 +1,8 @@
-<div class="dropdown-navigation"><a id="back-button" class="back-button" href="#"><i class="fa fa-angle-left"></i> Back</a><span class="label"></span></div>
+<?php
+// translators: The label of the "Back" link in primary navigation
+$backLabel = esc_html__( 'Back', 'mission-news' );
+?>
+<div class="dropdown-navigation"><a id="back-button" class="back-button" href="#"><i class="fa fa-angle-left"></i> <?php echo $backLabel ?></a><span class="label"></span></div>
 <div id="menu-primary" class="menu-container menu-primary" role="navigation">
     <?php wp_nav_menu(
         array(

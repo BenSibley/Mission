@@ -1,0 +1,917 @@
+# Copyright (C) 2018 Compete Themes
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Mission News 1.12\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2018-02-04 14:49+0800\n"
+"PO-Revision-Date: 2018-02-04 14:49+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: 404.php:5
+msgid "404: Page Not Found"
+msgstr "404: Страница не найдена"
+
+#: 404.php:8
+msgid "Sorry, we couldn't find a page at this URL"
+msgstr "Простите, мы не смогли найти страницу по указанному URL"
+
+#: 404.php:9
+msgid ""
+"Please double-check that the URL is correct or try searching our site with "
+"the form below."
+msgstr ""
+"Пожалуйста, проверьте правильность адреса страницы или попробуйте "
+"воспользоваться поиском по сайту."
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgid "Be First to Comment"
+msgstr "Будьте первым, кто оставит комментарий!"
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgid "One Comment"
+msgstr "Один комментарий"
+
+#. translators: placeholder is link to the trackback URL
+#: comments.php:47
+msgid ""
+"Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+"Комментирование закрыто, но <a href=\"%s\" title=\"Trackback URL for this "
+"post\">обратные ссылки</a> and пинги открыты."
+
+#: comments.php:70 comments.php:77
+msgid "Comments are closed."
+msgstr "Комментарии отключены."
+
+#: content/archive-header.php:13
+msgid "Posts tagged as"
+msgstr "Записи, отмеченные меткой \"%s\""
+
+#: content/comments-link.php:3
+msgid "comment icon"
+msgstr "иконка комментария"
+
+#: content/comments-link.php:6
+msgid "Comments closed"
+msgstr "Комментарии закрыты"
+
+#: content/comments-link.php:6 content/comments-link.php:8
+msgid "1 Comment"
+msgstr "1 комментарий"
+
+#: content/comments-link.php:6 content/comments-link.php:8
+msgid "% Comments"
+msgstr "% комментариев"
+
+#: content/comments-link.php:8
+msgid "Leave a Comment"
+msgstr "Оставить комментарий"
+
+#. Translators: %s is the name of the post category
+#: content/more-from-category.php:20
+msgid "More posts in %s"
+msgstr "Посмотреть все статьи в разделе %s"
+
+#: content/post-nav-attachment.php:3
+msgid "Previous Image"
+msgstr "Предыдущая картинка"
+
+#: content/post-nav-attachment.php:6
+msgid "Next Image"
+msgstr "Следующая картинка"
+
+#. translators: placeholder is the name of the post tag
+#: content/post-tags.php:11
+msgid "View all posts tagged %s"
+msgstr "Смотреть все записи с меткой %s"
+
+#: content/search-bar.php:6 content/search-bar.php:9 searchform.php:4
+#: searchform.php:5
+msgid "Search"
+msgstr "Поиск"
+
+#: content-page.php:11 content.php:16
+msgid "Pages:"
+msgstr "Страницы:"
+
+#. Translators: %s is the URL of the theme
+#: footer.php:21
+msgid "<a href=\"%s\">Mission News Theme</a> by Compete Themes."
+msgstr "<a href=\"%s\">Mission News Theme</a> от Compete Themes."
+
+#: functions.php:23
+msgid ""
+"Hey! Sorry to interrupt, but you've been using Mission News for a little "
+"while now. If you're happy with this theme, could you take a minute to leave "
+"a review? <i>You won't see this notice again after closing it.</i>"
+msgstr ""
+"Привет! Простите, что отвлекаю, но мы заметили, что вы активно используете "
+"тему Mission News. Если она пришлась вам по душе, может найдёте пару минут, "
+"чтобы оставить о ней отзыв? <i>Вы больше не увидите это уведомление, если "
+"закроете его.</i>"
+
+#: functions.php:66
+msgid "Primary"
+msgstr "Первичное"
+
+#: functions.php:67
+msgid "Secondary"
+msgstr "Вторичное"
+
+#: functions.php:82
+msgid "Left Sidebar"
+msgstr "Левая боковая панель"
+
+#: functions.php:84
+msgid "Widgets in this area will be shown left of the main post content."
+msgstr "Виджеты в этой зоне будут показаны слева от основного контента."
+
+#: functions.php:91
+msgid "Right Sidebar"
+msgstr "Правая боковая панель"
+
+#: functions.php:93
+msgid "Widgets in this area will be shown right of the main post content."
+msgstr "Виджеты в этой зоне будут показаны справа от основного контента."
+
+#: functions.php:100
+msgid "Ad Spot - Below Header"
+msgstr "Место для рекламы - под шапкой"
+
+#: functions.php:102
+msgid ""
+"Widgets in this area will be shown below the header and above the posts and "
+"sidebars."
+msgstr ""
+"Виджеты в этой зоне будут показаны под заголовком сайта, но над записями и "
+"сайдбарами."
+
+#: functions.php:109
+msgid "Ad Spot - Above Posts"
+msgstr "Место для рекламы - над списком записей"
+
+#: functions.php:111
+msgid ""
+"Widgets in this area will be shown in the center column above the posts."
+msgstr "Виджеты в этой зоне будут показаны в центральной колонке над записями."
+
+#: functions.php:118
+msgid "Ad Spot - After Post Content"
+msgstr "Место для рекламы - в конце статьи"
+
+#: functions.php:120
+msgid "Widgets in this area will be shown on post pages after the content."
+msgstr "Виджеты в этой зоне будут показаны в записях после контента."
+
+#: functions.php:127
+msgid "Ad Spot - After Page Content"
+msgstr "Место для рекламы - в конце страницы"
+
+#: functions.php:129
+msgid "Widgets in this area will be shown on pages after the content."
+msgstr "Виджеты в этой зоне будут показаны на страницах после контента."
+
+#: functions.php:136
+msgid "Ad Spot - After First Post"
+msgstr "Место для рекламы - после первой записи"
+
+#: functions.php:138
+msgid "Widgets in this area will be shown on the blog after the first post."
+msgstr ""
+"Виджеты в этой зоне будут показаны в списке записей сразу после первой "
+"записи."
+
+#: functions.php:286
+msgid "Featured"
+msgstr "Заметная запись"
+
+#: functions.php:367
+msgid "Customizer settings deleted"
+msgstr "Настройки кастомизатора удалены"
+
+#: functions.php:579
+msgid "(title)"
+msgstr "(заголовок)"
+
+#: header.php:11
+msgid "Press \"Enter\" to skip to content"
+msgstr "Нажмите \"Enter\", чтобы перейти к контенту"
+
+#: header.php:33 inc/scripts.php:16
+msgid "open menu"
+msgstr "открыть меню"
+
+#: menu-primary.php:3
+msgid "Back"
+msgstr "Назад"
+
+#: inc/comments.php:19
+msgid "Post author"
+msgstr "Автор записи"
+
+#: inc/comments.php:32
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш комментарий ожидает модерации."
+
+#: inc/comments.php:39
+msgid "Reply"
+msgstr "Ответить"
+
+#: inc/comments.php:43
+msgid "Edit"
+msgstr "Редактировать"
+
+#: inc/comments.php:58
+msgid "(optional)"
+msgstr "(необязательно)"
+
+#: inc/comments.php:63
+msgid "Name"
+msgstr "Имя"
+
+#: inc/comments.php:64
+msgid "Jane Doe"
+msgstr "Вася Иванов"
+
+#: inc/comments.php:70
+msgid "Email"
+msgstr "Email"
+
+#: inc/comments.php:71
+msgid "name@email.com"
+msgstr "name@email.com"
+
+#: inc/comments.php:77
+msgid "Website"
+msgstr "Сайт"
+
+#: inc/comments.php:95
+msgid "Comment"
+msgstr "Комментарий"
+
+#: inc/customizer.php:18
+msgid "Front Page"
+msgstr "Главная страница"
+
+#: inc/customizer.php:34
+msgid ""
+"<a target=\"_blank\" href=\"%1$s\">%2$s Pro</a> is the plugin that makes "
+"advanced customization simple - coming soon!"
+msgstr ""
+"<a target=\"_blank\" href=\"%1$s\">%2$s Pro</a> - это плагин, добавляющий "
+"дополнительные опции в Кастомайзер - уже на подходе!!"
+
+#: inc/customizer.php:35
+msgid "%1$s Pro adds the following features to %1$s:"
+msgstr "%1$s Pro добавит следующие функции к теме %1$s:"
+
+#: inc/customizer.php:37
+msgid "Breaking news ticker"
+msgstr "Тикер срочных новостей"
+
+#: inc/customizer.php:38
+msgid "Youtube Featured Videos"
+msgstr "Видео с Youtube вместо изображения записи"
+
+#: inc/customizer.php:39
+msgid "Over 700+ fonts"
+msgstr "Более 700 шрифтов"
+
+#: inc/customizer.php:40
+msgid "+ 5 more awesome features"
+msgstr "+ 5 крутейших дополнитнльных опций"
+
+#: inc/customizer.php:42
+msgid "View %s Pro"
+msgstr "Посмотреть %s Pro"
+
+#: inc/customizer.php:53
+msgid "Show/Hide Elements"
+msgstr "Показать/скрыть элементы"
+
+#: inc/customizer.php:54
+msgid "Choose which elements you want displayed on the site."
+msgstr "Выберите элементы, которые вы хотите видеть на сайте."
+
+#: inc/customizer.php:61 inc/meta-box.php:17
+msgid "Layout"
+msgstr "Шаблон"
+
+#: inc/customizer.php:62
+msgid "Change the layout of the main content and posts."
+msgstr "Изменить шаблон для основного контента и записей"
+
+#: inc/customizer.php:74
+msgid "%s Pro"
+msgstr "%s Pro"
+
+#: inc/customizer.php:94
+msgid "Post Previews"
+msgstr "Предпросмотр записей"
+
+#: inc/customizer.php:105
+msgid "Post preview layout"
+msgstr "Шаблон предпросмотра записей"
+
+#: inc/customizer.php:106
+msgid "Change the layout of the posts listed on the blog and archives."
+msgstr "Изменить шаблон списка записей в блоге и в архивах."
+
+#: inc/customizer.php:111 inc/customizer.php:771
+msgid "Simple"
+msgstr "Простой"
+
+#: inc/customizer.php:112 inc/customizer.php:772
+msgid "Double"
+msgstr "Двойной"
+
+#: inc/customizer.php:113 inc/customizer.php:773
+msgid "Rows"
+msgstr "Столбцы"
+
+#: inc/customizer.php:114 inc/customizer.php:774
+msgid "Rows with excerpts"
+msgstr "Анонсы"
+
+#: inc/customizer.php:119 inc/customizer.php:485
+msgid "Posts"
+msgstr "Записи"
+
+#: inc/customizer.php:130
+msgid "Post layout"
+msgstr "Шаблон блога"
+
+#: inc/customizer.php:131
+msgid "Layouts can be changed for individual posts in the post editor."
+msgstr "Шаблоны отдельных записей могут быть изменены в редакторе записей."
+
+#: inc/customizer.php:136 inc/customizer.php:164 inc/customizer.php:191
+#: inc/customizer.php:219 inc/customizer.php:786 inc/meta-box.php:41
+msgid "Double sidebar"
+msgstr "Обе боковые панели"
+
+#: inc/customizer.php:137 inc/customizer.php:165 inc/customizer.php:192
+#: inc/customizer.php:220 inc/customizer.php:787 inc/meta-box.php:44
+msgid "Left sidebar"
+msgstr "Левая боковая панель"
+
+#: inc/customizer.php:138 inc/customizer.php:166 inc/customizer.php:193
+#: inc/customizer.php:221 inc/customizer.php:788 inc/meta-box.php:47
+msgid "Left sidebar - wide"
+msgstr "Левая боковая панель - широкий"
+
+#: inc/customizer.php:139 inc/customizer.php:167 inc/customizer.php:194
+#: inc/customizer.php:222 inc/customizer.php:789 inc/meta-box.php:50
+msgid "Right sidebar"
+msgstr "Правая боковая панель"
+
+#: inc/customizer.php:140 inc/customizer.php:168 inc/customizer.php:195
+#: inc/customizer.php:223 inc/customizer.php:790 inc/meta-box.php:53
+msgid "Right sidebar - wide"
+msgstr "Правая боковая панель - широкий"
+
+#: inc/customizer.php:141 inc/customizer.php:169 inc/customizer.php:196
+#: inc/customizer.php:224 inc/customizer.php:791 inc/meta-box.php:56
+msgid "No sidebar"
+msgstr "Без боковых панелей"
+
+#: inc/customizer.php:142 inc/customizer.php:170 inc/customizer.php:197
+#: inc/customizer.php:225 inc/customizer.php:792 inc/meta-box.php:59
+msgid "No sidebar - wide"
+msgstr "Без боковых панелей - широкий"
+
+#: inc/customizer.php:147
+msgid "Pages"
+msgstr "Страницы"
+
+#: inc/customizer.php:158
+msgid "Page layout"
+msgstr "Шаблон страницы"
+
+#: inc/customizer.php:159
+msgid "Layouts can be changed for individual pages in the page editor."
+msgstr "Шаблоны отдельных страниц могут быть изменены в редакторе страниц. "
+
+#: inc/customizer.php:175
+msgid "Blog"
+msgstr "Блог"
+
+#: inc/customizer.php:186
+msgid "Blog layout"
+msgstr "Шаблон блога"
+
+#: inc/customizer.php:202 inc/customizer.php:444
+msgid "Archives"
+msgstr "Архивы"
+
+#: inc/customizer.php:213
+msgid "Archive layout"
+msgstr "Шаблон архивов"
+
+#: inc/customizer.php:214
+msgid "Change the layout for category, tag, date, and author archives."
+msgstr ""
+"Изменить шаблон списка категорий, меток, архивов дат и архивов авторов."
+
+#: inc/customizer.php:233
+msgid "Social Media Icons"
+msgstr "Иконки соцсетей"
+
+#: inc/customizer.php:235
+msgid "Add the URL for each of your social profiles."
+msgstr "Добавьте URL на каждый ваш профиль в соцсети."
+
+#: inc/customizer.php:254
+msgid "Email Address"
+msgstr "Адрес электронной почты"
+
+#: inc/customizer.php:263
+msgid "Google Plus"
+msgstr "Google Plus"
+
+#: inc/customizer.php:265
+msgid "RSS"
+msgstr "RSS"
+
+#: inc/customizer.php:267
+msgid "SoundCloud"
+msgstr "SoundCloud"
+
+#: inc/customizer.php:269
+msgid "SlideShare"
+msgstr "SlideShare"
+
+#: inc/customizer.php:271
+msgid "CodePen"
+msgstr "CodePen"
+
+#: inc/customizer.php:273
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: inc/customizer.php:275
+msgid "DeviantArt"
+msgstr "DeviantArt"
+
+#: inc/customizer.php:277
+msgid "Hacker News"
+msgstr "Hacker News"
+
+#: inc/customizer.php:279
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: inc/customizer.php:281
+msgid "QQ"
+msgstr "QQ"
+
+#: inc/customizer.php:283
+msgid "VK"
+msgstr "VK"
+
+#: inc/customizer.php:285
+msgid "WeChat"
+msgstr "WeChat"
+
+#: inc/customizer.php:287
+msgid "Tencent Weibo"
+msgstr "Tencent Weibo"
+
+#: inc/customizer.php:289
+msgid "PayPal"
+msgstr "PayPal"
+
+#: inc/customizer.php:291
+msgid "Contact Form"
+msgstr "Форма контактов"
+
+#: inc/customizer.php:293
+msgid "Google Wallet"
+msgstr "Google Wallet"
+
+#: inc/customizer.php:315
+msgid "Header"
+msgstr "Заголовок"
+
+#: inc/customizer.php:326
+msgid "Show today's date?"
+msgstr "Показать текущую дату?"
+
+#: inc/customizer.php:331 inc/customizer.php:347 inc/customizer.php:363
+#: inc/customizer.php:379 inc/customizer.php:404 inc/customizer.php:420
+#: inc/customizer.php:436 inc/customizer.php:461 inc/customizer.php:477
+#: inc/customizer.php:502 inc/customizer.php:518 inc/customizer.php:534
+#: inc/customizer.php:550 inc/customizer.php:566 inc/customizer.php:582
+#: inc/customizer.php:598 inc/customizer.php:614 inc/customizer.php:639
+#: inc/customizer.php:655 inc/customizer.php:680 inc/customizer.php:696
+#: inc/customizer.php:720 inc/customizer.php:751
+msgid "Yes"
+msgstr "Да"
+
+#: inc/customizer.php:332 inc/customizer.php:348 inc/customizer.php:364
+#: inc/customizer.php:380 inc/customizer.php:405 inc/customizer.php:421
+#: inc/customizer.php:437 inc/customizer.php:462 inc/customizer.php:478
+#: inc/customizer.php:503 inc/customizer.php:519 inc/customizer.php:535
+#: inc/customizer.php:551 inc/customizer.php:567 inc/customizer.php:583
+#: inc/customizer.php:599 inc/customizer.php:615 inc/customizer.php:640
+#: inc/customizer.php:656 inc/customizer.php:681 inc/customizer.php:697
+#: inc/customizer.php:721 inc/customizer.php:752
+msgid "No"
+msgstr "Нет"
+
+#: inc/customizer.php:342 inc/customizer.php:675
+msgid "Show the social icons?"
+msgstr "Показать иконки соцсетей?"
+
+#: inc/customizer.php:358 inc/customizer.php:691
+msgid "Show the tagline?"
+msgstr "Показать строку с тэгами?"
+
+#: inc/customizer.php:374
+msgid "Show the search bar?"
+msgstr "Показать строку поиска?"
+
+#: inc/customizer.php:387
+msgid "Blog & Archives"
+msgstr "Блог и архивы"
+
+#: inc/customizer.php:388
+msgid "These settings apply to the main posts page and all archives."
+msgstr "Эти настройки применяются к главным записям и всем архивам."
+
+#: inc/customizer.php:399
+msgid "Show the Featured Images?"
+msgstr "Показать промо-изображения?"
+
+#: inc/customizer.php:415 inc/customizer.php:513
+msgid "Show the post author?"
+msgstr "Показать автора записи?"
+
+#: inc/customizer.php:431 inc/customizer.php:529
+msgid "Show the post date?"
+msgstr "Показать дату записи?"
+
+#: inc/customizer.php:445
+msgid "These settings apply to the category, tag, date, and author archives."
+msgstr ""
+"Эти настройки применяются к листингу категорий, меток, архивов по датам и "
+"архивов авторов."
+
+#: inc/customizer.php:456
+msgid "Show the archive title?"
+msgstr "Показать заголовок архива?"
+
+#: inc/customizer.php:472
+msgid "Show the archive description?"
+msgstr "Показать описание архива?"
+
+#: inc/customizer.php:486
+msgid "These settings apply to individual post pages."
+msgstr "Эти настройки применяются к отдельным записям."
+
+#: inc/customizer.php:497
+msgid "Show the Featured Image?"
+msgstr "Показать промо-изображение?"
+
+#: inc/customizer.php:545
+msgid "Show the category links?"
+msgstr "Показать ссылки на категории?"
+
+#: inc/customizer.php:561
+msgid "Show the tag links?"
+msgstr "Показать метки?"
+
+#: inc/customizer.php:577
+msgid "Show avatar in the author box?"
+msgstr "Показать аватар в блоке с автором?"
+
+#: inc/customizer.php:593
+msgid "Show the author box?"
+msgstr "Показать блок с автором?"
+
+#: inc/customizer.php:609
+msgid "Show the \"More from...\" section?"
+msgstr "Показывать блок \"Ещё из...\"?"
+
+#: inc/customizer.php:622
+msgid "Comments"
+msgstr "Комментарии"
+
+#: inc/customizer.php:623
+msgid "These settings apply to post comments."
+msgstr "Эти настройки применяются к комментариям записей."
+
+#: inc/customizer.php:634
+msgid "Show the comment date?"
+msgstr "Показать дату комментария?"
+
+#: inc/customizer.php:650
+msgid "Show the \"Post Author\" label?"
+msgstr "Показать надпись \"Автор записи\"?"
+
+#: inc/customizer.php:663
+msgid "Footer"
+msgstr "Подвал"
+
+#: inc/customizer.php:664
+msgid "These settings apply to the footer."
+msgstr "Эти настройки применяются к подвалу."
+
+#: inc/customizer.php:705
+msgid "Excerpts"
+msgstr "Анонсы"
+
+#: inc/customizer.php:715
+msgid "Show full posts on blog?"
+msgstr "Отображать полные записи в блоге?"
+
+#: inc/customizer.php:731 inc/widgets/post-list.php:234
+msgid "Excerpt word count"
+msgstr "Длина анонса"
+
+#: inc/meta-box.php:39
+msgid "Use layout set in Customizer"
+msgstr "Использовать настройщик"
+
+#: inc/review.php:113
+msgid "Click here to leave your review"
+msgstr "Нажмите сюда, чтобы оставить отзыв"
+
+#: inc/scripts.php:17
+msgid "close menu"
+msgstr "закрыть меню"
+
+#: inc/scripts.php:18
+msgid "open dropdown menu"
+msgstr "открыть раскрывающееся меню"
+
+#: inc/scripts.php:19
+msgid "close dropdown menu"
+msgstr "закрыть раскрывающееся меню"
+
+#: inc/social-icons.php:108
+msgid "email"
+msgstr "Email"
+
+#: inc/widgets/post-list.php:15
+msgid "A more robust recent posts widget. Added by the Mission News theme."
+msgstr "Более удобный виджет свежих записей. Добавлен темой Mission News."
+
+#: inc/widgets/post-list.php:19
+msgid "Recent Posts Extended"
+msgstr "Свежие записи (улучшенный)"
+
+#: inc/widgets/post-list.php:157
+msgid "Title"
+msgstr "Заголовок"
+
+#: inc/widgets/post-list.php:160
+msgid "Post Source"
+msgstr "Источник"
+
+#: inc/widgets/post-list.php:164 inc/widgets/post-list.php:167
+msgid "Category"
+msgstr "Категория"
+
+#: inc/widgets/post-list.php:178 inc/widgets/post-list.php:181
+msgid "Tag"
+msgstr "Метка"
+
+#: inc/widgets/post-list.php:191
+msgid "Relationship"
+msgstr "Отношение"
+
+#: inc/widgets/post-list.php:193
+msgid "AND"
+msgstr "И"
+
+#: inc/widgets/post-list.php:194
+msgid "OR"
+msgstr "ИЛИ"
+
+#: inc/widgets/post-list.php:200
+msgid ""
+"Selecting both a category and a tag will require posts to be in both. If "
+"you'd like to get posts from either the category or tag, switch the "
+"\"Relationship\" option to \"OR.\" If you'd like to use\n"
+"\t\t\t\t\t\tthe most recent posts from any tag or category, uncheck both "
+"\"Category\" and \"Tag.\""
+msgstr ""
+"Выбор и категории, и метки, отфильтрует записи, у которых установлены и "
+"категория, и метка. Если вы хотите отображать записи, которые находятся или "
+"в категории, или проставлены указанной меткой, то выберите в пункте "
+"\"Отношение\" опцию \"ИЛИ\".\n"
+"Если вы хотите показать записи из любых категорий и меток, то снимите "
+"галочку с \"Категория\" и \"Метка\"."
+
+#: inc/widgets/post-list.php:206
+msgid "Content"
+msgstr "Контент"
+
+#: inc/widgets/post-list.php:210
+msgid "Show author in byline"
+msgstr "Отображать имя автора"
+
+#: inc/widgets/post-list.php:214
+msgid "Show date in byline"
+msgstr "Показать дату записи"
+
+#: inc/widgets/post-list.php:218
+msgid "Show Featured Images"
+msgstr "Показать промо-изображения"
+
+#: inc/widgets/post-list.php:222
+msgid "Show excerpt"
+msgstr "Показать анонс"
+
+#: inc/widgets/post-list.php:226
+msgid "Show comments link"
+msgstr "Показывать комментарии на:"
+
+#: inc/widgets/post-list.php:230
+msgid "Number of posts"
+msgstr "Количество записей"
+
+#: inc/widgets/post-list.php:237 inc/widgets/post-list.php:240
+msgid "Style"
+msgstr "Стиль"
+
+#: inc/widgets/post-list.php:242
+msgid "Style 1"
+msgstr "Стиль 1"
+
+#: inc/widgets/post-list.php:243
+msgid "Style 2"
+msgstr "Стиль 2"
+
+#. translators: %1$s = number of results. %2$s = search query
+#: search.php:9
+msgid "%1$s search result for %2$s"
+msgid_plural "%1$s search results for %2$s"
+msgstr[0] "Найдена %1$s запись по запросу %2$s"
+msgstr[1] "Найдено %1$s записи по запросу %2$s"
+msgstr[2] "Найдено %1$s записей по запросу %2$s"
+
+#. translators: %s = search query
+#: search.php:12
+msgid "No search results for \"%s\""
+msgstr "Ничего не найдено по запросу \"%s\""
+
+#: search.php:34
+msgid "Can't find what you're looking for?  Try refining your search:"
+msgstr ""
+"Невозможно найти что-либо по вашему запросу. Попробуйте скорректировать его:"
+
+#: searchform.php:4
+msgid " Search for..."
+msgstr "Искать..."
+
+#. Translators: %s is the name of the theme (Mission News)
+#: theme-options.php:11 theme-options.php:34
+msgid "%s Dashboard"
+msgstr "Дэшборд %s"
+
+#: theme-options.php:39
+msgid "Get Started"
+msgstr "Приступим!"
+
+#. Translators: %1$s and %2$s are the name of the theme (Mission News)
+#: theme-options.php:42
+msgid ""
+"Not sure where to start? The %1$s Getting Started Guide will take you step-"
+"by-step through every feature in %1$s."
+msgstr ""
+"Не знаете с чего начать? Руководство по теме %1$s поможет вам настроить её "
+"шаг за шагом."
+
+#: theme-options.php:46
+msgid "View Guide"
+msgstr "Посмотреть Рекомендации"
+
+#: theme-options.php:51
+msgid "Mission News Pro - Coming Soon!"
+msgstr "Mission News Pro - Скоро открытие!"
+
+#: theme-options.php:52
+msgid ""
+"Download the %s Pro plugin and unlock the breaking news ticker, featured "
+"posts sliders, Youtube embeds, and more"
+msgstr ""
+"Скачайте плагин %s Pro и добавьте тикер срочных новостей, слайдеры важных "
+"записей, видео с Youtube и другие возможности!"
+
+#: theme-options.php:55
+msgid "See Full Feature List"
+msgstr "Увидеть полный список функций"
+
+#: theme-options.php:60 theme-options.php:66
+msgid "Leave a Review"
+msgstr "Оставить отзыв"
+
+#. Translators: %s is the name of the theme (Mission News)
+#: theme-options.php:63
+msgid "Help others find %s by leaving a review on wordpress.org."
+msgstr "Помогите другим найти тему %s оставив отзыв о ней на wordpress.org."
+
+#: theme-options.php:69 theme-options.php:79
+msgid "Reset Customizer Settings"
+msgstr "Сброс настроек кастомизатора"
+
+#. Translators:  %1$s is the URL of the Customizer. %2$s is the name of the
+#. theme (Mission News)
+#: theme-options.php:72
+msgid ""
+"<strong>Warning:</strong> Clicking this button will erase the %2$s theme's "
+"current settings in the <a href=\"%1$s\">Customizer</a>."
+msgstr ""
+"<strong>Внимание!:</strong> Нажатие на эту кнопку сотрёт все настройки темы "
+"%2$s в <a href=\"%1$s\">Редакторе</a>."
+
+#. Description of the plugin/theme
+msgid ""
+"For publishers on a mission. Mission News is a newspaper theme for "
+"publishers who want their content to be seen and heard. Premium-quality "
+"design adds credibility to every word you write, and a fully responsive "
+"layout ensures your site looks fantastic on every screen. The aesthetic is "
+"timeless and modeled after classic news sites like the New York Times. Use "
+"Mission News to setup a news site on any subject from health to finance. "
+"View the fully-setup live demo here: https://www.competethemes.com/demos/?"
+"theme=mission"
+msgstr ""
+"Для издателей со своей миссией. Mission News - это журнальная тема для "
+"издателей, которые желают, чтобы их контент дошёл до читателей. Премиум-"
+"дизайн добавит ценности каждому вашему слову, а полностью адаптивный дизайн "
+"обеспечит отличный внешний вид на любом экране. Эстетика темы основана на "
+"классических новостных сайтах вроде New York Times. Тема Mission News "
+"отлично подойдёт для новостного сайта на любую тематику, от здоровья до "
+"финансов. Полноценное демо можно посмотреть здесь: https://www.competethemes."
+"com/demos/?theme=mission"
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgctxt "noun: 5 comments"
+msgid "% Comments"
+msgstr "% комментариев"
+
+#: content/archive-header.php:9
+msgctxt "Posts published in CATEGORY"
+msgid "Posts published in"
+msgstr "Записи опубликованы в категории"
+
+#: content/archive-header.php:16
+msgctxt "Posts published by AUTHOR"
+msgid "Posts published by"
+msgstr "Записи от"
+
+#: content/archive-header.php:20
+msgctxt "Posts published in MONTH"
+msgid "Posts published in"
+msgstr "Записи опубликованы в"
+
+#: content/more-from-category.php:18
+msgctxt "More from POST CATEGORY"
+msgid "More from"
+msgstr "Ещё из категории"
+
+#: content/post-categories.php:10
+msgctxt "PUBLISHED IN post category"
+msgid "Published in"
+msgstr "Опубликовано в категории"
+
+#: content/post-categories.php:14
+msgctxt "category AND category"
+msgid "and"
+msgstr "и"
+
+#. translators: placeholder is the name of the post category
+#: content/post-categories.php:17
+msgctxt "View all posts in post category"
+msgid "View all posts in %s"
+msgstr "Смотреть все записи в %s"
+
+#: functions.php:270
+msgctxt "verb: open the menu"
+msgid "open menu"
+msgstr "открыть меню"
+
+#. translators: %s = the author who published the post
+#: functions.php:563
+msgctxt "This blog post was published by some author"
+msgid "By %s"
+msgstr "Опубликовал %s"
+
+#. translators: %1$s = the author who published the post. %2$s = the date it
+#. was published
+#: functions.php:566
+msgctxt "This blog post was published by some author on some date "
+msgid "By %1$s on %2$s"
+msgstr "Опубликовал %1$s %2$s"

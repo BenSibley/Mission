@@ -87,6 +87,8 @@ jQuery(document).ready(function($){
             }
 
             menuPrimaryContainer.css('top', newHeight + 'px');
+        } else {
+            menuPrimaryContainer.css('top', 'auto');
         }
     }
     $(window).load(function () {

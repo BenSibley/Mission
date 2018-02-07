@@ -2863,6 +2863,10 @@ a img {
     left: -28%;
     width: 156%;
   }
+  .layout-no-sidebar .entry:first-child .more-from-category .featured-image {
+    left: 0;
+    width: 100%;
+  }
 
   .layout-no-sidebar-wide .loop-container,
   .layout-no-sidebar-wide .archive-header,
@@ -2874,6 +2878,10 @@ a img {
   .layout-no-sidebar-wide .entry:first-child .featured-image {
     left: -18%;
     width: 136%;
+  }
+  .layout-no-sidebar-wide .entry:first-child .more-from-category .featured-image {
+    left: 0;
+    width: 100%;
   }
 
   .layout-no-sidebar .post-header,

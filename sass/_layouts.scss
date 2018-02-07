@@ -101,6 +101,10 @@
       left: -28%;
       width: 156%;
     }
+    .entry:first-child .more-from-category .featured-image {
+      left: 0;
+      width: 100%;
+    }
   }
   // Enlarge and center the content & Featured Image
   .layout-no-sidebar-wide {
@@ -115,6 +119,10 @@
     .entry:first-child .featured-image {
       left: -18%;
       width: 136%;
+    }
+    .entry:first-child .more-from-category .featured-image {
+      left: 0;
+      width: 100%;
     }
   }
   // Enlarge and center the post title

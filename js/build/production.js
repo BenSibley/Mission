@@ -165,10 +165,12 @@ jQuery(document).ready(function($){
                     newHeight += 32;
                 }
             }
-            if (body.hasClass('news-ticker')) {
+            if (body.hasClass('news-ticker') && body.hasClass('news-ticker-top')) {
                 newHeight += 36;
             }
-
+            if (body.hasClass('header-image-active')) {
+                newHeight += $('#header-image').outerHeight();
+            }
             menuPrimaryContainer.css('top', newHeight + 'px');
         } else {
             menuPrimaryContainer.css('top', 'auto');

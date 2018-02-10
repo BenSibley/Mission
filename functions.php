@@ -8,6 +8,7 @@ require_once( trailingslashit( get_template_directory() ) . 'inc/widgets/post-li
 require_once( trailingslashit( get_template_directory() ) . 'inc/comments.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/meta-box-layout.php' );
+require_once( trailingslashit( get_template_directory() ) . 'inc/meta-box-fi-display.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/review.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/scripts.php' );
 require_once( trailingslashit( get_template_directory() ) . 'inc/social-icons.php' );
@@ -214,11 +215,13 @@ add_filter( 'the_content_more_link', 'ct_mission_news_remove_more_link_scroll' )
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_news_featured_image' ) ) {
 	function ct_mission_news_featured_image() {
+		$blog_display = apply_filters( 'ct_mission_news_featured_image_display_filter', get_theme_mod( 'featured_image_blog_archives' ) );
+		$post_display = apply_filters( 'ct_mission_news_featured_image_display_filter', get_theme_mod( 'featured_image_posts' ) );
 
 		// don't output on archives or post pages when turned off via Customizer setting
 		if (
-			( (  is_home() || is_archive() || is_search() ) && get_theme_mod( 'featured_image_blog_archives' ) == 'no' )
-			|| ( is_singular( 'post' ) && get_theme_mod( 'featured_image_posts' ) == 'no' )
+			( (  is_home() || is_archive() || is_search() ) && ($blog_display == 'post' || $blog_display == 'no') )
+			|| ( is_singular( 'post' ) && ($post_display == 'blog' || $post_display == 'no' ) )
 		) {
 			return;
 		}
@@ -614,6 +617,26 @@ if ( ! function_exists( ( 'ct_mission_news_filter_layout' ) ) ) {
 	}
 }
 add_filter( 'ct_mission_news_layout_filter', 'ct_mission_news_filter_layout' );
+
+//----------------------------------------------------------------------------------
+// Allow individual posts to override the global Featured Image display setting
+//----------------------------------------------------------------------------------
+if ( ! function_exists( ( 'ct_mission_news_filter_featured_image_display' ) ) ) {
+	function ct_mission_news_filter_featured_image_display( $display ) {
+
+		// if ( is_singular( 'post' ) || is_singular( 'page' ) ) {
+			global $post;
+			$single_display = get_post_meta( $post->ID, 'ct_mission_news_featured_image_display', true );
+
+			if ( ! empty( $single_display ) && $single_display != 'default' ) {
+				$display = $single_display;
+			}
+		// }
+
+		return $display;
+	}
+}
+add_filter( 'ct_mission_news_featured_image_display_filter', 'ct_mission_news_filter_featured_image_display' );
 
 //----------------------------------------------------------------------------------
 // Allows site title to display in Customizer preview when logo is removed

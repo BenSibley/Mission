@@ -30,13 +30,13 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	class ct_mission_news_pro_ad extends WP_Customize_Control {
 		public function render_content() {
 			$link = 'https://www.competethemes.com/mission-news-pro/';
-			echo "<a href='" . $link . "' target='_blank'><img src='" . get_template_directory_uri() . "/assets/images/mission-news-pro.png' /></a>";
-			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> is the plugin that makes advanced customization simple - coming soon!', 'mission-news'), $link, wp_get_theme( get_template() ) ) . "</p>";
+			echo "<a href='" . $link . "' target='_blank'><img src='" . trailingslashit(get_template_directory_uri()) . "assets/images/mission-news-pro.gif' /></a>";
+			echo "<p class='bold'>" . sprintf( __('<a target="_blank" href="%1$s">%2$s Pro</a> is the plugin that makes advanced customization simple!', 'mission-news'), $link, wp_get_theme( get_template() ) ) . "</p>";
 			echo "<p>" . sprintf( __('%1$s Pro adds the following features to %1$s:', 'mission-news'), wp_get_theme( get_template() ) ) . "</p>";
 			echo "<ul>
 					<li>" . __('Breaking news ticker', 'mission-news') . "</li>
-					<li>" . __('Youtube Featured Videos', 'mission-news') . "</li>
-					<li>" . __('Over 700+ fonts', 'mission-news') . "</li>
+					<li>" . __('"Featured Videos"', 'mission-news') . "</li>
+					<li>" . __('Responsive slider', 'mission-news') . "</li>
 					<li>" . __('+ 5 more awesome features', 'mission-news') . "</li>
 				  </ul>";
 			echo "<p class='button-wrapper'><a target=\"_blank\" class='mission-news-pro-button' href='" . $link . "'>" . sprintf( __('View %s Pro', 'mission-news'), wp_get_theme( get_template() ) ) . "</a></p>";

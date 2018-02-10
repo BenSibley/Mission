@@ -48,8 +48,8 @@ if ( ! function_exists( 'ct_mission_news_options_content' ) ) {
 				</div>
 				<?php if ( !function_exists( 'ct_mission_news_pro_activation_notice' ) ) : ?>
 					<div class="content content-premium-upgrade">
-						<h3><?php esc_html_e( 'Mission News Pro - Coming Soon!', 'mission-news' ); ?></h3>
-						<p><?php printf( __( 'Download the %s Pro plugin and unlock the breaking news ticker, featured posts sliders, Youtube embeds, and more', 'mission-news' ), wp_get_theme( get_template() ) ); ?>...</p>
+						<h3><?php esc_html_e( 'Mission News Pro', 'mission-news' ); ?></h3>
+						<p><?php printf( __( 'Download the %s Pro plugin and unlock the breaking news ticker, "Featured Videos", responsive slider, and more', 'mission-news' ), wp_get_theme( get_template() ) ); ?>...</p>
 						<p>
 							<a target="_blank" class="button-primary"
 								href="https://www.competethemes.com/mission-news-pro/"><?php _e( 'See Full Feature List', 'mission-news' ); ?></a>

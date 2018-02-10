@@ -622,3 +622,5 @@ function ct_mission_news_logo_refresh($wp_customize) {
   $wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
 }
 add_action( 'customize_register', 'ct_mission_news_logo_refresh', 20 );
+
+dnh_register_notice( 'ct_mission_news_pro_notice', 'updated', sprintf( __( 'Mission News Pro is now available! <a href="%s" target="_blank">Click here for screenshots & videos</a>.', 'mission-news' ), 'https://www.competethemes.com/mission-news-pro/' ) );

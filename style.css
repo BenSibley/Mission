@@ -2489,7 +2489,12 @@ a img {
 .widget-area-below-header {
   margin-bottom: 1.125em;
 }
-.widget-area-below-header .widget {
+
+.widget-area-below-header.active-1 .widget,
+.widget-area-above-main.active-1 .widget,
+.widget-area-after-first-post.active-1 .widget,
+.widget-area-after-post.active-1 .widget,
+.widget-area-after-page.active-1 .widget {
   margin-bottom: 0.75em;
 }
 

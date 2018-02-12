@@ -13,9 +13,18 @@
 }
 .widget-area-below-header {
   margin-bottom: $baseline-height * 0.75;
+}
+.widget-area-below-header,
+.widget-area-above-main,
+.widget-area-after-first-post,
+.widget-area-after-post,
+.widget-area-after-page {
 
-  .widget {
-    margin-bottom: $baseline-height * 0.5;
+  &.active-1 {
+
+    .widget {
+      margin-bottom: $baseline-height * 0.5;
+    }
   }
 }
 .widget-area-above-main {

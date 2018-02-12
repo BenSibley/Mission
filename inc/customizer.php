@@ -300,6 +300,169 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'right'  => __( 'Right', 'mission-news' )
 		)
 	) );
+	//----------------------------------------------------------------------------------
+	// Section: Widget Styles - Above Posts
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_widget_styles_above_posts', array(
+		'title'    => __( 'Above Posts', 'mission-news' ),
+		'panel'    => 'ct_mission_news_widget_styles_panel'
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_above_posts_layout', array(
+		'default'           => 'row',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_layout'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_above_posts_layout', array(
+		'label'       => __( 'Display widgets in a row or column?', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_above_posts',
+		'settings'    => 'ct_mission_widget_styles_above_posts_layout',
+		'type'        => 'radio',
+		'choices'     => array(
+			'row'    => __( 'Row', 'mission-news' ),
+			'column' => __( 'Column', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_above_posts_alignment', array(
+		'default'           => 'center',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_alignment'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_above_posts_alignment', array(
+		'label'       => __( 'Widget text alignment', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_above_posts',
+		'settings'    => 'ct_mission_widget_styles_above_posts_alignment',
+		'type'        => 'radio',
+		'choices'     => array(
+			'left'   => __( 'Left', 'mission-news' ),
+			'center' => __( 'Center', 'mission-news' ),
+			'right'  => __( 'Right', 'mission-news' )
+		)
+	) );
+
+	//----------------------------------------------------------------------------------
+	// Section: Widget Styles - After First Post
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_widget_styles_after_first_post', array(
+		'title'    => __( 'After First Post', 'mission-news' ),
+		'panel'    => 'ct_mission_news_widget_styles_panel'
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_after_first_post_layout', array(
+		'default'           => 'row',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_layout'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_after_first_post_layout', array(
+		'label'       => __( 'Display widgets in a row or column?', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_after_first_post',
+		'settings'    => 'ct_mission_widget_styles_after_first_post_layout',
+		'type'        => 'radio',
+		'choices'     => array(
+			'row'    => __( 'Row', 'mission-news' ),
+			'column' => __( 'Column', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_after_first_post_alignment', array(
+		'default'           => 'center',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_alignment'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_after_first_post_alignment', array(
+		'label'       => __( 'Widget text alignment', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_after_first_post',
+		'settings'    => 'ct_mission_widget_styles_after_first_post_alignment',
+		'type'        => 'radio',
+		'choices'     => array(
+			'left'   => __( 'Left', 'mission-news' ),
+			'center' => __( 'Center', 'mission-news' ),
+			'right'  => __( 'Right', 'mission-news' )
+		)
+	) );
+
+	//----------------------------------------------------------------------------------
+	// Section: Widget Styles - After Post Content
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_widget_styles_after_post_content', array(
+		'title'    => __( 'After Post Content', 'mission-news' ),
+		'panel'    => 'ct_mission_news_widget_styles_panel'
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_after_post_content_layout', array(
+		'default'           => 'row',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_layout'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_after_post_content_layout', array(
+		'label'       => __( 'Display widgets in a row or column?', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_after_post_content',
+		'settings'    => 'ct_mission_widget_styles_after_post_content_layout',
+		'type'        => 'radio',
+		'choices'     => array(
+			'row'    => __( 'Row', 'mission-news' ),
+			'column' => __( 'Column', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_after_post_content_alignment', array(
+		'default'           => 'center',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_alignment'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_after_post_content_alignment', array(
+		'label'       => __( 'Widget text alignment', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_after_post_content',
+		'settings'    => 'ct_mission_widget_styles_after_post_content_alignment',
+		'type'        => 'radio',
+		'choices'     => array(
+			'left'   => __( 'Left', 'mission-news' ),
+			'center' => __( 'Center', 'mission-news' ),
+			'right'  => __( 'Right', 'mission-news' )
+		)
+	) );
+
+	//----------------------------------------------------------------------------------
+	// Section: Widget Styles - After Page Content
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_widget_styles_after_page_content', array(
+		'title'    => __( 'After Page Content', 'mission-news' ),
+		'panel'    => 'ct_mission_news_widget_styles_panel'
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_after_page_content_layout', array(
+		'default'           => 'row',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_layout'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_after_page_content_layout', array(
+		'label'       => __( 'Display widgets in a row or column?', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_after_page_content',
+		'settings'    => 'ct_mission_widget_styles_after_page_content_layout',
+		'type'        => 'radio',
+		'choices'     => array(
+			'row'    => __( 'Row', 'mission-news' ),
+			'column' => __( 'Column', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_after_page_content_alignment', array(
+		'default'           => 'center',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_alignment'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_after_page_content_alignment', array(
+		'label'       => __( 'Widget text alignment', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_after_page_content',
+		'settings'    => 'ct_mission_widget_styles_after_page_content_alignment',
+		'type'        => 'radio',
+		'choices'     => array(
+			'left'   => __( 'Left', 'mission-news' ),
+			'center' => __( 'Center', 'mission-news' ),
+			'right'  => __( 'Right', 'mission-news' )
+		)
+	) );
 
 	//----------------------------------------------------------------------------------
 	// Section: Social Media Icons

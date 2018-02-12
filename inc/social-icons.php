@@ -20,6 +20,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'amazon'        => 'ct_mission_news_amazon_profile',
 			'bandcamp'      => 'ct_mission_news_bandcamp_profile',
 			'behance'       => 'ct_mission_news_behance_profile',
+			'bitbucket'     => 'ct_mission_news_bitbucket_profile',
 			'codepen'       => 'ct_mission_news_codepen_profile',
 			'delicious'     => 'ct_mission_news_delicious_profile',
 			'deviantart'    => 'ct_mission_news_deviantart_profile',

@@ -63,7 +63,8 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
 }
 
 .wp-caption-text,
-.gallery-caption, .sticky-status, .comment-respond label, .site-footer .design-credit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_news_post_list .comments-link, .widget_calendar table caption {
+.gallery-caption, .sticky-status, .comment-respond label, .site-footer .design-credit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a,
+.menu-secondary .menu-unset > ul a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_news_post_list .comments-link, .widget_calendar table caption {
   font-size: 0.75em;
   /* 12px / 16px */
   line-height: 1.5;
@@ -77,7 +78,8 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
   /* 18px */
 }
 
-.sticky-status, .comments .comment-author .comment-date, .search-toggle span, .search-form-popup .search-submit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .sidebar-left .widget-title,
+.sticky-status, .comments .comment-author .comment-date, .search-toggle span, .search-form-popup .search-submit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a,
+.menu-secondary .menu-unset > ul a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .sidebar-left .widget-title,
 .sidebar-right .widget-title, .widget_ct_mission_news_post_list .style-2 .post-byline, .widget_ct_mission_news_post_list .style-2 .widget_recent_entries .post-date, .widget_recent_entries .widget_ct_mission_news_post_list .style-2 .post-date, .widget_ct_mission_news_post_list .style-2 .widget_rss .rss-date, .widget_rss .widget_ct_mission_news_post_list .style-2 .rss-date, .widget_calendar table caption {
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -1703,24 +1705,31 @@ a img {
   padding: 12px 5.556%;
 }
 
-.menu-secondary-items {
+.menu-secondary-items,
+.menu-secondary .menu-unset > ul {
   position: relative;
   top: -42px;
   margin: 0;
   list-style: none;
 }
-.menu-secondary-items li {
+.menu-secondary-items li,
+.menu-secondary .menu-unset > ul li {
   position: relative;
   border-bottom: solid 1px #262626;
 }
-.menu-secondary-items li.current-menu-item > a, .menu-secondary-items li.current-menu-ancestor > a {
+.menu-secondary-items li.current-menu-item > a, .menu-secondary-items li.current-menu-ancestor > a,
+.menu-secondary .menu-unset > ul li.current-menu-item > a,
+.menu-secondary .menu-unset > ul li.current-menu-ancestor > a {
   text-decoration: underline;
 }
-.menu-secondary-items li.current ul, .menu-secondary-items li.current-ancestor ul {
+.menu-secondary-items li.current ul, .menu-secondary-items li.current-ancestor ul,
+.menu-secondary .menu-unset > ul li.current ul,
+.menu-secondary .menu-unset > ul li.current-ancestor ul {
   opacity: 1;
   visibility: visible;
 }
-.menu-secondary-items a {
+.menu-secondary-items a,
+.menu-secondary .menu-unset > ul a {
   display: block;
   font-family: "PT Sans", sans-serif;
   padding: 15px 0;
@@ -1729,13 +1738,19 @@ a img {
   -webkit-transition: color 0.15s;
   transition: color 0.15s;
 }
-.menu-secondary-items a:link, .menu-secondary-items a:visited {
+.menu-secondary-items a:link, .menu-secondary-items a:visited,
+.menu-secondary .menu-unset > ul a:link,
+.menu-secondary .menu-unset > ul a:visited {
   color: #DCDCDC;
 }
-.menu-secondary-items a:hover, .menu-secondary-items a:active, .menu-secondary-items a:focus {
+.menu-secondary-items a:hover, .menu-secondary-items a:active, .menu-secondary-items a:focus,
+.menu-secondary .menu-unset > ul a:hover,
+.menu-secondary .menu-unset > ul a:active,
+.menu-secondary .menu-unset > ul a:focus {
   color: #fff;
 }
-.menu-secondary-items ul {
+.menu-secondary-items ul,
+.menu-secondary .menu-unset > ul ul {
   position: fixed;
   top: -12px;
   left: 100%;
@@ -1748,21 +1763,27 @@ a img {
   -webkit-transition: opacity 0.35s, visibility 0.35s;
   transition: opacity 0.35s, visibility 0.35s;
 }
-.menu-secondary-items ul ul {
+.menu-secondary-items ul ul,
+.menu-secondary .menu-unset > ul ul ul {
   left: 200%;
 }
-.menu-secondary-items ul ul ul {
+.menu-secondary-items ul ul ul,
+.menu-secondary .menu-unset > ul ul ul ul {
   left: 300%;
 }
-.menu-secondary-items ul ul ul ul {
+.menu-secondary-items ul ul ul ul,
+.menu-secondary .menu-unset > ul ul ul ul ul {
   left: 400%;
 }
-.menu-secondary-items ul ul ul ul ul {
+.menu-secondary-items ul ul ul ul ul,
+.menu-secondary .menu-unset > ul ul ul ul ul ul {
   left: 500%;
 }
 
 @media all and (max-width: 799px) {
-  .menu-secondary-items li.current ul, .menu-secondary-items li.current-ancestor ul {
+  .menu-secondary-items li.current ul, .menu-secondary-items li.current-ancestor ul,
+  .menu-secondary .menu-unset > ul li.current ul,
+  .menu-secondary .menu-unset > ul li.current-ancestor ul {
     opacity: 1;
     visibility: visible;
   }
@@ -1781,18 +1802,21 @@ a img {
     display: none;
   }
 
-  .menu-secondary-items {
+  .menu-secondary-items,
+  .menu-secondary .menu-unset > ul {
     position: static;
     line-height: 0;
   }
-  .menu-secondary-items li {
+  .menu-secondary-items li,
+  .menu-secondary .menu-unset > ul li {
     position: relative;
     z-index: 29;
     display: inline-block;
     border-bottom: none;
     margin-right: 8px;
   }
-  .menu-secondary-items li.menu-item-has-children > a:after {
+  .menu-secondary-items li.menu-item-has-children > a:after,
+  .menu-secondary .menu-unset > ul li.menu-item-has-children > a:after {
     content: '\f107';
     font-family: "FontAwesome";
     display: inline-block;
@@ -1802,28 +1826,43 @@ a img {
     top: 0;
     text-decoration: none;
   }
-  .menu-secondary-items a {
+  .menu-secondary-items a,
+  .menu-secondary .menu-unset > ul a {
     display: inline-block;
     padding: 0;
     color: #000;
   }
-  .menu-secondary-items a:link, .menu-secondary-items a:visited {
+  .menu-secondary-items a:link, .menu-secondary-items a:visited,
+  .menu-secondary .menu-unset > ul a:link,
+  .menu-secondary .menu-unset > ul a:visited {
     color: #000;
   }
-  .menu-secondary-items a:hover, .menu-secondary-items a:active, .menu-secondary-items a:focus {
+  .menu-secondary-items a:hover, .menu-secondary-items a:active, .menu-secondary-items a:focus,
+  .menu-secondary .menu-unset > ul a:hover,
+  .menu-secondary .menu-unset > ul a:active,
+  .menu-secondary .menu-unset > ul a:focus {
     color: #666666;
   }
-  .menu-secondary-items a:hover ~ ul, .menu-secondary-items a:active ~ ul, .menu-secondary-items a:focus ~ ul {
+  .menu-secondary-items a:hover ~ ul, .menu-secondary-items a:active ~ ul, .menu-secondary-items a:focus ~ ul,
+  .menu-secondary .menu-unset > ul a:hover ~ ul,
+  .menu-secondary .menu-unset > ul a:active ~ ul,
+  .menu-secondary .menu-unset > ul a:focus ~ ul {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateX(-12px);
     -ms-transform: translateX(-12px);
     transform: translateX(-12px);
   }
-  .menu-secondary-items a:hover ~ ul:before, .menu-secondary-items a:active ~ ul:before, .menu-secondary-items a:focus ~ ul:before {
+  .menu-secondary-items a:hover ~ ul:before, .menu-secondary-items a:active ~ ul:before, .menu-secondary-items a:focus ~ ul:before,
+  .menu-secondary .menu-unset > ul a:hover ~ ul:before,
+  .menu-secondary .menu-unset > ul a:active ~ ul:before,
+  .menu-secondary .menu-unset > ul a:focus ~ ul:before {
     width: 100%;
   }
-  .menu-secondary-items a:hover:before, .menu-secondary-items a:active:before, .menu-secondary-items a:focus:before {
+  .menu-secondary-items a:hover:before, .menu-secondary-items a:active:before, .menu-secondary-items a:focus:before,
+  .menu-secondary .menu-unset > ul a:hover:before,
+  .menu-secondary .menu-unset > ul a:active:before,
+  .menu-secondary .menu-unset > ul a:focus:before {
     content: '';
     position: absolute;
     left: 0;
@@ -1831,7 +1870,8 @@ a img {
     top: 100%;
     height: 10px;
   }
-  .menu-secondary-items ul {
+  .menu-secondary-items ul,
+  .menu-secondary .menu-unset > ul ul {
     position: absolute;
     z-index: 19;
     top: calc(100% + 4px);
@@ -1846,17 +1886,20 @@ a img {
     -webkit-transition: opacity 0.25s, visibility 0.25s, -webkit-transform 0.15s;
     transition: opacity 0.25s, visibility 0.25s, transform 0.15s;
   }
-  .menu-secondary-items ul:hover {
+  .menu-secondary-items ul:hover,
+  .menu-secondary .menu-unset > ul ul:hover {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateX(-12px);
     -ms-transform: translateX(-12px);
     transform: translateX(-12px);
   }
-  .menu-secondary-items ul:hover:before {
+  .menu-secondary-items ul:hover:before,
+  .menu-secondary .menu-unset > ul ul:hover:before {
     width: 100%;
   }
-  .menu-secondary-items ul:before {
+  .menu-secondary-items ul:before,
+  .menu-secondary .menu-unset > ul ul:before {
     content: '';
     position: absolute;
     top: 0;
@@ -1868,7 +1911,8 @@ a img {
     -webkit-transition: width 0.2s;
     transition: width 0.2s;
   }
-  .menu-secondary-items ul li {
+  .menu-secondary-items ul li,
+  .menu-secondary .menu-unset > ul ul li {
     display: block;
     font-size: 0.875em;
     /* 14px / 16px */
@@ -1877,32 +1921,42 @@ a img {
     white-space: nowrap;
     margin-right: 0;
   }
-  .menu-secondary-items ul li.menu-item-has-children > a {
+  .menu-secondary-items ul li.menu-item-has-children > a,
+  .menu-secondary .menu-unset > ul ul li.menu-item-has-children > a {
     position: relative;
   }
-  .menu-secondary-items ul li.menu-item-has-children > a:after {
+  .menu-secondary-items ul li.menu-item-has-children > a:after,
+  .menu-secondary .menu-unset > ul ul li.menu-item-has-children > a:after {
     content: '\f105';
     position: absolute;
     top: 10px;
     right: 12px;
   }
-  .menu-secondary-items ul li.menu-item-has-children:first-child > a:after {
+  .menu-secondary-items ul li.menu-item-has-children:first-child > a:after,
+  .menu-secondary .menu-unset > ul ul li.menu-item-has-children:first-child > a:after {
     top: 14px;
   }
-  .menu-secondary-items ul li li {
+  .menu-secondary-items ul li li,
+  .menu-secondary .menu-unset > ul ul li li {
     font-size: 1em;
   }
-  .menu-secondary-items ul li:first-child a {
+  .menu-secondary-items ul li:first-child a,
+  .menu-secondary .menu-unset > ul ul li:first-child a {
     padding-top: 12px;
   }
-  .menu-secondary-items ul li:last-child a {
+  .menu-secondary-items ul li:last-child a,
+  .menu-secondary .menu-unset > ul ul li:last-child a {
     padding-bottom: 12px;
   }
-  .menu-secondary-items ul a {
+  .menu-secondary-items ul a,
+  .menu-secondary .menu-unset > ul ul a {
     display: block;
     padding: 6px 36px 6px 24px;
   }
-  .menu-secondary-items ul a:hover:before, .menu-secondary-items ul a:active:before, .menu-secondary-items ul a:focus:before {
+  .menu-secondary-items ul a:hover:before, .menu-secondary-items ul a:active:before, .menu-secondary-items ul a:focus:before,
+  .menu-secondary .menu-unset > ul ul a:hover:before,
+  .menu-secondary .menu-unset > ul ul a:active:before,
+  .menu-secondary .menu-unset > ul ul a:focus:before {
     content: '';
     position: absolute;
     left: 100%;
@@ -1913,31 +1967,42 @@ a img {
   .menu-secondary-items ul ul,
   .menu-secondary-items ul ul ul,
   .menu-secondary-items ul ul ul ul,
-  .menu-secondary-items ul ul ul ul ul {
+  .menu-secondary-items ul ul ul ul ul,
+  .menu-secondary .menu-unset > ul ul ul,
+  .menu-secondary .menu-unset > ul ul ul ul,
+  .menu-secondary .menu-unset > ul ul ul ul ul,
+  .menu-secondary .menu-unset > ul ul ul ul ul ul {
     left: calc(100% + 12px);
     right: auto;
     top: 0;
   }
 
-  .rtl .menu-secondary-items li.menu-item-has-children ul a:after {
+  .rtl .menu-secondary-items li.menu-item-has-children ul a:after,
+  .rtl .menu-secondary .menu-unset > ul li.menu-item-has-children ul a:after {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
     left: auto;
     right: 6px;
   }
-  .rtl .menu-secondary-items a:hover ~ ul, .rtl .menu-secondary-items a:active ~ ul, .rtl .menu-secondary-items a:focus ~ ul {
+  .rtl .menu-secondary-items a:hover ~ ul, .rtl .menu-secondary-items a:active ~ ul, .rtl .menu-secondary-items a:focus ~ ul,
+  .rtl .menu-secondary .menu-unset > ul a:hover ~ ul,
+  .rtl .menu-secondary .menu-unset > ul a:active ~ ul,
+  .rtl .menu-secondary .menu-unset > ul a:focus ~ ul {
     -webkit-transform: translateX(12px);
     -ms-transform: translateX(12px);
     transform: translateX(12px);
   }
-  .rtl .menu-secondary-items ul:hover {
+  .rtl .menu-secondary-items ul:hover,
+  .rtl .menu-secondary .menu-unset > ul ul:hover {
     -webkit-transform: translateX(12px);
     -ms-transform: translateX(12px);
     transform: translateX(12px);
   }
   .rtl .menu-secondary-items ul a,
-  .rtl .menu-secondary-items ul ul a {
+  .rtl .menu-secondary-items ul ul a,
+  .rtl .menu-secondary .menu-unset > ul ul a,
+  .rtl .menu-secondary .menu-unset > ul ul ul a {
     padding: 6px 36px 6px 12px;
   }
 }

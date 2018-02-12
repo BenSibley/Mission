@@ -13,7 +13,8 @@
     padding: 12px $column * 2;
   }
 }
-.menu-secondary-items {
+.menu-secondary-items,
+.menu-secondary .menu-unset > ul {
   position: relative;
   top: -42px;
   margin: 0;
@@ -88,7 +89,8 @@
 
 @media all and (max-width: 799px) {
 
-  .menu-secondary-items {
+  .menu-secondary-items,
+  .menu-secondary .menu-unset > ul {
 
     li {
 
@@ -117,8 +119,15 @@
     .toggle-dropdown {
       display: none;
     }
+    .menu-unset {
+
+      a {
+        // padding: 0 
+      }
+    }
   }
-  .menu-secondary-items {
+  .menu-secondary-items,
+  .menu-secondary .menu-unset > ul {
     position: static;
     line-height: 0; // aligns menu with search bar (lets menu items 18px line-height replace 24px line-height)
 
@@ -273,7 +282,8 @@
   }
   .rtl {
 
-    .menu-secondary-items {
+    .menu-secondary-items,
+    .menu-secondary .menu-unset > ul {
 
       li {
 

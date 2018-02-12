@@ -624,14 +624,12 @@ add_filter( 'ct_mission_news_layout_filter', 'ct_mission_news_filter_layout' );
 if ( ! function_exists( ( 'ct_mission_news_filter_featured_image_display' ) ) ) {
 	function ct_mission_news_filter_featured_image_display( $display ) {
 
-		// if ( is_singular( 'post' ) || is_singular( 'page' ) ) {
 			global $post;
 			$single_display = get_post_meta( $post->ID, 'ct_mission_news_featured_image_display', true );
 
 			if ( ! empty( $single_display ) && $single_display != 'default' ) {
 				$display = $single_display;
 			}
-		// }
 
 		return $display;
 	}

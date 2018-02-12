@@ -641,8 +641,10 @@ add_filter( 'ct_mission_news_featured_image_display_filter', 'ct_mission_news_fi
 //----------------------------------------------------------------------------------
 // Allows site title to display in Customizer preview when logo is removed
 //----------------------------------------------------------------------------------
-function ct_mission_news_logo_refresh($wp_customize) {
-  $wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
+if ( ! function_exists( ( 'ct_mission_news_logo_refresh' ) ) ) {
+	function ct_mission_news_logo_refresh($wp_customize) {
+		$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
+	}
 }
 add_action( 'customize_register', 'ct_mission_news_logo_refresh', 20 );
 
@@ -654,26 +656,30 @@ dnh_register_notice( 'ct_mission_news_pro_notice', 'updated', sprintf( __( 'Miss
 //----------------------------------------------------------------------------------
 // Output styles for widget alignment
 //----------------------------------------------------------------------------------
-function ct_mission_news_widget_styles() {
-	$css = '';
-	$below_header = get_theme_mod('ct_mission_widget_styles_below_header_alignment');
-	
-	if ( !empty($below_header) ) {
-		$css .= ".widget-area-below-header {text-align: $below_header;}";
+if ( ! function_exists( ( 'ct_mission_news_widget_styles' ) ) ) {
+	function ct_mission_news_widget_styles() {
+		$css = '';
+		$below_header = get_theme_mod('ct_mission_widget_styles_below_header_alignment');
+		
+		if ( !empty($below_header) ) {
+			$css .= ".widget-area-below-header {text-align: $below_header;}";
+		}
+		if ( !empty( $css ) ) {
+			$css = ct_mission_news_sanitize_css($css);
+			wp_add_inline_style( 'ct-mission-news-style', $css );
+		}
 	}
-	if ( !empty( $css ) ) {
-    $css = ct_mission_news_sanitize_css($css);
-    wp_add_inline_style( 'ct-mission-news-style', $css );
-  }
 }
 add_action( 'wp_enqueue_scripts', 'ct_mission_news_widget_styles', 99 );
 
 //----------------------------------------------------------------------------------
 // Sanitize CSS
 //----------------------------------------------------------------------------------
-function ct_mission_news_sanitize_css( $css ) {
-	$css = wp_kses( $css, array( '\'', '\"' ) );
-	$css = str_replace( '&gt;', '>', $css );
+if ( ! function_exists( ( 'ct_mission_news_sanitize_css' ) ) ) {
+	function ct_mission_news_sanitize_css( $css ) {
+		$css = wp_kses( $css, array( '\'', '\"' ) );
+		$css = str_replace( '&gt;', '>', $css );
 
-	return $css;
+		return $css;
+	}
 }

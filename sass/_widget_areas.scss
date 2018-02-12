@@ -13,6 +13,10 @@
 }
 .widget-area-below-header {
   margin-bottom: $baseline-height * 0.75;
+
+  .widget {
+    margin-bottom: $baseline-height * 0.5;
+  }
 }
 .widget-area-above-main {
   margin-bottom: $baseline-height/2;

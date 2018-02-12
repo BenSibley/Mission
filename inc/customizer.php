@@ -46,14 +46,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	// Add panels
 	//----------------------------------------------------------------------------------
-	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
-
-		$wp_customize->add_panel( 'ct_mission_news_show_hide_panel', array(
-			'priority'    => 30,
-			'title'       => __( 'Show/Hide Elements', 'mission-news' ),
-			'description' => __( 'Choose which elements you want displayed on the site.', 'mission-news' )
-		) );
-	}
+	
 	if ( method_exists( 'WP_Customize_Manager', 'add_panel' ) ) {
 
 		$wp_customize->add_panel( 'ct_mission_news_layout_panel', array(
@@ -61,7 +54,18 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'title'       => __( 'Layout', 'mission-news' ),
 			'description' => __( 'Change the layout of the main content and posts.', 'mission-news' )
 		) );
+		$wp_customize->add_panel( 'ct_mission_news_widget_styles_panel', array(
+			'priority'    => 27,
+			'title'       => __( 'Widget Styles', 'mission-news' ),
+			'description' => __( 'Customize the widget layouts and styles.', 'mission-news' )
+		) );
+		$wp_customize->add_panel( 'ct_mission_news_show_hide_panel', array(
+			'priority'    => 30,
+			'title'       => __( 'Show/Hide Elements', 'mission-news' ),
+			'description' => __( 'Choose which elements you want displayed on the site.', 'mission-news' )
+		) );
 	}
+	
 
 	//----------------------------------------------------------------------------------
 	// Mission News Pro section
@@ -255,6 +259,47 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			)
 		) );
 	}
+
+	//----------------------------------------------------------------------------------
+	// Section: Widget Styles - Below Header
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_widget_styles_below_header', array(
+		'title'    => __( 'Below Header', 'mission-news' ),
+		'panel'    => 'ct_mission_news_widget_styles_panel'
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_below_header_layout', array(
+		'default'           => 'row',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_layout'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_below_header_layout', array(
+		'label'       => __( 'Display widgets in a row or column?', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_below_header',
+		'settings'    => 'ct_mission_widget_styles_below_header_layout',
+		'type'        => 'radio',
+		'choices'     => array(
+			'row'    => __( 'Row', 'mission-news' ),
+			'column' => __( 'Column', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_below_header_alignment', array(
+		'default'           => 'center',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_alignment'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_below_header_alignment', array(
+		'label'       => __( 'Widget text alignment', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_below_header',
+		'settings'    => 'ct_mission_widget_styles_below_header_alignment',
+		'type'        => 'radio',
+		'choices'     => array(
+			'left'   => __( 'Left', 'mission-news' ),
+			'center' => __( 'Center', 'mission-news' ),
+			'right'  => __( 'Right', 'mission-news' )
+		)
+	) );
 
 	//----------------------------------------------------------------------------------
 	// Section: Social Media Icons
@@ -822,6 +867,27 @@ function ct_mission_news_sanitize_layout_posts( $input ) {
 		'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
 		'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
 		'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
+}
+
+function ct_mission_news_sanitize_widget_styles_layout( $input ) {
+
+	$valid = array(
+		'row'    => __( 'Row', 'mission-news' ),
+		'column' => __( 'Column', 'mission-news' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
+}
+
+function ct_mission_news_sanitize_widget_styles_alignment( $input ) {
+
+	$valid = array(
+		'left'   => __( 'Left', 'mission-news' ),
+		'center' => __( 'Center', 'mission-news' ),
+		'right'  => __( 'Right', 'mission-news' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

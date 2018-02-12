@@ -2489,6 +2489,9 @@ a img {
 .widget-area-below-header {
   margin-bottom: 1.125em;
 }
+.widget-area-below-header .widget {
+  margin-bottom: 0.75em;
+}
 
 .widget-area-above-main {
   margin-bottom: 0.75em;

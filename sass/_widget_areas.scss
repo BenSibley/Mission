@@ -1,3 +1,9 @@
+.widget-area {
+
+  &:after {
+    @include clearfix;
+  }
+}
 .widget-area-below-header,
 .widget-area-above-main,
 .widget-area-after-post,
@@ -25,6 +31,11 @@
     margin: 0;
   }
 }
+.widget-area-after-first-post {
+  padding-bottom: $baseline-height * 0.75;
+  border-bottom: solid 1px $color-gray-86;
+  margin-bottom: $baseline-height * 0.75;
+}
 
 @media all and (min-width: $six-hundred) {
 
@@ -32,11 +43,114 @@
   .widget-area-above-main {
     padding: 0 $column;
   }
+  .layout-double .widget-area-after-first-post {
+    padding-top: $baseline-height * 0.75;
+    padding-bottom: 0;
+    border-top: solid 1px $color-gray-86;
+    border-bottom: none;
+  }
+  .layout-double .widget-area:not(.active-1) {
+  
+    &.widget-area-after-first-post {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+  .widget-area:not(.active-1) {
+    display: flex;
+    border-bottom: solid 1px $color-gray-86;
+    padding-bottom: 18px;
+
+    &.widget-area-after-post {
+      padding-bottom: 0;
+      border-bottom: none;
+      border-top: solid 1px $color-gray-86;
+      padding-top: 18px;
+    }
+
+    .widget {
+      width: 50%;
+      float: left;
+      padding: 0 12px;
+
+      &:nth-child(odd) {
+        // margin-right: 4%;
+        // padding-right: 2%;
+        // padding-right: 4%;
+        border-right: solid 1px $color-gray-86;
+        clear: left;
+      }
+    }
+  }
 }
 
 @media all and (min-width: $eight-hundred) {
 
   .widget-area-above-main {
     padding: 0;
+  }
+  // 3 in a row unless only 1 or 2 widgets
+  .widget-area:not(.active-1):not(.active-2) {
+    display: flex;
+
+    .widget {
+      width: 33.3%;
+      // margin-right: 0;
+      // padding-right: 0;
+
+      &:nth-child(odd) {
+        clear: none;
+      }
+      // apply margin right to every third from 1st and 2nd
+      &:nth-child(3n - 2),
+      &:nth-child(3n - 1) {
+        // margin-right: 3%;
+        // padding-right: 3%;
+        border-right: solid 1px $color-gray-86;
+      }
+      &:nth-child(3n) {
+        border-right: none;
+      }
+      // every 3rd starting with #4 clears left, so layout doesn't get messed up in FF
+      &:nth-child(3n + 4) {
+        clear: left;
+      }
+    }
+  }
+}
+
+@media all and (min-width: $eleven-hundred) {
+
+  // 4 in a row unless only 1, 2, or 3 widgets
+  .widget-area:not(.active-1):not(.active-2):not(.active-3) {
+    display: flex;
+
+    .widget {
+      width: 25%;
+      // margin-right: 0;
+      // padding-right: 0;
+      border-right: solid 1px $color-gray-86;
+
+      // apply margin right to every fourth from 1st, 2nd, and 3rd
+      &:nth-child(4n - 3),
+      &:nth-child(4n - 2),
+      &:nth-child(4n - 1) {
+        // margin-right: 4%;
+        // padding-right: 4%;
+        border-right: solid 1px $color-gray-86;
+      }
+      &:nth-child(4n) {
+        // margin-right: 0;
+        // padding-right: 0;
+        border-right: none;
+      }
+      // every 3rd starting with #5 clears left, so layout doesn't get messed up in FF
+      &:nth-child(3n + 4) {
+        clear: none;
+      }
+      &:nth-child(3n + 5) {
+        clear: left;
+      }
+    }
   }
 }

@@ -87,9 +87,6 @@
       padding: 0 12px;
 
       &:nth-child(odd) {
-        // margin-right: 4%;
-        // padding-right: 2%;
-        // padding-right: 4%;
         border-right: solid 1px $color-gray-86;
         clear: left;
       }
@@ -108,8 +105,6 @@
 
     .widget {
       width: 33.3%;
-      // margin-right: 0;
-      // padding-right: 0;
 
       &:nth-child(odd) {
         clear: none;
@@ -117,8 +112,6 @@
       // apply margin right to every third from 1st and 2nd
       &:nth-child(3n - 2),
       &:nth-child(3n - 1) {
-        // margin-right: 3%;
-        // padding-right: 3%;
         border-right: solid 1px $color-gray-86;
       }
       &:nth-child(3n) {
@@ -140,21 +133,15 @@
 
     .widget {
       width: 25%;
-      // margin-right: 0;
-      // padding-right: 0;
       border-right: solid 1px $color-gray-86;
 
       // apply margin right to every fourth from 1st, 2nd, and 3rd
       &:nth-child(4n - 3),
       &:nth-child(4n - 2),
       &:nth-child(4n - 1) {
-        // margin-right: 4%;
-        // padding-right: 4%;
         border-right: solid 1px $color-gray-86;
       }
       &:nth-child(4n) {
-        // margin-right: 0;
-        // padding-right: 0;
         border-right: none;
       }
       // every 3rd starting with #5 clears left, so layout doesn't get messed up in FF

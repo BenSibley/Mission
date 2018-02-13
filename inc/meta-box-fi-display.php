@@ -6,7 +6,7 @@
 if ( ! function_exists( ( 'ct_mission_news_add_featured_image_display_meta_box' ) ) ) {
 	function ct_mission_news_add_featured_image_display_meta_box() {
 
-		$screens = array( 'post', 'page' );
+		$screens = array( 'post' );
 
 		foreach ( $screens as $screen ) {
 

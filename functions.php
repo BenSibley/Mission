@@ -649,8 +649,15 @@ add_action( 'customize_register', 'ct_mission_news_logo_refresh', 20 );
 //----------------------------------------------------------------------------------
 // Add dismissible Mission News Pro admin notice
 //----------------------------------------------------------------------------------
-dnh_register_notice( 'ct_mission_news_pro_notice', 'updated', sprintf( __( 'Mission News Pro is now available! <a href="%s" target="_blank">Click here for screenshots & videos</a>.', 'mission-news' ), 'https://www.competethemes.com/mission-news-pro/?utm_source=admin-notice&utm_medium=dashboards' ) );
-
+if ( ! function_exists( ( 'ct_mission_news_pro_admin_notice' ) ) ) {
+	function ct_mission_news_pro_admin_notice() {
+		if ( function_exists( ( 'dnh_register_notice' ) ) ) {
+			dnh_register_notice( 'ct_mission_news_pro_notice', 'updated', sprintf( __( 'Mission News Pro is now available! <a href="%s" target="_blank">Click here for screenshots & videos</a>.', 'mission-news' ), 'https://www.competethemes.com/mission-news-pro/?utm_source=admin-notice&utm_medium=dashboards' ) );
+		}
+	}
+}
+add_action( 'admin_init', 'ct_mission_news_pro_admin_notice' );
+	
 //----------------------------------------------------------------------------------
 // Output styles for widget alignment
 //----------------------------------------------------------------------------------

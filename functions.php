@@ -704,3 +704,60 @@ if ( ! function_exists( ( 'ct_mission_news_sanitize_css' ) ) ) {
 		return $css;
 	}
 }
+
+function ct_mission_news_set_default_widgets() {
+
+	// get active widgets in sidebars
+	$active_widgets = get_option( 'sidebars_widgets' );
+	
+	// if both sidebars are empty
+	if ( empty( $active_widgets['left'] ) && empty( $active_widgets['right'] ) ) {
+		// prepare counter
+		$counter = 1;
+		// add new instance of Recent Posts Extended to left sidebar
+		$active_widgets['left'][0] = 'ct_mission_news_post_list-' . $counter;
+		// set default options for the widget
+		$widget_options[$counter] = array(
+			'title' 				 => __('Latest Posts', 'mission-news'),
+			'use_category' 	 => 'yes',
+			'category'     	 => 1,
+			'use_tag' 			 => 'no',
+			'tag'          	 => 1,
+			'relationship' 	 => 'AND',
+			'author'       	 => 'yes',
+			'date'         	 => 'no',
+			'image'        	 => 'no',
+			'excerpt'     	 => 'yes',
+			'excerpt_length' => 25,
+			'comments'     	 => 'yes',
+			'post_count'   	 => 5,
+			'style'        	 => 1,
+		);
+		// increment for next widget
+		$counter++;
+		// add new instance of Recent Posts Extended to right sidebar
+		$active_widgets['right'][0] = 'ct_mission_news_post_list-' . $counter;
+		// set default options for the widget
+		$widget_options[$counter] = array(
+			'title' 				 => __('Latest Posts', 'mission-news'),
+			'use_category' 	 => 'yes',
+			'category'     	 => 1,
+			'use_tag' 			 => 'no',
+			'tag'          	 => 1,
+			'relationship' 	 => 'AND',
+			'author'       	 => 'no',
+			'date'         	 => 'yes',
+			'image'        	 => 'yes',
+			'excerpt'     	 => 'no',
+			'excerpt_length' => 25,
+			'comments'     	 => 'no',
+			'post_count'   	 => 5,
+			'style'        	 => 2,
+		);
+		// save settings for both widgets
+		update_option( 'widget_ct_mission_news_post_list', $widget_options );
+		// save widgets to sidebars
+		update_option( 'sidebars_widgets', $active_widgets );
+	}
+}
+add_action( 'after_switch_theme', 'ct_mission_news_set_default_widgets' );

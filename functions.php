@@ -705,6 +705,10 @@ if ( ! function_exists( ( 'ct_mission_news_sanitize_css' ) ) ) {
 	}
 }
 
+//----------------------------------------------------------------------------------
+// Add Recent Posts Extended widgets with same settings as in the demo site and screenshot
+// Only runs upon theme activation and if both sidebars are empty
+//----------------------------------------------------------------------------------
 function ct_mission_news_set_default_widgets() {
 
 	// get active widgets in sidebars

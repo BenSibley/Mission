@@ -259,6 +259,24 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			)
 		) );
 	}
+	// section - Site Width
+	$wp_customize->add_section( 'ct_mission_news_layout_site_width', array(
+		'title'    => __( 'Site Width', 'mission-news' ),
+		'panel'    => 'ct_mission_news_layout_panel'
+	) );
+	// setting
+	$wp_customize->add_setting( 'site_width', array(
+		'default'           => 1280,
+		'sanitize_callback' => 'absint'
+	) );
+	// control
+	$wp_customize->add_control( 'site_width', array(
+		'label'       => __( 'Maximum site width', 'mission-news' ),
+		'description' => __( 'Control the widest the site will get on large screens. Default is 1280px', 'mission-news' ),
+		'section'     => 'ct_mission_news_layout_site_width',
+		'settings'    => 'site_width',
+		'type'        => 'number'
+	) );
 
 	//----------------------------------------------------------------------------------
 	// Section: Widget Styles - Below Header

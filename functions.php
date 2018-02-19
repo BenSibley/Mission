@@ -720,7 +720,7 @@ if ( ! function_exists( ( 'ct_mission_news_set_default_widgets' ) ) ) {
 			// prepare counter
 			$counter = 1;
 			// add new instance of Recent Posts Extended to left sidebar
-			$active_widgets['left'][0] = 'ct_mission_news_post_list-' . $counter;
+			$active_widgets['left'][0] = 'ct_mission_news_post_list-' . absint($counter);
 			// set default options for the widget
 			$widget_options[$counter] = array(
 				'title' 				  => __('Latest Posts', 'mission-news'),
@@ -737,12 +737,12 @@ if ( ! function_exists( ( 'ct_mission_news_set_default_widgets' ) ) ) {
 				'comments'     	  => 'yes',
 				'exclude_current' => 'no',
 				'post_count'   	 	=> 5,
-				'style'        	 	=> 1,
+				'style'        	 	=> 1
 			);
 			// increment for next widget
 			$counter++;
 			// add new instance of Recent Posts Extended to right sidebar
-			$active_widgets['right'][0] = 'ct_mission_news_post_list-' . $counter;
+			$active_widgets['right'][0] = 'ct_mission_news_post_list-' . absint($counter);
 			// set default options for the widget
 			$widget_options[$counter] = array(
 				'title' 				 	=> __('Latest Posts', 'mission-news'),
@@ -759,7 +759,7 @@ if ( ! function_exists( ( 'ct_mission_news_set_default_widgets' ) ) ) {
 				'comments'     	 	=> 'no',
 				'exclude_current' => 'no',
 				'post_count'   	 	=> 5,
-				'style'        	 	=> 2,
+				'style'        	 	=> 2
 			);
 			// save settings for both widgets
 			update_option( 'widget_ct_mission_news_post_list', $widget_options );

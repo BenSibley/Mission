@@ -722,20 +722,21 @@ function ct_mission_news_set_default_widgets() {
 		$active_widgets['left'][0] = 'ct_mission_news_post_list-' . $counter;
 		// set default options for the widget
 		$widget_options[$counter] = array(
-			'title' 				 => __('Latest Posts', 'mission-news'),
-			'use_category' 	 => 'yes',
-			'category'     	 => 1,
-			'use_tag' 			 => 'no',
-			'tag'          	 => 1,
-			'relationship' 	 => 'AND',
-			'author'       	 => 'yes',
-			'date'         	 => 'no',
-			'image'        	 => 'no',
-			'excerpt'     	 => 'yes',
-			'excerpt_length' => 25,
-			'comments'     	 => 'yes',
-			'post_count'   	 => 5,
-			'style'        	 => 1,
+			'title' 				  => __('Latest Posts', 'mission-news'),
+			'use_category' 	  => 'yes',
+			'category'     	  => 1,
+			'use_tag' 			  => 'no',
+			'tag'          	  => 1,
+			'relationship' 	  => 'AND',
+			'author'       	  => 'yes',
+			'date'         	  => 'no',
+			'image'        	  => 'no',
+			'excerpt'     	  => 'yes',
+			'excerpt_length'  => 25,
+			'comments'     	  => 'yes',
+			'exclude_current' => 'no',
+			'post_count'   	 	=> 5,
+			'style'        	 	=> 1,
 		);
 		// increment for next widget
 		$counter++;
@@ -743,20 +744,21 @@ function ct_mission_news_set_default_widgets() {
 		$active_widgets['right'][0] = 'ct_mission_news_post_list-' . $counter;
 		// set default options for the widget
 		$widget_options[$counter] = array(
-			'title' 				 => __('Latest Posts', 'mission-news'),
-			'use_category' 	 => 'yes',
-			'category'     	 => 1,
-			'use_tag' 			 => 'no',
-			'tag'          	 => 1,
-			'relationship' 	 => 'AND',
-			'author'       	 => 'no',
-			'date'         	 => 'yes',
-			'image'        	 => 'yes',
-			'excerpt'     	 => 'no',
-			'excerpt_length' => 25,
-			'comments'     	 => 'no',
-			'post_count'   	 => 5,
-			'style'        	 => 2,
+			'title' 				 	=> __('Latest Posts', 'mission-news'),
+			'use_category' 	 	=> 'yes',
+			'category'     	 	=> 1,
+			'use_tag' 			 	=> 'no',
+			'tag'          	 	=> 1,
+			'relationship' 	 	=> 'AND',
+			'author'       	 	=> 'no',
+			'date'         	 	=> 'yes',
+			'image'        	 	=> 'yes',
+			'excerpt'     	 	=> 'no',
+			'excerpt_length' 	=> 25,
+			'comments'     	 	=> 'no',
+			'exclude_current' => 'no',
+			'post_count'   	 	=> 5,
+			'style'        	 	=> 2,
 		);
 		// save settings for both widgets
 		update_option( 'widget_ct_mission_news_post_list', $widget_options );

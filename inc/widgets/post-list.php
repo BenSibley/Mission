@@ -26,20 +26,21 @@ class ct_mission_news_post_list extends WP_Widget {
 	//----------------------------------------------------------------------------------
 	function defaults($instance) {
 		$defaults = array(
-		'title' 			 => isset( $instance['title'] ) ? sanitize_text_field($instance['title']) : '',
-		'use_category' => isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes',
-		'category'     => isset( $instance['category'] ) ? absint($instance['category']) : 1,
-		'use_tag'      => isset( $instance['use_tag'] ) ? $instance['use_tag'] : 'no',
-		'tag'          => isset( $instance['tag'] ) ? absint($instance['tag']) : 1,
-		'relationship' => isset( $instance['relationship'] ) ? sanitize_text_field($instance['relationship']) : 'AND',
-		'author'       => isset( $instance['author'] ) ? $instance['author'] : 'yes',
-		'date'         => isset( $instance['date'] ) ? $instance['date'] : 'no',
-		'image'        => isset( $instance['image'] ) ? $instance['image'] : 'no',
-		'excerpt'      => isset( $instance['excerpt'] ) ? $instance['excerpt'] : 'yes',
-		'excerpt_length' => isset( $instance['excerpt_length'] ) ? absint($instance['excerpt_length']) : 25,
-		'comments'     => isset( $instance['comments'] ) ? $instance['comments'] : 'yes',
-		'post_count'   => isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
-		'style'        => isset( $instance['style'] ) ? absint($instance['style']) : 1,
+		'title' 			 		=> isset( $instance['title'] ) ? sanitize_text_field($instance['title']) : '',
+		'use_category' 		=> isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes',
+		'category'     		=> isset( $instance['category'] ) ? absint($instance['category']) : 1,
+		'use_tag'      		=> isset( $instance['use_tag'] ) ? $instance['use_tag'] : 'no',
+		'tag'          		=> isset( $instance['tag'] ) ? absint($instance['tag']) : 1,
+		'relationship' 		=> isset( $instance['relationship'] ) ? sanitize_text_field($instance['relationship']) : 'AND',
+		'author'       		=> isset( $instance['author'] ) ? $instance['author'] : 'yes',
+		'date'        	 	=> isset( $instance['date'] ) ? $instance['date'] : 'no',
+		'image'        		=> isset( $instance['image'] ) ? $instance['image'] : 'no',
+		'excerpt'      		=> isset( $instance['excerpt'] ) ? $instance['excerpt'] : 'yes',
+		'excerpt_length' 	=> isset( $instance['excerpt_length'] ) ? absint($instance['excerpt_length']) : 25,
+		'comments'     		=> isset( $instance['comments'] ) ? $instance['comments'] : 'yes',
+		'exclude_current' => isset( $instance['exclude_current'] ) ? $instance['exclude_current'] : 'no',
+		'post_count'   		=> isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
+		'style'        		=> isset( $instance['style'] ) ? absint($instance['style']) : 1,
 		);
 		return $defaults;
 	}
@@ -84,6 +85,11 @@ class ct_mission_news_post_list extends WP_Widget {
 			if ( $instance['use_tag'] == 'yes' ) {
 				$query_args['tag_id'] = $instance['tag'];
 			}
+		}
+		// exclude current post from query
+		if ( $instance['exclude_current'] == 'yes' ) {
+			global $post;
+			$query_args['post__not_in'] = [$post->ID];
 		}
 
 		// create the query
@@ -226,6 +232,10 @@ class ct_mission_news_post_list extends WP_Widget {
 					<label for="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>"><?php esc_html_e( 'Show comments link', 'mission-news' ); ?></label>
 				</p>
 				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_current'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_current' ) ); ?>" value="<?php echo esc_attr( $instance['exclude_current'] ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>"><?php esc_html_e( 'Exclude current post', 'mission-news' ); ?></label>
+				</p>
+				<p>
 					<input id="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_count' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $instance['post_count'] ); ?>">
 					<label for="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>"><?php esc_html_e( 'Number of posts', 'mission-news' ); ?></label>
 				</p>
@@ -255,13 +265,14 @@ class ct_mission_news_post_list extends WP_Widget {
 
 		$instance = $old_instance;
 		$instance = $this->defaults($new_instance);
-		$instance['use_category'] = isset( $new_instance['use_category'] ) ? 'yes' : 'no';
-		$instance['use_tag']      = isset( $new_instance['use_tag'] ) ? 'yes' : 'no';
-		$instance['author']       = isset( $new_instance['author'] ) ? 'yes' : 'no';
-		$instance['date']         = isset( $new_instance['date'] ) ? 'yes' : 'no';
-		$instance['image']        = isset( $new_instance['image'] ) ? 'yes' : 'no';
-		$instance['excerpt']      = isset( $new_instance['excerpt'] ) ? 'yes' : 'no';
-		$instance['comments']     = isset( $new_instance['comments'] ) ? 'yes' : 'no';
+		$instance['use_category'] 	 = isset( $new_instance['use_category'] ) ? 'yes' : 'no';
+		$instance['use_tag']      	 = isset( $new_instance['use_tag'] ) ? 'yes' : 'no';
+		$instance['author']       	 = isset( $new_instance['author'] ) ? 'yes' : 'no';
+		$instance['date']         	 = isset( $new_instance['date'] ) ? 'yes' : 'no';
+		$instance['image']        	 = isset( $new_instance['image'] ) ? 'yes' : 'no';
+		$instance['excerpt']      	 = isset( $new_instance['excerpt'] ) ? 'yes' : 'no';
+		$instance['comments']     	 = isset( $new_instance['comments'] ) ? 'yes' : 'no';
+		$instance['exclude_current'] = isset( $new_instance['exclude_current'] ) ? 'yes' : 'no';
 
 		return $instance;
 	}

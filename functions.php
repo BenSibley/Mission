@@ -709,75 +709,79 @@ if ( ! function_exists( ( 'ct_mission_news_sanitize_css' ) ) ) {
 // Add Recent Posts Extended widgets with same settings as in the demo site and screenshot
 // Only runs upon theme activation and if both sidebars are empty
 //----------------------------------------------------------------------------------
-function ct_mission_news_set_default_widgets() {
+if ( ! function_exists( ( 'ct_mission_news_set_default_widgets' ) ) ) {
+	function ct_mission_news_set_default_widgets() {
 
-	// get active widgets in sidebars
-	$active_widgets = get_option( 'sidebars_widgets' );
-	
-	// if both sidebars are empty
-	if ( empty( $active_widgets['left'] ) && empty( $active_widgets['right'] ) ) {
-		// prepare counter
-		$counter = 1;
-		// add new instance of Recent Posts Extended to left sidebar
-		$active_widgets['left'][0] = 'ct_mission_news_post_list-' . $counter;
-		// set default options for the widget
-		$widget_options[$counter] = array(
-			'title' 				  => __('Latest Posts', 'mission-news'),
-			'use_category' 	  => 'yes',
-			'category'     	  => 1,
-			'use_tag' 			  => 'no',
-			'tag'          	  => 1,
-			'relationship' 	  => 'AND',
-			'author'       	  => 'yes',
-			'date'         	  => 'no',
-			'image'        	  => 'no',
-			'excerpt'     	  => 'yes',
-			'excerpt_length'  => 25,
-			'comments'     	  => 'yes',
-			'exclude_current' => 'no',
-			'post_count'   	 	=> 5,
-			'style'        	 	=> 1,
-		);
-		// increment for next widget
-		$counter++;
-		// add new instance of Recent Posts Extended to right sidebar
-		$active_widgets['right'][0] = 'ct_mission_news_post_list-' . $counter;
-		// set default options for the widget
-		$widget_options[$counter] = array(
-			'title' 				 	=> __('Latest Posts', 'mission-news'),
-			'use_category' 	 	=> 'yes',
-			'category'     	 	=> 1,
-			'use_tag' 			 	=> 'no',
-			'tag'          	 	=> 1,
-			'relationship' 	 	=> 'AND',
-			'author'       	 	=> 'no',
-			'date'         	 	=> 'yes',
-			'image'        	 	=> 'yes',
-			'excerpt'     	 	=> 'no',
-			'excerpt_length' 	=> 25,
-			'comments'     	 	=> 'no',
-			'exclude_current' => 'no',
-			'post_count'   	 	=> 5,
-			'style'        	 	=> 2,
-		);
-		// save settings for both widgets
-		update_option( 'widget_ct_mission_news_post_list', $widget_options );
-		// save widgets to sidebars
-		update_option( 'sidebars_widgets', $active_widgets );
+		// get active widgets in sidebars
+		$active_widgets = get_option( 'sidebars_widgets' );
+		
+		// if both sidebars are empty
+		if ( empty( $active_widgets['left'] ) && empty( $active_widgets['right'] ) ) {
+			// prepare counter
+			$counter = 1;
+			// add new instance of Recent Posts Extended to left sidebar
+			$active_widgets['left'][0] = 'ct_mission_news_post_list-' . $counter;
+			// set default options for the widget
+			$widget_options[$counter] = array(
+				'title' 				  => __('Latest Posts', 'mission-news'),
+				'use_category' 	  => 'yes',
+				'category'     	  => 1,
+				'use_tag' 			  => 'no',
+				'tag'          	  => 1,
+				'relationship' 	  => 'AND',
+				'author'       	  => 'yes',
+				'date'         	  => 'no',
+				'image'        	  => 'no',
+				'excerpt'     	  => 'yes',
+				'excerpt_length'  => 25,
+				'comments'     	  => 'yes',
+				'exclude_current' => 'no',
+				'post_count'   	 	=> 5,
+				'style'        	 	=> 1,
+			);
+			// increment for next widget
+			$counter++;
+			// add new instance of Recent Posts Extended to right sidebar
+			$active_widgets['right'][0] = 'ct_mission_news_post_list-' . $counter;
+			// set default options for the widget
+			$widget_options[$counter] = array(
+				'title' 				 	=> __('Latest Posts', 'mission-news'),
+				'use_category' 	 	=> 'yes',
+				'category'     	 	=> 1,
+				'use_tag' 			 	=> 'no',
+				'tag'          	 	=> 1,
+				'relationship' 	 	=> 'AND',
+				'author'       	 	=> 'no',
+				'date'         	 	=> 'yes',
+				'image'        	 	=> 'yes',
+				'excerpt'     	 	=> 'no',
+				'excerpt_length' 	=> 25,
+				'comments'     	 	=> 'no',
+				'exclude_current' => 'no',
+				'post_count'   	 	=> 5,
+				'style'        	 	=> 2,
+			);
+			// save settings for both widgets
+			update_option( 'widget_ct_mission_news_post_list', $widget_options );
+			// save widgets to sidebars
+			update_option( 'sidebars_widgets', $active_widgets );
+		}
 	}
 }
 add_action( 'after_switch_theme', 'ct_mission_news_set_default_widgets' );
 
-function ct_mission_news_site_width_css() {
-	$site_width = get_theme_mod( 'site_width');
-	$css = '';
+if ( ! function_exists( ( 'ct_mission_news_site_width_css' ) ) ) {
+	function ct_mission_news_site_width_css() {
+		$site_width = get_theme_mod( 'site_width');
+		$css = '';
 
-	if ( !empty($site_width) && $site_width != 1280 ) {
-		$css .= '.max-width { max-width: '. $site_width .'px;}';	
-	}
-	if ( !empty( $css ) ) {
-		$css = ct_mission_news_sanitize_css($css);
-		wp_add_inline_style( 'ct-mission-news-style', $css );
+		if ( !empty($site_width) && $site_width != 1280 ) {
+			$css .= '.max-width { max-width: '. $site_width .'px;}';	
+		}
+		if ( !empty( $css ) ) {
+			$css = ct_mission_news_sanitize_css($css);
+			wp_add_inline_style( 'ct-mission-news-style', $css );
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ct_mission_news_site_width_css', 99 );

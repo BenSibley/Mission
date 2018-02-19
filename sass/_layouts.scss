@@ -50,6 +50,10 @@
     .entry:first-child .featured-image {
       width: 156%;
     }
+    .entry:first-child .more-from-category .featured-image {
+      left: 0;
+      width: 100%;
+    }
   }
   // Move the Featured Image to the left
   .layout-right-sidebar {

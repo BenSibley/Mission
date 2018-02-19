@@ -2995,6 +2995,11 @@ a img {
   .layout-right-sidebar .entry:first-child .featured-image {
     width: 156%;
   }
+  .layout-left-sidebar .entry:first-child .more-from-category .featured-image,
+  .layout-right-sidebar .entry:first-child .more-from-category .featured-image {
+    left: 0;
+    width: 100%;
+  }
 
   .layout-right-sidebar .entry:first-child .featured-image {
     left: -56%;

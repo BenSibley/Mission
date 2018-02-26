@@ -2495,7 +2495,8 @@ a img {
 .widget-area-above-main.active-1 .widget,
 .widget-area-after-first-post.active-1 .widget,
 .widget-area-after-post.active-1 .widget,
-.widget-area-after-page.active-1 .widget {
+.widget-area-after-page.active-1 .widget,
+.widget-area-site-footer.active-1 .widget {
   margin-bottom: 0.75em;
 }
 

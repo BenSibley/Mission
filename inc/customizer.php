@@ -483,6 +483,47 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	) );
 
 	//----------------------------------------------------------------------------------
+	// Section: Widget Styles - Footer
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_widget_styles_footer', array(
+		'title'    => __( 'Footer', 'mission-news' ),
+		'panel'    => 'ct_mission_news_widget_styles_panel'
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_footer_layout', array(
+		'default'           => 'row',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_layout'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_footer_layout', array(
+		'label'       => __( 'Display widgets in a row or column?', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_footer',
+		'settings'    => 'ct_mission_widget_styles_footer_layout',
+		'type'        => 'radio',
+		'choices'     => array(
+			'row'    => __( 'Row', 'mission-news' ),
+			'column' => __( 'Column', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'ct_mission_widget_styles_footer_alignment', array(
+		'default'           => 'center',
+		'sanitize_callback' => 'ct_mission_news_sanitize_widget_styles_alignment'
+	) );
+	// control
+	$wp_customize->add_control( 'ct_mission_widget_styles_footer_alignment', array(
+		'label'       => __( 'Widget text alignment', 'mission-news' ),
+		'section'     => 'ct_mission_news_widget_styles_footer',
+		'settings'    => 'ct_mission_widget_styles_footer_alignment',
+		'type'        => 'radio',
+		'choices'     => array(
+			'left'   => __( 'Left', 'mission-news' ),
+			'center' => __( 'Center', 'mission-news' ),
+			'right'  => __( 'Right', 'mission-news' )
+		)
+	) );
+
+	//----------------------------------------------------------------------------------
 	// Section: Social Media Icons
 	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_news_social_media_icons', array(

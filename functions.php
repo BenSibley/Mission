@@ -142,6 +142,15 @@ if ( ! function_exists( ( 'ct_mission_news_register_widget_areas' ) ) ) {
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>'
 		) );
+		register_sidebar( array(
+			'name'          => esc_html__( 'Footer', 'mission-news' ),
+			'id'            => 'site-footer',
+			'description'   => esc_html__( 'Widgets in this area will be shown in the footer.', 'mission-news' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>'
+		) );
 	}
 }
 add_action( 'widgets_init', 'ct_mission_news_register_widget_areas' );

@@ -33,6 +33,9 @@
 .widget-area-after-post {
   margin: $baseline-height 0;
 }
+.widget-area-site-footer {
+  margin: $baseline-height * 2 0;
+}
 .widget-area-after-page {
   margin-top: $baseline-height * 1.5;
 }
@@ -80,7 +83,10 @@
       border-top: solid 1px $color-gray-86;
       padding-top: 18px;
     }
-
+    &.widget-area-site-footer {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
     .widget {
       width: 50%;
       float: left;

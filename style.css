@@ -2507,6 +2507,10 @@ a img {
   margin: 1.5em 0;
 }
 
+.widget-area-site-footer {
+  margin: 3em 0;
+}
+
 .widget-area-after-page {
   margin-top: 2.25em;
 }
@@ -2556,6 +2560,10 @@ a img {
     border-bottom: none;
     border-top: solid 1px #DCDCDC;
     padding-top: 18px;
+  }
+  .widget-area:not(.active-1).widget-area-site-footer {
+    padding-bottom: 0;
+    border-bottom: none;
   }
   .widget-area:not(.active-1) .widget {
     width: 50%;

@@ -2266,14 +2266,15 @@ a img {
   width: 100%;
 }
 .featured-image .ccfic {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 4px 4px 4px 12px;
+  padding: 12px 0;
   font-size: 13px;
+}
+
+.blog .featured-image .ccfic,
+.archive .featured-image .ccfic,
+.search .featured-image .ccfic,
+.more-from-category .featured-image .ccfic {
+  display: none;
 }
 
 .layout-double .double .featured-image,

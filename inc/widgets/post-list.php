@@ -38,6 +38,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		'excerpt'      		=> isset( $instance['excerpt'] ) ? $instance['excerpt'] : 'yes',
 		'excerpt_length' 	=> isset( $instance['excerpt_length'] ) ? absint($instance['excerpt_length']) : 25,
 		'comments'     		=> isset( $instance['comments'] ) ? $instance['comments'] : 'yes',
+		'post_category'   => isset( $instance['post_category'] ) ? $instance['post_category'] : 'no',
 		'exclude_current' => isset( $instance['exclude_current'] ) ? $instance['exclude_current'] : 'no',
 		'post_count'   		=> isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
 		'style'        		=> isset( $instance['style'] ) ? absint($instance['style']) : 1,
@@ -121,6 +122,9 @@ class ct_mission_news_post_list extends WP_Widget {
 							echo '<a href="' . esc_url( get_the_permalink() ) . '" class="title">' . esc_html( get_the_title() ) . '</a>';
 							if ( $instance['author'] == 'yes' || $instance['date'] == 'yes' ) {
 								ct_mission_news_post_byline( $instance['author'], $instance['date'] );
+							}
+							if ( $instance['post_category'] == 'yes' ) {
+								the_category();
 							}
 						echo '</div>';
 					echo '</div>';
@@ -232,6 +236,10 @@ class ct_mission_news_post_list extends WP_Widget {
 					<label for="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>"><?php esc_html_e( 'Show comments link', 'mission-news' ); ?></label>
 				</p>
 				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $instance['post_category'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'post_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_category' ) ); ?>" value="<?php echo esc_attr( $instance['post_category'] ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'post_category' ) ); ?>"><?php esc_html_e( 'Show category link', 'mission-news' ); ?></label>
+				</p>
+				<p>
 					<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_current'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_current' ) ); ?>" value="<?php echo esc_attr( $instance['exclude_current'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>"><?php esc_html_e( 'Exclude current post', 'mission-news' ); ?></label>
 				</p>
@@ -272,6 +280,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		$instance['image']        	 = isset( $new_instance['image'] ) ? 'yes' : 'no';
 		$instance['excerpt']      	 = isset( $new_instance['excerpt'] ) ? 'yes' : 'no';
 		$instance['comments']     	 = isset( $new_instance['comments'] ) ? 'yes' : 'no';
+		$instance['post_category']   = isset( $new_instance['post_category'] ) ? 'yes' : 'no';
 		$instance['exclude_current'] = isset( $new_instance['exclude_current'] ) ? 'yes' : 'no';
 
 		return $instance;

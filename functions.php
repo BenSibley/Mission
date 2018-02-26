@@ -748,6 +748,7 @@ if ( ! function_exists( ( 'ct_mission_news_set_default_widgets' ) ) ) {
 				'excerpt'     	  => 'yes',
 				'excerpt_length'  => 25,
 				'comments'     	  => 'yes',
+				'post_category'   => 'no',
 				'exclude_current' => 'no',
 				'post_count'   	 	=> 5,
 				'style'        	 	=> 1
@@ -770,6 +771,7 @@ if ( ! function_exists( ( 'ct_mission_news_set_default_widgets' ) ) ) {
 				'excerpt'     	 	=> 'no',
 				'excerpt_length' 	=> 25,
 				'comments'     	 	=> 'no',
+				'post_category'   => 'no',
 				'exclude_current' => 'no',
 				'post_count'   	 	=> 5,
 				'style'        	 	=> 2

@@ -34,6 +34,14 @@
       margin-right: 2px;
     }
   }
+  .post-categories {
+    @extend %fourteen-pixels;
+
+    li {
+      display: inline-block;
+      margin-right: 4px;
+    }
+  }
   .style-1 {
 
     li {
@@ -50,6 +58,12 @@
     }
     .featured-image {
       margin-bottom: 12px;
+    }
+    .post-categories {
+
+      li {
+        margin-bottom: $baseline-height/2;
+      }
     }
   }
   .style-2 {

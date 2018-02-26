@@ -55,7 +55,7 @@ textarea, input[type="submit"], .comments .comment-author .author-name, .comment
   /* 18px */
 }
 
-textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment-content, .site-footer .footer-tagline, .tagline, .widget_ct_mission_news_post_list .style-2 .excerpt {
+textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment-content, .site-footer .footer-tagline, .tagline, .widget_ct_mission_news_post_list .post-categories, .widget_ct_mission_news_post_list .style-2 .excerpt {
   font-size: 0.875em;
   /* 14px / 16px */
   line-height: 1.571;
@@ -2651,6 +2651,10 @@ a img {
 .widget_ct_mission_news_post_list .comments-link i {
   margin-right: 2px;
 }
+.widget_ct_mission_news_post_list .post-categories li {
+  display: inline-block;
+  margin-right: 4px;
+}
 .widget_ct_mission_news_post_list .style-1 li {
   margin-bottom: 1.5em;
 }
@@ -2664,6 +2668,9 @@ a img {
 }
 .widget_ct_mission_news_post_list .style-1 .featured-image {
   margin-bottom: 12px;
+}
+.widget_ct_mission_news_post_list .style-1 .post-categories li {
+  margin-bottom: 0.75em;
 }
 .widget_ct_mission_news_post_list .style-2 li {
   margin-bottom: 0.75em;

@@ -18,6 +18,11 @@
   .ccfic {
     padding: 12px 0;
     font-size: 13px;
+
+    span {
+      display: block;
+      line-height: 1.5;
+    }
   }
 }
 .blog,

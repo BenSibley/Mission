@@ -2269,6 +2269,10 @@ a img {
   padding: 12px 0;
   font-size: 13px;
 }
+.featured-image .ccfic span {
+  display: block;
+  line-height: 1.5;
+}
 
 .blog .featured-image .ccfic,
 .archive .featured-image .ccfic,

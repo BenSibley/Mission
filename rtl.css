@@ -64,7 +64,7 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
 
 .wp-caption-text,
 .gallery-caption, .sticky-status, .comment-respond label, .site-footer .design-credit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a,
-.menu-secondary .menu-unset > ul a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_news_post_list .comments-link, .widget_calendar table caption {
+.menu-secondary .menu-unset > ul a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .post-tags a, .more-from-category .category-link, .widget_ct_mission_news_post_list .comments-link, .widget_calendar table caption, .woocommerce-account .woocommerce-MyAccount-navigation li a {
   font-size: 0.75em;
   /* 12px / 16px */
   line-height: 1.5;
@@ -80,7 +80,7 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
 
 .sticky-status, .comments .comment-author .comment-date, .search-toggle span, .search-form-popup .search-submit, .dropdown-navigation a, .dropdown-navigation span, .menu-secondary-items a,
 .menu-secondary .menu-unset > ul a, .post-byline, .widget_recent_entries .post-date, .widget_rss .rss-date, .sidebar-left .widget-title,
-.sidebar-right .widget-title, .widget_ct_mission_news_post_list .style-2 .post-byline, .widget_ct_mission_news_post_list .style-2 .widget_recent_entries .post-date, .widget_recent_entries .widget_ct_mission_news_post_list .style-2 .post-date, .widget_ct_mission_news_post_list .style-2 .widget_rss .rss-date, .widget_rss .widget_ct_mission_news_post_list .style-2 .rss-date, .widget_calendar table caption {
+.sidebar-right .widget-title, .widget_ct_mission_news_post_list .style-2 .post-byline, .widget_ct_mission_news_post_list .style-2 .widget_recent_entries .post-date, .widget_recent_entries .widget_ct_mission_news_post_list .style-2 .post-date, .widget_ct_mission_news_post_list .style-2 .widget_rss .rss-date, .widget_rss .widget_ct_mission_news_post_list .style-2 .rss-date, .widget_calendar table caption, .woocommerce-account .woocommerce-MyAccount-navigation li a {
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -3129,5 +3129,172 @@ a img {
 @media all and (min-width: 37.5em) {
   #bbpress-forums #bbp-search-form #bbp_search {
     width: 240px;
+  }
+}
+.woocommerce .product .quantity .qty {
+  width: 50px !important;
+  font-size: 16px !important;
+  padding: 11px 12px 11px 6px !important;
+}
+.woocommerce .product .single_add_to_cart_button {
+  line-height: 1.5;
+  padding: 12px 24px;
+}
+.woocommerce .product_meta a {
+  text-decoration: underline;
+}
+.woocommerce .woocommerce-review-link {
+  text-decoration: underline;
+}
+.woocommerce .woocommerce-Reviews-title,
+.woocommerce .related h2,
+.woocommerce .upsells h2 {
+  margin-bottom: 24px;
+}
+.woocommerce .comment-reply-title {
+  display: block;
+  margin-bottom: 12px;
+  color: #262626;
+  font-weight: 700;
+}
+
+.woocommerce-cart th, .woocommerce-cart td,
+.woocommerce-checkout th,
+.woocommerce-checkout td,
+.woocommerce-page th,
+.woocommerce-page td {
+  border: none;
+}
+.woocommerce-cart h2,
+.woocommerce-cart h3,
+.woocommerce-checkout h2,
+.woocommerce-checkout h3,
+.woocommerce-page h2,
+.woocommerce-page h3 {
+  margin-bottom: 24px;
+}
+
+.woocommerce-cart .content-container:before, .woocommerce-cart .content-container:after,
+.woocommerce-checkout .content-container:before,
+.woocommerce-checkout .content-container:after,
+.woocommerce-account .content-container:before,
+.woocommerce-account .content-container:after {
+  display: none;
+}
+.woocommerce-cart .entry,
+.woocommerce-checkout .entry,
+.woocommerce-account .entry {
+  border-bottom: none;
+}
+
+.woocommerce-cart .quantity input {
+  width: 50px !important;
+  font-size: 14px !important;
+  padding: 8px 4px !important;
+}
+.woocommerce-cart .coupon input {
+  max-width: none !important;
+  width: 49% !important;
+  padding: 10px 12px;
+}
+.woocommerce-cart .coupon input[type="text"] {
+  font-size: 14px !important;
+  padding: 7px 12px 8px !important;
+}
+.woocommerce-cart table.shop_table td.product-name {
+  padding: 24px 12px;
+}
+.woocommerce-cart table.shop_table .actions {
+  padding: 12px;
+}
+.woocommerce-cart .post-content a.remove {
+  text-decoration: none;
+}
+.woocommerce-cart .post-content .checkout-button {
+  text-decoration: none;
+}
+
+.woocommerce-checkout input {
+  max-width: none;
+}
+.woocommerce-checkout .required {
+  text-decoration: none;
+}
+.woocommerce-checkout #customer_details {
+  margin-bottom: 24px;
+}
+
+.woocommerce-account .woocommerce {
+  position: relative;
+  border: solid 1px #F3F3F3;
+  border-radius: 6px;
+  min-height: 260px;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation {
+  background: #F3F3F3;
+  padding: 1.5em;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+  list-style: none;
+  margin: 0;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation li {
+  margin-bottom: 12px;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
+  text-decoration: underline;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation li a {
+  text-decoration: none;
+  font-weight: 800;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation li a:hover, .woocommerce-account .woocommerce-MyAccount-navigation li a:active, .woocommerce-account .woocommerce-MyAccount-navigation li a:focus {
+  text-decoration: underline;
+}
+.woocommerce-account .woocommerce-MyAccount-content {
+  padding: 1.5em;
+}
+.woocommerce-account .woocommerce-MyAccount-content > p:first-child {
+  margin-top: 0;
+}
+.woocommerce-account .woocommerce-MyAccount-content fieldset {
+  margin: 1.5em 0;
+}
+.woocommerce-account .woocommerce-MyAccount-content .woocommerce-address-fields .button {
+  margin-top: 18px;
+}
+.woocommerce-account .woocommerce-MyAccount-content .button {
+  text-decoration: none;
+}
+.woocommerce-account .woocommerce-message {
+  z-index: 9;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  top: -26px;
+}
+.woocommerce-account .col-2.woocommerce-Address {
+  margin-top: 1.5em;
+}
+
+.woocommerce form .form-row .required {
+  text-decoration: none;
+}
+
+@media all and (min-width: 769px) {
+  .woocommerce-account .woocommerce-MyAccount-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+  .woocommerce-account .col-2.woocommerce-Address {
+    margin-top: 0;
+  }
+}
+@media all and (min-width: 50em) {
+  .woocommerce-cart .main,
+  .woocommerce-checkout .main,
+  .woocommerce-account .main {
+    width: 75%;
+    margin-right: 12.5%;
   }
 }

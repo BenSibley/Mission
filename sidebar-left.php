@@ -26,6 +26,11 @@ if (
     ) {
         return;
 }
+if ( function_exists( 'is_woocommerce' ) ) {
+    if ( is_cart() || is_checkout() || is_account_page() ) {
+        return;
+    }
+}
 if ( is_active_sidebar( 'left' ) ) : ?>
     <aside class="sidebar sidebar-left" id="sidebar-left" role="complementary">
         <div class="inner">

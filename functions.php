@@ -792,6 +792,7 @@ if ( ! function_exists( ( 'ct_mission_news_site_width_css' ) ) ) {
 
 		if ( !empty($site_width) && $site_width != 1280 ) {
 			$css .= '.max-width { max-width: '. absint($site_width) .'px;}';	
+			$css .= '.is-sticky .site-header { max-width: '. absint($site_width) .'px !important;}';	
 		}
 		if ( !empty( $css ) ) {
 			$css = ct_mission_news_sanitize_css($css);

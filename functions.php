@@ -62,6 +62,7 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 			'flex-height' => true,
 			'flex-width'  => true
 		) );
+		add_theme_support( 'woocommerce' );
 
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'mission-news' ),

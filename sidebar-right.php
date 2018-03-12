@@ -5,13 +5,22 @@ $layout_page = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'l
 $layout_archives = get_theme_mod( 'layout_archives' );
 $layout_blog = get_theme_mod( 'layout_blog' );
 $layout_bbpress = get_theme_mod( 'layout_bbpress' );
+$layout_woocommerce = get_theme_mod( 'layout_woocommerce' );
+$layout_woocommerce_cat = get_theme_mod( 'layout_woocommerce_cat' );
 
 if ( !function_exists('is_bbpress') ) {
 	function is_bbpress() {
 			return false;
 	}
 }
-
+if ( !function_exists('is_product') ) {
+	function is_product() {
+			return false;
+	}
+	function is_product_category() {
+		return false;
+	}
+}
 if (
 	// Posts 
 	(is_singular('post') && ($layout_post == 'left-sidebar' || $layout_post == 'left-sidebar-wide' || $layout_post == 'no-sidebar' || $layout_post == 'no-sidebar-wide') && !is_bbpress())
@@ -23,6 +32,10 @@ if (
 	|| (is_home() && ($layout_blog == 'left-sidebar' || $layout_blog == 'left-sidebar-wide' || $layout_blog == 'no-sidebar' || $layout_blog == 'no-sidebar-wide'))
 	// bbPress
 	|| (is_bbpress() && ($layout_bbpress == 'left-sidebar' || $layout_bbpress == 'left-sidebar-wide' || $layout_bbpress == 'no-sidebar' || $layout_bbpress == 'no-sidebar-wide'))
+	// WooCommerce - Product
+	|| (is_product() && ($layout_woocommerce == 'left-sidebar' || $layout_woocommerce == 'left-sidebar-wide' || $layout_woocommerce == 'no-sidebar' || $layout_woocommerce == 'no-sidebar-wide'))
+	// WooCommerce - Category
+	|| (is_product_category() && ($layout_woocommerce_cat == 'left-sidebar' || $layout_woocommerce_cat == 'left-sidebar-wide' || $layout_woocommerce_cat == 'no-sidebar' || $layout_woocommerce_cat == 'no-sidebar-wide'))
 	) {
 			return;
 }

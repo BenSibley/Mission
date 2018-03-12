@@ -259,6 +259,64 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			)
 		) );
 	}
+	if ( function_exists('is_woocommerce') ) {
+		// section - WooCommerce Product
+		$wp_customize->add_section( 'ct_mission_news_layout_woocommerce', array(
+			'title'    => __( 'WooCommerce - Products', 'mission-news' ),
+			'panel'    => 'ct_mission_news_layout_panel',
+			'priority' => 6
+		) );
+		// setting - WooCommerce Product
+		$wp_customize->add_setting( 'layout_woocommerce', array(
+			'default'           => 'double-sidebar',
+			'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
+		) );
+		// control - WooCommerce Product
+		$wp_customize->add_control( 'layout_woocommerce', array(
+			'label'       => __( 'Product layout', 'mission-news' ),
+			'description' => __( 'Change the layout for all WooCommerce product pages.', 'mission-news' ),
+			'section'     => 'ct_mission_news_layout_woocommerce',
+			'settings'    => 'layout_woocommerce',
+			'type'        => 'radio',
+			'choices'     => array(
+				'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+				'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+				'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+				'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+				'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+				'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+				'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
+			)
+		) );
+		// section - WooCommerce Category
+		$wp_customize->add_section( 'ct_mission_news_layout_woocommerce_cat', array(
+			'title'    => __( 'WooCommerce - Categories', 'mission-news' ),
+			'panel'    => 'ct_mission_news_layout_panel',
+			'priority' => 6
+		) );
+		// setting - WooCommerce Category
+		$wp_customize->add_setting( 'layout_woocommerce_cat', array(
+			'default'           => 'double-sidebar',
+			'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
+		) );
+		// control - WooCommerce Category
+		$wp_customize->add_control( 'layout_woocommerce_cat', array(
+			'label'       => __( 'Product layout', 'mission-news' ),
+			'description' => __( 'Change the layout for all WooCommerce product categories.', 'mission-news' ),
+			'section'     => 'ct_mission_news_layout_woocommerce_cat',
+			'settings'    => 'layout_woocommerce_cat',
+			'type'        => 'radio',
+			'choices'     => array(
+				'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+				'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+				'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+				'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+				'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+				'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+				'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
+			)
+		) );
+	}
 	// section - Site Width
 	$wp_customize->add_section( 'ct_mission_news_layout_site_width', array(
 		'title'    => __( 'Site Width', 'mission-news' ),

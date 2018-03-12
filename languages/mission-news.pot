@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Mission News 1.19\n"
+"Project-Id-Version: Mission News 1.20\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2018-02-27 15:26:38+00:00\n"
+"POT-Creation-Date: 2018-03-12 12:38:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,7 +42,7 @@ msgid ""
 "post\">trackbacks</a> and pingbacks are open."
 msgstr ""
 
-#: comments.php:70 comments.php:77
+#: comments.php:70 comments.php:85
 msgid "Comments are closed."
 msgstr ""
 
@@ -109,99 +109,99 @@ msgid ""
 "leave a review? <i>You won't see this notice again after closing it.</i>"
 msgstr ""
 
-#: functions.php:67
+#: functions.php:68
 msgid "Primary"
 msgstr ""
 
-#: functions.php:68
+#: functions.php:69
 msgid "Secondary"
 msgstr ""
 
-#: functions.php:83
+#: functions.php:84
 msgid "Left Sidebar"
 msgstr ""
 
-#: functions.php:85
+#: functions.php:86
 msgid "Widgets in this area will be shown left of the main post content."
 msgstr ""
 
-#: functions.php:92
+#: functions.php:93
 msgid "Right Sidebar"
 msgstr ""
 
-#: functions.php:94
+#: functions.php:95
 msgid "Widgets in this area will be shown right of the main post content."
 msgstr ""
 
-#: functions.php:101
+#: functions.php:102
 msgid "Ad Spot - Below Header"
 msgstr ""
 
-#: functions.php:103
+#: functions.php:104
 msgid ""
 "Widgets in this area will be shown below the header and above the posts and "
 "sidebars."
 msgstr ""
 
-#: functions.php:110
+#: functions.php:111
 msgid "Ad Spot - Above Posts"
 msgstr ""
 
-#: functions.php:112
+#: functions.php:113
 msgid "Widgets in this area will be shown in the center column above the posts."
 msgstr ""
 
-#: functions.php:119
+#: functions.php:120
 msgid "Ad Spot - After Post Content"
 msgstr ""
 
-#: functions.php:121
+#: functions.php:122
 msgid "Widgets in this area will be shown on post pages after the content."
 msgstr ""
 
-#: functions.php:128
+#: functions.php:129
 msgid "Ad Spot - After Page Content"
 msgstr ""
 
-#: functions.php:130
+#: functions.php:131
 msgid "Widgets in this area will be shown on pages after the content."
 msgstr ""
 
-#: functions.php:137
+#: functions.php:138
 msgid "Ad Spot - After First Post"
 msgstr ""
 
-#: functions.php:139
+#: functions.php:140
 msgid "Widgets in this area will be shown on the blog after the first post."
 msgstr ""
 
-#: functions.php:146 inc/customizer.php:489 inc/customizer.php:962
+#: functions.php:147 inc/customizer.php:547 inc/customizer.php:1020
 msgid "Footer"
 msgstr ""
 
-#: functions.php:148
+#: functions.php:149
 msgid "Widgets in this area will be shown in the footer."
 msgstr ""
 
-#: functions.php:298
+#: functions.php:299
 msgid "Featured"
 msgstr ""
 
-#: functions.php:379
+#: functions.php:380
 msgid "Customizer settings deleted"
 msgstr ""
 
-#: functions.php:601
+#: functions.php:614
 msgid "(title)"
 msgstr ""
 
-#: functions.php:664
+#: functions.php:677
 msgid ""
 "Mission News Pro is now available! <a href=\"%s\" target=\"_blank\">Click "
 "here for screenshots & videos</a>."
 msgstr ""
 
-#: functions.php:739 functions.php:762
+#: functions.php:752 functions.php:775
 msgid "Latest Posts"
 msgstr ""
 
@@ -331,23 +331,23 @@ msgstr ""
 msgid "Change the layout of the posts listed on the blog and archives."
 msgstr ""
 
-#: inc/customizer.php:115 inc/customizer.php:1070
+#: inc/customizer.php:115 inc/customizer.php:1128
 msgid "Simple"
 msgstr ""
 
-#: inc/customizer.php:116 inc/customizer.php:1071
+#: inc/customizer.php:116 inc/customizer.php:1129
 msgid "Double"
 msgstr ""
 
-#: inc/customizer.php:117 inc/customizer.php:1072
+#: inc/customizer.php:117 inc/customizer.php:1130
 msgid "Rows"
 msgstr ""
 
-#: inc/customizer.php:118 inc/customizer.php:1073
+#: inc/customizer.php:118 inc/customizer.php:1131
 msgid "Rows with excerpts"
 msgstr ""
 
-#: inc/customizer.php:123 inc/customizer.php:784
+#: inc/customizer.php:123 inc/customizer.php:842
 msgid "Posts"
 msgstr ""
 
@@ -360,44 +360,44 @@ msgid "Layouts can be changed for individual posts in the post editor."
 msgstr ""
 
 #: inc/customizer.php:140 inc/customizer.php:168 inc/customizer.php:195
-#: inc/customizer.php:223 inc/customizer.php:252 inc/customizer.php:1085
-#: inc/meta-box-layout.php:41
+#: inc/customizer.php:223 inc/customizer.php:252 inc/customizer.php:282
+#: inc/customizer.php:310 inc/customizer.php:1143 inc/meta-box-layout.php:41
 msgid "Double sidebar"
 msgstr ""
 
 #: inc/customizer.php:141 inc/customizer.php:169 inc/customizer.php:196
-#: inc/customizer.php:224 inc/customizer.php:253 inc/customizer.php:1086
-#: inc/meta-box-layout.php:44
+#: inc/customizer.php:224 inc/customizer.php:253 inc/customizer.php:283
+#: inc/customizer.php:311 inc/customizer.php:1144 inc/meta-box-layout.php:44
 msgid "Left sidebar"
 msgstr ""
 
 #: inc/customizer.php:142 inc/customizer.php:170 inc/customizer.php:197
-#: inc/customizer.php:225 inc/customizer.php:254 inc/customizer.php:1087
-#: inc/meta-box-layout.php:47
+#: inc/customizer.php:225 inc/customizer.php:254 inc/customizer.php:284
+#: inc/customizer.php:312 inc/customizer.php:1145 inc/meta-box-layout.php:47
 msgid "Left sidebar - wide"
 msgstr ""
 
 #: inc/customizer.php:143 inc/customizer.php:171 inc/customizer.php:198
-#: inc/customizer.php:226 inc/customizer.php:255 inc/customizer.php:1088
-#: inc/meta-box-layout.php:50
+#: inc/customizer.php:226 inc/customizer.php:255 inc/customizer.php:285
+#: inc/customizer.php:313 inc/customizer.php:1146 inc/meta-box-layout.php:50
 msgid "Right sidebar"
 msgstr ""
 
 #: inc/customizer.php:144 inc/customizer.php:172 inc/customizer.php:199
-#: inc/customizer.php:227 inc/customizer.php:256 inc/customizer.php:1089
-#: inc/meta-box-layout.php:53
+#: inc/customizer.php:227 inc/customizer.php:256 inc/customizer.php:286
+#: inc/customizer.php:314 inc/customizer.php:1147 inc/meta-box-layout.php:53
 msgid "Right sidebar - wide"
 msgstr ""
 
 #: inc/customizer.php:145 inc/customizer.php:173 inc/customizer.php:200
-#: inc/customizer.php:228 inc/customizer.php:257 inc/customizer.php:1090
-#: inc/meta-box-layout.php:56
+#: inc/customizer.php:228 inc/customizer.php:257 inc/customizer.php:287
+#: inc/customizer.php:315 inc/customizer.php:1148 inc/meta-box-layout.php:56
 msgid "No sidebar"
 msgstr ""
 
 #: inc/customizer.php:146 inc/customizer.php:174 inc/customizer.php:201
-#: inc/customizer.php:229 inc/customizer.php:258 inc/customizer.php:1091
-#: inc/meta-box-layout.php:59
+#: inc/customizer.php:229 inc/customizer.php:258 inc/customizer.php:288
+#: inc/customizer.php:316 inc/customizer.php:1149 inc/meta-box-layout.php:59
 msgid "No sidebar - wide"
 msgstr ""
 
@@ -421,7 +421,7 @@ msgstr ""
 msgid "Blog layout"
 msgstr ""
 
-#: inc/customizer.php:206 inc/customizer.php:743
+#: inc/customizer.php:206 inc/customizer.php:801
 msgid "Archives"
 msgstr ""
 
@@ -445,289 +445,309 @@ msgstr ""
 msgid "Change the layout for all bbPress forum pages."
 msgstr ""
 
-#: inc/customizer.php:264
+#: inc/customizer.php:265
+msgid "WooCommerce - Products"
+msgstr ""
+
+#: inc/customizer.php:276 inc/customizer.php:304
+msgid "Product layout"
+msgstr ""
+
+#: inc/customizer.php:277
+msgid "Change the layout for all WooCommerce product pages."
+msgstr ""
+
+#: inc/customizer.php:293
+msgid "WooCommerce - Categories"
+msgstr ""
+
+#: inc/customizer.php:305
+msgid "Change the layout for all WooCommerce product categories."
+msgstr ""
+
+#: inc/customizer.php:322
 msgid "Site Width"
 msgstr ""
 
-#: inc/customizer.php:274
+#: inc/customizer.php:332
 msgid "Maximum site width"
 msgstr ""
 
-#: inc/customizer.php:275
+#: inc/customizer.php:333
 msgid "Control the widest the site will get on large screens. Default is 1280px"
 msgstr ""
 
-#: inc/customizer.php:285
+#: inc/customizer.php:343
 msgid "Below Header"
 msgstr ""
 
-#: inc/customizer.php:295 inc/customizer.php:335 inc/customizer.php:376
-#: inc/customizer.php:417 inc/customizer.php:458 inc/customizer.php:499
+#: inc/customizer.php:353 inc/customizer.php:393 inc/customizer.php:434
+#: inc/customizer.php:475 inc/customizer.php:516 inc/customizer.php:557
 msgid "Display widgets in a row or column?"
 msgstr ""
 
-#: inc/customizer.php:300 inc/customizer.php:340 inc/customizer.php:381
-#: inc/customizer.php:422 inc/customizer.php:463 inc/customizer.php:504
-#: inc/customizer.php:1100
+#: inc/customizer.php:358 inc/customizer.php:398 inc/customizer.php:439
+#: inc/customizer.php:480 inc/customizer.php:521 inc/customizer.php:562
+#: inc/customizer.php:1158
 msgid "Row"
 msgstr ""
 
-#: inc/customizer.php:301 inc/customizer.php:341 inc/customizer.php:382
-#: inc/customizer.php:423 inc/customizer.php:464 inc/customizer.php:505
-#: inc/customizer.php:1101
+#: inc/customizer.php:359 inc/customizer.php:399 inc/customizer.php:440
+#: inc/customizer.php:481 inc/customizer.php:522 inc/customizer.php:563
+#: inc/customizer.php:1159
 msgid "Column"
 msgstr ""
 
-#: inc/customizer.php:311 inc/customizer.php:351 inc/customizer.php:392
-#: inc/customizer.php:433 inc/customizer.php:474 inc/customizer.php:515
+#: inc/customizer.php:369 inc/customizer.php:409 inc/customizer.php:450
+#: inc/customizer.php:491 inc/customizer.php:532 inc/customizer.php:573
 msgid "Widget text alignment"
 msgstr ""
 
-#: inc/customizer.php:316 inc/customizer.php:356 inc/customizer.php:397
-#: inc/customizer.php:438 inc/customizer.php:479 inc/customizer.php:520
-#: inc/customizer.php:1110
+#: inc/customizer.php:374 inc/customizer.php:414 inc/customizer.php:455
+#: inc/customizer.php:496 inc/customizer.php:537 inc/customizer.php:578
+#: inc/customizer.php:1168
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:317 inc/customizer.php:357 inc/customizer.php:398
-#: inc/customizer.php:439 inc/customizer.php:480 inc/customizer.php:521
-#: inc/customizer.php:1111
+#: inc/customizer.php:375 inc/customizer.php:415 inc/customizer.php:456
+#: inc/customizer.php:497 inc/customizer.php:538 inc/customizer.php:579
+#: inc/customizer.php:1169
 msgid "Center"
 msgstr ""
 
-#: inc/customizer.php:318 inc/customizer.php:358 inc/customizer.php:399
-#: inc/customizer.php:440 inc/customizer.php:481 inc/customizer.php:522
-#: inc/customizer.php:1112
+#: inc/customizer.php:376 inc/customizer.php:416 inc/customizer.php:457
+#: inc/customizer.php:498 inc/customizer.php:539 inc/customizer.php:580
+#: inc/customizer.php:1170
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:325
+#: inc/customizer.php:383
 msgid "Above Posts"
 msgstr ""
 
-#: inc/customizer.php:366
+#: inc/customizer.php:424
 msgid "After First Post"
 msgstr ""
 
-#: inc/customizer.php:407
+#: inc/customizer.php:465
 msgid "After Post Content"
 msgstr ""
 
-#: inc/customizer.php:448
+#: inc/customizer.php:506
 msgid "After Page Content"
 msgstr ""
 
-#: inc/customizer.php:530
+#: inc/customizer.php:588
 msgid "Social Media Icons"
 msgstr ""
 
-#: inc/customizer.php:532
+#: inc/customizer.php:590
 msgid "Add the URL for each of your social profiles."
 msgstr ""
 
-#: inc/customizer.php:551
+#: inc/customizer.php:609
 msgid "Email Address"
 msgstr ""
 
-#: inc/customizer.php:560
+#: inc/customizer.php:618
 msgid "Google Plus"
 msgstr ""
 
-#: inc/customizer.php:562
+#: inc/customizer.php:620
 msgid "RSS"
 msgstr ""
 
-#: inc/customizer.php:564
+#: inc/customizer.php:622
 msgid "SoundCloud"
 msgstr ""
 
-#: inc/customizer.php:566
+#: inc/customizer.php:624
 msgid "SlideShare"
 msgstr ""
 
-#: inc/customizer.php:568
+#: inc/customizer.php:626
 msgid "CodePen"
 msgstr ""
 
-#: inc/customizer.php:570
+#: inc/customizer.php:628
 msgid "StumbleUpon"
 msgstr ""
 
-#: inc/customizer.php:572
+#: inc/customizer.php:630
 msgid "DeviantArt"
 msgstr ""
 
-#: inc/customizer.php:574
+#: inc/customizer.php:632
 msgid "Hacker News"
 msgstr ""
 
-#: inc/customizer.php:576
+#: inc/customizer.php:634
 msgid "WhatsApp"
 msgstr ""
 
-#: inc/customizer.php:578
+#: inc/customizer.php:636
 msgid "QQ"
 msgstr ""
 
-#: inc/customizer.php:580
+#: inc/customizer.php:638
 msgid "VK"
 msgstr ""
 
-#: inc/customizer.php:582
+#: inc/customizer.php:640
 msgid "WeChat"
 msgstr ""
 
-#: inc/customizer.php:584
+#: inc/customizer.php:642
 msgid "Tencent Weibo"
 msgstr ""
 
-#: inc/customizer.php:586
+#: inc/customizer.php:644
 msgid "PayPal"
 msgstr ""
 
-#: inc/customizer.php:588
+#: inc/customizer.php:646
 msgid "Contact Form"
 msgstr ""
 
-#: inc/customizer.php:590
+#: inc/customizer.php:648
 msgid "Google Wallet"
 msgstr ""
 
-#: inc/customizer.php:592
+#: inc/customizer.php:650
 msgid "OK.ru"
 msgstr ""
 
-#: inc/customizer.php:614
+#: inc/customizer.php:672
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:625
+#: inc/customizer.php:683
 msgid "Show today's date?"
 msgstr ""
 
-#: inc/customizer.php:630 inc/customizer.php:646 inc/customizer.php:662
-#: inc/customizer.php:678 inc/customizer.php:703 inc/customizer.php:719
-#: inc/customizer.php:735 inc/customizer.php:760 inc/customizer.php:776
-#: inc/customizer.php:801 inc/customizer.php:817 inc/customizer.php:833
-#: inc/customizer.php:849 inc/customizer.php:865 inc/customizer.php:881
-#: inc/customizer.php:897 inc/customizer.php:913 inc/customizer.php:938
-#: inc/customizer.php:954 inc/customizer.php:979 inc/customizer.php:995
-#: inc/customizer.php:1019 inc/customizer.php:1050
+#: inc/customizer.php:688 inc/customizer.php:704 inc/customizer.php:720
+#: inc/customizer.php:736 inc/customizer.php:761 inc/customizer.php:777
+#: inc/customizer.php:793 inc/customizer.php:818 inc/customizer.php:834
+#: inc/customizer.php:859 inc/customizer.php:875 inc/customizer.php:891
+#: inc/customizer.php:907 inc/customizer.php:923 inc/customizer.php:939
+#: inc/customizer.php:955 inc/customizer.php:971 inc/customizer.php:996
+#: inc/customizer.php:1012 inc/customizer.php:1037 inc/customizer.php:1053
+#: inc/customizer.php:1077 inc/customizer.php:1108
 msgid "Yes"
 msgstr ""
 
-#: inc/customizer.php:631 inc/customizer.php:647 inc/customizer.php:663
-#: inc/customizer.php:679 inc/customizer.php:704 inc/customizer.php:720
-#: inc/customizer.php:736 inc/customizer.php:761 inc/customizer.php:777
-#: inc/customizer.php:802 inc/customizer.php:818 inc/customizer.php:834
-#: inc/customizer.php:850 inc/customizer.php:866 inc/customizer.php:882
-#: inc/customizer.php:898 inc/customizer.php:914 inc/customizer.php:939
-#: inc/customizer.php:955 inc/customizer.php:980 inc/customizer.php:996
-#: inc/customizer.php:1020 inc/customizer.php:1051
+#: inc/customizer.php:689 inc/customizer.php:705 inc/customizer.php:721
+#: inc/customizer.php:737 inc/customizer.php:762 inc/customizer.php:778
+#: inc/customizer.php:794 inc/customizer.php:819 inc/customizer.php:835
+#: inc/customizer.php:860 inc/customizer.php:876 inc/customizer.php:892
+#: inc/customizer.php:908 inc/customizer.php:924 inc/customizer.php:940
+#: inc/customizer.php:956 inc/customizer.php:972 inc/customizer.php:997
+#: inc/customizer.php:1013 inc/customizer.php:1038 inc/customizer.php:1054
+#: inc/customizer.php:1078 inc/customizer.php:1109
 msgid "No"
 msgstr ""
 
-#: inc/customizer.php:641 inc/customizer.php:974
+#: inc/customizer.php:699 inc/customizer.php:1032
 msgid "Show the social icons?"
 msgstr ""
 
-#: inc/customizer.php:657 inc/customizer.php:990
+#: inc/customizer.php:715 inc/customizer.php:1048
 msgid "Show the tagline?"
 msgstr ""
 
-#: inc/customizer.php:673
+#: inc/customizer.php:731
 msgid "Show the search bar?"
 msgstr ""
 
-#: inc/customizer.php:686
+#: inc/customizer.php:744
 msgid "Blog & Archives"
 msgstr ""
 
-#: inc/customizer.php:687
+#: inc/customizer.php:745
 msgid "These settings apply to the main posts page and all archives."
 msgstr ""
 
-#: inc/customizer.php:698
+#: inc/customizer.php:756
 msgid "Show the Featured Images?"
 msgstr ""
 
-#: inc/customizer.php:714 inc/customizer.php:812
+#: inc/customizer.php:772 inc/customizer.php:870
 msgid "Show the post author?"
 msgstr ""
 
-#: inc/customizer.php:730 inc/customizer.php:828
+#: inc/customizer.php:788 inc/customizer.php:886
 msgid "Show the post date?"
 msgstr ""
 
-#: inc/customizer.php:744
+#: inc/customizer.php:802
 msgid "These settings apply to the category, tag, date, and author archives."
 msgstr ""
 
-#: inc/customizer.php:755
+#: inc/customizer.php:813
 msgid "Show the archive title?"
 msgstr ""
 
-#: inc/customizer.php:771
+#: inc/customizer.php:829
 msgid "Show the archive description?"
 msgstr ""
 
-#: inc/customizer.php:785
+#: inc/customizer.php:843
 msgid "These settings apply to individual post pages."
 msgstr ""
 
-#: inc/customizer.php:796
+#: inc/customizer.php:854
 msgid "Show the Featured Image?"
 msgstr ""
 
-#: inc/customizer.php:844
+#: inc/customizer.php:902
 msgid "Show the category links?"
 msgstr ""
 
-#: inc/customizer.php:860
+#: inc/customizer.php:918
 msgid "Show the tag links?"
 msgstr ""
 
-#: inc/customizer.php:876
+#: inc/customizer.php:934
 msgid "Show avatar in the author box?"
 msgstr ""
 
-#: inc/customizer.php:892
+#: inc/customizer.php:950
 msgid "Show the author box?"
 msgstr ""
 
-#: inc/customizer.php:908
+#: inc/customizer.php:966
 msgid "Show the \"More from...\" section?"
 msgstr ""
 
-#: inc/customizer.php:921
+#: inc/customizer.php:979
 msgid "Comments"
 msgstr ""
 
-#: inc/customizer.php:922
+#: inc/customizer.php:980
 msgid "These settings apply to post comments."
 msgstr ""
 
-#: inc/customizer.php:933
+#: inc/customizer.php:991
 msgid "Show the comment date?"
 msgstr ""
 
-#: inc/customizer.php:949
+#: inc/customizer.php:1007
 msgid "Show the \"Post Author\" label?"
 msgstr ""
 
-#: inc/customizer.php:963
+#: inc/customizer.php:1021
 msgid "These settings apply to the footer."
 msgstr ""
 
-#: inc/customizer.php:1004
+#: inc/customizer.php:1062
 msgid "Excerpts"
 msgstr ""
 
-#: inc/customizer.php:1014
+#: inc/customizer.php:1072
 msgid "Show full posts on blog?"
 msgstr ""
 
-#: inc/customizer.php:1030 inc/widgets/post-list.php:252
+#: inc/customizer.php:1088 inc/widgets/post-list.php:252
 msgid "Excerpt word count"
 msgstr ""
 
@@ -1001,18 +1021,18 @@ msgctxt "View all posts in post category"
 msgid "View all posts in %s"
 msgstr ""
 
-#: functions.php:282
+#: functions.php:283
 msgctxt "verb: open the menu"
 msgid "open menu"
 msgstr ""
 
-#: functions.php:585
+#: functions.php:598
 #. translators: %s = the author who published the post
 msgctxt "This blog post was published by some author"
 msgid "By %s"
 msgstr ""
 
-#: functions.php:588
+#: functions.php:601
 #. translators: %1$s = the author who published the post. %2$s = the date it
 #. was published
 msgctxt "This blog post was published by some author on some date "

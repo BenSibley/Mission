@@ -165,7 +165,7 @@ jQuery(document).ready(function($){
                     newHeight += 32;
                 }
             }
-            if (body.hasClass('news-ticker') && body.hasClass('news-ticker-top')) {
+            if (body.hasClass('news-ticker') && body.hasClass('news-ticker-top') && !body.hasClass('news-ticker-mobile-disabled')) {
                 newHeight += 36;
             }
             if (body.hasClass('header-image-active')) {

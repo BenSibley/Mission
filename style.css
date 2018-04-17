@@ -481,6 +481,33 @@ a img {
   margin-left: 0;
 }
 
+.infinite-wrap {
+  clear: both;
+  border-top: solid 1px #DCDCDC;
+}
+.infinite-wrap:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+#infinite-handle,
+.infinite-loader {
+  clear: both;
+}
+
+#infinite-handle {
+  padding-top: 24px;
+  text-align: center;
+}
+
+.layout-double .infinite-wrap {
+  padding-top: 12px;
+}
+
 .comment-respond {
   margin-top: 1.875em;
 }

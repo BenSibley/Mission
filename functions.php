@@ -503,7 +503,23 @@ if ( ! function_exists( ( 'ct_mission_news_infinite_scroll_render' ) ) ) {
 	function ct_mission_news_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();
-			get_template_part( 'content', 'archive' );
+			global $wp_query;
+			$layout = get_theme_mod( 'layout' );
+
+			if ( $wp_query->current_post == 0 ) {
+				if ( $layout == 'double' || $layout == 'rows' || $layout == 'rows-excerpt' ) {
+					get_template_part( 'content-archive', get_post_type() );
+				} else {
+					get_template_part( 'content-archive', $layout );
+				}
+			} else {
+				if ( $layout == 'simple' ) {
+					get_template_part( 'content-archive', get_post_type() );
+				} else {
+					get_template_part( 'content-archive', $layout );
+				}
+			}
+			
 		}
 	}
 }

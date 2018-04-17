@@ -41,3 +41,24 @@
   right: auto;
   margin-left: 0;
 }
+
+// Jetpack infinite scroll fixes
+.infinite-wrap {
+  clear: both;
+  border-top: solid 1px $color-gray-86;
+
+  &:after {
+    @include clearfix;
+  }
+}
+#infinite-handle,
+.infinite-loader {
+  clear: both;
+}
+#infinite-handle {
+  padding-top: 24px;
+  text-align: center;
+}
+.layout-double .infinite-wrap {
+  padding-top: 12px;
+}

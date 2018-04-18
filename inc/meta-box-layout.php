@@ -38,7 +38,13 @@ if ( ! function_exists( ( 'ct_mission_news_post_layout_callback' ) ) ) {
 			<select name="mission-post-layout" id="mission-post-layout" class="widefat">
 				<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission-news' ); ?></option>
 				<option value="double-sidebar" <?php selected($layout == 'double-sidebar'); ?>>
-					<?php esc_html_e( 'Double sidebar', 'mission-news' ); ?>
+					<?php esc_html_e( 'Double sidebars', 'mission-news' ); ?>
+				</option>
+				<option value="double-left" <?php selected($layout == 'double-left'); ?>>
+					<?php esc_html_e( 'Double left sidebars', 'mission-news' ); ?>
+				</option>
+				<option value="double-right" <?php selected($layout == 'double-right'); ?>>
+					<?php esc_html_e( 'Double right sidebars', 'mission-news' ); ?>
 				</option>
 				<option value="left-sidebar" <?php selected($layout == 'left-sidebar'); ?>>
 					<?php esc_html_e( 'Left sidebar', 'mission-news' ); ?>
@@ -90,6 +96,8 @@ if ( ! function_exists( ( 'ct_mission_news_post_layout_save_data' ) ) ) {
 			$acceptable_values = array( 
 				'default', 
 				'double-sidebar', 
+				'double-left',
+				'double-right',
 				'left-sidebar', 
 				'left-sidebar-wide', 
 				'right-sidebar', 

@@ -168,4 +168,40 @@
       }
     }
   }
+  .layout-double-left {
+
+    .sidebar-right {
+      float: left;
+      margin-right: 0;
+    }
+    .main {
+      float: right;
+      width: 53%;
+    }
+    .content-container:after {
+      right: 51.5%;
+    }
+  }
+  .layout-double-right {
+
+    .sidebar-left {
+      float: right;
+      margin-left: 0;
+      margin-right: 3%;
+      padding-right: 0;
+      padding-left: 1.125em;
+    }
+    .sidebar-right {
+      margin-right: 0;
+      padding-right: 1.125em;
+      padding-left: 0;
+    }
+    .main {
+      float: left;
+      width: 53%;
+    }
+    .content-container:before {
+      left: 51.5%;
+    }
+  }
 }

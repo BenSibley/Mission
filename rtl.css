@@ -3130,6 +3130,38 @@ a img {
   .layout-no-sidebar-wide.archive.layout-rows-excerpt .entry:not(:first-child) .post-header {
     text-align: right;
   }
+
+  .layout-double-left .sidebar-right {
+    float: right;
+    margin-left: 0;
+  }
+  .layout-double-left .main {
+    float: left;
+    width: 53%;
+  }
+  .layout-double-left .content-container:after {
+    left: 51.5%;
+  }
+
+  .layout-double-right .sidebar-left {
+    float: left;
+    margin-right: 0;
+    margin-left: 3%;
+    padding-left: 0;
+    padding-right: 1.125em;
+  }
+  .layout-double-right .sidebar-right {
+    margin-left: 0;
+    padding-left: 1.125em;
+    padding-right: 0;
+  }
+  .layout-double-right .main {
+    float: right;
+    width: 53%;
+  }
+  .layout-double-right .content-container:before {
+    right: 51.5%;
+  }
 }
 .bbpress #bbpress-forums .bbp-forums .entry,
 .bbpress #bbpress-forums .bbp-forums .bbp-header,

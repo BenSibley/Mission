@@ -138,6 +138,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'type'        => 'radio',
 		'choices'     => array(
 			'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+			'double-left'    		 => __( 'Double left sidebars', 'mission-news' ),
+			'double-right'    	 => __( 'Double right sidebars', 'mission-news' ),
 			'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
 			'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
 			'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
@@ -1141,6 +1143,8 @@ function ct_mission_news_sanitize_layout_posts( $input ) {
 
 	$valid = array(
 		'double-sidebar'     => __( 'Double sidebar', 'mission-news' ),
+		'double-left'    		 => __( 'Double left sidebars', 'mission-news' ),
+		'double-right'    	 => __( 'Double right sidebars', 'mission-news' ),
 		'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
 		'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
 		'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),

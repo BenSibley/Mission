@@ -423,7 +423,7 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout_post );
 		} if ( !empty( $layout_page ) && is_singular('page') && !is_bbpress() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_page );
-		} if ( !empty( $layout_archives ) && is_archive() && !is_bbpress() ) {
+		} if ( !empty( $layout_archives ) && is_archive() && !is_bbpress() && !is_product_category() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_archives );
 		} if ( !empty( $layout_blog ) && is_home() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_blog );

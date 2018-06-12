@@ -63,6 +63,10 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 			'flex-width'  => true
 		) );
 		add_theme_support( 'woocommerce' );
+		// support WooCommerce image gallery features
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
 
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'mission-news' ),

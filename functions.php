@@ -417,7 +417,7 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 		}
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
-		} if ( !empty( $layout ) ) {
+		} if ( !empty( $layout ) && !is_product_category() ) {
 			$classes[] = 'layout-' . esc_attr( $layout );
 		} if ( !empty( $layout_post ) && is_singular('post') && !is_bbpress() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_post );

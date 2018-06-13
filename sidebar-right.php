@@ -20,6 +20,9 @@ if ( !function_exists('is_product') ) {
 	function is_product_category() {
 		return false;
 	}
+	function is_shop() {
+		return false;
+	}
 }
 if (
 	// Posts 
@@ -27,7 +30,7 @@ if (
 	// Pages
 	|| (is_singular('page') && ($layout_page == 'left-sidebar' || $layout_page == 'left-sidebar-wide' || $layout_page == 'no-sidebar' || $layout_page == 'no-sidebar-wide') && !is_bbpress())
 	// Archives
-	|| (is_archive() && ($layout_archives == 'left-sidebar' || $layout_archives == 'left-sidebar-wide' || $layout_archives == 'no-sidebar' || $layout_archives == 'no-sidebar-wide') && !is_bbpress() && !is_product_category())
+	|| (is_archive() && ($layout_archives == 'left-sidebar' || $layout_archives == 'left-sidebar-wide' || $layout_archives == 'no-sidebar' || $layout_archives == 'no-sidebar-wide') && !is_bbpress() && !is_product_category() && !is_shop() )
 	// Blog
 	|| (is_home() && ($layout_blog == 'left-sidebar' || $layout_blog == 'left-sidebar-wide' || $layout_blog == 'no-sidebar' || $layout_blog == 'no-sidebar-wide'))
 	// bbPress
@@ -35,7 +38,7 @@ if (
 	// WooCommerce - Product
 	|| (is_product() && ($layout_woocommerce == 'left-sidebar' || $layout_woocommerce == 'left-sidebar-wide' || $layout_woocommerce == 'no-sidebar' || $layout_woocommerce == 'no-sidebar-wide'))
 	// WooCommerce - Category
-	|| (is_product_category() && ($layout_woocommerce_cat == 'left-sidebar' || $layout_woocommerce_cat == 'left-sidebar-wide' || $layout_woocommerce_cat == 'no-sidebar' || $layout_woocommerce_cat == 'no-sidebar-wide'))
+	|| ( ( is_product_category() || is_shop() ) && ($layout_woocommerce_cat == 'left-sidebar' || $layout_woocommerce_cat == 'left-sidebar-wide' || $layout_woocommerce_cat == 'no-sidebar' || $layout_woocommerce_cat == 'no-sidebar-wide'))
 	) {
 			return;
 }

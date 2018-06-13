@@ -418,16 +418,19 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			function is_product_category() {
 				return false;
 			}
+			function is_shop() {
+				return false;
+			}
 		}
 		if ( $full_post == 'yes' ) {
 			$classes[] = 'full-post';
-		} if ( !empty( $layout ) && !is_product_category() ) {
+		} if ( !empty( $layout ) && !is_product_category() && !is_shop() ) {
 			$classes[] = 'layout-' . esc_attr( $layout );
 		} if ( !empty( $layout_post ) && is_singular('post') && !is_bbpress() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_post );
 		} if ( !empty( $layout_page ) && is_singular('page') && !is_bbpress() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_page );
-		} if ( !empty( $layout_archives ) && is_archive() && !is_bbpress() && !is_product_category() ) {
+		} if ( !empty( $layout_archives ) && is_archive() && !is_bbpress() && !is_product_category() && !is_shop() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_archives );
 		} if ( !empty( $layout_blog ) && is_home() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_blog );
@@ -435,7 +438,7 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout_bbpress );
 		} if ( !empty( $layout_woocommerce ) && is_product() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_woocommerce );
-		} if ( !empty( $layout_woocommerce_cat ) && is_product_category() ) {
+		} if ( !empty( $layout_woocommerce_cat ) && ( is_product_category() || is_shop() ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout_woocommerce_cat );
 		}
 		return $classes;

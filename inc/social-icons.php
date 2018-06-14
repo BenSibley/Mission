@@ -93,7 +93,11 @@ if ( ! function_exists( 'ct_mission_news_social_icons_output' ) ) {
 
 		if ( ! empty( $active_sites ) ) {
 
-			echo "<ul id='social-media-icons' class='social-media-icons'>";
+			if ( $source == 'header' ) {
+				echo "<ul id='social-media-icons' class='social-media-icons'>";
+			} else {
+				echo "<ul class='social-media-icons'>";
+			}
 
 			foreach ( $active_sites as $key => $active_site ) {
 

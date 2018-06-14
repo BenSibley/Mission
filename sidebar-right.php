@@ -4,6 +4,7 @@ $layout_post = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'l
 $layout_page = apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_pages' ) );
 $layout_archives = get_theme_mod( 'layout_archives' );
 $layout_blog = get_theme_mod( 'layout_blog' );
+$layout_search = get_theme_mod( 'layout_search' );
 $layout_bbpress = get_theme_mod( 'layout_bbpress' );
 $layout_woocommerce = get_theme_mod( 'layout_woocommerce' );
 $layout_woocommerce_cat = get_theme_mod( 'layout_woocommerce_cat' );
@@ -33,6 +34,8 @@ if (
 	|| (is_archive() && ($layout_archives == 'left-sidebar' || $layout_archives == 'left-sidebar-wide' || $layout_archives == 'no-sidebar' || $layout_archives == 'no-sidebar-wide') && !is_bbpress() && !is_product_category() && !is_shop() )
 	// Blog
 	|| (is_home() && ($layout_blog == 'left-sidebar' || $layout_blog == 'left-sidebar-wide' || $layout_blog == 'no-sidebar' || $layout_blog == 'no-sidebar-wide'))
+	// Search Results
+	|| (is_search() && ($layout_search == 'left-sidebar' || $layout_search == 'left-sidebar-wide' || $layout_search == 'no-sidebar' || $layout_search == 'no-sidebar-wide'))
 	// bbPress
 	|| (is_bbpress() && ($layout_bbpress == 'left-sidebar' || $layout_bbpress == 'left-sidebar-wide' || $layout_bbpress == 'no-sidebar' || $layout_bbpress == 'no-sidebar-wide'))
 	// WooCommerce - Product

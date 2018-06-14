@@ -237,12 +237,41 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
 		)
 	) );
+	// section - Search Results
+	$wp_customize->add_section( 'ct_mission_news_layout_search', array(
+		'title'    => __( 'Search Results', 'mission-news' ),
+		'panel'    => 'ct_mission_news_layout_panel',
+		'priority' => 5
+	) );
+	// setting
+	$wp_customize->add_setting( 'layout_search', array(
+		'default'           => 'double-sidebar',
+		'sanitize_callback' => 'ct_mission_news_sanitize_layout_posts'
+	) );
+	// control
+	$wp_customize->add_control( 'layout_search', array(
+		'label'       => __( 'Search results layout', 'mission-news' ),
+		'section'     => 'ct_mission_news_layout_search',
+		'settings'    => 'layout_search',
+		'type'        => 'radio',
+		'choices'     => array(
+			'double-sidebar'     => __( 'Double sidebars', 'mission-news' ),
+			'double-left'    		 => __( 'Double left sidebars', 'mission-news' ),
+			'double-right'    	 => __( 'Double right sidebars', 'mission-news' ),
+			'left-sidebar'       => __( 'Left sidebar', 'mission-news' ),
+			'left-sidebar-wide'  => __( 'Left sidebar - wide', 'mission-news' ),
+			'right-sidebar'      => __( 'Right sidebar', 'mission-news' ),
+			'right-sidebar-wide' => __( 'Right sidebar - wide', 'mission-news' ),
+			'no-sidebar'         => __( 'No sidebar', 'mission-news' ),
+			'no-sidebar-wide'    => __( 'No sidebar - wide', 'mission-news' )
+		)
+	) );
 	if ( function_exists('is_bbpress') ) {
 		// section - bbPress
 		$wp_customize->add_section( 'ct_mission_news_layout_bbpress', array(
 			'title'    => __( 'bbPress', 'mission-news' ),
 			'panel'    => 'ct_mission_news_layout_panel',
-			'priority' => 5
+			'priority' => 6
 		) );
 		// setting
 		$wp_customize->add_setting( 'layout_bbpress', array(
@@ -274,7 +303,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		$wp_customize->add_section( 'ct_mission_news_layout_woocommerce', array(
 			'title'    => __( 'WooCommerce - Products', 'mission-news' ),
 			'panel'    => 'ct_mission_news_layout_panel',
-			'priority' => 6
+			'priority' => 7
 		) );
 		// setting - WooCommerce Product
 		$wp_customize->add_setting( 'layout_woocommerce', array(
@@ -304,7 +333,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		$wp_customize->add_section( 'ct_mission_news_layout_woocommerce_cat', array(
 			'title'    => __( 'WooCommerce - Categories', 'mission-news' ),
 			'panel'    => 'ct_mission_news_layout_panel',
-			'priority' => 6
+			'priority' => 8
 		) );
 		// setting - WooCommerce Category
 		$wp_customize->add_setting( 'layout_woocommerce_cat', array(
@@ -334,7 +363,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	// section - Site Width
 	$wp_customize->add_section( 'ct_mission_news_layout_site_width', array(
 		'title'    => __( 'Site Width', 'mission-news' ),
-		'panel'    => 'ct_mission_news_layout_panel'
+		'panel'    => 'ct_mission_news_layout_panel',
+		'priority' => 9
 	) );
 	// setting
 	$wp_customize->add_setting( 'site_width', array(

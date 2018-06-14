@@ -402,6 +402,7 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 		$layout_page 		 				= apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_pages' ) );
 		$layout_archives 				= get_theme_mod( 'layout_archives' );
 		$layout_blog 			  		= get_theme_mod( 'layout_blog' );
+		$layout_search 			  	= get_theme_mod( 'layout_search' );
 		$layout_bbpress  				= get_theme_mod( 'layout_bbpress' );
 		$layout_woocommerce 		= get_theme_mod( 'layout_woocommerce' );
 		$layout_woocommerce_cat = get_theme_mod( 'layout_woocommerce_cat' );
@@ -434,6 +435,8 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout_archives );
 		} if ( !empty( $layout_blog ) && is_home() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_blog );
+		} if ( !empty( $layout_search ) && is_search() ) {
+			$classes[] = 'layout-' . esc_attr( $layout_search );
 		} if ( !empty( $layout_bbpress ) && is_bbpress() ) {
 			$classes[] = 'layout-' . esc_attr( $layout_bbpress );
 		} if ( !empty( $layout_woocommerce ) && is_product() ) {

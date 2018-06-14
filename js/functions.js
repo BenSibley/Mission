@@ -15,7 +15,7 @@ jQuery(document).ready(function($){
     /* Object fit cross-browser support */
     
     objectFitAdjustment();
-    $(window).resize(function(){
+    $(window).on( 'resize', function(){
         objectFitAdjustment();
         adjustMenuTopPosition();
     });
@@ -93,7 +93,7 @@ jQuery(document).ready(function($){
             menuPrimaryContainer.css('top', 'auto');
         }
     }
-    $(window).load(function () {
+    $(window).on( 'load', function () {
         adjustMenuTopPosition();
     });
 
@@ -152,7 +152,7 @@ jQuery(document).ready(function($){
         }
     }
     moveSecondaryMenu();
-    $(window).resize(function(){
+    $(window).on( 'resize', function(){
 
         if ( window.innerWidth > 800 ) {
 

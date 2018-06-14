@@ -1,4 +1,7 @@
 <?php
+if ( is_home() ) {
+	echo '<h1 class="screen-reader-text">' . esc_html( get_bloginfo( "name" ) ) . '</h1>';
+}
 
 // if not archive or title & description hidden via Customizer
 if ( ! is_archive() || ( get_theme_mod( 'archive_title' ) == 'no' ) && get_theme_mod( 'archive_description' ) == 'no' ) {

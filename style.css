@@ -2130,7 +2130,7 @@ a img {
   border-radius: 50%;
   margin: 0;
 }
-.post-author h3 {
+.post-author .author {
   font-weight: 700;
   font-style: italic;
   margin-bottom: 6px;

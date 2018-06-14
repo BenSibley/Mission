@@ -6,7 +6,7 @@
 	</div>
 	<?php endif; ?>
 	<div>
-		<h3><?php the_author(); ?></h3>
+		<div class="author"><?php the_author(); ?></div>
 		<p><?php the_author_meta('description'); ?></p>
 	</div>
 </div>

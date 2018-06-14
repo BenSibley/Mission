@@ -1,9 +1,6 @@
 ( function( $ ) {
 
-    var panel = $('html', window.parent.document);
-    var body = $('body');
-    var siteTitle = $('#site-title');
-    var tagline = $( '.tagline' );
+    var siteTitle = $('.site-title');
 
     // Site title
     wp.customize( 'blogname', function( value ) {

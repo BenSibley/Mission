@@ -1,6 +1,6 @@
 <?php
 
-echo "<div id='site-title' class='site-title'>";
+echo "<div class='site-title'>";
 	if ( has_custom_logo() ) {
 		the_custom_logo();
 	} else {

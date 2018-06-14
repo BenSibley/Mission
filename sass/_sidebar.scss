@@ -12,7 +12,6 @@
   }
   .widget {
     margin-bottom: $baseline-height;
-    clear: both;
   }
   .widget-title {
     @extend %fourteen-pixels-title;
@@ -80,6 +79,7 @@
     .widget {
       width: 100%;
       float: none;
+      clear: both;
 
       &:nth-child(odd) {
         margin-right: 0;

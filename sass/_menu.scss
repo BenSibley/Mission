@@ -64,7 +64,7 @@
   transition: transform 0.25s;
 }
 .menu-primary-items,
-.menu-unset ul {
+.menu-unset > ul {
   list-style: none;
   margin: 0;
 
@@ -186,7 +186,8 @@
 .rtl .dropdown-navigation i {
   transform: rotate(180deg);
 }
-.menu-primary-items {
+.menu-primary-items,
+.menu-unset > ul {
   position: relative;
   top: -42px;
 }

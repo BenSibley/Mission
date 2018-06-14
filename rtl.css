@@ -97,19 +97,19 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
 }
 
 .site-header .social-media-icons a, .menu-primary-items a,
-.menu-unset ul a, .dropdown-navigation a {
+.menu-unset > ul a, .dropdown-navigation a {
   color: #fff;
   text-decoration: none;
 }
 .site-header .social-media-icons a:link, .menu-primary-items a:link,
-.menu-unset ul a:link, .dropdown-navigation a:link, .site-header .social-media-icons a:visited, .menu-primary-items a:visited,
-.menu-unset ul a:visited, .dropdown-navigation a:visited {
+.menu-unset > ul a:link, .dropdown-navigation a:link, .site-header .social-media-icons a:visited, .menu-primary-items a:visited,
+.menu-unset > ul a:visited, .dropdown-navigation a:visited {
   color: #fff;
 }
 .site-header .social-media-icons a:hover, .menu-primary-items a:hover,
-.menu-unset ul a:hover, .dropdown-navigation a:hover, .site-header .social-media-icons a:active, .menu-primary-items a:active,
-.menu-unset ul a:active, .dropdown-navigation a:active, .site-header .social-media-icons a:focus, .menu-primary-items a:focus,
-.menu-unset ul a:focus, .dropdown-navigation a:focus {
+.menu-unset > ul a:hover, .dropdown-navigation a:hover, .site-header .social-media-icons a:active, .menu-primary-items a:active,
+.menu-unset > ul a:active, .dropdown-navigation a:active, .site-header .social-media-icons a:focus, .menu-primary-items a:focus,
+.menu-unset > ul a:focus, .dropdown-navigation a:focus {
   color: #F3F3F3;
 }
 
@@ -1255,12 +1255,12 @@ a img {
 }
 
 .menu-primary-items,
-.menu-unset ul {
+.menu-unset > ul {
   list-style: none;
   margin: 0;
 }
 .menu-primary-items:after,
-.menu-unset ul:after {
+.menu-unset > ul:after {
   content: ".";
   display: block;
   clear: both;
@@ -1269,17 +1269,17 @@ a img {
   height: 0;
 }
 .menu-primary-items li,
-.menu-unset ul li {
+.menu-unset > ul li {
   position: relative;
   border-bottom: solid 1px #262626;
 }
 .menu-primary-items li.current-menu-item > a, .menu-primary-items li.current-menu-ancestor > a,
-.menu-unset ul li.current-menu-item > a,
-.menu-unset ul li.current-menu-ancestor > a {
+.menu-unset > ul li.current-menu-item > a,
+.menu-unset > ul li.current-menu-ancestor > a {
   text-decoration: underline;
 }
 .menu-primary-items a,
-.menu-unset ul a {
+.menu-unset > ul a {
   display: block;
   font-family: "PT Sans", sans-serif;
   padding: 15px 0;
@@ -1287,13 +1287,13 @@ a img {
   transition: color 0.15s;
 }
 .menu-primary-items a:hover, .menu-primary-items a:active, .menu-primary-items a:focus,
-.menu-unset ul a:hover,
-.menu-unset ul a:active,
-.menu-unset ul a:focus {
+.menu-unset > ul a:hover,
+.menu-unset > ul a:active,
+.menu-unset > ul a:focus {
   color: #DCDCDC;
 }
 .menu-primary-items ul,
-.menu-unset ul ul {
+.menu-unset > ul ul {
   position: fixed;
   top: -12px;
   right: 100%;
@@ -1307,19 +1307,19 @@ a img {
   transition: opacity 0.35s, visibility 0.35s;
 }
 .menu-primary-items ul ul,
-.menu-unset ul ul ul {
+.menu-unset > ul ul ul {
   right: 200%;
 }
 .menu-primary-items ul ul ul,
-.menu-unset ul ul ul ul {
+.menu-unset > ul ul ul ul {
   right: 300%;
 }
 .menu-primary-items ul ul ul ul,
-.menu-unset ul ul ul ul ul {
+.menu-unset > ul ul ul ul ul {
   right: 400%;
 }
 .menu-primary-items ul ul ul ul ul,
-.menu-unset ul ul ul ul ul ul {
+.menu-unset > ul ul ul ul ul ul {
   right: 500%;
 }
 
@@ -1392,7 +1392,8 @@ a img {
   transform: rotate(180deg);
 }
 
-.menu-primary-items {
+.menu-primary-items,
+.menu-unset > ul {
   position: relative;
   top: -42px;
 }

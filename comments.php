@@ -8,7 +8,7 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( __( 'Be First to Comment', 'mission-news' ), __( 'One Comment', 'mission-news' ), _x( '% Comments', 'noun: 5 comments', 'mission-news' ) ); ?>
+                <?php comments_number( esc_html__( 'Be First to Comment', 'mission-news' ), esc_html__( 'One Comment', 'mission-news' ), _x( '% Comments', 'noun: 5 comments', 'mission-news' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
@@ -28,7 +28,7 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( __( 'Be First to Comment', 'mission-news' ), __( 'One Comment', 'mission-news' ), _x( '% Comments', 'noun: 5 comments', 'mission-news' ) ); ?>
+                <?php comments_number( esc_html__( 'Be First to Comment', 'mission-news' ), esc_html__( 'One Comment', 'mission-news' ), _x( '% Comments', 'noun: 5 comments', 'mission-news' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">
@@ -53,7 +53,7 @@ if ( comments_open() ) { ?>
     <section id="comments" class="comments">
         <div class="comments-number">
             <h2>
-                <?php comments_number( __( 'Be First to Comment', 'mission-news' ), __( 'One Comment', 'mission-news' ), _x( '% Comments', 'noun: 5 comments', 'mission-news' ) ); ?>
+                <?php comments_number( esc_html__( 'Be First to Comment', 'mission-news' ), esc_html__( 'One Comment', 'mission-news' ), _x( '% Comments', 'noun: 5 comments', 'mission-news' ) ); ?>
             </h2>
         </div>
         <ol class="comment-list">

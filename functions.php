@@ -840,3 +840,15 @@ if ( ! function_exists( ( 'ct_mission_news_site_width_css' ) ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'ct_mission_news_site_width_css', 99 );
+
+//----------------------------------------------------------------------------------
+// Output the markup for the optional scroll-to-top arrow 
+//----------------------------------------------------------------------------------
+function ct_mission_news_scroll_to_top_arrow() {
+	$setting = get_theme_mod('scroll_to_top');
+	
+	if ( $setting == 'yes' ) {
+		echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'mission-news') .'</span><i class="fa fa-arrow-up"></i></button>';
+	}
+}
+add_action( 'ct_mission_news_body_bottom', 'ct_mission_news_scroll_to_top_arrow');

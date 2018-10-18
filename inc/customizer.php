@@ -1134,6 +1134,30 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'settings' => 'excerpt_length',
 		'type'     => 'number'
 	) );
+
+	//----------------------------------------------------------------------------------
+	// Section: Scroll-to-Top Arrow
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_scroll_to_stop', array(
+		'title'    => __( 'Scroll-to-Top Arrow', 'mission-news' ),
+		'priority' => 70
+	) );
+	// setting - scroll-to-top arrow
+	$wp_customize->add_setting( 'scroll_to_top', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control - scroll-to-top arrow
+	$wp_customize->add_control( 'scroll_to_top', array(
+		'label'    => __( 'Display Scroll-to-top arrow?', 'mission-news' ),
+		'section'  => 'ct_mission_news_scroll_to_stop',
+		'settings' => 'scroll_to_top',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
 }
 
 //----------------------------------------------------------------------------------

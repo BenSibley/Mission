@@ -35,6 +35,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'hacker-news'   => 'ct_mission_news_hacker-news_profile',
 			'medium'        => 'ct_mission_news_medium_profile',
 			'meetup'        => 'ct_mission_news_meetup_profile',
+			'mixcloud'      => 'ct_mission_news_mixcloud_profile',
 			'ok-ru'         => 'ct_mission_news_ok_ru_profile',
 			'paypal'        => 'ct_mission_news_paypal_profile',
 			'podcast'       => 'ct_mission_news_podcast_profile',

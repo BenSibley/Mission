@@ -49,6 +49,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'snapchat'      => 'ct_mission_news_snapchat_profile',
 			'soundcloud'    => 'ct_mission_news_soundcloud_profile',
 			'spotify'       => 'ct_mission_news_spotify_profile',
+			'stack-overflow' => 'ct_mission_news_stack_overflow_profile',
 			'steam'         => 'ct_mission_news_steam_profile',
 			'stumbleupon'   => 'ct_mission_news_stumbleupon_profile',
 			'telegram'      => 'ct_mission_news_telegram_profile',

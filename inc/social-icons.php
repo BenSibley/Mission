@@ -15,6 +15,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'google-plus'   => 'ct_mission_news_googleplus_profile',
 			'youtube'       => 'ct_mission_news_youtube_profile',
 			'email'         => 'ct_mission_news_email_profile',
+			'phone'         => 'ct_mission_news_phone_profile',
 			'email-form'    => 'ct_mission_news_email_form_profile',
 			'amazon'        => 'ct_mission_news_amazon_profile',
 			'bandcamp'      => 'ct_mission_news_bandcamp_profile',
@@ -24,6 +25,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'delicious'     => 'ct_mission_news_delicious_profile',
 			'deviantart'    => 'ct_mission_news_deviantart_profile',
 			'digg'          => 'ct_mission_news_digg_profile',
+			'discord'       => 'ct_mission_news_discord_profile',
 			'dribbble'      => 'ct_mission_news_dribbble_profile',
 			'etsy'          => 'ct_mission_news_etsy_profile',
 			'flickr'        => 'ct_mission_news_flickr_profile',
@@ -128,6 +130,12 @@ if ( ! function_exists( 'ct_mission_news_social_icons_output' ) ) {
 					   href="<?php echo esc_url( get_theme_mod( $key ), array( 'http', 'https', 'skype' ) ); ?>">
 						<i class="<?php echo esc_attr( $class ); ?>"
 						   title="<?php echo esc_attr( $active_site ); ?>"></i>
+					</a>
+				<?php } elseif ( $active_site == 'phone' ) { ?>
+					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
+							href="<?php echo esc_url( get_theme_mod( $active_site ), array( 'tel' ) ); ?>">
+						<i class="<?php echo esc_attr( $class ); ?>"></i>
+						<span class="screen-reader-text"><?php echo esc_html( $active_site );  ?></span>
 					</a>
 				<?php } else { ?>
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"

@@ -33,6 +33,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'github'        => 'ct_mission_news_github_profile',
 			'google-wallet' => 'ct_mission_news_google_wallet_profile',
 			'hacker-news'   => 'ct_mission_news_hacker-news_profile',
+			'medium'        => 'ct_mission_news_medium_profile',
 			'meetup'        => 'ct_mission_news_meetup_profile',
 			'ok-ru'         => 'ct_mission_news_ok_ru_profile',
 			'paypal'        => 'ct_mission_news_paypal_profile',

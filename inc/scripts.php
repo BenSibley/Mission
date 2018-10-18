@@ -18,7 +18,7 @@ function ct_mission_news_load_scripts_styles() {
 		'openChildMenu'  => esc_html__( 'open dropdown menu', 'mission-news' ),
 		'closeChildMenu' => esc_html__( 'close dropdown menu', 'mission-news' )
 	) );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/font-awesome.min.css' );
+	wp_enqueue_style( 'ct-mission-news-font-awesome', get_template_directory_uri() . '/assets/font-awesome/css/all.min.css' );
 	wp_enqueue_style( 'ct-mission-news-style', get_stylesheet_uri() );
 
 	// enqueue comment-reply script only on posts & pages with comments open ( included in WP core )

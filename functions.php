@@ -284,7 +284,7 @@ if ( ! function_exists( ( 'ct_mission_news_nav_dropdown_buttons' ) ) ) {
 		if ( $args->theme_location == 'primary' || $args->theme_location == 'secondary' ) {
 
 			if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
-				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "mission-news" ) . '</span><i class="fa fa-angle-right"></i></button>', $item_output );
+				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "mission-news" ) . '</span><i class="fas fa-angle-right"></i></button>', $item_output );
 			}
 		}
 
@@ -848,7 +848,7 @@ function ct_mission_news_scroll_to_top_arrow() {
 	$setting = get_theme_mod('scroll_to_top');
 	
 	if ( $setting == 'yes' ) {
-		echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'mission-news') .'</span><i class="fa fa-arrow-up"></i></button>';
+		echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'mission-news') .'</span><i class="fas fa-arrow-up"></i></button>';
 	}
 }
 add_action( 'ct_mission_news_body_bottom', 'ct_mission_news_scroll_to_top_arrow');

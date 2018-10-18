@@ -3,7 +3,7 @@ if ( get_theme_mod( 'search' ) == 'no' ) {
 	return;
 }
 ?>
-<button id="search-toggle" class="search-toggle"><i class="fa fa-search"></i><span><?php echo esc_html__( 'Search', 'mission-news' );?></span></button>
+<button id="search-toggle" class="search-toggle"><i class="fas fa-search"></i><span><?php echo esc_html__( 'Search', 'mission-news' );?></span></button>
 <div id="search-form-popup" class="search-form-popup">
 	<div class="inner">
 		<div class="title"><?php echo esc_html__( 'Search', 'mission-news' ) . ' ' . esc_html( get_bloginfo('name') ); ?></div>

@@ -16,7 +16,6 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'youtube'       => 'ct_mission_news_youtube_profile',
 			'email'         => 'ct_mission_news_email_profile',
 			'email-form'    => 'ct_mission_news_email_form_profile',
-			'500px'         => 'ct_mission_news_500px_profile',
 			'amazon'        => 'ct_mission_news_amazon_profile',
 			'bandcamp'      => 'ct_mission_news_bandcamp_profile',
 			'behance'       => 'ct_mission_news_behance_profile',
@@ -61,7 +60,8 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'whatsapp'      => 'ct_mission_news_whatsapp_profile',
 			'xing'          => 'ct_mission_news_xing_profile',
 			'yahoo'         => 'ct_mission_news_yahoo_profile',
-			'yelp'          => 'ct_mission_news_yelp_profile'
+			'yelp'          => 'ct_mission_news_yelp_profile',
+			'500px'         => 'ct_mission_news_500px_profile'
 		);
 
 		return apply_filters( 'ct_mission_news_social_array_filter', $social_sites );

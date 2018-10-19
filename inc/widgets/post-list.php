@@ -41,6 +41,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		'post_category'   => isset( $instance['post_category'] ) ? $instance['post_category'] : 'no',
 		'exclude_current' => isset( $instance['exclude_current'] ) ? $instance['exclude_current'] : 'no',
 		'post_count'   		=> isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
+		'after_excerpt'   => isset( $instance['after_excerpt'] ) ? sanitize_text_field($instance['after_excerpt']) : '...',
 		'style'        		=> isset( $instance['style'] ) ? absint($instance['style']) : 1,
 		);
 		return $defaults;
@@ -135,7 +136,7 @@ class ct_mission_news_post_list extends WP_Widget {
 							if ( has_excerpt() ) {
 								echo get_the_excerpt();
 							} else {
-								echo wp_kses_post(strip_shortcodes(wp_trim_words(get_the_content(),$instance['excerpt_length'])));
+								echo wp_kses_post(strip_shortcodes(wp_trim_words(get_the_content(),$instance['excerpt_length'], $instance['after_excerpt'])));
 							}
 							echo '</div>';
 						}
@@ -250,6 +251,10 @@ class ct_mission_news_post_list extends WP_Widget {
 				<p>
 					<input id="<?php echo esc_attr( $this->get_field_id( 'excerpt_length' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt_length' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $instance['excerpt_length'] ); ?>">
 					<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt_length' ) ); ?>"><?php esc_html_e( 'Excerpt word count', 'mission-news' ); ?></label>
+				</p>
+				<p>
+					<input id="<?php echo esc_attr( $this->get_field_id( 'after_excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'after_excerpt' ) ); ?>" type="text" size=10 value="<?php echo esc_attr( $instance['after_excerpt'] ); ?>">
+					<label for="<?php echo esc_attr( $this->get_field_id( 'after_excerpt' ) ); ?>"><?php esc_html_e( 'Text after excerpts', 'mission-news' ); ?></label>
 				</p>
 			</div>
 			<h4><?php esc_html_e( 'Style', 'mission-news' ); ?></h4>

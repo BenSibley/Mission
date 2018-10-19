@@ -3062,14 +3062,16 @@ a img {
   .layout-right-sidebar .content-container:before,
   .layout-right-sidebar-wide .content-container:before,
   .layout-no-sidebar .content-container:before,
-  .layout-no-sidebar-wide .content-container:before {
+  .layout-no-sidebar-wide .content-container:before,
+  .layout-no-sidebar-full-width .content-container:before {
     display: none;
   }
 
   .layout-left-sidebar .content-container:after,
   .layout-left-sidebar-wide .content-container:after,
   .layout-no-sidebar .content-container:after,
-  .layout-no-sidebar-wide .content-container:after {
+  .layout-no-sidebar-wide .content-container:after,
+  .layout-no-sidebar-full-width .content-container:after {
     display: none;
   }
 
@@ -3100,7 +3102,9 @@ a img {
   .layout-right-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title,
   .layout-right-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,
   .layout-no-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title,
-  .layout-no-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title {
+  .layout-no-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,
+  .layout-no-sidebar-full-width.blog.layout-double .entry:not(:first-child) .post-title,
+  .layout-no-sidebar-full-width.archive.layout-double .entry:not(:first-child) .post-title {
     font-size: 1.3125em;
     /* 21px / 16px */
     line-height: 1.143;
@@ -3161,7 +3165,11 @@ a img {
   .layout-no-sidebar-wide.blog.layout-rows .entry:not(:first-child) .post-header,
   .layout-no-sidebar-wide.archive.layout-rows .entry:not(:first-child) .post-header,
   .layout-no-sidebar-wide.blog.layout-rows-excerpt .entry:not(:first-child) .post-header,
-  .layout-no-sidebar-wide.archive.layout-rows-excerpt .entry:not(:first-child) .post-header {
+  .layout-no-sidebar-wide.archive.layout-rows-excerpt .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-full-width.blog.layout-rows .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-full-width.archive.layout-rows .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-full-width.blog.layout-rows-excerpt .entry:not(:first-child) .post-header,
+  .layout-no-sidebar-full-width.archive.layout-rows-excerpt .entry:not(:first-child) .post-header {
     text-align: right;
   }
 
@@ -3195,6 +3203,15 @@ a img {
   }
   .layout-double-right .content-container:before {
     right: 51.5%;
+  }
+
+  .layout-no-sidebar-full-width .main {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .layout-no-sidebar-full-width .loop-container {
+    position: static;
   }
 }
 .bbpress #bbpress-forums .bbp-forums .entry,

@@ -27,21 +27,21 @@ if ( !function_exists('is_product') ) {
 }
 if (
 	// Posts 
-	(is_singular('post') && ($layout_post == 'left-sidebar' || $layout_post == 'left-sidebar-wide' || $layout_post == 'no-sidebar' || $layout_post == 'no-sidebar-wide') && !is_bbpress())
+	(is_singular('post') && ($layout_post == 'left-sidebar' || $layout_post == 'left-sidebar-wide' || $layout_post == 'no-sidebar' || $layout_post == 'no-sidebar-wide' || $layout_post == 'no-sidebar-full-width') && !is_bbpress())
 	// Pages
-	|| (is_singular('page') && ($layout_page == 'left-sidebar' || $layout_page == 'left-sidebar-wide' || $layout_page == 'no-sidebar' || $layout_page == 'no-sidebar-wide') && !is_bbpress())
+	|| (is_singular('page') && ($layout_page == 'left-sidebar' || $layout_page == 'left-sidebar-wide' || $layout_page == 'no-sidebar' || $layout_page == 'no-sidebar-wide' || $layout_page == 'no-sidebar-full-width') && !is_bbpress())
 	// Archives
-	|| (is_archive() && ($layout_archives == 'left-sidebar' || $layout_archives == 'left-sidebar-wide' || $layout_archives == 'no-sidebar' || $layout_archives == 'no-sidebar-wide') && !is_bbpress() && !is_product_category() && !is_shop() )
+	|| (is_archive() && ($layout_archives == 'left-sidebar' || $layout_archives == 'left-sidebar-wide' || $layout_archives == 'no-sidebar' || $layout_archives == 'no-sidebar-wide' || $layout_archives == 'no-sidebar-full-width') && !is_bbpress() && !is_product_category() && !is_shop() )
 	// Blog
-	|| (is_home() && ($layout_blog == 'left-sidebar' || $layout_blog == 'left-sidebar-wide' || $layout_blog == 'no-sidebar' || $layout_blog == 'no-sidebar-wide'))
+	|| (is_home() && ($layout_blog == 'left-sidebar' || $layout_blog == 'left-sidebar-wide' || $layout_blog == 'no-sidebar' || $layout_blog == 'no-sidebar-wide' || $layout_blog == 'no-sidebar-full-width'))
 	// Search Results
-	|| (is_search() && ($layout_search == 'left-sidebar' || $layout_search == 'left-sidebar-wide' || $layout_search == 'no-sidebar' || $layout_search == 'no-sidebar-wide'))
+	|| (is_search() && ($layout_search == 'left-sidebar' || $layout_search == 'left-sidebar-wide' || $layout_search == 'no-sidebar' || $layout_search == 'no-sidebar-wide' || $layout_search == 'no-sidebar-full-width'))
 	// bbPress
-	|| (is_bbpress() && ($layout_bbpress == 'left-sidebar' || $layout_bbpress == 'left-sidebar-wide' || $layout_bbpress == 'no-sidebar' || $layout_bbpress == 'no-sidebar-wide'))
+	|| (is_bbpress() && ($layout_bbpress == 'left-sidebar' || $layout_bbpress == 'left-sidebar-wide' || $layout_bbpress == 'no-sidebar' || $layout_bbpress == 'no-sidebar-wide' || $layout_bbpress == 'no-sidebar-full-width'))
 	// WooCommerce - Product
-	|| (is_product() && ($layout_woocommerce == 'left-sidebar' || $layout_woocommerce == 'left-sidebar-wide' || $layout_woocommerce == 'no-sidebar' || $layout_woocommerce == 'no-sidebar-wide'))
+	|| (is_product() && ($layout_woocommerce == 'left-sidebar' || $layout_woocommerce == 'left-sidebar-wide' || $layout_woocommerce == 'no-sidebar' || $layout_woocommerce == 'no-sidebar-wide' || $layout_woocommerce == 'no-sidebar-full-width'))
 	// WooCommerce - Category
-	|| ( ( is_product_category() || is_shop() ) && ($layout_woocommerce_cat == 'left-sidebar' || $layout_woocommerce_cat == 'left-sidebar-wide' || $layout_woocommerce_cat == 'no-sidebar' || $layout_woocommerce_cat == 'no-sidebar-wide'))
+	|| ( ( is_product_category() || is_shop() ) && ($layout_woocommerce_cat == 'left-sidebar' || $layout_woocommerce_cat == 'left-sidebar-wide' || $layout_woocommerce_cat == 'no-sidebar' || $layout_woocommerce_cat == 'no-sidebar-wide' || $layout_woocommerce_cat == 'no-sidebar-full-width'))
 	) {
 			return;
 }

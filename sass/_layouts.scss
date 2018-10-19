@@ -21,7 +21,8 @@
   .layout-right-sidebar,
   .layout-right-sidebar-wide,
   .layout-no-sidebar,
-  .layout-no-sidebar-wide {
+  .layout-no-sidebar-wide,
+  .layout-no-sidebar-full-width {
 
     .content-container {
 
@@ -34,7 +35,8 @@
   .layout-left-sidebar,
   .layout-left-sidebar-wide,
   .layout-no-sidebar,
-  .layout-no-sidebar-wide {
+  .layout-no-sidebar-wide,
+  .layout-no-sidebar-full-width {
 
     .content-container {
 
@@ -75,7 +77,8 @@
   // Larger post titles for double layout
   .layout-left-sidebar-wide,
   .layout-right-sidebar-wide,
-  .layout-no-sidebar-wide {
+  .layout-no-sidebar-wide,
+  .layout-no-sidebar-full-width {
 
     &.blog.layout-double,
     &.archive.layout-double {
@@ -153,7 +156,8 @@
   }
   // left-align non-first post in row layouts on archives & blog
   .layout-no-sidebar,
-  .layout-no-sidebar-wide {
+  .layout-no-sidebar-wide,
+  .layout-no-sidebar-full-width {
 
     &.blog.layout-rows,
     &.archive.layout-rows,
@@ -202,6 +206,17 @@
     }
     .content-container:before {
       left: 51.5%;
+    }
+  }
+  .layout-no-sidebar-full-width {
+
+    .main {
+      float: none;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .loop-container {
+      position: static;
     }
   }
 }

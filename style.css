@@ -85,14 +85,14 @@ textarea, .archive-header p, .comment-respond .comment-notes, .comments .comment
   letter-spacing: 0.03em;
 }
 
-.site-footer .social-media-icons a, .site-footer .design-credit a, .site-title a, .post-title a, .post-tags a, .more-from-category .title, .widget_ct_mission_news_post_list .title, .widget_ct_mission_news_post_list .comments-link a {
+.site-footer .social-media-icons a, .site-footer .design-credit a, .site-title a, .post-title a, .post-tags a, .more-from-category .title, .widget_ct_mission_news_post_list .title, .widget_ct_mission_news_post_list .comments-link a, .menu-footer-items a {
   color: #000;
   text-decoration: none;
 }
-.site-footer .social-media-icons a:link, .site-footer .design-credit a:link, .site-title a:link, .post-title a:link, .post-tags a:link, .more-from-category .title:link, .widget_ct_mission_news_post_list .title:link, .widget_ct_mission_news_post_list .comments-link a:link, .site-footer .social-media-icons a:visited, .site-footer .design-credit a:visited, .site-title a:visited, .post-title a:visited, .post-tags a:visited, .more-from-category .title:visited, .widget_ct_mission_news_post_list .title:visited, .widget_ct_mission_news_post_list .comments-link a:visited {
+.site-footer .social-media-icons a:link, .site-footer .design-credit a:link, .site-title a:link, .post-title a:link, .post-tags a:link, .more-from-category .title:link, .widget_ct_mission_news_post_list .title:link, .widget_ct_mission_news_post_list .comments-link a:link, .menu-footer-items a:link, .site-footer .social-media-icons a:visited, .site-footer .design-credit a:visited, .site-title a:visited, .post-title a:visited, .post-tags a:visited, .more-from-category .title:visited, .widget_ct_mission_news_post_list .title:visited, .widget_ct_mission_news_post_list .comments-link a:visited, .menu-footer-items a:visited {
   color: #000;
 }
-.site-footer .social-media-icons a:hover, .site-footer .design-credit a:hover, .site-title a:hover, .post-title a:hover, .post-tags a:hover, .more-from-category .title:hover, .widget_ct_mission_news_post_list .title:hover, .widget_ct_mission_news_post_list .comments-link a:hover, .site-footer .social-media-icons a:active, .site-footer .design-credit a:active, .site-title a:active, .post-title a:active, .post-tags a:active, .more-from-category .title:active, .widget_ct_mission_news_post_list .title:active, .widget_ct_mission_news_post_list .comments-link a:active, .site-footer .social-media-icons a:focus, .site-footer .design-credit a:focus, .site-title a:focus, .post-title a:focus, .post-tags a:focus, .more-from-category .title:focus, .widget_ct_mission_news_post_list .title:focus, .widget_ct_mission_news_post_list .comments-link a:focus {
+.site-footer .social-media-icons a:hover, .site-footer .design-credit a:hover, .site-title a:hover, .post-title a:hover, .post-tags a:hover, .more-from-category .title:hover, .widget_ct_mission_news_post_list .title:hover, .widget_ct_mission_news_post_list .comments-link a:hover, .menu-footer-items a:hover, .site-footer .social-media-icons a:active, .site-footer .design-credit a:active, .site-title a:active, .post-title a:active, .post-tags a:active, .more-from-category .title:active, .widget_ct_mission_news_post_list .title:active, .widget_ct_mission_news_post_list .comments-link a:active, .menu-footer-items a:active, .site-footer .social-media-icons a:focus, .site-footer .design-credit a:focus, .site-title a:focus, .post-title a:focus, .post-tags a:focus, .more-from-category .title:focus, .widget_ct_mission_news_post_list .title:focus, .widget_ct_mission_news_post_list .comments-link a:focus, .menu-footer-items a:focus {
   color: #666666;
 }
 
@@ -3406,5 +3406,31 @@ a img {
   .woocommerce-account .main {
     width: 75%;
     margin-left: 12.5%;
+  }
+}
+.menu-footer-container {
+  margin-top: 2.25em;
+  font-family: "PT Sans", sans-serif;
+}
+
+.menu-footer-items {
+  margin: 0 auto;
+  list-style: none;
+}
+.menu-footer-items li {
+  margin-bottom: 12px;
+}
+.menu-footer-items a {
+  text-decoration: none;
+}
+
+@media all and (min-width: 50em) {
+  .menu-footer-container {
+    margin: 3em 0;
+  }
+
+  .menu-footer-items li {
+    display: inline-block;
+    margin: 0 12px;
   }
 }

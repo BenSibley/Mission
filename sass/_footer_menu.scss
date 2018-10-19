@@ -1,0 +1,30 @@
+.menu-footer-container {
+  margin-top: $baseline-height * 1.5;
+  font-family: $pt-sans;
+}
+.menu-footer-items {
+  margin: 0 auto;
+  list-style: none;
+
+  li {
+    margin-bottom: 12px;
+  }
+  a {
+    @extend %black-link;
+    text-decoration: none;
+  }
+}
+
+@media all and (min-width: 50em) {
+
+  .menu-footer-container {
+    margin: $baseline-height * 2 0;
+  }
+  .menu-footer-items {
+
+    li {
+      display: inline-block;
+      margin: 0 12px;
+    }
+  }
+}

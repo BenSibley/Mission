@@ -14,6 +14,9 @@
         } ?>
         <?php ct_mission_news_social_icons_output( 'footer' ); ?>
     </div>
+    <div id="menu-footer-container" class="menu-footer-container">
+        <?php get_template_part( 'menu', 'footer' ); ?>
+    </div>
     <?php get_sidebar( 'site-footer' ); ?>
     <div class="design-credit">
         <span>

@@ -70,7 +70,8 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'mission-news' ),
-			'secondary' => esc_html__( 'Secondary', 'mission-news' )
+			'secondary' => esc_html__( 'Secondary', 'mission-news' ),
+			'footer' 		=> esc_html__( 'Footer', 'mission-news' )
 		) );
 
 		load_theme_textdomain( 'mission-news', get_template_directory() . '/languages' );

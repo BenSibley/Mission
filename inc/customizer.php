@@ -669,7 +669,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			) );
 			// control
 			$wp_customize->add_control( $social_site, array(
-				'label'    => __( 'Phone', 'period' ),
+				'label'    => __( 'Phone', 'mission-news' ),
 				'section'     => 'ct_mission_news_social_media_icons',
 				'priority'    => $priority,
 				'type'        => 'text'

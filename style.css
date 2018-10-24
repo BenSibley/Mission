@@ -1577,7 +1577,8 @@ a img {
   .menu-primary-items li.menu-item-has-children > a:after,
   .menu-unset ul li.menu-item-has-children > a:after {
     content: '\f107';
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     position: relative;
     margin-left: 3px;
     line-height: 1;
@@ -1879,7 +1880,8 @@ a img {
   .menu-secondary-items li.menu-item-has-children > a:after,
   .menu-secondary .menu-unset > ul li.menu-item-has-children > a:after {
     content: '\f107';
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     display: inline-block;
     position: relative;
     margin-left: 3px;

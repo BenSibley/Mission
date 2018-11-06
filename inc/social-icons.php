@@ -37,6 +37,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'meetup'        => 'ct_mission_news_meetup_profile',
 			'mixcloud'      => 'ct_mission_news_mixcloud_profile',
 			'ok-ru'         => 'ct_mission_news_ok_ru_profile',
+			'patreon'       => 'ct_mission_news_patreon_profile',
 			'paypal'        => 'ct_mission_news_paypal_profile',
 			'podcast'       => 'ct_mission_news_podcast_profile',
 			'quora'         => 'ct_mission_news_quora_profile',

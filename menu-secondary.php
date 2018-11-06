@@ -7,6 +7,6 @@
 			'menu_class'      => 'menu-secondary-items',
 			'menu_id'         => 'menu-secondary-items',
 			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			'fallback_cb'     => 'ct_mission_news_wp_page_menu'
+			'fallback_cb'     => false
 		) ); ?>
 </div>

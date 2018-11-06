@@ -74,6 +74,9 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 			'footer' 		=> esc_html__( 'Footer', 'mission-news' )
 		) );
 
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
+
 		load_theme_textdomain( 'mission-news', get_template_directory() . '/languages' );
 	}
 }

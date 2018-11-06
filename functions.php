@@ -382,10 +382,16 @@ add_action( 'admin_init', 'ct_mission_news_reset_customizer_options' );
 if ( ! function_exists( ( 'ct_mission_news_delete_settings_notice' ) ) ) {
 	function ct_mission_news_delete_settings_notice() {
 
-		if ( isset( $_GET['ct_mission_news_status'] ) ) {
+		if ( $_GET['ct_mission_news_status'] == 'deleted' ) {
 			?>
 			<div class="updated">
 				<p><?php esc_html_e( 'Customizer settings deleted', 'mission-news' ); ?>.</p>
+			</div>
+			<?php
+		} else if ( $_GET['ct_mission_news_status'] == 'activated' ) {
+			?>
+			<div class="updated">
+				<p><?php printf( esc_html__( '%s successfully activated!', 'mission-news' ), wp_get_theme( get_template() ) ); ?></p>
 			</div>
 			<?php
 		}
@@ -856,3 +862,19 @@ function ct_mission_news_scroll_to_top_arrow() {
 	}
 }
 add_action( 'ct_mission_news_body_bottom', 'ct_mission_news_scroll_to_top_arrow');
+
+//----------------------------------------------------------------------------------
+// Redirect to dashboard upon theme activation
+//----------------------------------------------------------------------------------
+function ct_mission_news_welcome_redirect() {
+
+	$welcome_url = add_query_arg(
+		array(
+			'page'          				 => 'mission-options',
+			'ct_mission_news_status' => 'activated'
+		),
+		admin_url( 'themes.php' )
+	);
+	wp_safe_redirect( esc_url_raw( $welcome_url ) );
+}
+add_action( 'after_switch_theme', 'ct_mission_news_welcome_redirect' );

@@ -68,6 +68,13 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
 
+		// Gutenberg - wide & full images
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'align-full' );
+
+		// Gutenberg - add support for editor styles
+		add_theme_support('editor-styles');
+
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'mission-news' ),
 			'secondary' => esc_html__( 'Secondary', 'mission-news' ),

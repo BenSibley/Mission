@@ -2240,6 +2240,20 @@ a img {
   padding: 9px 18px;
 }
 
+.wp-block-quote.is-large {
+  padding-left: 0;
+  border-left: none;
+  margin: 1.5em;
+}
+
+.wp-block-embed {
+  margin: 1.5em 0;
+}
+
+.wp-block-code code {
+  background: none;
+}
+
 @media all and (min-width: 31.25em) {
   .post-title {
     font-size: 1.3125em;

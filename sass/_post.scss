@@ -171,6 +171,19 @@
   }
 }
 
+// New Gutenberg blocks
+.wp-block-quote.is-large {
+  padding-left: 0;
+  border-left: none;
+  margin: $baseline-height;
+}
+.wp-block-embed {
+  margin: $baseline-height 0;
+}
+.wp-block-code code {
+  background: none;
+}
+
 @media all and (min-width: $five-hundred) {
 
   .post-title {

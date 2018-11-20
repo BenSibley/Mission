@@ -36,6 +36,16 @@ function ct_mission_news_enqueue_admin_styles( $hook ) {
 	if ( $hook == 'appearance_page_mission-options' || $hook == 'widgets.php' ) {
 		wp_enqueue_style( 'ct-mission-news-admin-styles', get_template_directory_uri() . '/styles/admin.min.css' );
 	}
+	if ( $hook == 'post.php' || $hook == 'post-new.php' ) {
+
+		$font_args = array(
+			'family' => urlencode( 'PT Sans:400,700|PT Serif:400,400i,700,700i' ),
+			'subset' => urlencode( 'latin,latin-ext' )
+		);
+		$fonts_url = add_query_arg( $font_args, '//fonts.googleapis.com/css' );
+	
+		wp_enqueue_style( 'ct-mission-news-google-fonts', $fonts_url );
+	}
 }
 add_action( 'admin_enqueue_scripts', 'ct_mission_news_enqueue_admin_styles' );
 

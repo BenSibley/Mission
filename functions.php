@@ -82,6 +82,16 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 }
 add_action( 'after_setup_theme', 'ct_mission_news_theme_setup' );
 
+//-----------------------------------------------------------------------------
+// Load custom stylesheet for the post editor
+//-----------------------------------------------------------------------------
+if ( ! function_exists( 'ct_mission_news_add_editor_styles' ) ) {
+	function ct_mission_news_add_editor_styles() {
+		add_editor_style( 'styles/editor-style.css' );
+	}
+}
+add_action( 'admin_init', 'ct_mission_news_add_editor_styles' );
+
 //----------------------------------------------------------------------------------
 //	Register widget areas
 //----------------------------------------------------------------------------------

@@ -75,6 +75,34 @@ if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
 		// Gutenberg - add support for editor styles
 		add_theme_support('editor-styles');
 
+		// Gutenberg - modify the font sizes
+		add_theme_support( 'editor-font-sizes', array(
+			array(
+					'name' => __( 'small', 'mission-news' ),
+					'shortName' => __( 'S', 'mission-news' ),
+					'size' => 12,
+					'slug' => 'small'
+			),
+			array(
+					'name' => __( 'regular', 'mission-news' ),
+					'shortName' => __( 'M', 'mission-news' ),
+					'size' => 16,
+					'slug' => 'regular'
+			),
+			array(
+					'name' => __( 'large', 'mission-news' ),
+					'shortName' => __( 'L', 'mission-news' ),
+					'size' => 21,
+					'slug' => 'large'
+			),
+			array(
+					'name' => __( 'larger', 'mission-news' ),
+					'shortName' => __( 'XL', 'mission-news' ),
+					'size' => 28,
+					'slug' => 'larger'
+			)
+		) );
+
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary', 'mission-news' ),
 			'secondary' => esc_html__( 'Secondary', 'mission-news' ),

@@ -31,6 +31,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'flickr'        => 'ct_mission_news_flickr_profile',
 			'foursquare'    => 'ct_mission_news_foursquare_profile',
 			'github'        => 'ct_mission_news_github_profile',
+			'goodreads' 		=> 'ct_mission_news_goodreads_profile',
 			'google-wallet' => 'ct_mission_news_google_wallet_profile',
 			'hacker-news'   => 'ct_mission_news_hacker-news_profile',
 			'medium'        => 'ct_mission_news_medium_profile',

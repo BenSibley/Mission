@@ -24,11 +24,11 @@
             // Translators: %s is the URL of the theme
             $footer_text = sprintf( __( '<a href="%s">Mission News Theme</a> by Compete Themes.', 'mission-news' ), 'https://www.competethemes.com/mission-news/' );
             $footer_text = apply_filters( 'ct_mission_news_footer_text', $footer_text );
-            echo do_shortcode (wp_kses_post( $footer_text ) );
+            echo do_shortcode( wp_kses_post( $footer_text ) );
             ?>
         </span>
     </div>
-    <?php do_action( 'ct_mission_news_footer_bottom' ); ?>
+    <?php do_action( 'ct_mission_snews_footer_bottom' ); ?>
 </footer>
 </div><!-- .max-width -->
 </div><!-- .overflow-container -->

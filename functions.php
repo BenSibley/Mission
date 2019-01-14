@@ -392,7 +392,8 @@ if ( ! function_exists( ( 'ct_mission_news_reset_customizer_options' ) ) ) {
 			'comment_date',
 			'author_label',
 			'full_post',
-			'excerpt_length'
+			'excerpt_length',
+			'last_updated'
 		);
 
 		$social_sites = ct_mission_news_social_array();

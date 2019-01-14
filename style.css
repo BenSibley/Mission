@@ -1271,6 +1271,7 @@ a img {
   opacity: 0;
   visibility: hidden;
   overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   text-align: left;
   -webkit-transition: opacity 0.35s, visibility 0.35s, -webkit-transform 0.25s;

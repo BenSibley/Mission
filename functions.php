@@ -919,3 +919,22 @@ function ct_mission_news_welcome_redirect() {
 	wp_safe_redirect( esc_url_raw( $welcome_url ) );
 }
 add_action( 'after_switch_theme', 'ct_mission_news_welcome_redirect' );
+
+//----------------------------------------------------------------------------------
+// Output the "Last Updated" date on posts
+//----------------------------------------------------------------------------------
+function ct_mission_news_output_last_updated_date() {
+	
+	global $post;
+
+	if ( get_the_modified_date() != get_the_date() ) {
+		$updated_post = get_post_meta( $post->ID, 'ct_mission_news_last_updated', true );
+		$updated_customizer = get_theme_mod( 'last_updated' );
+		if ( 
+			( $updated_customizer == 'yes' && ($updated_post != 'no') )
+			|| $updated_post == 'yes' 
+			) {
+				echo '<p class="last-updated">'. __("Last updated on", "mission-news") . ' ' . get_the_modified_date() . ' </p>';
+			}
+	}
+}

@@ -2255,6 +2255,10 @@ a img {
   background: none;
 }
 
+.last-updated {
+  font-style: italic;
+}
+
 @media all and (min-width: 31.25em) {
   .post-title {
     font-size: 1.3125em;

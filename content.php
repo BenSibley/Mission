@@ -11,6 +11,7 @@ $date   = get_theme_mod( 'post_date_posts' );
 			<?php ct_mission_news_post_byline( $author, $date ); ?>
 		</div>
 		<div class="post-content">
+		<?php ct_mission_news_output_last_updated_date(); ?>
 			<?php the_content(); ?>
 			<?php wp_link_pages( array(
 				'before' => '<p class="singular-pagination">' . esc_html__( 'Pages:', 'mission-news' ),

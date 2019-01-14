@@ -1151,6 +1151,30 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	) );
 }
 
+	//----------------------------------------------------------------------------------
+	// Section: Additional Options
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_additional_options', array(
+		'title'    => __( 'Additional Options', 'mission-news' ),
+		'priority' => 75
+	) );
+	// setting - last updated
+	$wp_customize->add_setting( 'last_updated', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'mission_news_sanitize_yes_no_settings'
+	) );
+	// control - last updated
+	$wp_customize->add_control( 'last_updated', array(
+		'label'    => __( 'Display the date each post was last updated?', 'mission-news' ),
+		'section'  => 'ct_mission_news_additional_options',
+		'settings' => 'last_updated',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
+
 //----------------------------------------------------------------------------------
 // Sanitize email
 //----------------------------------------------------------------------------------

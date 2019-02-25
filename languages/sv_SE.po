@@ -8,9 +8,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-11 11:44+0200\n"
+"PO-Revision-Date: 2019-02-08 22:01+0100\n"
 "Language-Team: \n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: sv_SE\n"
@@ -21,7 +21,7 @@ msgstr "404: Sidan hittas inte"
 
 #: 404.php:8
 msgid "Sorry, we couldn't find a page at this URL"
-msgstr "Tyvärr kunde vi inte hitta en sidan på den här addressen."
+msgstr "Tyvärr kunde vi inte hitta en sidan på den här adressen"
 
 #: 404.php:9
 msgid ""
@@ -29,7 +29,7 @@ msgid ""
 "the form below."
 msgstr ""
 "Vänligen kontrollera att adressen är korrekt eller sök på webbsidan med "
-"sökfältet nedan. "
+"sökfältet nedan."
 
 #: comments.php:11 comments.php:31 comments.php:56
 msgid "Be First to Comment"
@@ -58,11 +58,11 @@ msgstr "Inlägg med etiketten"
 
 #: content/comments-link.php:3
 msgid "comment icon"
-msgstr ""
+msgstr "kommentarsikon"
 
 #: content/comments-link.php:6
 msgid "Comments closed"
-msgstr ""
+msgstr "Stängda kommentarer"
 
 #: content/comments-link.php:6 content/comments-link.php:8
 msgid "1 Comment"
@@ -79,7 +79,7 @@ msgstr "Skriv en kommentar"
 #. Translators: %s is the name of the post category
 #: content/more-from-category.php:20
 msgid "More posts in %s"
-msgstr "Fler inlägg i %"
+msgstr "Fler inlägg i %s"
 
 #: content/post-nav-attachment.php:3
 msgid "Previous Image"
@@ -92,7 +92,7 @@ msgstr "Nästa bild"
 #. translators: placeholder is the name of the post tag
 #: content/post-tags.php:11
 msgid "View all posts tagged %s"
-msgstr "Visa alla inlägg taggade med %"
+msgstr "Visa alla inlägg taggade med %s"
 
 #: content/search-bar.php:6 content/search-bar.php:9 searchform.php:4
 #: searchform.php:5
@@ -101,7 +101,7 @@ msgstr "Sök"
 
 #: content-page.php:11 content.php:16
 msgid "Pages:"
-msgstr "Sidor"
+msgstr "Sidor:"
 
 #. Translators: %s is the URL of the theme
 #: footer.php:22
@@ -117,11 +117,11 @@ msgstr ""
 
 #: functions.php:72
 msgid "Primary"
-msgstr ""
+msgstr "Primär"
 
 #: functions.php:73
 msgid "Secondary"
-msgstr ""
+msgstr "Sekundär"
 
 #: functions.php:88
 msgid "Left Sidebar"
@@ -227,7 +227,7 @@ msgstr "Författare"
 
 #: inc/comments.php:32
 msgid "Your comment is awaiting moderation."
-msgstr "Din kommentar väntar på att granskas"
+msgstr "Din kommentar väntar på att granskas."
 
 #: inc/comments.php:39
 msgid "Reply"
@@ -239,7 +239,7 @@ msgstr "Redigera"
 
 #: inc/comments.php:58
 msgid "(optional)"
-msgstr "Frivilligt"
+msgstr "(frivilligt)"
 
 #: inc/comments.php:63
 msgid "Name"
@@ -305,11 +305,11 @@ msgstr "Utseende"
 
 #: inc/customizer.php:55
 msgid "Change the layout of the main content and posts."
-msgstr "Byt utseende på huvudinnehållet och inlägg"
+msgstr "Byt utseende på huvudinnehållet och inlägg."
 
 #: inc/customizer.php:59
 msgid "Widget Styles"
-msgstr ""
+msgstr "Tilläggsstil"
 
 #: inc/customizer.php:60
 msgid "Customize the widget layouts and styles."
@@ -321,7 +321,7 @@ msgstr "Visa/dölj element"
 
 #: inc/customizer.php:65
 msgid "Choose which elements you want displayed on the site."
-msgstr "Välj vilka element du vill ska visas på webbplatsen"
+msgstr "Välj vilka element du vill ska visas på webbplatsen."
 
 #: inc/customizer.php:78
 msgid "%s Pro"
@@ -440,7 +440,7 @@ msgstr "Sidutseende"
 
 #: inc/customizer.php:165
 msgid "Layouts can be changed for individual pages in the page editor."
-msgstr "Utseendet kan ändras för enskilda sidor i sidredigeraren. "
+msgstr "Utseendet kan ändras för enskilda sidor i sidredigeraren."
 
 #: inc/customizer.php:183
 msgid "Blog"
@@ -460,7 +460,7 @@ msgstr "Arkivets utsende"
 
 #: inc/customizer.php:224
 msgid "Change the layout for category, tag, date, and author archives."
-msgstr "Ändra utseende för katergorier, ettiketter, datum och författarakriv. "
+msgstr "Ändra utseende för katergorier, ettiketter, datum och författarakriv."
 
 #: inc/customizer.php:242
 msgid "Search Results"
@@ -515,7 +515,7 @@ msgid ""
 "Control the widest the site will get on large screens. Default is 1280px"
 msgstr ""
 "Undersök hur bred webbplatsen kommer att bli på stora skärmar. Standard är "
-"1280px."
+"1280px"
 
 #: inc/customizer.php:387
 msgid "Below Header"
@@ -524,7 +524,7 @@ msgstr "Under huvudet"
 #: inc/customizer.php:397 inc/customizer.php:437 inc/customizer.php:478
 #: inc/customizer.php:519 inc/customizer.php:560 inc/customizer.php:601
 msgid "Display widgets in a row or column?"
-msgstr "Visa gränssnittskomponent (widgets) i en rad eller i komumn? "
+msgstr "Visa tillägg i en rad eller i kolumn?"
 
 #: inc/customizer.php:402 inc/customizer.php:442 inc/customizer.php:483
 #: inc/customizer.php:524 inc/customizer.php:565 inc/customizer.php:606
@@ -583,7 +583,7 @@ msgstr "Ikoner för social media"
 
 #: inc/customizer.php:634
 msgid "Add the URL for each of your social profiles."
-msgstr "Ange webbadress (URL) för dina profiler i social media"
+msgstr "Ange webbadress (URL) för dina profiler i social media."
 
 #: inc/customizer.php:653
 msgid "Email Address"
@@ -663,7 +663,7 @@ msgstr "Sidhuvud"
 
 #: inc/customizer.php:727
 msgid "Show today's date?"
-msgstr "Visa dagens datum? "
+msgstr "Visa dagens datum?"
 
 #: inc/customizer.php:732 inc/customizer.php:748 inc/customizer.php:764
 #: inc/customizer.php:780 inc/customizer.php:805 inc/customizer.php:821
@@ -689,7 +689,7 @@ msgstr "Nej"
 
 #: inc/customizer.php:743 inc/customizer.php:1076
 msgid "Show the social icons?"
-msgstr "Visa ikoner för social media? "
+msgstr "Visa ikoner för social media?"
 
 #: inc/customizer.php:759 inc/customizer.php:1092
 msgid "Show the tagline?"
@@ -724,7 +724,7 @@ msgstr "Visa inläggsdatum?"
 msgid "These settings apply to the category, tag, date, and author archives."
 msgstr ""
 "Dessa inställningar appliceras på kategorier, etiketter, datum och "
-"förafattararkiv. "
+"författararkiv."
 
 #: inc/customizer.php:857
 msgid "Show the archive title?"
@@ -760,7 +760,7 @@ msgstr "Visa författarrutan?"
 
 #: inc/customizer.php:1010
 msgid "Show the \"More from...\" section?"
-msgstr "Visa \"Mer från...\" sektionen? "
+msgstr "Visa \"Mer från...\" sektionen?"
 
 #: inc/customizer.php:1023
 msgid "Comments"
@@ -768,7 +768,7 @@ msgstr "Kommentarer"
 
 #: inc/customizer.php:1024
 msgid "These settings apply to post comments."
-msgstr "Dessa inställningar används för inläggets kommentarer"
+msgstr "Dessa inställningar används för inläggets kommentarer."
 
 #: inc/customizer.php:1035
 msgid "Show the comment date?"
@@ -824,7 +824,7 @@ msgstr "Klicka här för att recensera"
 
 #: inc/scripts.php:17
 msgid "close menu"
-msgstr "Stäng meny"
+msgstr "stäng meny"
 
 #: inc/scripts.php:18
 msgid "open dropdown menu"
@@ -870,11 +870,11 @@ msgstr "Relation"
 
 #: inc/widgets/post-list.php:203
 msgid "AND"
-msgstr ""
+msgstr "OCH"
 
 #: inc/widgets/post-list.php:204
 msgid "OR"
-msgstr ""
+msgstr "ELLER"
 
 #: inc/widgets/post-list.php:210
 msgid ""
@@ -911,7 +911,7 @@ msgstr "Visa länk för kommentarer"
 
 #: inc/widgets/post-list.php:240
 msgid "Show category link"
-msgstr "Visa kategorilänkarna?"
+msgstr "Visa kategorilänkarna"
 
 #: inc/widgets/post-list.php:244
 msgid "Exclude current post"
@@ -923,15 +923,15 @@ msgstr "Antal inlägg"
 
 #: inc/widgets/post-list.php:255 inc/widgets/post-list.php:258
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
 #: inc/widgets/post-list.php:260
 msgid "Style 1"
-msgstr ""
+msgstr "Stil 1"
 
 #: inc/widgets/post-list.php:261
 msgid "Style 2"
-msgstr ""
+msgstr "Stil 2"
 
 #. translators: The label of the "Back" link in primary navigation
 #: menu-primary.php:3
@@ -952,16 +952,16 @@ msgstr "Inga sökresultat för \"%s\""
 
 #: search.php:34
 msgid "Can't find what you're looking for?  Try refining your search:"
-msgstr "Hittar du inte vad du letar efter? Försök att förfina din sökning: "
+msgstr "Hittar du inte vad du letar efter? Försök att förfina din sökning:"
 
 #: searchform.php:4
 msgid " Search for..."
-msgstr "Sök efter..."
+msgstr " Sök efter..."
 
 #. Translators: %s is the name of the theme (Mission News)
 #: theme-options.php:11 theme-options.php:34
 msgid "%s Dashboard"
-msgstr ""
+msgstr "%s Panel"
 
 #: theme-options.php:39
 msgid "Get Started"
@@ -1041,7 +1041,7 @@ msgstr "Inlägg publicerade i"
 #: content/archive-header.php:19
 msgctxt "Posts published by AUTHOR"
 msgid "Posts published by"
-msgstr "Inlägg publicerade av "
+msgstr "Inlägg publicerade av"
 
 #: content/archive-header.php:23
 msgctxt "Posts published in MONTH"
@@ -1051,7 +1051,7 @@ msgstr "Inlägg publicerade under"
 #: content/more-from-category.php:18
 msgctxt "More from POST CATEGORY"
 msgid "More from"
-msgstr "Mer från "
+msgstr "Mer från"
 
 #: content/post-categories.php:10
 msgctxt "PUBLISHED IN post category"
@@ -1061,7 +1061,7 @@ msgstr "Publicerad i"
 #: content/post-categories.php:14
 msgctxt "category AND category"
 msgid "and"
-msgstr ""
+msgstr "och"
 
 #. translators: placeholder is the name of the post category
 #: content/post-categories.php:17
@@ -1072,7 +1072,7 @@ msgstr "Visa alla inlägg i %s"
 #: functions.php:287
 msgctxt "verb: open the menu"
 msgid "open menu"
-msgstr "Öppna menyn"
+msgstr "öppna menyn"
 
 #. translators: %s = the author who published the post
 #: functions.php:624
@@ -1085,4 +1085,4 @@ msgstr "Av %s"
 #: functions.php:627
 msgctxt "This blog post was published by some author on some date "
 msgid "By %1$s on %2$s"
-msgstr "Av %1$ den %2$s"
+msgstr "Av %1$s den %2$s"

@@ -667,7 +667,7 @@ if ( ! function_exists( ( 'ct_mission_news_post_byline' ) ) ) {
 			global $post;
 			$post_author = get_the_author_meta( 'display_name', $post->post_author );
 		}
-		$post_date = date_i18n( get_option( 'date_format' ), strtotime( get_the_date('r') ) );
+		$post_date = date_i18n( get_option( 'date_format' ), strtotime( get_the_date('c') ) );
 
 		echo '<div class="post-byline">';
 		if ( $author == 'no' ) {

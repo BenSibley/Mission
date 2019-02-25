@@ -425,18 +425,20 @@ add_action( 'admin_init', 'ct_mission_news_reset_customizer_options' );
 if ( ! function_exists( ( 'ct_mission_news_delete_settings_notice' ) ) ) {
 	function ct_mission_news_delete_settings_notice() {
 
-		if ( $_GET['ct_mission_news_status'] == 'deleted' ) {
-			?>
-			<div class="updated">
-				<p><?php esc_html_e( 'Customizer settings deleted', 'mission-news' ); ?>.</p>
-			</div>
-			<?php
-		} else if ( $_GET['ct_mission_news_status'] == 'activated' ) {
-			?>
-			<div class="updated">
-				<p><?php printf( esc_html__( '%s successfully activated!', 'mission-news' ), wp_get_theme( get_template() ) ); ?></p>
-			</div>
-			<?php
+		if ( isset( $_GET['ct_mission_news_status'] ) ) {
+			if ( $_GET['ct_mission_news_status'] == 'deleted' ) {
+				?>
+				<div class="updated">
+					<p><?php esc_html_e( 'Customizer settings deleted', 'mission-news' ); ?>.</p>
+				</div>
+				<?php
+			} else if ( $_GET['ct_mission_news_status'] == 'activated' ) {
+				?>
+				<div class="updated">
+					<p><?php printf( esc_html__( '%s successfully activated!', 'mission-news' ), wp_get_theme( get_template() ) ); ?></p>
+				</div>
+				<?php
+			}
 		}
 	}
 }

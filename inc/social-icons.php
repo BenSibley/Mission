@@ -18,6 +18,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'phone'         => 'ct_mission_news_phone_profile',
 			'email-form'    => 'ct_mission_news_email_form_profile',
 			'amazon'        => 'ct_mission_news_amazon_profile',
+			'artstation'    => 'ct_mission_news_artstation_profile',
 			'bandcamp'      => 'ct_mission_news_bandcamp_profile',
 			'behance'       => 'ct_mission_news_behance_profile',
 			'bitbucket'     => 'ct_mission_news_bitbucket_profile',

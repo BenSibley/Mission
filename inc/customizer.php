@@ -668,6 +668,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 				$label = __('Google Wallet', 'mission-news');
 			} elseif ( $social_site == 'ok-ru' ) {
 				$label = __('OK.ru', 'mission-news');
+			} elseif ( $social_site == 'artstation' ) {
+				$label = __('ArtStation', 'mission-news');
 			}
 			if ( $social_site == 'skype' ) {
 				// setting

@@ -28,7 +28,7 @@
             ?>
         </span>
     </div>
-    <?php do_action( 'ct_mission_snews_footer_bottom' ); ?>
+    <?php do_action( 'ct_mission_news_footer_bottom' ); ?>
 </footer>
 </div><!-- .max-width -->
 </div><!-- .overflow-container -->

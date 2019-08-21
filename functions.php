@@ -219,7 +219,12 @@ if ( ! function_exists( 'ct_mission_news_excerpt' ) ) {
 			$content = str_replace( ']]>', ']]&gt;', $content );
 			return $content;
 		} else {
-			return wpautop( wp_kses_post( get_the_excerpt() ) );
+			// If there is only the ellipsis then don't return anything
+			if ( get_the_excerpt() == '&#8230;' ) {
+				return '';
+			} else {
+				return wpautop( wp_kses_post( get_the_excerpt() ) );
+			}
 		}
 	}
 }

@@ -46,7 +46,8 @@
     overflow: hidden;
 
     > img,
-    > a > img {
+    > a > img,
+    .fvp-dynamic.post-thumbnail > img {
       position: absolute;
       left: 0;
       height: 100%;
@@ -67,6 +68,9 @@
         left: auto;
         transform: translateX(50%) translateY(-50%);
       }
+    }
+    .fvp-dynamic.post-thumbnail {
+      position: static;
     }
   }
 }

@@ -2352,8 +2352,11 @@ a img {
   font-size: 13px;
 }
 .featured-image .ccfic span {
-  display: block;
+  display: inline-block;
   line-height: 1.5;
+}
+.featured-image .ccfic .ccfic-source {
+  margin-right: 4px;
 }
 
 .blog .featured-image .ccfic,

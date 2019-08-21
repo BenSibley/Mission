@@ -20,8 +20,11 @@
     font-size: 13px;
 
     span {
-      display: block;
+      display: inline-block;
       line-height: 1.5;
+    }
+    .ccfic-source {
+      margin-left: 4px;
     }
   }
 }

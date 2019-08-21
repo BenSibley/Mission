@@ -2255,6 +2255,10 @@ a img {
   background: none;
 }
 
+.wp-block-button a {
+  color: #fff;
+}
+
 .last-updated {
   font-style: italic;
 }

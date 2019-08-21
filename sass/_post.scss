@@ -20,7 +20,6 @@
   @extend %twelve-pixels;
   @extend %uppercase;
   color: $color-gray-40;
-
 }
 .post-content {
   margin-top: $baseline-height/2;
@@ -183,7 +182,9 @@
 .wp-block-code code {
   background: none;
 }
-
+.wp-block-button a {
+  color: #fff;
+}
 .last-updated {
   font-style: italic;
 }

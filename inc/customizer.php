@@ -15,7 +15,6 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	//----------------------------------------------------------------------------------
 	if ( is_object( $wp_customize->get_section( 'static_front_page' ) ) ) {
 		$wp_customize->get_section( 'static_front_page' )->priority = 5;
-		$wp_customize->get_section( 'static_front_page' )->title    = __( 'Front Page', 'mission-news' );
 	}
 
 	//----------------------------------------------------------------------------------

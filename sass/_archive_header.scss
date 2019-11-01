@@ -3,6 +3,9 @@
   padding-bottom: $baseline-height/2;
   border-bottom: solid 1px $color-gray-86;
 
+  &:after {
+    @include clearfix;
+  }
   h1 {
     font-size: 1em;
     line-height: 1.5;
@@ -26,6 +29,14 @@
     }
     &:last-child {
       margin-bottom: $baseline-height/4;
+    }
+  }
+  .avatar-container {
+    float: left;
+    margin-right: 12px;
+    
+    img {
+      border-radius: 50%;
     }
   }
 }

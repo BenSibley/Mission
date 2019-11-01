@@ -26,15 +26,19 @@ if ( is_tag() ) {
 
 <div class='archive-header'>
 	<?php if ( get_theme_mod( 'archive_title' ) != 'no' ) : ?>
-	<h1>
-		<i class="fas fa-<?php echo esc_attr( $icon_class ); ?>"></i>
-		<?php
-		echo esc_html( $prefix ) . ' ';
-		the_archive_title( '&ldquo;', '&rdquo;' );
-		?>
-	</h1>
-	<?php endif;
-	if ( get_the_archive_description() != '' && get_theme_mod( 'archive_description' ) != 'no' ) :
-		the_archive_description();
+		<?php if ( is_author() ) {
+			echo '<div class="avatar-container">'. get_avatar( get_the_author_meta('ID'), 48 ) .'</div>';
+		} ?>
+		<h1>
+			<i class="fas fa-<?php echo esc_attr( $icon_class ); ?>"></i>
+			<?php
+			echo esc_html( $prefix ) . ' ';
+			the_archive_title( '&ldquo;', '&rdquo;' );
+			?>
+		</h1>
+		<?php 
+		if ( get_the_archive_description() != '' && get_theme_mod( 'archive_description' ) != 'no' ) {
+			the_archive_description();
+		} 
 	endif; ?>
 </div>

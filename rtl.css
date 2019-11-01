@@ -415,6 +415,14 @@ a img {
   padding-bottom: 0.75em;
   border-bottom: solid 1px #DCDCDC;
 }
+.archive-header:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
 .archive-header h1 {
   font-size: 1em;
   line-height: 1.5;
@@ -435,6 +443,13 @@ a img {
 }
 .archive-header p:last-child {
   margin-bottom: 0.375em;
+}
+.archive-header .avatar-container {
+  float: right;
+  margin-left: 12px;
+}
+.archive-header .avatar-container img {
+  border-radius: 50%;
 }
 
 @media all and (min-width: 37.5em) {

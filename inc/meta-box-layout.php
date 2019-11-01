@@ -64,6 +64,9 @@ if ( ! function_exists( ( 'ct_mission_news_post_layout_callback' ) ) ) {
 				<option value="no-sidebar-wide" <?php selected($layout == 'no-sidebar-wide'); ?>>
 					<?php esc_html_e( 'No sidebar - wide', 'mission-news' ); ?>
 				</option>
+				<option value="no-sidebar-full-width" <?php selected($layout == 'no-sidebar-full-width'); ?>>
+					<?php esc_html_e( 'No sidebar - full-width', 'mission-news' ); ?>
+				</option>
 			</select>
 		</p> <?php
 	}
@@ -103,7 +106,8 @@ if ( ! function_exists( ( 'ct_mission_news_post_layout_save_data' ) ) ) {
 				'right-sidebar', 
 				'right-sidebar-wide', 
 				'no-sidebar', 
-				'no-sidebar-wide'
+				'no-sidebar-wide',
+				'no-sidebar-full-width'
 			);
 
 			if ( in_array( $layout, $acceptable_values ) ) {

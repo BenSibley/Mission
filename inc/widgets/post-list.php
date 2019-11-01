@@ -41,6 +41,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		'comments'     		=> isset( $instance['comments'] ) ? $instance['comments'] : 'yes',
 		'post_category'   => isset( $instance['post_category'] ) ? $instance['post_category'] : 'no',
 		'exclude_current' => isset( $instance['exclude_current'] ) ? $instance['exclude_current'] : 'no',
+		'exclude_blog' 		=> isset( $instance['exclude_blog'] ) ? $instance['exclude_blog'] : 'no',
 		'post_count'   		=> isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
 		'after_excerpt'   => isset( $instance['after_excerpt'] ) ? sanitize_text_field($instance['after_excerpt']) : '...',
 		'style'        		=> isset( $instance['style'] ) ? absint($instance['style']) : 1,
@@ -111,6 +112,19 @@ class ct_mission_news_post_list extends WP_Widget {
 			echo '<ul>';
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
+				// if excluding posts in the center column
+				if ( $instance['exclude_blog'] == 'yes' ) {
+					global $posts;
+					$continue = false;
+					foreach ( $posts as $post ) {
+						if ( $post->ID == get_the_ID() ) {
+							$continue = true;
+						}
+					}
+					if ( $continue ) {
+						continue;
+					}
+				}
 				$classes = 'post-item';
 				if ( $instance['image'] == 'yes' ) {
 					$classes .= ' has-image';
@@ -246,6 +260,10 @@ class ct_mission_news_post_list extends WP_Widget {
 					<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>"><?php esc_html_e( 'Exclude current post', 'mission-news' ); ?></label>
 				</p>
 				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_blog'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'exclude_blog' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_blog' ) ); ?>" value="<?php echo esc_attr( $instance['exclude_blog'] ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_blog' ) ); ?>"><?php esc_html_e( 'Exclude all posts in the center column', 'mission-news' ); ?></label>
+				</p>
+				<p>
 					<input id="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_count' ) ); ?>" type="text" size="2" value="<?php echo esc_attr( $instance['post_count'] ); ?>">
 					<label for="<?php echo esc_attr( $this->get_field_id( 'post_count' ) ); ?>"><?php esc_html_e( 'Number of posts', 'mission-news' ); ?></label>
 				</p>
@@ -288,6 +306,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		$instance['comments']     	 = isset( $new_instance['comments'] ) ? 'yes' : 'no';
 		$instance['post_category']   = isset( $new_instance['post_category'] ) ? 'yes' : 'no';
 		$instance['exclude_current'] = isset( $new_instance['exclude_current'] ) ? 'yes' : 'no';
+		$instance['exclude_blog'] 	 = isset( $new_instance['exclude_blog'] ) ? 'yes' : 'no';
 
 		return $instance;
 	}

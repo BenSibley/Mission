@@ -961,6 +961,22 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// setting
+	$wp_customize->add_setting( 'author_box_posts', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'author_box_posts', array(
+		'label'    => __( 'Show the author box?', 'mission-news' ),
+		'section'  => 'ct_mission_news_show_hide_posts',
+		'settings' => 'author_box_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
+	// setting
 	$wp_customize->add_setting( 'author_avatar_posts', array(
 		'default'           => 'yes',
 		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
@@ -977,15 +993,15 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// setting
-	$wp_customize->add_setting( 'author_box_posts', array(
-		'default'           => 'yes',
+	$wp_customize->add_setting( 'author_link_posts', array(
+		'default'           => 'no',
 		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
 	) );
 	// control
-	$wp_customize->add_control( 'author_box_posts', array(
-		'label'    => __( 'Show the author box?', 'mission-news' ),
+	$wp_customize->add_control( 'author_link_posts', array(
+		'label'    => __( "Link to author's posts in the author box?", 'mission-news' ),
 		'section'  => 'ct_mission_news_show_hide_posts',
-		'settings' => 'author_box_posts',
+		'settings' => 'author_link_posts',
 		'type'     => 'radio',
 		'choices' => array(
 			'yes' => __( 'Yes', 'mission-news' ),

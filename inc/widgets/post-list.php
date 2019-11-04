@@ -92,7 +92,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		}
 		$exclude = array();
 		// exclude current post from query
-		if ( $instance['exclude_current'] == 'yes' ) {
+		if ( $instance['exclude_current'] == 'yes' && is_singular() ) {
 			global $post;
 			$query_args['post__not_in'] = array($post->ID);
 			$exclude = array($post->ID);

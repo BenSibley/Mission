@@ -90,10 +90,20 @@ class ct_mission_news_post_list extends WP_Widget {
 				$query_args['tag_id'] = $instance['tag'];
 			}
 		}
+		$exclude = array();
 		// exclude current post from query
 		if ( $instance['exclude_current'] == 'yes' ) {
 			global $post;
 			$query_args['post__not_in'] = array($post->ID);
+			$exclude = array($post->ID);
+		}
+		// if excluding posts in the center column
+		if ( $instance['exclude_blog'] == 'yes' ) {
+			global $posts;
+			foreach ( $posts as $post ) {
+				$exclude[] = $post->ID;
+			}
+			$query_args['post__not_in'] = $exclude;
 		}
 
 		// create the query
@@ -112,19 +122,6 @@ class ct_mission_news_post_list extends WP_Widget {
 			echo '<ul>';
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
-				// if excluding posts in the center column
-				if ( $instance['exclude_blog'] == 'yes' ) {
-					global $posts;
-					$continue = false;
-					foreach ( $posts as $post ) {
-						if ( $post->ID == get_the_ID() ) {
-							$continue = true;
-						}
-					}
-					if ( $continue ) {
-						continue;
-					}
-				}
 				$classes = 'post-item';
 				if ( $instance['image'] == 'yes' ) {
 					$classes .= ' has-image';

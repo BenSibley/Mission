@@ -13,13 +13,6 @@ add_action( 'admin_menu', 'ct_mission_news_register_theme_page' );
 
 function ct_mission_news_options_content() {
 
-	$customizer_url = add_query_arg(
-		array(
-			'url'    => get_home_url(),
-			'return' => add_query_arg( 'page', 'mission-options', admin_url( 'themes.php' ) )
-		),
-		admin_url( 'customize.php' )
-	);
 	$pro_url = 'https://www.competethemes.com/mission-news-pro/?utm_source=wp-dashboard&utm_medium=Dashboard&utm_campaign=Mission%20News%20Pro%20-%20Dashboard';
 	?>
 	<div id="mission-news-dashboard-wrap" class="wrap mission-news-dashboard-wrap">

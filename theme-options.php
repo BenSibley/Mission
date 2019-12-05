@@ -1,7 +1,13 @@
 <?php
 
 function ct_mission_news_register_theme_page() {
-	add_theme_page( sprintf( esc_html__( '%s Dashboard', 'mission-news' ), wp_get_theme() ), sprintf( esc_html__( '%s Dashboard', 'mission-news' ), wp_get_theme() ), 'edit_theme_options', 'mission-options', 'ct_mission_news_options_content', 'ct_mission_news_options_content' );
+	add_theme_page( 
+		sprintf( esc_html__( '%s Dashboard', 'mission-news' ), wp_get_theme() ), 
+		sprintf( esc_html__( '%s Dashboard', 'mission-news' ), wp_get_theme() ), 
+		'edit_theme_options', 
+		'mission-options', 
+		'ct_mission_news_options_content'
+	);
 }
 add_action( 'admin_menu', 'ct_mission_news_register_theme_page' );
 

@@ -41,6 +41,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'ok-ru'         => 'ct_mission_news_ok_ru_profile',
 			'patreon'       => 'ct_mission_news_patreon_profile',
 			'paypal'        => 'ct_mission_news_paypal_profile',
+			'pocket'        => 'ct_mission_news_pocket_profile',
 			'podcast'       => 'ct_mission_news_podcast_profile',
 			'quora'         => 'ct_mission_news_quora_profile',
 			'qq'            => 'ct_mission_news_qq_profile',
@@ -119,6 +120,8 @@ if ( ! function_exists( 'ct_mission_news_social_icons_output' ) ) {
 					$class = 'fab fa-odnoklassniki';
 				} elseif ( $active_site == 'wechat' ) {
 					$class = 'fab fa-weixin';
+				} elseif ( $active_site == 'pocket' ) {
+					$class = 'fab fa-get-pocket';
 				} elseif ( $active_site == 'phone' ) {
 					$class = 'fas fa-phone';
 				} else {

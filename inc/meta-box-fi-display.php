@@ -33,7 +33,7 @@ if ( ! function_exists( ( 'ct_mission_news_featured_image_display_callback' ) ) 
 		$display = get_post_meta( $post->ID, 'ct_mission_news_featured_image_display', true );
 		?>
 		<p>
-			<select name="mission-news-featured-image-display" id="mission-news-featured-image-display" class="widefat">
+			<select name="mission-news-featured-image-display" id="mission-news-featured-image-display" style="box-sizing: border-box; width: 100%;">
 				<option value="default"><?php esc_html_e( 'Use display set in Customizer', 'mission-news' ); ?></option>
 				<option value="post-blog" <?php selected($display == 'post-blog'); ?>>
 					<?php esc_html_e( 'Post & blog', 'mission-news' ); ?>

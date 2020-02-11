@@ -25,7 +25,7 @@ function ct_mission_news_last_updated_callback( $post ) {
 
   ?>
 	<p>
-		<select name="mission-news-last-updated" id="mission-news-last-updated" class="widefat">
+		<select name="mission-news-last-updated" id="mission-news-last-updated" style="box-sizing: border-box; width: 100%;">
 			<option value="default"><?php esc_html_e( 'Use Customizer setting', 'mission-news' ); ?></option>
 			<option value="yes" <?php if ( $display == 'yes' ) {
 				echo 'selected';

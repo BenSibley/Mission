@@ -141,6 +141,9 @@ th {
 
 /* Images */
 
+.wp-block-image {
+  margin: 0;
+}
 .alignleft {
   float: left;
   margin: 0 $baseline-height $baseline-height 0;
@@ -157,6 +160,7 @@ th {
 .alignnone {
   margin: $baseline-height 0;
 }
+img,
 .alignright,
 .alignleft,
 .aligncenter,
@@ -165,12 +169,20 @@ th {
 .size-full,
 .size-large,
 .size-medium,
-.size-thumbnail {
+.size-thumbnail,
+.wp-block-image {
   max-width: 100%;
   height: auto;
+
+  figcaption {
+    @extend %twelve-pixels;
+    font-family: $pt-sans;
+    color: $color-gray-40;
+  }
 }
 .wp-caption-text,
-.gallery-caption {
+.gallery-caption,
+.wp-caption-dd {
   @extend %twelve-pixels;
   font-family: $pt-sans;
   color: $color-gray-40;

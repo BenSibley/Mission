@@ -18,8 +18,19 @@ h2 {
   /* 24px */
 }
 
-.wp-caption-text,
-.gallery-caption {
+img figcaption,
+.alignright figcaption,
+.alignleft figcaption,
+.aligncenter figcaption,
+.alignnone figcaption,
+.size-auto figcaption,
+.size-full figcaption,
+.size-large figcaption,
+.size-medium figcaption,
+.size-thumbnail figcaption,
+.wp-block-image figcaption, .wp-caption-text,
+.gallery-caption,
+.wp-caption-dd {
   font-size: 0.75em;
   /* 12px / 16px */
   line-height: 1.5;
@@ -154,6 +165,10 @@ th {
 }
 
 /* Images */
+.wp-block-image {
+  margin: 0;
+}
+
 .alignleft {
   float: left;
   margin: 0 1.5em 1.5em 0;
@@ -174,6 +189,7 @@ th {
   margin: 1.5em 0;
 }
 
+img,
 .alignright,
 .alignleft,
 .aligncenter,
@@ -182,13 +198,29 @@ th {
 .size-full,
 .size-large,
 .size-medium,
-.size-thumbnail {
+.size-thumbnail,
+.wp-block-image {
   max-width: 100%;
   height: auto;
 }
+img figcaption,
+.alignright figcaption,
+.alignleft figcaption,
+.aligncenter figcaption,
+.alignnone figcaption,
+.size-auto figcaption,
+.size-full figcaption,
+.size-large figcaption,
+.size-medium figcaption,
+.size-thumbnail figcaption,
+.wp-block-image figcaption {
+  font-family: "PT Sans", sans-serif;
+  color: #666666;
+}
 
 .wp-caption-text,
-.gallery-caption {
+.gallery-caption,
+.wp-caption-dd {
   font-family: "PT Sans", sans-serif;
   color: #666666;
 }

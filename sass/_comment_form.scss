@@ -13,6 +13,9 @@
   .comment-form-url {
     margin: $baseline-height/2 0;
   }
+  .comment-form-cookies-consent label {
+    display: inline-block;
+  }
   label {
     @extend %twelve-pixels;
     display: block;

@@ -583,6 +583,9 @@ a img {
 .comment-respond .comment-form-url {
   margin: 0.75em 0;
 }
+.comment-respond .comment-form-cookies-consent label {
+  display: inline-block;
+}
 .comment-respond label {
   display: block;
   font-family: "PT Sans", sans-serif;

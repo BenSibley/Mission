@@ -109,6 +109,7 @@ blockquote {
 hr {
   margin: $baseline-height 0;
 }
+
 /* Table styles */
 table {
   border-spacing: 0;
@@ -118,7 +119,29 @@ table {
 td,
 th {
   padding: $baseline-height / 2;
-  border: solid 1px $color-gray-40;
+  border: solid 1px $color-gray-86;
+}
+.wp-block-table {
+  margin: 0;
+
+  thead,
+  tfoot {
+    background: $color-gray-95;
+  }
+  td,
+  th {
+    border-color: $color-gray-86;
+  }
+}
+.wp-block-table.is-style-stripes {
+
+  thead {
+    background: none;
+  }
+  td,
+  th {
+    border-color: $color-gray-86;
+  }
 }
 
 /* Images */

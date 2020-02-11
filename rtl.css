@@ -237,7 +237,27 @@ table {
 td,
 th {
   padding: 0.75em;
-  border: solid 1px #666666;
+  border: solid 1px #DCDCDC;
+}
+
+.wp-block-table {
+  margin: 0;
+}
+.wp-block-table thead,
+.wp-block-table tfoot {
+  background: #F3F3F3;
+}
+.wp-block-table td,
+.wp-block-table th {
+  border-color: #DCDCDC;
+}
+
+.wp-block-table.is-style-stripes thead {
+  background: none;
+}
+.wp-block-table.is-style-stripes td,
+.wp-block-table.is-style-stripes th {
+  border-color: #DCDCDC;
 }
 
 /* Images */

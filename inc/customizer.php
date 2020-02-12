@@ -645,6 +645,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 				$label = __('CodePen', 'mission-news');
 			} elseif ( $social_site == 'stumbleupon' ) {
 				$label = __('StumbleUpon', 'mission-news');
+			} elseif ( $social_site == 'stack-overflow' ) {
+				$label = __('Stack Overflow', 'mission-news');
 			} elseif ( $social_site == 'deviantart' ) {
 				$label = __('DeviantArt', 'mission-news');
 			} elseif ( $social_site == 'hacker-news' ) {

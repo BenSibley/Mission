@@ -633,9 +633,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 
 			$label = ucfirst( $social_site );
 
-			if ( $social_site == 'google-plus' ) {
-				$label = __('Google Plus', 'mission-news');
-			} elseif ( $social_site == 'rss' ) {
+			if ( $social_site == 'rss' ) {
 				$label = __('RSS', 'mission-news');
 			} elseif ( $social_site == 'soundcloud' ) {
 				$label = __('SoundCloud', 'mission-news');;

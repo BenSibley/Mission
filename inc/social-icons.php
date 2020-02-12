@@ -12,7 +12,6 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'instagram'     => 'ct_mission_news_instagram_profile',
 			'linkedin'      => 'ct_mission_news_linkedin_profile',
 			'pinterest'     => 'ct_mission_news_pinterest_profile',
-			'google-plus'   => 'ct_mission_news_googleplus_profile',
 			'youtube'       => 'ct_mission_news_youtube_profile',
 			'email'         => 'ct_mission_news_email_profile',
 			'phone'         => 'ct_mission_news_phone_profile',

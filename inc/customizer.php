@@ -831,7 +831,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	//----------------------------------------------------------------------------------
-	// Panel: Show/Hide Elements. Section: Archivess
+	// Panel: Show/Hide Elements. Section: Archives
 	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_news_show_hide_archives', array(
 		'title'    => __( 'Archives', 'mission-news' ),
@@ -890,6 +890,22 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'label'    => __( 'Show the Featured Image?', 'mission-news' ),
 		'section'  => 'ct_mission_news_show_hide_posts',
 		'settings' => 'featured_image_posts',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'featured_image_caption_posts', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'featured_image_caption_posts', array(
+		'label'    => __( 'Show the Featured Image caption?', 'mission-news' ),
+		'section'  => 'ct_mission_news_show_hide_posts',
+		'settings' => 'featured_image_caption_posts',
 		'type'     => 'radio',
 		'choices' => array(
 			'yes' => __( 'Yes', 'mission-news' ),

@@ -6,6 +6,12 @@
 .single .entry {
   border-bottom: none;
 }
+.featured-image + .caption {
+  @extend %fourteen-pixels;
+  color: $color-gray-40;
+  font-style: italic;
+  margin: 6px 0;
+}
 .post-header {
   margin: $baseline-height/2 0;
 }

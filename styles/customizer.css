@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*===== Variables =====*/
 /* Theme Colors */
 /* Media Query widths */
@@ -25,5 +26,7 @@
 }
 
 #available-widgets [class*=ct_mission_news_post_list] .widget-title:before {
-  content: "\f109";
+  content: "";
 }
+
+/*# sourceMappingURL=customizer.css.map */

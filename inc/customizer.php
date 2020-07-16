@@ -1206,6 +1206,18 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission-news' )
 		)
 	) );
+	// setting - more from category number
+	$wp_customize->add_setting( 'more_from_category_number', array(
+		'default'           => 4,
+		'sanitize_callback' => 'absint'
+	) );
+	// control - more from category number
+	$wp_customize->add_control( 'more_from_category_number', array(
+		'label'    => __( 'Number of posts in the "More from category" section below the post content', 'mission-news' ),
+		'section'  => 'ct_mission_news_additional_options',
+		'settings' => 'more_from_category_number',
+		'type'     => 'number'
+	) );
 }
 
 //----------------------------------------------------------------------------------

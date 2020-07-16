@@ -3,12 +3,13 @@ if ( get_theme_mod( 'more_from_posts' ) == 'no' ) return;
 
 global $post;
 $categories = wp_get_post_categories( $post->ID );
+$number_of_posts = get_theme_mod( 'more_from_category_number' );
 ?>
 <div class="more-from-category">
 	<?php
 	foreach ( $categories as $category ) {
 		$cat_posts = get_posts( array(
-			'posts_per_page' => 4,
+			'posts_per_page' => $number_of_posts,
 			'category'       => $category,
 			'exclude'        => $post->ID
 		) );

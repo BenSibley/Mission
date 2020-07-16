@@ -1468,6 +1468,11 @@ a img {
   transform: rotate(180deg);
 }
 
+.rtl .toggle-dropdown {
+  right: auto;
+  left: 0;
+}
+
 .dropdown-navigation {
   position: relative;
   z-index: 39;

@@ -924,4 +924,4 @@ msgstr "Von %s"
 #: functions.php:566
 msgctxt "This blog post was published by some author on some date "
 msgid "By %1$s on %2$s"
-msgstr "Von %1$s auf %2$s"
+msgstr "Von %1$s am %2$s"

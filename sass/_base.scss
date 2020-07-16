@@ -193,6 +193,12 @@ img,
   color: $color-gray-40;
 }
 
+.wp-block-social-links a,
+.wp-block-social-links a:link,
+.wp-block-social-links a:visited {
+  color: #fff;
+}
+
 /* Form styles */
 
 input[type="text"],

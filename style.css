@@ -2380,6 +2380,8 @@ a img {
     float: left;
     border-bottom: none;
     margin-bottom: 0;
+    border-top: solid 1px #DCDCDC;
+    padding-top: 1.125em;
   }
   .more-from-category li:nth-child(odd) {
     padding-right: 0.75em;
@@ -2391,9 +2393,9 @@ a img {
     border-left: solid 1px #DCDCDC;
     margin-left: -1px;
   }
-  .more-from-category li:nth-child(3), .more-from-category li:nth-child(4) {
-    border-top: solid 1px #DCDCDC;
-    padding-top: 1.125em;
+  .more-from-category li:nth-child(1), .more-from-category li:nth-child(2) {
+    border-top: none;
+    padding-top: 0;
   }
 }
 @media all and (min-width: 37.5em) {

@@ -60,6 +60,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'tencent-weibo' => 'ct_mission_news_tencent_weibo_profile',
 			'tumblr'        => 'ct_mission_news_tumblr_profile',
 			'twitch'        => 'ct_mission_news_twitch_profile',
+			'untappd'       => 'ct_mission_news_untappd_profile',
 			'vimeo'         => 'ct_mission_news_vimeo_profile',
 			'vine'          => 'ct_mission_news_vine_profile',
 			'vk'            => 'ct_mission_news_vk_profile',

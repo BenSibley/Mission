@@ -153,6 +153,9 @@
         line-height: 1.342;
       }
     }
+    .featured-image ~ .caption {
+      text-align: center;
+    }
   }
   // left-align non-first post in row layouts on archives & blog
   .layout-no-sidebar,

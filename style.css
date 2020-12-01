@@ -3310,6 +3310,10 @@ a img {
     font-size: 2.375em;
     line-height: 1.342;
   }
+  .layout-no-sidebar .featured-image ~ .caption,
+.layout-no-sidebar-wide .featured-image ~ .caption {
+    text-align: center;
+  }
 
   .layout-no-sidebar.blog.layout-rows .entry:not(:first-child) .post-header, .layout-no-sidebar.archive.layout-rows .entry:not(:first-child) .post-header, .layout-no-sidebar.blog.layout-rows-excerpt .entry:not(:first-child) .post-header, .layout-no-sidebar.archive.layout-rows-excerpt .entry:not(:first-child) .post-header,
 .layout-no-sidebar-wide.blog.layout-rows .entry:not(:first-child) .post-header,

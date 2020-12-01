@@ -35,7 +35,7 @@ if ( ! function_exists( ( 'ct_mission_news_post_layout_callback' ) ) ) {
 		$layout = get_post_meta( $post->ID, 'ct_mission_news_post_layout_key', true );
 		?>
 		<p>
-			<select name="mission-post-layout" id="mission-post-layout" class="widefat">
+			<select name="mission-post-layout" id="mission-post-layout" style="box-sizing: border-box; width: 100%;">
 				<option value="default"><?php esc_html_e( 'Use layout set in Customizer', 'mission-news' ); ?></option>
 				<option value="double-sidebar" <?php selected($layout == 'double-sidebar'); ?>>
 					<?php esc_html_e( 'Double sidebars', 'mission-news' ); ?>

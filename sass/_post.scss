@@ -26,6 +26,12 @@
   @extend %twelve-pixels;
   @extend %uppercase;
   color: $color-gray-40;
+
+  .post-categories {
+    display: inline;
+    margin: 0;
+    font-style: normal;
+  }
 }
 .post-content {
   margin-top: $baseline-height/2;

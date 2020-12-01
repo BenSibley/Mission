@@ -635,6 +635,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 
 			if ( $social_site == 'rss' ) {
 				$label = __('RSS', 'mission-news');
+			} elseif ( $social_site == 'researchgate' ) {
+				$label = __('ResearchGate', 'mission-news');;
 			} elseif ( $social_site == 'soundcloud' ) {
 				$label = __('SoundCloud', 'mission-news');;
 			} elseif ( $social_site == 'slideshare' ) {
@@ -805,7 +807,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	) );
 	// control
 	$wp_customize->add_control( 'post_author_blog_archives', array(
-		'label'    => __( 'Show the post author?', 'mission-news' ),
+		'label'    => __( 'Show the post author in the byline?', 'mission-news' ),
 		'section'  => 'ct_mission_news_show_hide_blog_archives',
 		'settings' => 'post_author_blog_archives',
 		'type'     => 'radio',
@@ -821,9 +823,25 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 	) );
 	// control
 	$wp_customize->add_control( 'post_date_blog_archives', array(
-		'label'    => __( 'Show the post date?', 'mission-news' ),
+		'label'    => __( 'Show the post date in the byline?', 'mission-news' ),
 		'section'  => 'ct_mission_news_show_hide_blog_archives',
 		'settings' => 'post_date_blog_archives',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'post_categories_blog_archives', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'post_categories_blog_archives', array(
+		'label'    => __( 'Show the post categories in the byline?', 'mission-news' ),
+		'section'  => 'ct_mission_news_show_hide_blog_archives',
+		'settings' => 'post_categories_blog_archives',
 		'type'     => 'radio',
 		'choices' => array(
 			'yes' => __( 'Yes', 'mission-news' ),

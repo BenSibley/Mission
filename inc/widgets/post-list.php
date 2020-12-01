@@ -27,7 +27,7 @@ class ct_mission_news_post_list extends WP_Widget {
 	//----------------------------------------------------------------------------------
 	function defaults($instance) {
 		$defaults = array(
-		'title' 			 		=> isset( $instance['title'] ) ? sanitize_text_field($instance['title']) : '',
+		'title' 			=> isset( $instance['title'] ) ? sanitize_text_field($instance['title']) : '',
 		'use_category' 		=> isset( $instance['use_category'] ) ? $instance['use_category'] : 'yes',
 		'category'     		=> isset( $instance['category'] ) ? absint($instance['category']) : 1,
 		'use_tag'      		=> isset( $instance['use_tag'] ) ? $instance['use_tag'] : 'no',
@@ -35,15 +35,16 @@ class ct_mission_news_post_list extends WP_Widget {
 		'relationship' 		=> isset( $instance['relationship'] ) ? sanitize_text_field($instance['relationship']) : 'AND',
 		'author'       		=> isset( $instance['author'] ) ? $instance['author'] : 'yes',
 		'date'        	 	=> isset( $instance['date'] ) ? $instance['date'] : 'no',
+		'categories'        => isset( $instance['categories'] ) ? $instance['categories'] : 'no',
 		'image'        		=> isset( $instance['image'] ) ? $instance['image'] : 'no',
 		'excerpt'      		=> isset( $instance['excerpt'] ) ? $instance['excerpt'] : 'yes',
 		'excerpt_length' 	=> isset( $instance['excerpt_length'] ) ? absint($instance['excerpt_length']) : 25,
 		'comments'     		=> isset( $instance['comments'] ) ? $instance['comments'] : 'yes',
-		'post_category'   => isset( $instance['post_category'] ) ? $instance['post_category'] : 'no',
-		'exclude_current' => isset( $instance['exclude_current'] ) ? $instance['exclude_current'] : 'no',
+		'post_category'   	=> isset( $instance['post_category'] ) ? $instance['post_category'] : 'no',
+		'exclude_current' 	=> isset( $instance['exclude_current'] ) ? $instance['exclude_current'] : 'no',
 		'exclude_blog' 		=> isset( $instance['exclude_blog'] ) ? $instance['exclude_blog'] : 'no',
 		'post_count'   		=> isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
-		'after_excerpt'   => isset( $instance['after_excerpt'] ) ? sanitize_text_field($instance['after_excerpt']) : '...',
+		'after_excerpt'   	=> isset( $instance['after_excerpt'] ) ? sanitize_text_field($instance['after_excerpt']) : '...',
 		'style'        		=> isset( $instance['style'] ) ? absint($instance['style']) : 1,
 		);
 		return $defaults;
@@ -134,7 +135,7 @@ class ct_mission_news_post_list extends WP_Widget {
 						echo '<div class="top-inner">';
 							echo '<a href="' . esc_url( get_the_permalink() ) . '" class="title">' . esc_html( get_the_title() ) . '</a>';
 							if ( $instance['author'] == 'yes' || $instance['date'] == 'yes' ) {
-								ct_mission_news_post_byline( $instance['author'], $instance['date'] );
+								ct_mission_news_post_byline( $instance['author'], $instance['date'], $instance['categories'] );
 							}
 							if ( $instance['post_category'] == 'yes' ) {
 								the_category();
@@ -237,6 +238,10 @@ class ct_mission_news_post_list extends WP_Widget {
 					<label for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php esc_html_e( 'Show date in byline', 'mission-news' ); ?></label>
 				</p>
 				<p>
+					<input class="checkbox" type="checkbox" <?php checked( $instance['categories'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'categories' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'categories' ) ); ?>" value="<?php echo esc_attr( $instance['categories'] ); ?>" />
+					<label for="<?php echo esc_attr( $this->get_field_id( 'categories' ) ); ?>"><?php esc_html_e( 'Show categories in byline', 'mission-news' ); ?></label>
+				</p>
+				<p>
 					<input class="checkbox" type="checkbox" <?php checked( $instance['image'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>"><?php esc_html_e( 'Show Featured Images', 'mission-news' ); ?></label>
 				</p>
@@ -298,6 +303,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		$instance['use_tag']      	 = isset( $new_instance['use_tag'] ) ? 'yes' : 'no';
 		$instance['author']       	 = isset( $new_instance['author'] ) ? 'yes' : 'no';
 		$instance['date']         	 = isset( $new_instance['date'] ) ? 'yes' : 'no';
+		$instance['categories']      = isset( $new_instance['categories'] ) ? 'yes' : 'no';
 		$instance['image']        	 = isset( $new_instance['image'] ) ? 'yes' : 'no';
 		$instance['excerpt']      	 = isset( $new_instance['excerpt'] ) ? 'yes' : 'no';
 		$instance['comments']     	 = isset( $new_instance['comments'] ) ? 'yes' : 'no';

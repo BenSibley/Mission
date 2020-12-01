@@ -663,9 +663,9 @@ add_filter( 'get_the_archive_description', 'ct_mission_news_modify_archive_descr
 // Using function instead of template part so widget can pass in variables 
 //----------------------------------------------------------------------------------
 if ( ! function_exists( ( 'ct_mission_news_post_byline' ) ) ) {
-	function ct_mission_news_post_byline( $author, $date ) {
+	function ct_mission_news_post_byline( $author, $date, $categories ) {
 
-		if ( $author == 'no' && $date == 'no' ) {
+		if ( $author == 'no' && $date == 'no' && $categories == 'no' ) {
 			return;
 		}
 		$post_author = get_the_author();
@@ -685,6 +685,13 @@ if ( ! function_exists( ( 'ct_mission_news_post_byline' ) ) ) {
 		} else {
 			// translators: %1$s = the author who published the post. %2$s = the date it was published
 			printf( esc_html_x( 'By %1$s on %2$s', 'This blog post was published by some author on some date ', 'mission-news' ), esc_html( $post_author ), esc_html( $post_date ) );
+		}
+		// Add optional post category
+		if ( $categories == 'yes' ) {
+			if ( $author == 'yes' || $date == 'yes' ) {
+				echo ' | ';
+			}
+			ct_mission_news_byline_categories();
 		}
 		echo '</div>';
 	}
@@ -940,3 +947,28 @@ function ct_mission_news_register_elementor_locations( $elementor_theme_manager 
 	$elementor_theme_manager->register_location( 'footer' );
 }
 add_action( 'elementor/theme/register_locations', 'ct_mission_news_register_elementor_locations' );
+
+//----------------------------------------------------------------------------------
+// Outputs post categories. Used in post byline.
+//----------------------------------------------------------------------------------
+function ct_mission_news_byline_categories(){
+
+	global $post;
+	$categories = get_the_category( $post->ID );
+	$separator  = ', ';
+	$output     = '';
+
+	if ( $categories ) {
+		echo '<p class="post-categories">';
+		foreach ( $categories as $category ) {
+			if ( $category === end( $categories ) && $category !== reset( $categories ) ) {
+				$output = rtrim( $output, ", " );
+				$output .= ' ' . esc_html_x( 'and', 'category AND category', 'mission-news' ) . ' ';
+			}
+			// translators: placeholder is the name of the post category
+			$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( _x( "View all posts in %s", 'View all posts in post category', 'mission-news' ), esc_html( $category->name ) ) ) . '">' . esc_html( $category->cat_name ) . '</a>' . $separator;
+		}
+		echo wp_kses_post( trim( $output, $separator ) );
+		echo "</p>";
+	}
+}

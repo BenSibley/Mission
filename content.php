@@ -1,6 +1,7 @@
 <?php
 $author = get_theme_mod( 'post_author_posts' );
 $date   = get_theme_mod( 'post_date_posts' );
+$categories   = get_theme_mod( 'post_categories_blog_archives' );
 ?>
 <div <?php post_class(); ?>>
 	<?php do_action( 'ct_mission_news_post_before' ); ?>
@@ -8,7 +9,7 @@ $date   = get_theme_mod( 'post_date_posts' );
 		<?php ct_mission_news_featured_image(); ?>
 		<div class='post-header'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
-			<?php ct_mission_news_post_byline( $author, $date ); ?>
+			<?php ct_mission_news_post_byline( $author, $date, $categories ); ?>
 		</div>
 		<div class="post-content">
 		<?php ct_mission_news_output_last_updated_date(); ?>

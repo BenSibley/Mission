@@ -2185,6 +2185,11 @@ a img {
 .post-byline, .widget_rss .rss-date, .widget_recent_entries .post-date {
   color: #666666;
 }
+.post-byline .post-categories, .widget_rss .rss-date .post-categories, .widget_recent_entries .post-date .post-categories {
+  display: inline;
+  margin: 0;
+  font-style: normal;
+}
 
 .post-content {
   margin-top: 0.75em;

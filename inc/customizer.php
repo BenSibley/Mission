@@ -1236,6 +1236,22 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'settings' => 'more_from_category_number',
 		'type'     => 'number'
 	) );
+	// setting - display post title above/below Featured Image
+	$wp_customize->add_setting( 'post_titles_positioning', array(
+		'default'           => 'below',
+		'sanitize_callback' => 'ct_mission_news_sanitize_post_titles_positioning'
+	) );
+	// control - display post title above/below Featured Image
+	$wp_customize->add_control( 'post_titles_positioning', array(
+		'label'    => __( 'Display post titles above or below Featured Images?', 'mission-news' ),
+		'section'  => 'ct_mission_news_additional_options',
+		'settings' => 'post_titles_positioning',
+		'type'     => 'radio',
+		'choices'  => array(
+			'above' => __( 'Above', 'mission-news' ),
+			'below' => __( 'Below', 'mission-news' )
+		)
+	) );
 }
 
 //----------------------------------------------------------------------------------
@@ -1328,6 +1344,16 @@ function ct_mission_news_sanitize_phone( $input ) {
 	} else {
 		return '';
 	}
+}
+
+function ct_mission_news_sanitize_post_titles_positioning( $input ) {
+
+	$valid = array(
+		'above' => __( 'Above', 'mission-news' ),
+		'below' => __( 'Below', 'mission-news' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
 

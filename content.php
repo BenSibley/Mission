@@ -2,15 +2,23 @@
 $author = get_theme_mod( 'post_author_posts' );
 $date   = get_theme_mod( 'post_date_posts' );
 $categories   = get_theme_mod( 'post_categories_blog_archives' );
+$post_title_position = get_theme_mod('post_titles_positioning');
 ?>
 <div <?php post_class(); ?>>
 	<?php do_action( 'ct_mission_news_post_before' ); ?>
 	<article>
-		<?php ct_mission_news_featured_image(); ?>
+		<?php
+		if ( $post_title_position == '' || $post_title_position == 'below' ) {
+			ct_mission_news_featured_image();
+		} ?>
 		<div class='post-header'>
 			<h1 class='post-title'><?php the_title(); ?></h1>
 			<?php ct_mission_news_post_byline( $author, $date, $categories ); ?>
 		</div>
+		<?php
+		if ( $post_title_position == 'above' ) {
+			ct_mission_news_featured_image();
+		} ?>
 		<div class="post-content">
 		<?php ct_mission_news_output_last_updated_date(); ?>
 			<?php the_content(); ?>

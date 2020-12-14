@@ -668,6 +668,12 @@ if ( ! function_exists( ( 'ct_mission_news_post_byline' ) ) ) {
 		if ( $author == 'no' && $date == 'no' && $categories == 'no' ) {
 			return;
 		}
+		if ( empty($author) ) {
+			$author = 'yes';
+		}
+		if ( empty($date) ) {
+			$date = 'yes';
+		}
 		$post_author = get_the_author();
 		// add compatibility when used in header before loop
 		if ( empty( $post_author ) ) {

@@ -115,12 +115,12 @@ module.exports = function(grunt) {
             zip: {
                 command: [
                     // delete existing copies (if they exist)
-                    'rm -R "/Users/bensibley/Dropbox/Compete Themes/Themes/mission-news" || true',
-                    'rm -R "/Users/bensibley/Dropbox/Compete Themes/Themes/mission-news.zip" || true',
+                    'rm -R "/Users/bensibley/Dropbox/Compete Themes/Distribution/mission-news" || true',
+                    'rm -R "/Users/bensibley/Dropbox/Compete Themes/Distribution/mission-news.zip" || true',
                     // copy folder without any project/meta files
-                    'rsync -r "/Users/bensibley/Sites/mission-news/wp-content/themes/mission-news" "/Users/bensibley/Dropbox/Compete Themes/Themes/" <%= excludeFiles %>',
+                    'rsync -r "/Users/bensibley/Sites/mission-news/wp-content/themes/mission-news" "/Users/bensibley/Dropbox/Compete Themes/Distribution/" <%= excludeFiles %>',
                     // open dist
-                    'cd "/Users/bensibley/Dropbox/Compete Themes/Themes/"',
+                    'cd "/Users/bensibley/Dropbox/Compete Themes/Distribution/"',
                     // zip the ct_mission_news folder
                     'zip -r mission-news.zip mission-news'
                 ].join('&&')

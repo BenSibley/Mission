@@ -26,6 +26,9 @@
     @extend %black-link;
     transition: color 0.15s;
   }
+  &.no-date {
+    margin-top: 5px;
+  }
 }
 .tagline {
   @extend %fourteen-pixels;
@@ -245,6 +248,10 @@
   .site-title {
     font-size: 1.75em; /* 28px / 16px */
     line-height: 1.357; /* 38px */
+
+    &.no-date {
+      margin-top: 0;
+    }
   }
   .tagline {
     display: block;

@@ -876,6 +876,9 @@ a img {
   -webkit-transition: color 0.15s;
   transition: color 0.15s;
 }
+.site-title.no-date {
+  margin-top: 5px;
+}
 
 .tagline {
   display: none;
@@ -1087,6 +1090,9 @@ a img {
     /* 28px / 16px */
     line-height: 1.357;
     /* 38px */
+  }
+  .site-title.no-date {
+    margin-top: 0;
   }
 
   .tagline {

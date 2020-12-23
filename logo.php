@@ -1,6 +1,11 @@
 <?php
 
-echo "<div class='site-title'>";
+$date_class = 'has-date';
+if ( get_theme_mod( 'date' ) == 'no' ) {
+	$date_class = 'no-date';
+}
+
+echo "<div class='site-title ". esc_attr($date_class)  ."'>";
 	if ( has_custom_logo() ) {
 		the_custom_logo();
 	} else {

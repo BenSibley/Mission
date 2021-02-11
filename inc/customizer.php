@@ -671,6 +671,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 				$label = __('OK.ru', 'mission-news');
 			} elseif ( $social_site == 'artstation' ) {
 				$label = __('ArtStation', 'mission-news');
+			} elseif ( $social_site == 'diaspora' ) {
+				$label = __('diaspora*', 'mission-news');
 			}
 			if ( $social_site == 'skype' ) {
 				// setting

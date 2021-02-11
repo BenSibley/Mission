@@ -29,4 +29,12 @@
   content: "";
 }
 
+#customize-control-social_icon_custom_1,
+#customize-control-social_icon_custom_2,
+#customize-control-social_icon_custom_3 {
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: solid 1px #d5d5d5;
+}
+
 /*# sourceMappingURL=customizer.css.map */

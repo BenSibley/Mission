@@ -702,6 +702,87 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		// increment the priority for next site
 		$priority = $priority + 5;
 	}
+		// Custom Icon 1
+		$wp_customize->add_setting( 'social_icon_custom_1', array(
+			'sanitize_callback' => 'esc_url_raw'
+		) );
+		$wp_customize->add_control( 'social_icon_custom_1', array(
+			'label'    => __('Custom Icon 1 URL', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_1',
+			'type'     => 'url',
+			'priority' => $priority + 5
+		) );
+		$wp_customize->add_setting( 'social_icon_custom_1_image', array(
+			'sanitize_callback' => 'esc_url_raw'
+		) );
+		$wp_customize->add_control(new WP_Customize_Image_Control( $wp_customize, 'social_icon_custom_1_image', array(
+			'label'    => __( 'Custom icon 1 image', 'mission-news' ),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_1_image',
+			'priority' => $priority + 6
+		)));
+		$wp_customize->add_control( 'social_icon_custom_1_size', array(
+			'label'    => __('Custom Icon 1 size (px)', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_1_size',
+			'type'     => 'number',
+			'priority' => $priority + 7
+		) );
+		// Custom Icon 2
+		$wp_customize->add_setting( 'social_icon_custom_2', array(
+			'sanitize_callback' => 'esc_url_raw'
+		) );
+		$wp_customize->add_control( 'social_icon_custom_2', array(
+			'label'    => __('Custom Icon 2', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_2',
+			'type'     => 'url',
+			'priority' => $priority + 10
+		) );
+		$wp_customize->add_setting( 'social_icon_custom_2_image', array(
+			'sanitize_callback' => 'esc_url_raw'
+		) );
+		$wp_customize->add_control(new WP_Customize_Image_Control( $wp_customize, 'social_icon_custom_2_image', array(
+			'label'    => __( 'Icon 2 image', 'mission-news' ),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_2_image',
+			'priority' => $priority + 11
+		)));
+		$wp_customize->add_control( 'social_icon_custom_2_size', array(
+			'label'    => __('Custom Icon 2 size (px)', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_2_size',
+			'type'     => 'number',
+			'priority' => $priority + 12
+		) );
+		// Custom Icon 3
+		$wp_customize->add_setting( 'social_icon_custom_3', array(
+			'sanitize_callback' => 'esc_url_raw'
+		) );
+		$wp_customize->add_control( 'social_icon_custom_3', array(
+			'label'    => __('Custom Icon 3', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_3',
+			'type'     => 'url',
+			'priority' => $priority + 15
+		) );
+		$wp_customize->add_setting( 'social_icon_custom_3_image', array(
+			'sanitize_callback' => 'esc_url_raw'
+		) );
+		$wp_customize->add_control(new WP_Customize_Image_Control( $wp_customize, 'social_icon_custom_3_image', array(
+			'label'    => __( 'Icon 3 image', 'mission-news' ),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_3_image',
+			'priority' => $priority + 16
+		)));
+		$wp_customize->add_control( 'social_icon_custom_3_size', array(
+			'label'    => __('Custom Icon 3 size (px)', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_3_size',
+			'type'     => 'number',
+			'priority' => $priority + 17
+		) );
 
 	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Header

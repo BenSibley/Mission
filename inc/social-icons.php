@@ -73,7 +73,10 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'xing'          => 'ct_mission_news_xing_profile',
 			'yahoo'         => 'ct_mission_news_yahoo_profile',
 			'yelp'          => 'ct_mission_news_yelp_profile',
-			'500px'         => 'ct_mission_news_500px_profile'
+			'500px'         => 'ct_mission_news_500px_profile',
+			'social_icon_custom_1' => 'ct_mission_news_social_icon_custom_1_profile',
+			'social_icon_custom_2' => 'ct_mission_news_social_icon_custom_2_profile',
+			'social_icon_custom_3' => 'ct_mission_news_social_icon_custom_3_profile'
 		);
 
 		return apply_filters( 'ct_mission_news_social_array_filter', $social_sites );
@@ -147,6 +150,12 @@ if ( ! function_exists( 'ct_mission_news_social_icons_output' ) ) {
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"
 							href="<?php echo esc_url( get_theme_mod( $active_site ), array( 'tel' ) ); ?>">
 						<i class="<?php echo esc_attr( $class ); ?>"></i>
+						<span class="screen-reader-text"><?php echo esc_html( $active_site );  ?></span>
+					</a>
+				<?php } elseif ( $active_site == 'social_icon_custom_1' || $active_site == 'social_icon_custom_2' || $active_site == 'social_icon_custom_3' ) { ?>
+					<a class="custom-icon" target="_blank"
+					href="<?php echo esc_url( get_theme_mod( $active_site ) ); ?>">
+					<img class="icon" src="<?php echo esc_url(get_theme_mod($active_site .'_image')); ?>" style="width: 19px;" />
 						<span class="screen-reader-text"><?php echo esc_html( $active_site );  ?></span>
 					</a>
 				<?php } else { ?>

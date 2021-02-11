@@ -1128,6 +1128,13 @@ a img {
     height: 24px;
     border: solid 1px #000;
   }
+  .social-media-icons .custom-icon img {
+    line-height: 0;
+    margin: 0;
+    width: 19px;
+    height: auto;
+    vertical-align: middle;
+  }
 
   .site-header .social-media-icons {
     display: block;

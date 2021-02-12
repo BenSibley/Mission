@@ -1225,6 +1225,22 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'no'  => __( 'No', 'mission-news' )
 		)
 	) );
+	// setting
+	$wp_customize->add_setting( 'logo_footer', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'logo_footer', array(
+		'label'    => __( 'Show the logo (or site title)?', 'mission-news' ),
+		'section'  => 'ct_mission_news_show_hide_footer',
+		'settings' => 'logo_footer',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
 
 	//----------------------------------------------------------------------------------
 	// Section: Excerpts

@@ -12,7 +12,9 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
     <footer id="site-footer" class="site-footer" role="contentinfo">
         <?php do_action( 'ct_mission_news_footer_top' ); ?>
         <div class="footer-title-container">
-            <?php get_template_part( 'logo' ) ?>
+            <?php if ( get_theme_mod( 'logo_footer' ) != 'no' ) {
+                get_template_part( 'logo' );
+            } ?>
             <?php if ( get_bloginfo( 'description' ) && get_theme_mod( 'tagline_footer' ) != 'no' ) {
                 echo '<p class="footer-tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';
             } ?>

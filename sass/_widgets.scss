@@ -1,6 +1,10 @@
 .widget-title {
   margin-bottom: $baseline-height * 0.75;
 }
+.widget select,
+.widget input {
+  max-width: 100%;
+}
 .widget_ct_mission_news_post_list {
 
   ul {

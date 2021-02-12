@@ -2864,6 +2864,11 @@ a img {
   margin-bottom: 1.125em;
 }
 
+.widget select,
+.widget input {
+  max-width: 100%;
+}
+
 .widget_ct_mission_news_post_list ul {
   margin: 0;
   list-style: none;

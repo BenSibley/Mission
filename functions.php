@@ -213,8 +213,10 @@ add_action( 'widgets_init', 'ct_mission_news_register_widget_areas' );
 //----------------------------------------------------------------------------------
 if ( ! function_exists( 'ct_mission_news_excerpt' ) ) {
 	function ct_mission_news_excerpt() {
-		if ( get_theme_mod( 'full_post' ) == 'yes' ) {		
-			$content = get_the_content();
+		global $post;
+		$ismore = strpos( $post->post_content, '<!--more-->' );
+		if ( get_theme_mod( 'full_post' ) == 'yes' || $ismore ) {		
+			$content = get_the_content('');
 			$content = apply_filters( 'the_content', $content );
 			$content = str_replace( ']]>', ']]&gt;', $content );
 			return $content;

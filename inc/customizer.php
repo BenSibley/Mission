@@ -73,6 +73,22 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'rows-excerpt' => __( 'Rows with excerpts', 'mission-news' )
 		)
 	) );
+	// setting - large first image
+	$wp_customize->add_setting( 'layout_first_image', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control - large first image
+	$wp_customize->add_control( 'layout_first_image', array(
+		'label'    		=> __( 'Make the first post larger?', 'mission-news' ),
+		'section'  		=> 'ct_mission_news_layout',
+		'settings' 		=> 'layout_first_image',
+		'type'     		=> 'radio',
+		'choices'  		=> array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
 	// section - Posts
 	$wp_customize->add_section( 'ct_mission_news_layout_posts', array(
 		'title'    => __( 'Posts', 'mission-news' ),

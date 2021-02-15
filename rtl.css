@@ -3111,7 +3111,7 @@ a img {
 }
 
 @media all and (min-width: 37.5em) {
-  .layout-double:not(.bbpress) .entry:first-child {
+  .layout-double:not(.bbpress) .entry:first-child:not(.small) {
     border-bottom: none;
     padding-bottom: 0;
   }
@@ -3123,21 +3123,31 @@ a img {
     padding: 0.75em 0;
     margin: 0;
   }
-  .layout-double:not(.bbpress) .double:nth-of-type(odd) {
-    padding-right: 0.75em;
-    margin-right: -1px;
-    border-right: solid 1px #DCDCDC;
-  }
-  .layout-double:not(.bbpress) .double:nth-of-type(even) {
-    padding-left: 0.75em;
-    clear: right;
-    border-left: solid 1px #DCDCDC;
-  }
   .layout-double:not(.bbpress) .double .post-title {
     font-size: 1.125em;
     /* 18px / 16px */
     line-height: 1.333;
     /* 24px */
+  }
+  .layout-double:not(.bbpress).small-first-post .double:nth-of-type(even) {
+    padding-right: 0.75em;
+    margin-right: -1px;
+    border-right: solid 1px #DCDCDC;
+  }
+  .layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd) {
+    padding-left: 0.75em;
+    clear: right;
+    border-left: solid 1px #DCDCDC;
+  }
+  .layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd) {
+    padding-right: 0.75em;
+    margin-right: -1px;
+    border-right: solid 1px #DCDCDC;
+  }
+  .layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even) {
+    padding-left: 0.75em;
+    clear: right;
+    border-left: solid 1px #DCDCDC;
   }
 }
 .layout-rows .rows,

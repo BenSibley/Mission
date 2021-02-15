@@ -506,6 +506,11 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 		} if ( !empty( $layout_woocommerce_cat ) && ( is_product_category() || is_shop() ) ) {
 			$classes[] = 'layout-' . esc_attr( $layout_woocommerce_cat );
 		}
+
+		if ( get_theme_mod('layout_first_image') == 'no' ) {
+			$classes[] = 'small-first-post';
+		}
+
 		return $classes;
 	}
 }
@@ -522,7 +527,12 @@ if ( ! function_exists( ( 'ct_mission_news_post_class' ) ) ) {
 		// adding a shared class for post divs on archive and single pages
 		$classes[] = 'entry';
 
-		if ( !empty( $layout ) && $wp_query->current_post != 0 ) {
+		if ( $wp_query->current_post == 0 ) {
+			if ( get_theme_mod('layout_first_image') == 'no' ) {
+				$classes[] = $layout;
+				$classes[] = 'small';
+			}
+		} else {
 			$classes[] = $layout;
 		}
 
@@ -611,10 +621,21 @@ if ( ! function_exists( 'ct_mission_news_get_content_template' ) ) {
 		}
 
 		if ( is_home() || is_archive() || is_search() ) {
-			if ( !empty( $layout ) && $layout != 'simple' && $wp_query->current_post != 0 ) {
-				get_template_part( 'content-archive-' . esc_attr( $layout ), get_post_type() );
+
+			$small_first_post = get_theme_mod('layout_first_image') == 'no' ? true : false;
+
+			if ( $wp_query->current_post == 0 ) {
+				if ( $small_first_post && !empty($layout) && $layout != 'simple' ) {
+					get_template_part( 'content-archive-' . esc_attr( $layout ), get_post_type() );
+				} else {
+					get_template_part( 'content-archive', get_post_type() );
+				}
 			} else {
-				get_template_part( 'content-archive', get_post_type() );
+				if ( !empty($layout) && $layout != 'simple' ) {
+					get_template_part( 'content-archive-' . esc_attr( $layout ), get_post_type() );
+				} else {
+					get_template_part( 'content-archive', get_post_type() );
+				}
 			}
 		} else {
 			get_template_part( 'content', get_post_type() );

@@ -540,12 +540,12 @@ if ( ! function_exists( ( 'ct_mission_news_post_class' ) ) ) {
 		// adding a shared class for post divs on archive and single pages
 		$classes[] = 'entry';
 
-		if ( $wp_query->current_post == 0 ) {
+		if ( $wp_query->current_post == 0 && !is_singular('post') ) {
 			if ( get_theme_mod('layout_first_image') == 'no' ) {
 				$classes[] = $layout;
 				$classes[] = 'small';
 			}
-		} else {
+		} elseif ( !empty( $layout ) && $wp_query->current_post != 0 ) {
 			$classes[] = $layout;
 		}
 

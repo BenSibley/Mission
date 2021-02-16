@@ -1410,6 +1410,23 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'below' => __( 'Below', 'mission-news' )
 		)
 	) );
+	// setting - Featured Image link
+	$wp_customize->add_setting( 'featured_image_link', array(
+		'default'           => 'post',
+		'sanitize_callback' => 'ct_mission_news_sanitize_featured_image_link'
+	) );
+	// control - Featured Image link
+	$wp_customize->add_control( 'featured_image_link', array(
+		'label'    => __( 'Where should Featured Images in the post feed link to?', 'mission-news' ),
+		'section'  => 'ct_mission_news_additional_options',
+		'settings' => 'featured_image_link',
+		'type'     => 'radio',
+		'choices' => array(
+			'post' 		 => __( 'Post', 'mission-news' ),
+			'media'		 => __( 'Media file', 'mission-news' ),
+			'attachment' => __( 'Attachment page', 'mission-news' )
+		)
+	) );
 }
 
 //----------------------------------------------------------------------------------
@@ -1513,6 +1530,18 @@ function ct_mission_news_sanitize_post_titles_positioning( $input ) {
 
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
+
+function ct_mission_news_sanitize_featured_image_link( $input ) {
+
+	$valid = array(
+		'post' 		 => __( 'Post', 'mission-news' ),
+		'media'		 => __( 'Media file', 'mission-news' ),
+		'attachment' => __( 'Attachment page', 'mission-news' )
+	);
+
+	return array_key_exists( $input, $valid ) ? $input : '';
+}
+
 
 
 function ct_mission_news_customize_preview_js() {

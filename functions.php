@@ -307,7 +307,14 @@ if ( ! function_exists( 'ct_mission_news_featured_image' ) ) {
 					}
 				}
 			} else {
-				$featured_image = '<div class="featured-image"><a href="' . esc_url( get_permalink() ) . '">' . esc_html( get_the_title() ) . get_the_post_thumbnail( $post->ID, 'large' ) . '</a></div>';
+				$link = get_permalink();
+				$link_setting = get_theme_mod('featured_image_link');
+				if ( $link_setting == 'media' ) {
+					$link = wp_get_attachment_image_src( $post->ID )[0];
+				} else if ( $link_setting == 'attachment' ) {
+					$link = wp_get_attachment_image_url( $post->ID );
+				}
+				$featured_image = '<div class="featured-image"><a href="' . esc_url( $link ) . '">' . esc_html( get_the_title() ) . get_the_post_thumbnail( $post->ID, 'large' ) . '</a></div>';
 			}
 		}
 

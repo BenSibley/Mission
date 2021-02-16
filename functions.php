@@ -510,6 +510,12 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 		if ( get_theme_mod('layout_first_image') == 'no' ) {
 			$classes[] = 'small-first-post';
 		}
+		if ( get_theme_mod('left_sidebar_mobile') == 'no' ) {
+			$classes[] = 'hide-left-sidebar';
+		}
+		if ( get_theme_mod('right_sidebar_mobile') == 'no' ) {
+			$classes[] = 'hide-right-sidebar';
+		}
 
 		return $classes;
 	}

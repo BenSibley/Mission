@@ -1160,13 +1160,54 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	//----------------------------------------------------------------------------------
+	// Panel: Show/Hide Elements. Section: Sidebars
+	//----------------------------------------------------------------------------------
+	$wp_customize->add_section( 'ct_mission_news_show_hide_sidebars', array(
+		'title'    => __( 'Sidebars', 'mission-news' ),
+		'description' => __( 'These settings apply to the main two sidebars.', 'mission-news' ),
+		'panel'    => 'ct_mission_news_show_hide_panel',
+		'priority' => 5
+	) );
+	// setting
+	$wp_customize->add_setting( 'left_sidebar_mobile', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'left_sidebar_mobile', array(
+		'label'    => __( "Show the left sidebar widgets on mobile devices?", 'mission-news' ),
+		'section'  => 'ct_mission_news_show_hide_sidebars',
+		'settings' => 'left_sidebar_mobile',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'right_sidebar_mobile', array(
+		'default'           => 'yes',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'right_sidebar_mobile', array(
+		'label'    => __( "Show the right sidebar widgets on mobile devices?", 'mission-news' ),
+		'section'  => 'ct_mission_news_show_hide_sidebars',
+		'settings' => 'right_sidebar_mobile',
+		'type'     => 'radio',
+		'choices' => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
+	//----------------------------------------------------------------------------------
 	// Panel: Show/Hide Elements. Section: Comments
 	//----------------------------------------------------------------------------------
 	$wp_customize->add_section( 'ct_mission_news_show_hide_comments', array(
 		'title'       => __( 'Comments', 'mission-news' ),
 		'description' => __( 'These settings apply to post comments.', 'mission-news' ),
 		'panel'       => 'ct_mission_news_show_hide_panel',
-		'priority'    => 5
+		'priority'    => 6
 	) );
 	// setting
 	$wp_customize->add_setting( 'comment_date', array(
@@ -1207,7 +1248,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'title'       => __( 'Footer', 'mission-news' ),
 		'description' => __( 'These settings apply to the footer.', 'mission-news' ),
 		'panel'       => 'ct_mission_news_show_hide_panel',
-		'priority'    => 6
+		'priority'    => 7
 	) );
 	// setting
 	$wp_customize->add_setting( 'social_icons_footer', array(

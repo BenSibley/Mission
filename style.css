@@ -2667,6 +2667,15 @@ a img {
     padding-left: 1.125em;
   }
 }
+@media all and (max-width: 799px) {
+  .hide-left-sidebar .sidebar-left {
+    display: none;
+  }
+
+  .hide-right-sidebar .sidebar-right {
+    display: none;
+  }
+}
 @media all and (min-width: 50em) {
   .sidebar {
     display: block;

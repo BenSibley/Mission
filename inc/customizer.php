@@ -1423,8 +1423,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'type'     => 'radio',
 		'choices' => array(
 			'post' 		 => __( 'Post', 'mission-news' ),
-			'media'		 => __( 'Media file', 'mission-news' ),
-			'attachment' => __( 'Attachment page', 'mission-news' )
+			'media'		 => __( 'Media file', 'mission-news' )
 		)
 	) );
 }
@@ -1535,8 +1534,7 @@ function ct_mission_news_sanitize_featured_image_link( $input ) {
 
 	$valid = array(
 		'post' 		 => __( 'Post', 'mission-news' ),
-		'media'		 => __( 'Media file', 'mission-news' ),
-		'attachment' => __( 'Attachment page', 'mission-news' )
+		'media'		 => __( 'Media file', 'mission-news' )
 	);
 
 	return array_key_exists( $input, $valid ) ? $input : '';

@@ -140,21 +140,27 @@
     .archive-header {
       text-align: center;
     }
-    .entry:first-child {
+    // not on the homepage or archive if first post is small
+    &:not(.small-first-post):not(.blog),
+    &:not(.small-first-post):not(.archive),
+    &:not(.small-first-post):not(.search) {
 
-      .post-header {
-        position: relative;
-        left: -14%;
-        width: 128%;
-        margin: $baseline-height * 0.75 0 $baseline-height;
+      .entry:first-child {
+
+        .post-header {
+          position: relative;
+          left: -14%;
+          width: 128%;
+          margin: $baseline-height * 0.75 0 $baseline-height;
+        }
+        .post-title {
+          font-size: 2.375em;
+          line-height: 1.342;
+        }
       }
-      .post-title {
-        font-size: 2.375em;
-        line-height: 1.342;
+      .featured-image ~ .caption {
+        text-align: center;
       }
-    }
-    .featured-image ~ .caption {
-      text-align: center;
     }
   }
   // left-align non-first post in row layouts on archives & blog
@@ -221,5 +227,14 @@
     .loop-container {
       position: static;
     }
+  }
+  // Fixes for double layout and small first image
+  .layout-double.small-first-post {
+
+    .entry:first-child .featured-image {
+      width: 100%;
+      left: 0;
+    }
+
   }
 }

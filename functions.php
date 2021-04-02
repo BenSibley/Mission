@@ -214,18 +214,28 @@ add_action( 'widgets_init', 'ct_mission_news_register_widget_areas' );
 if ( ! function_exists( 'ct_mission_news_excerpt' ) ) {
 	function ct_mission_news_excerpt() {
 		global $post;
+		$more_link = '';
+		if ( get_theme_mod('more_link') == 'yes' ) {
+			$more_link_text = get_theme_mod('more_link_text');
+			if ( empty($more_link_text)) {
+				$more_link_text = esc_html__( 'Continue reading', 'mission-news' );
+			}
+			$more_link = '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . $more_link_text . '<span class="screen-reader-text">' . esc_html( get_the_title() ) . '</span></a></div>';
+		}
 		$ismore = strpos( $post->post_content, '<!--more-->' );
 		if ( get_theme_mod( 'full_post' ) == 'yes' || $ismore ) {		
 			$content = get_the_content('');
 			$content = apply_filters( 'the_content', $content );
 			$content = str_replace( ']]>', ']]&gt;', $content );
+			$content .= $more_link;
+
 			return $content;
 		} else {
 			// If there is only the ellipsis then don't return anything
 			if ( get_the_excerpt() == '&#8230;' ) {
 				return '';
 			} else {
-				return wpautop( wp_kses_post( get_the_excerpt() ) );
+				return wpautop( wp_kses_post( get_the_excerpt() ) ) . $more_link;
 			}
 		}
 	}

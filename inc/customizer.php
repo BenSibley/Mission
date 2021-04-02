@@ -1323,6 +1323,34 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		)
 	) );
 	// setting
+	$wp_customize->add_setting( 'more_link', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control
+	$wp_customize->add_control( 'more_link', array(
+		'label'    => __( 'Add "Read More" link after excerpt?', 'mission-news' ),
+		'section'  => 'ct_mission_news_excerpts',
+		'settings' => 'more_link',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
+	// setting
+	$wp_customize->add_setting( 'more_link_text', array(
+		'default'           => __('Continue reading', 'mission-news'),
+		'sanitize_callback' => 'ct_mission_news_sanitize_text'
+	) );
+	// control
+	$wp_customize->add_control( 'more_link_text', array(
+		'label'    => __( '"Read More" link text', 'mission-news' ),
+		'section'  => 'ct_mission_news_excerpts',
+		'settings' => 'more_link_text',
+		'type'     => 'text'
+	) );
+	// setting
 	$wp_customize->add_setting( 'excerpt_length', array(
 		'default'           => '30',
 		'sanitize_callback' => 'absint'
@@ -1540,7 +1568,9 @@ function ct_mission_news_sanitize_featured_image_link( $input ) {
 	return array_key_exists( $input, $valid ) ? $input : '';
 }
 
-
+function ct_mission_news_sanitize_text( $input ) {
+	return wp_kses_post( force_balance_tags( $input ) );
+}
 
 function ct_mission_news_customize_preview_js() {
 	if ( !defined( 'MISSION_NEWS_PRO_FILE' ) && !(isset($_GET['mailoptin_optin_campaign_id']) || isset($_GET['mailoptin_email_campaign_id'])) ) {

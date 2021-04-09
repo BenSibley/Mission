@@ -31,7 +31,7 @@ if ( function_exists( 'wp_body_open' ) ) {
 					<?php ct_mission_news_social_icons_output( 'header' ); ?>
 				</div>
 				<div id="title-container" class="title-container"><?php
-					get_template_part( 'logo' );
+					get_template_part( 'logo', '', array('source' => 'header') );
 					if ( get_theme_mod( 'date' ) != 'no' ) {
 						echo '<p class="date">' . date_i18n( get_option( "date_format" ), strtotime( "<script>new Date();</script>" ) ) . '</p>';
 					}

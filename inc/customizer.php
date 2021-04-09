@@ -1454,6 +1454,17 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'media'		 => __( 'Media file', 'mission-news' )
 		)
 	) );
+	// setting - Alternate footer logo
+	$wp_customize->add_setting( 'footer_logo', array(
+		'sanitize_callback' => 'esc_url_raw'
+	) );
+	// control - Featured Image link
+	$wp_customize->add_control(new WP_Customize_Image_Control( $wp_customize, 'footer_logo', array(
+		'label'    => __( 'Alternate logo for the footer', 'mission-news' ),
+		'description' => __('Upload the logo at the exact dimensions you want it to display on the site', 'mission-news'),
+		'section'  => 'ct_mission_news_additional_options',
+		'settings' => 'footer_logo'
+	) ) );
 }
 
 //----------------------------------------------------------------------------------

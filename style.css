@@ -3111,20 +3111,28 @@ a img {
     /* 24px */
   }
 }
-.layout-double:not(.bbpress) .double {
+.blog.layout-double:not(.bbpress) .double,
+.archive.layout-double:not(.bbpress) .double,
+.search.layout-double:not(.bbpress) .double {
   margin-bottom: 0.75em;
   padding-bottom: 0.75em;
 }
-.layout-double:not(.bbpress) .double .post-header {
+.blog.layout-double:not(.bbpress) .double .post-header,
+.archive.layout-double:not(.bbpress) .double .post-header,
+.search.layout-double:not(.bbpress) .double .post-header {
   margin-bottom: 0;
 }
 
 @media all and (min-width: 37.5em) {
-  .layout-double:not(.bbpress) .entry:first-child:not(.small) {
+  .blog.layout-double:not(.bbpress) .entry:first-child:not(.small),
+.archive.layout-double:not(.bbpress) .entry:first-child:not(.small),
+.search.layout-double:not(.bbpress) .entry:first-child:not(.small) {
     border-bottom: none;
     padding-bottom: 0;
   }
-  .layout-double:not(.bbpress) .double {
+  .blog.layout-double:not(.bbpress) .double,
+.archive.layout-double:not(.bbpress) .double,
+.search.layout-double:not(.bbpress) .double {
     width: 50%;
     float: left;
     border-bottom: none;
@@ -3132,28 +3140,38 @@ a img {
     padding: 0.75em 0;
     margin: 0;
   }
-  .layout-double:not(.bbpress) .double .post-title {
+  .blog.layout-double:not(.bbpress) .double .post-title,
+.archive.layout-double:not(.bbpress) .double .post-title,
+.search.layout-double:not(.bbpress) .double .post-title {
     font-size: 1.125em;
     /* 18px / 16px */
     line-height: 1.333;
     /* 24px */
   }
-  .layout-double:not(.bbpress).small-first-post .double:nth-of-type(even) {
+  .blog.layout-double:not(.bbpress).small-first-post .double:nth-of-type(even),
+.archive.layout-double:not(.bbpress).small-first-post .double:nth-of-type(even),
+.search.layout-double:not(.bbpress).small-first-post .double:nth-of-type(even) {
     padding-left: 0.75em;
     margin-left: -1px;
     border-left: solid 1px #DCDCDC;
   }
-  .layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd) {
+  .blog.layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd),
+.archive.layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd),
+.search.layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd) {
     padding-right: 0.75em;
     clear: left;
     border-right: solid 1px #DCDCDC;
   }
-  .layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd) {
+  .blog.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd),
+.archive.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd),
+.search.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd) {
     padding-left: 0.75em;
     margin-left: -1px;
     border-left: solid 1px #DCDCDC;
   }
-  .layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even) {
+  .blog.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even),
+.archive.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even),
+.search.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even) {
     padding-right: 0.75em;
     clear: left;
     border-right: solid 1px #DCDCDC;

@@ -1,4 +1,6 @@
-.layout-double:not(.bbpress) {
+.blog.layout-double:not(.bbpress),
+.archive.layout-double:not(.bbpress),
+.search.layout-double:not(.bbpress) {
 
   // .entry
   .double {
@@ -13,7 +15,9 @@
 
 @media all and (min-width: $six-hundred) {
 
-  .layout-double:not(.bbpress) {
+  .blog.layout-double:not(.bbpress),
+  .archive.layout-double:not(.bbpress),
+  .search.layout-double:not(.bbpress) {
 
     .entry:first-child:not(.small) {
       border-bottom: none;

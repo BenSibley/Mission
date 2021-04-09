@@ -159,7 +159,7 @@ if ( ! function_exists( 'ct_mission_news_social_icons_output' ) ) {
 					<a class="custom-icon" target="_blank"
 					href="<?php echo esc_url( get_theme_mod( $active_site ) ); ?>">
 					<img class="icon" src="<?php echo esc_url(get_theme_mod($active_site .'_image')); ?>" style="width: 19px;" />
-						<span class="screen-reader-text"><?php echo esc_html( $active_site );  ?></span>
+						<span class="screen-reader-text"><?php echo esc_html( get_theme_mod($active_site .'_name') );  ?></span>
 					</a>
 				<?php } else { ?>
 					<a class="<?php echo esc_attr( $active_site ); ?>" target="_blank"

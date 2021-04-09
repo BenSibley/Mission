@@ -723,6 +723,16 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		$priority = $priority + 5;
 	}
 		// Custom Icon 1
+		$wp_customize->add_setting( 'social_icon_custom_1_name', array(
+			'sanitize_callback' => 'ct_mission_news_sanitize_text'
+		) );
+		$wp_customize->add_control( 'social_icon_custom_1_name', array(
+			'label'    => __('Custom Icon 1 Name', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_1_name',
+			'type'     => 'url',
+			'priority' => $priority + 5
+		) );
 		$wp_customize->add_setting( 'social_icon_custom_1', array(
 			'sanitize_callback' => 'esc_url_raw'
 		) );
@@ -731,7 +741,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'section'  => 'ct_mission_news_social_media_icons',
 			'settings' => 'social_icon_custom_1',
 			'type'     => 'url',
-			'priority' => $priority + 5
+			'priority' => $priority + 6
 		) );
 		$wp_customize->add_setting( 'social_icon_custom_1_image', array(
 			'sanitize_callback' => 'esc_url_raw'
@@ -740,16 +750,26 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'label'    => __( 'Custom icon 1 image', 'mission-news' ),
 			'section'  => 'ct_mission_news_social_media_icons',
 			'settings' => 'social_icon_custom_1_image',
-			'priority' => $priority + 6
+			'priority' => $priority + 7
 		)));
 		$wp_customize->add_control( 'social_icon_custom_1_size', array(
 			'label'    => __('Custom Icon 1 size (px)', 'mission-news'),
 			'section'  => 'ct_mission_news_social_media_icons',
 			'settings' => 'social_icon_custom_1_size',
 			'type'     => 'number',
-			'priority' => $priority + 7
+			'priority' => $priority + 8
 		) );
 		// Custom Icon 2
+		$wp_customize->add_setting( 'social_icon_custom_2_name', array(
+			'sanitize_callback' => 'ct_mission_news_sanitize_text'
+		) );
+		$wp_customize->add_control( 'social_icon_custom_2_name', array(
+			'label'    => __('Custom Icon 2 Name', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_2_name',
+			'type'     => 'url',
+			'priority' => $priority + 9
+		) );
 		$wp_customize->add_setting( 'social_icon_custom_2', array(
 			'sanitize_callback' => 'esc_url_raw'
 		) );
@@ -777,6 +797,16 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'priority' => $priority + 12
 		) );
 		// Custom Icon 3
+		$wp_customize->add_setting( 'social_icon_custom_3_name', array(
+			'sanitize_callback' => 'ct_mission_news_sanitize_text'
+		) );
+		$wp_customize->add_control( 'social_icon_custom_3_name', array(
+			'label'    => __('Custom Icon 3 Name', 'mission-news'),
+			'section'  => 'ct_mission_news_social_media_icons',
+			'settings' => 'social_icon_custom_3_name',
+			'type'     => 'url',
+			'priority' => $priority + 13
+		) );
 		$wp_customize->add_setting( 'social_icon_custom_3', array(
 			'sanitize_callback' => 'esc_url_raw'
 		) );
@@ -785,7 +815,7 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'section'  => 'ct_mission_news_social_media_icons',
 			'settings' => 'social_icon_custom_3',
 			'type'     => 'url',
-			'priority' => $priority + 15
+			'priority' => $priority + 14
 		) );
 		$wp_customize->add_setting( 'social_icon_custom_3_image', array(
 			'sanitize_callback' => 'esc_url_raw'
@@ -794,14 +824,14 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'label'    => __( 'Icon 3 image', 'mission-news' ),
 			'section'  => 'ct_mission_news_social_media_icons',
 			'settings' => 'social_icon_custom_3_image',
-			'priority' => $priority + 16
+			'priority' => $priority + 15
 		)));
 		$wp_customize->add_control( 'social_icon_custom_3_size', array(
 			'label'    => __('Custom Icon 3 size (px)', 'mission-news'),
 			'section'  => 'ct_mission_news_social_media_icons',
 			'settings' => 'social_icon_custom_3_size',
 			'type'     => 'number',
-			'priority' => $priority + 17
+			'priority' => $priority + 16
 		) );
 
 	//----------------------------------------------------------------------------------

@@ -1029,6 +1029,29 @@ a img {
   left: 0;
 }
 
+@media all and (max-width: 799px) {
+  .mobile-menu-open #menu-primary-container {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    overflow: visible;
+    width: 113% !important;
+    left: -6.5%;
+    top: 0 !important;
+    margin-top: 18px;
+    max-width: none !important;
+  }
+  .mobile-menu-open #toggle-navigation {
+    display: none;
+  }
+  .mobile-menu-open .site-header .social-media-icons {
+    padding-bottom: 24px;
+    margin-bottom: 0;
+  }
+  .mobile-menu-open .site-header {
+    margin-bottom: 0;
+  }
+}
 @media all and (min-width: 31.25em) {
   .search-form-popup .title {
     font-size: 1.125em;

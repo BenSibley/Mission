@@ -1424,6 +1424,22 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 		'title'    => __( 'Additional Options', 'mission-news' ),
 		'priority' => 75
 	) );
+	// setting - mobile menu always open
+	$wp_customize->add_setting( 'mobile_menu_toggle', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control - mobile menu always open
+	$wp_customize->add_control( 'mobile_menu_toggle', array(
+		'label'    => __( 'Display the full mobile menu without a toggle button?', 'mission-news' ),
+		'section'  => 'ct_mission_news_additional_options',
+		'settings' => 'mobile_menu_toggle',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
 	// setting - last updated
 	$wp_customize->add_setting( 'last_updated', array(
 		'default'           => 'no',

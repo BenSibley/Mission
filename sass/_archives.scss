@@ -36,6 +36,12 @@
     left: 0;
   }
 }
+.entry.double.small {
+
+  .sticky-status {
+    top: 12px;
+  }
+}
 .rtl .has-post-thumbnail .sticky-status {
   left: 0;
   right: auto;

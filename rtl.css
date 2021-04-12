@@ -567,6 +567,10 @@ a img {
   right: 0;
 }
 
+.entry.double.small .sticky-status {
+  top: 12px;
+}
+
 .rtl .has-post-thumbnail .sticky-status {
   right: 0;
   left: auto;

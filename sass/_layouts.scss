@@ -83,6 +83,16 @@
     &.blog.layout-double,
     &.archive.layout-double {
 
+      &.small-first-post {
+      
+        .entry {
+
+          .post-title {
+            font-size: 1.3125em; /* 21px / 16px */
+            line-height: 1.143; /* 24px */
+          }
+        }
+      }
       .entry:not(:first-child) {
 
         .post-title {

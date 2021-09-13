@@ -3337,6 +3337,18 @@ a img {
     width: 156%;
   }
 
+  .layout-left-sidebar-wide.blog.layout-double.small-first-post .entry .post-title, .layout-left-sidebar-wide.archive.layout-double.small-first-post .entry .post-title,
+.layout-right-sidebar-wide.blog.layout-double.small-first-post .entry .post-title,
+.layout-right-sidebar-wide.archive.layout-double.small-first-post .entry .post-title,
+.layout-no-sidebar-wide.blog.layout-double.small-first-post .entry .post-title,
+.layout-no-sidebar-wide.archive.layout-double.small-first-post .entry .post-title,
+.layout-no-sidebar-full-width.blog.layout-double.small-first-post .entry .post-title,
+.layout-no-sidebar-full-width.archive.layout-double.small-first-post .entry .post-title {
+    font-size: 1.3125em;
+    /* 21px / 16px */
+    line-height: 1.143;
+    /* 24px */
+  }
   .layout-left-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title, .layout-left-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,
 .layout-right-sidebar-wide.blog.layout-double .entry:not(:first-child) .post-title,
 .layout-right-sidebar-wide.archive.layout-double .entry:not(:first-child) .post-title,

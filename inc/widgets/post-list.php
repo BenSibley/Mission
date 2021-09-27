@@ -101,9 +101,16 @@ class ct_mission_news_post_list extends WP_Widget {
 		// if excluding posts in the center column
 		if ( $instance['exclude_blog'] == 'yes' ) {
 			global $posts;
+			if ( empty($posts) ) {
+				$main_query_args = array(
+					'numberposts' => get_option( 'posts_per_page' )
+				);
+				$posts = get_posts($main_query_args);
+			}
 			foreach ( $posts as $post ) {
 				$exclude[] = $post->ID;
 			}
+			wp_reset_query();
 			$query_args['post__not_in'] = $exclude;
 		}
 

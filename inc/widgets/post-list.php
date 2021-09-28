@@ -181,7 +181,6 @@ class ct_mission_news_post_list extends WP_Widget {
 
 		// Prepare defaults and override with saved values
 		$instance = $this->defaults($instance);
-
 		?>
 		<div class="mission-post-list-widget">
 			<p>
@@ -191,7 +190,7 @@ class ct_mission_news_post_list extends WP_Widget {
 			<h4><?php esc_html_e( 'Post Source', 'mission-news' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['use_category'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_category' ) ); ?>" value="<?php echo esc_attr( $instance['use_category'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['use_category'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_category' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'use_category' ) ); ?>"><?php esc_html_e( 'Category', 'mission-news' ); ?></label>
 				</p>
 				<p class="category">
@@ -205,7 +204,7 @@ class ct_mission_news_post_list extends WP_Widget {
 					) ); ?>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['use_tag'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_tag' ) ); ?>" value="<?php echo esc_attr( $instance['use_tag'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['use_tag'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'use_tag' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'use_tag' ) ); ?>"><?php esc_html_e( 'Tag', 'mission-news' ); ?></label>
 				</p>
 				<p class="tag">
@@ -237,39 +236,39 @@ class ct_mission_news_post_list extends WP_Widget {
 			<h4><?php esc_html_e( 'Content', 'mission-news' ); ?></h4>
 			<div class="container">
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['author'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'author' ) ); ?>" value="<?php echo esc_attr( $instance['author'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['author'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'author' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'author' ) ); ?>"><?php esc_html_e( 'Show author in byline', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['date'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" value="<?php echo esc_attr( $instance['date'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['date'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>"/>
 					<label for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php esc_html_e( 'Show date in byline', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['categories'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'categories' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'categories' ) ); ?>" value="<?php echo esc_attr( $instance['categories'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['categories'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'categories' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'categories' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'categories' ) ); ?>"><?php esc_html_e( 'Show categories in byline', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['image'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['image'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>"><?php esc_html_e( 'Show Featured Images', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['excerpt'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt' ) ); ?>" value="<?php echo esc_attr( $instance['excerpt'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['excerpt'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt' ) ); ?>"><?php esc_html_e( 'Show excerpt', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['comments'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'comments' ) ); ?>" value="<?php echo esc_attr( $instance['comments'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['comments'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'comments' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'comments' ) ); ?>"><?php esc_html_e( 'Show comments link', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['post_category'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'post_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_category' ) ); ?>" value="<?php echo esc_attr( $instance['post_category'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['post_category'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'post_category' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_category' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'post_category' ) ); ?>"><?php esc_html_e( 'Show category link', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_current'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_current' ) ); ?>" value="<?php echo esc_attr( $instance['exclude_current'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_current'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_current' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_current' ) ); ?>"><?php esc_html_e( 'Exclude current post', 'mission-news' ); ?></label>
 				</p>
 				<p>
-					<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_blog'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'exclude_blog' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_blog' ) ); ?>" value="<?php echo esc_attr( $instance['exclude_blog'] ); ?>" />
+					<input class="checkbox" type="checkbox" <?php checked( $instance['exclude_blog'], 'yes' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'exclude_blog' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'exclude_blog' ) ); ?>" />
 					<label for="<?php echo esc_attr( $this->get_field_id( 'exclude_blog' ) ); ?>"><?php esc_html_e( 'Exclude all posts in the center column', 'mission-news' ); ?></label>
 				</p>
 				<p>
@@ -306,17 +305,54 @@ class ct_mission_news_post_list extends WP_Widget {
 
 		$instance = $old_instance;
 		$instance = $this->defaults($new_instance);
-		$instance['use_category'] 	 = isset( $new_instance['use_category'] ) ? 'yes' : 'no';
-		$instance['use_tag']      	 = isset( $new_instance['use_tag'] ) ? 'yes' : 'no';
-		$instance['author']       	 = isset( $new_instance['author'] ) ? 'yes' : 'no';
-		$instance['date']         	 = isset( $new_instance['date'] ) ? 'yes' : 'no';
-		$instance['categories']      = isset( $new_instance['categories'] ) ? 'yes' : 'no';
-		$instance['image']        	 = isset( $new_instance['image'] ) ? 'yes' : 'no';
-		$instance['excerpt']      	 = isset( $new_instance['excerpt'] ) ? 'yes' : 'no';
-		$instance['comments']     	 = isset( $new_instance['comments'] ) ? 'yes' : 'no';
-		$instance['post_category']   = isset( $new_instance['post_category'] ) ? 'yes' : 'no';
-		$instance['exclude_current'] = isset( $new_instance['exclude_current'] ) ? 'yes' : 'no';
-		$instance['exclude_blog'] 	 = isset( $new_instance['exclude_blog'] ) ? 'yes' : 'no';
+		
+		/** There is something absolutely insane happening with the new widget editor that requires these fields to equal "on" first, and they
+		 * cannot have any other value unless manually converted afterward. The PHP itself makes no sense, but this is the only thing that works.
+		 * This was never an issue with the PHP based widget screen before 5.8 */
+		$instance['use_category'] = ( ! empty( $new_instance['use_category'] ) ) ? strip_tags( $new_instance['use_category'] ) : '';
+		if ( $instance['use_category'] == 'on' ) {
+			$instance['use_category'] = 'yes'; 
+		} 
+		$instance['use_tag'] = !empty( $new_instance['use_tag'] ) ? strip_tags( $new_instance['use_tag'] ) : 'no';
+		if ( $instance['use_tag'] == 'on' ) {
+			$instance['use_tag'] = 'yes'; 
+		}
+		$instance['author'] = !empty( $new_instance['author'] ) ? strip_tags( $new_instance['author'] ) : 'no';
+		if ( $instance['author'] == 'on' ) {
+			$instance['author'] = 'yes'; 
+		}
+		$instance['date'] = !empty( $new_instance['date'] ) ? strip_tags( $new_instance['date'] ) : 'no';
+		if ( $instance['date'] == 'on' ) {
+			$instance['date'] = 'yes'; 
+		}
+		$instance['categories'] = !empty( $new_instance['categories'] ) ? strip_tags( $new_instance['categories'] ) : 'no';
+		if ( $instance['categories'] == 'on' ) {
+			$instance['categories'] = 'yes'; 
+		}
+		$instance['image'] = !empty( $new_instance['image'] ) ? strip_tags( $new_instance['image'] ) : 'no';
+		if ( $instance['image'] == 'on' ) {
+			$instance['image'] = 'yes'; 
+		}
+		$instance['excerpt'] = !empty( $new_instance['excerpt'] ) ? strip_tags( $new_instance['excerpt'] ) : 'no';
+		if ( $instance['excerpt'] == 'on' ) {
+			$instance['excerpt'] = 'yes'; 
+		}
+		$instance['comments'] = !empty( $new_instance['comments'] ) ? strip_tags( $new_instance['comments'] ) : 'no';
+		if ( $instance['comments'] == 'on' ) {
+			$instance['comments'] = 'yes'; 
+		}
+		$instance['post_category'] = !empty( $new_instance['post_category'] ) ? strip_tags( $new_instance['post_category'] ) : 'no';
+		if ( $instance['post_category'] == 'on' ) {
+			$instance['post_category'] = 'yes'; 
+		}
+		$instance['exclude_current'] = !empty( $new_instance['exclude_current'] ) ? strip_tags( $new_instance['exclude_current'] ) : 'no';
+		if ( $instance['exclude_current'] == 'on' ) {
+			$instance['exclude_current'] = 'yes'; 
+		}
+		$instance['exclude_blog'] = !empty( $new_instance['exclude_blog'] ) ? strip_tags( $new_instance['exclude_blog'] ) : 'no';
+		if ( $instance['exclude_blog'] == 'on' ) {
+			$instance['exclude_blog'] = 'yes'; 
+		}
 
 		return $instance;
 	}

@@ -10,6 +10,7 @@ if ( ! function_exists( 'ct_mission_news_social_array' ) ) {
 			'twitter'       => 'ct_mission_news_twitter_profile',
 			'facebook'      => 'ct_mission_news_facebook_profile',
 			'instagram'     => 'ct_mission_news_instagram_profile',
+			'tiktok'      	=> 'ct_mission_news_tiktok_profile',
 			'linkedin'      => 'ct_mission_news_linkedin_profile',
 			'pinterest'     => 'ct_mission_news_pinterest_profile',
 			'youtube'       => 'ct_mission_news_youtube_profile',

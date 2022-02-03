@@ -1484,6 +1484,22 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 			'below' => __( 'Below', 'mission-news' )
 		)
 	) );
+	// setting - display post date or date and time
+	$wp_customize->add_setting( 'post_byline_time', array(
+		'default'           => 'no',
+		'sanitize_callback' => 'ct_mission_news_sanitize_yes_no_settings'
+	) );
+	// control - display post title above/below Featured Image
+	$wp_customize->add_control( 'post_byline_time', array(
+		'label'    => __( 'Should the post byline include the time of day the post was published?', 'mission-news' ),
+		'section'  => 'ct_mission_news_additional_options',
+		'settings' => 'post_byline_time',
+		'type'     => 'radio',
+		'choices'  => array(
+			'yes' => __( 'Yes', 'mission-news' ),
+			'no'  => __( 'No', 'mission-news' )
+		)
+	) );
 	// setting - Featured Image link
 	$wp_customize->add_setting( 'featured_image_link', array(
 		'default'           => 'post',

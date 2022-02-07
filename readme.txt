@@ -2,8 +2,8 @@
 Contributors: bensibley
 Tags: three-columns, left-sidebar, right-sidebar, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, entertainment, news
 Requires at least: 4.5
-Tested up to: 5.8.1
-Stable tag: 1.46
+Tested up to: 5.9
+Stable tag: 1.48
 
 For publishers on a mission.
 

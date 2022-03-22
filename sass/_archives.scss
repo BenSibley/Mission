@@ -36,12 +36,66 @@
     left: 0;
   }
 }
+
+.entry.double,
 .entry.double.small {
 
   .sticky-status {
     top: 12px;
   }
 }
+
+body:not(.small-first-post) {
+
+  .entry.double,
+  .entry.double.small {
+    
+    &:nth-child(odd) {
+
+      .sticky-status {
+        left: 12px;
+      }
+    }
+  }
+  
+}
+body.small-first-post {
+
+  .entry.double,
+  .entry.double.small {
+
+    &:nth-child(even) {
+
+      .sticky-status {
+        left: 12px;
+      }
+    }
+  }
+}
+.layout-simple.titles-above-image {
+
+  .post-header {
+    position: relative;
+  }
+  .sticky-status {
+    top: calc(100% + 12px);
+    z-index: 9;
+  }
+}
+.layout-double.titles-above-image:not(.small-first-post) {
+
+  .entry:first-child {
+
+    .post-header {
+      position: relative;
+    }
+    .sticky-status {
+      top: calc(100% + 12px);
+      z-index: 9;
+    }
+  }
+}
+
 .rtl .has-post-thumbnail .sticky-status {
   left: 0;
   right: auto;

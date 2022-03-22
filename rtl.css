@@ -567,8 +567,35 @@ a img {
   right: 0;
 }
 
+.entry.double .sticky-status,
 .entry.double.small .sticky-status {
   top: 12px;
+}
+
+body:not(.small-first-post) .entry.double:nth-child(odd) .sticky-status,
+body:not(.small-first-post) .entry.double.small:nth-child(odd) .sticky-status {
+  right: 12px;
+}
+
+body.small-first-post .entry.double:nth-child(even) .sticky-status,
+body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
+  right: 12px;
+}
+
+.layout-simple.titles-above-image .post-header {
+  position: relative;
+}
+.layout-simple.titles-above-image .sticky-status {
+  top: calc(100% + 12px);
+  z-index: 9;
+}
+
+.layout-double.titles-above-image:not(.small-first-post) .entry:first-child .post-header {
+  position: relative;
+}
+.layout-double.titles-above-image:not(.small-first-post) .entry:first-child .sticky-status {
+  top: calc(100% + 12px);
+  z-index: 9;
 }
 
 .rtl .has-post-thumbnail .sticky-status {

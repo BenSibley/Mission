@@ -530,6 +530,9 @@ if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
 		if ( get_theme_mod('mobile_menu_toggle') == 'yes' ) {
 			$classes[] = 'mobile-menu-open';
 		}
+		if ( get_theme_mod('post_titles_positioning') == 'above' ) {
+			$classes[] = 'titles-above-image';
+		}
 
 		return $classes;
 	}

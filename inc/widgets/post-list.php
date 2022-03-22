@@ -45,6 +45,7 @@ class ct_mission_news_post_list extends WP_Widget {
 		'exclude_blog' 		=> isset( $instance['exclude_blog'] ) ? $instance['exclude_blog'] : 'no',
 		'post_count'   		=> isset( $instance['post_count'] ) ? absint($instance['post_count']) : 5,
 		'after_excerpt'   	=> isset( $instance['after_excerpt'] ) ? sanitize_text_field($instance['after_excerpt']) : '...',
+		'post_types'	   	=> isset( $instance['post_types'] ) ? self::sanitize_pts($instance['post_types']) : array('post'),
 		'style'        		=> isset( $instance['style'] ) ? absint($instance['style']) : 1,
 		);
 		return $defaults;
@@ -63,7 +64,7 @@ class ct_mission_news_post_list extends WP_Widget {
 			'posts_per_page' => $instance['post_count'],
 			'orderby'        => 'date',
 			'order'          => 'DESC',
-			'post_type'      => 'post',
+			'post_type'      => $instance['post_types'],
 			'post_status'    => 'publish'
 		);
 		// If using posts in either a category or a tag
@@ -284,6 +285,26 @@ class ct_mission_news_post_list extends WP_Widget {
 					<label for="<?php echo esc_attr( $this->get_field_id( 'after_excerpt' ) ); ?>"><?php esc_html_e( 'Text after excerpts', 'mission-news' ); ?></label>
 				</p>
 			</div>
+			<h4><?php esc_html_e( 'Post Types', 'mission-news' ); ?></h4>
+			<div class="container"><?php 
+				$post_types = array('post', 'page');
+				$cpts = get_post_types(array(
+					'public' => true,
+					'_builtin' => false
+				));
+				foreach( $cpts as $cpt ) {
+					$post_types[] = $cpt;
+				}
+				foreach($post_types as $post_type) { 
+					$checked = in_array($post_type, $instance['post_types']);
+					$label = get_post_type_object($post_type)->labels->name;
+					?>
+					<p>
+						<input class="checkbox" type="checkbox" <?php checked( true, $checked, true ); ?> id="<?php echo esc_attr( $this->get_field_id( 'post_types' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_types' ) ); ?>[]" value="<?php echo esc_attr($post_type); ?>" />
+						<label for="<?php echo esc_attr( $this->get_field_id( 'post_types' ) ); ?>"><?php echo esc_html($label); ?></label>
+					</p>	
+				<?php } ?>
+			</div>
 			<h4><?php esc_html_e( 'Style', 'mission-news' ); ?></h4>
 			<div class="container">
 				<p>
@@ -353,8 +374,32 @@ class ct_mission_news_post_list extends WP_Widget {
 		if ( $instance['exclude_blog'] == 'on' ) {
 			$instance['exclude_blog'] = 'yes'; 
 		}
+		$instance['post_types'] = self::sanitize_pts($instance['post_types']);
 
 		return $instance;
+	}
+
+	private function sanitize_pts($pt_array){
+		$accepted_pts = array('post', 'page');
+		$cpts = get_post_types(array(
+			'public' => true,
+			'_builtin' => false
+		));
+		foreach( $cpts as $cpt ) {
+			$accepted_pts[] = $cpt;
+		}
+		$to_save = array();
+		if ( empty($pt_array) ) {
+			$to_save = array('post');
+		} else {
+			foreach( $pt_array as $user_pt ) {
+				if (in_array($user_pt, $accepted_pts)) {
+					$to_save[] = $user_pt;
+				}
+			}
+			$pt_array = $to_save;
+		}
+		return $pt_array;
 	}
 }
 

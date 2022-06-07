@@ -1,0 +1,1298 @@
+# Copyright (C) 2021 Compete Themes
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Mission News 1.43\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2021-04-13 17:21:11+00:00\n"
+"PO-Revision-Date: 2022-06-07 15:20-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: 404.php:6
+msgid "404: Page Not Found"
+msgstr "404: Sivua ei löydy"
+
+#: 404.php:9
+msgid "Sorry, we couldn't find a page at this URL"
+msgstr "Anteeksi, mutta emme löytäneet sivua tästä URL:stä"
+
+#: 404.php:10
+msgid ""
+"Please double-check that the URL is correct or try searching our site with "
+"the form below."
+msgstr ""
+"Tarkistathan uudemman kerran, että URL on oikein tai yritä etsiä sitä "
+"sivultamme alla olevan lomakkeen avulla."
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgid "Be First to Comment"
+msgstr "Ole ensimmäinen joka kommentoi"
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgid "One Comment"
+msgstr "Yksi kommentti"
+
+#. translators: placeholder is link to the trackback URL
+#: comments.php:47
+msgid ""
+"Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this post"
+"\">trackbacks</a> and pingbacks are open."
+msgstr ""
+"Kommentit on suljettu, mutta <a href=\"%s\" title=\"Trackback URL for this "
+"post\">trackbackit </a> sekä pingbackit ovat auki."
+
+#: comments.php:70 comments.php:85
+msgid "Comments are closed."
+msgstr "Kommentointi on suljettu."
+
+#: content/archive-header.php:16
+msgid "Posts tagged as"
+msgstr "Julkaisut jotka on merkitty"
+
+#: content/comments-link.php:3
+msgid "comment icon"
+msgstr "kommentin ikoni"
+
+#: content/comments-link.php:6
+msgid "Comments closed"
+msgstr "Kommentointi suljettu"
+
+#: content/comments-link.php:6 content/comments-link.php:8
+msgid "1 Comment"
+msgstr "1 kommentti"
+
+#: content/comments-link.php:6 content/comments-link.php:8
+msgid "% Comments"
+msgstr "% kommenttia"
+
+#: content/comments-link.php:8
+msgid "Leave a Comment"
+msgstr "Jätä kommentti"
+
+#. Translators: %s is the name of the post category
+#: content/more-from-category.php:21
+msgid "More posts in %s"
+msgstr "Enemmän julkaisuja %"
+
+#: content/post-author.php:14
+msgid "More posts from"
+msgstr "Enemmän julkaisuja"
+
+#: content/post-nav-attachment.php:3
+msgid "Previous Image"
+msgstr "Edellinen kuva"
+
+#: content/post-nav-attachment.php:6
+msgid "Next Image"
+msgstr "Seuraava kuva"
+
+#. translators: placeholder is the name of the post tag
+#: content/post-tags.php:11
+msgid "View all posts tagged %s"
+msgstr "Näytä kaikki julkaisut jotka on merkitty %"
+
+#: content/search-bar.php:6 content/search-bar.php:9 searchform.php:4
+#: searchform.php:5
+msgid "Search"
+msgstr "Etsi"
+
+#: content-page.php:11 content.php:26
+msgid "Pages:"
+msgstr "Sivut:"
+
+#. Translators: %s is the URL of the theme
+#: footer.php:31
+msgid ""
+"<a href=\"%s\" rel=\"nofollow\">Mission News Theme</a> by Compete Themes."
+msgstr ""
+"<a href=\"%s\" rel=\"nofollow\">Mission News Teeman</a> tehnyt Compete "
+"Themes."
+
+#: functions.php:25
+msgid ""
+"Hey! Sorry to interrupt, but you've been using Mission News for a little "
+"while now. If you're happy with this theme, could you take a minute to leave "
+"a review? <i>You won't see this notice again after closing it.</i>"
+msgstr ""
+"Hey! Sorry to interrupt, but you've been using Mission News for a little "
+"while now. If you're happy with this theme, could you take a minute to leave "
+"a review? <i>You won't see this notice again after closing it.</i>"
+
+#: functions.php:78
+msgid "small"
+msgstr "pieni"
+
+#: functions.php:79
+msgid "S"
+msgstr "S"
+
+#: functions.php:84
+msgid "regular"
+msgstr "tavallinen"
+
+#: functions.php:85
+msgid "M"
+msgstr "M"
+
+#: functions.php:90
+msgid "large"
+msgstr "suuri"
+
+#: functions.php:91
+msgid "L"
+msgstr "L"
+
+#: functions.php:96
+msgid "larger"
+msgstr "suurempi"
+
+#: functions.php:97
+msgid "XL"
+msgstr "XL"
+
+#: functions.php:104
+msgid "Primary"
+msgstr "Ensisijainen"
+
+#: functions.php:105
+msgid "Secondary"
+msgstr "Toissijainen"
+
+#: functions.php:106 functions.php:197 inc/customizer.php:570
+#: inc/customizer.php:1278
+msgid "Footer"
+msgstr "Alaviita"
+
+#: functions.php:134
+msgid "Left Sidebar"
+msgstr "Vasen sivupalkki"
+
+#: functions.php:136
+msgid "Widgets in this area will be shown left of the main post content."
+msgstr "Tämän alueen vimpaimet näkyvät pääjulkaisun vasemmalla puolella."
+
+#: functions.php:143
+msgid "Right Sidebar"
+msgstr "Oikea sivupalkki"
+
+#: functions.php:145
+msgid "Widgets in this area will be shown right of the main post content."
+msgstr "Tämän alueen vimpaimet näkyvät pääjulkaisun oikealla puolella."
+
+#: functions.php:152
+msgid "Ad Spot - Below Header"
+msgstr "Mainospaikka - Yläviitteen alla"
+
+#: functions.php:154
+msgid ""
+"Widgets in this area will be shown below the header and above the posts and "
+"sidebars."
+msgstr ""
+"Tämän alueen vimpaimet näkyvät yläviitteen alapuolella sekä pääjulkaisun "
+"sekä sivupalkkien yläpuolella."
+
+#: functions.php:161
+msgid "Ad Spot - Above Posts"
+msgstr "Mainospaikka - Pääjulkaisun yläpuolella"
+
+#: functions.php:163
+msgid ""
+"Widgets in this area will be shown in the center column above the posts."
+msgstr ""
+"Tämän alueen vimpaimet näkyvät keskipalkissa julkaisun yläpuolella puolella."
+
+#: functions.php:170
+msgid "Ad Spot - After Post Content"
+msgstr "Mainospaikka - Pääjulkaisun jälkeen"
+
+#: functions.php:172
+msgid "Widgets in this area will be shown on post pages after the content."
+msgstr "Tämän alueen vimpaimet näkyvät julkaisusivuilla sisällön jälkeen."
+
+#: functions.php:179
+msgid "Ad Spot - After Page Content"
+msgstr "Mainospaikka - Sivun sisällön jälkeen"
+
+#: functions.php:181
+msgid "Widgets in this area will be shown on pages after the content."
+msgstr "Tämän alueen vimpaimet näkyvät sivuilla sisällön jälkeen."
+
+#: functions.php:188
+msgid "Ad Spot - After First Post"
+msgstr "Mainospaikka - Ensimmäisen julkaisun jälkeen"
+
+#: functions.php:190
+msgid "Widgets in this area will be shown on the blog after the first post."
+msgstr "Tämän alueen vimpaimet näkyvät blogissa ensimmäisen julkaisin jälkeen."
+
+#: functions.php:199
+msgid "Widgets in this area will be shown in the footer."
+msgstr "Tämän alueen vimpaimet näkyvät alaviitteessä."
+
+#: functions.php:221 inc/customizer.php:1373
+msgid "Continue reading"
+msgstr "Jatka lukemista"
+
+#: functions.php:373
+msgid "Featured"
+msgstr "Erikoisartikkeli"
+
+#: functions.php:456
+msgid "Customizer settings deleted"
+msgstr "Muokkaimen asetukset poistettu"
+
+#: functions.php:756
+msgid "(title)"
+msgstr "(otsikko)"
+
+#: functions.php:819
+msgid ""
+"Mission News Pro is now available! <a href=\"%s\" target=\"_blank\">Click "
+"here for screenshots & videos</a>."
+msgstr ""
+"Mission News Pro is now available! <a href=\"%s\" target=\"_blank\">Click "
+"here for screenshots & videos</a>."
+
+#: functions.php:894 functions.php:917
+msgid "Latest Posts"
+msgstr "Viimeisin julkaisu"
+
+#: functions.php:967
+msgid "Scroll to the top"
+msgstr "Selaa alkuun"
+
+#: functions.php:986
+msgid "Last updated on"
+msgstr "Viimeksi päivitetty"
+
+#: header.php:17
+msgid "Press \"Enter\" to skip to content"
+msgstr "Paina \"Enter\" hypätäksesi sisällön yli"
+
+#: header.php:43 inc/scripts.php:17
+msgid "open menu"
+msgstr "avaa valikko"
+
+#: inc/comments.php:19
+msgid "Post author"
+msgstr "Julkaisun tekijä"
+
+#: inc/comments.php:32
+msgid "Your comment is awaiting moderation."
+msgstr "Kommenttisi odottaa moderointia."
+
+#: inc/comments.php:39
+msgid "Reply"
+msgstr "Vastaa"
+
+#: inc/comments.php:43
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: inc/comments.php:58
+msgid "(optional)"
+msgstr "(vaihtoehtoinen)"
+
+#: inc/comments.php:63
+msgid "Name"
+msgstr "Nimi"
+
+#: inc/comments.php:64
+msgid "Jane Doe"
+msgstr "Jane Doe"
+
+#: inc/comments.php:70
+msgid "Email"
+msgstr "Sähköposti"
+
+#: inc/comments.php:71
+msgid "name@email.com"
+msgstr "nimi@sähköposti.fi"
+
+#: inc/comments.php:77
+msgid "Website"
+msgstr "Sivusto"
+
+#: inc/comments.php:95
+msgid "Comment"
+msgstr "Kommentti"
+
+#: inc/customizer.php:34 inc/meta-box-layout.php:17
+msgid "Layout"
+msgstr "Sijoittelu"
+
+#: inc/customizer.php:35
+msgid "Change the layout of the main content and posts."
+msgstr "Vaihda pääsisällön ja julkaisujen sijoittelua."
+
+#: inc/customizer.php:39
+msgid "Widget Styles"
+msgstr "Vimpaimen tyyli"
+
+#: inc/customizer.php:40
+msgid "Customize the widget layouts and styles."
+msgstr "Muokkaa vimpainten sijoittelua ja tyyliä."
+
+#: inc/customizer.php:44
+msgid "Show/Hide Elements"
+msgstr "Näytä/piilota elementti"
+
+#: inc/customizer.php:45
+msgid "Choose which elements you want displayed on the site."
+msgstr "Valitse minkä elementtien haluat näkyvän sivustolla."
+
+#: inc/customizer.php:53
+msgid "Post Previews"
+msgstr "Julkaise esikatselut"
+
+#: inc/customizer.php:64
+msgid "Post preview layout"
+msgstr "Julkaise sijoittelun esikatselu"
+
+#: inc/customizer.php:65
+msgid "Change the layout of the posts listed on the blog and archives."
+msgstr "Muuto blogi- ja arkisto-sivuilla listattujen julkaisujen sijoittelua."
+
+#: inc/customizer.php:70 inc/customizer.php:1549
+msgid "Simple"
+msgstr "Yksinkertainen"
+
+#: inc/customizer.php:71 inc/customizer.php:1550
+msgid "Double"
+msgstr "Tupla"
+
+#: inc/customizer.php:72 inc/customizer.php:1551
+msgid "Rows"
+msgstr "Rivit"
+
+#: inc/customizer.php:73 inc/customizer.php:1552
+msgid "Rows with excerpts"
+msgstr "Rivit katkelmilla"
+
+#: inc/customizer.php:83
+msgid "Make the first post larger?"
+msgstr "Tee ensimmäisestä julkaisusta suurempi?"
+
+#: inc/customizer.php:88 inc/customizer.php:857 inc/customizer.php:873
+#: inc/customizer.php:889 inc/customizer.php:905 inc/customizer.php:930
+#: inc/customizer.php:946 inc/customizer.php:962 inc/customizer.php:978
+#: inc/customizer.php:1003 inc/customizer.php:1019 inc/customizer.php:1044
+#: inc/customizer.php:1060 inc/customizer.php:1076 inc/customizer.php:1092
+#: inc/customizer.php:1108 inc/customizer.php:1124 inc/customizer.php:1140
+#: inc/customizer.php:1156 inc/customizer.php:1172 inc/customizer.php:1188
+#: inc/customizer.php:1213 inc/customizer.php:1229 inc/customizer.php:1254
+#: inc/customizer.php:1270 inc/customizer.php:1295 inc/customizer.php:1311
+#: inc/customizer.php:1327 inc/customizer.php:1351 inc/customizer.php:1367
+#: inc/customizer.php:1415 inc/customizer.php:1439 inc/customizer.php:1455
+#: inc/customizer.php:1529
+msgid "Yes"
+msgstr "Kyllä"
+
+#: inc/customizer.php:89 inc/customizer.php:858 inc/customizer.php:874
+#: inc/customizer.php:890 inc/customizer.php:906 inc/customizer.php:931
+#: inc/customizer.php:947 inc/customizer.php:963 inc/customizer.php:979
+#: inc/customizer.php:1004 inc/customizer.php:1020 inc/customizer.php:1045
+#: inc/customizer.php:1061 inc/customizer.php:1077 inc/customizer.php:1093
+#: inc/customizer.php:1109 inc/customizer.php:1125 inc/customizer.php:1141
+#: inc/customizer.php:1157 inc/customizer.php:1173 inc/customizer.php:1189
+#: inc/customizer.php:1214 inc/customizer.php:1230 inc/customizer.php:1255
+#: inc/customizer.php:1271 inc/customizer.php:1296 inc/customizer.php:1312
+#: inc/customizer.php:1328 inc/customizer.php:1352 inc/customizer.php:1368
+#: inc/customizer.php:1416 inc/customizer.php:1440 inc/customizer.php:1456
+#: inc/customizer.php:1530
+msgid "No"
+msgstr "Ei"
+
+#: inc/customizer.php:94 inc/customizer.php:1027
+msgid "Posts"
+msgstr "Julkaisut"
+
+#: inc/customizer.php:105
+msgid "Post layout"
+msgstr "Julkaisujen sijoittelu"
+
+#: inc/customizer.php:106
+msgid "Layouts can be changed for individual posts in the post editor."
+msgstr "Yksittäisten julkaisujen sijoitteluja voi muokata julkaisueditorissa."
+
+#: inc/customizer.php:111 inc/customizer.php:142 inc/customizer.php:172
+#: inc/customizer.php:203 inc/customizer.php:233 inc/customizer.php:265
+#: inc/customizer.php:298 inc/customizer.php:329 inc/customizer.php:1564
+#: inc/meta-box-layout.php:41
+msgid "Double sidebars"
+msgstr "Tuplasivupalkit"
+
+#: inc/customizer.php:112 inc/customizer.php:143 inc/customizer.php:173
+#: inc/customizer.php:204 inc/customizer.php:234 inc/customizer.php:266
+#: inc/customizer.php:299 inc/customizer.php:330 inc/customizer.php:1565
+#: inc/meta-box-layout.php:44
+msgid "Double left sidebars"
+msgstr "Tuplasivupalkit vasemmalla"
+
+#: inc/customizer.php:113 inc/customizer.php:144 inc/customizer.php:174
+#: inc/customizer.php:205 inc/customizer.php:235 inc/customizer.php:267
+#: inc/customizer.php:300 inc/customizer.php:331 inc/customizer.php:1566
+#: inc/meta-box-layout.php:47
+msgid "Double right sidebars"
+msgstr "Tuplasivupalkit oikealla"
+
+#: inc/customizer.php:114 inc/customizer.php:145 inc/customizer.php:175
+#: inc/customizer.php:206 inc/customizer.php:236 inc/customizer.php:268
+#: inc/customizer.php:301 inc/customizer.php:332 inc/customizer.php:1567
+#: inc/meta-box-layout.php:50
+msgid "Left sidebar"
+msgstr "Vasen sivupalkki"
+
+#: inc/customizer.php:115 inc/customizer.php:146 inc/customizer.php:176
+#: inc/customizer.php:207 inc/customizer.php:237 inc/customizer.php:269
+#: inc/customizer.php:302 inc/customizer.php:333 inc/customizer.php:1568
+#: inc/meta-box-layout.php:53
+msgid "Left sidebar - wide"
+msgstr "Vasen sivupalkki - leveä"
+
+#: inc/customizer.php:116 inc/customizer.php:147 inc/customizer.php:177
+#: inc/customizer.php:208 inc/customizer.php:238 inc/customizer.php:270
+#: inc/customizer.php:303 inc/customizer.php:334 inc/customizer.php:1569
+#: inc/meta-box-layout.php:56
+msgid "Right sidebar"
+msgstr "Oikea sivupalkki"
+
+#: inc/customizer.php:117 inc/customizer.php:148 inc/customizer.php:178
+#: inc/customizer.php:209 inc/customizer.php:239 inc/customizer.php:271
+#: inc/customizer.php:304 inc/customizer.php:335 inc/customizer.php:1570
+#: inc/meta-box-layout.php:59
+msgid "Right sidebar - wide"
+msgstr "Oikea sivupalkki - leveä"
+
+#: inc/customizer.php:118 inc/customizer.php:149 inc/customizer.php:179
+#: inc/customizer.php:210 inc/customizer.php:240 inc/customizer.php:272
+#: inc/customizer.php:305 inc/customizer.php:336 inc/customizer.php:1571
+#: inc/meta-box-layout.php:62
+msgid "No sidebar"
+msgstr "Ei sivupalkkia"
+
+#: inc/customizer.php:119 inc/customizer.php:150 inc/customizer.php:180
+#: inc/customizer.php:211 inc/customizer.php:241 inc/customizer.php:273
+#: inc/customizer.php:306 inc/customizer.php:337 inc/customizer.php:1572
+#: inc/meta-box-layout.php:65
+msgid "No sidebar - wide"
+msgstr "Ei sivupalkkia - leveä"
+
+#: inc/customizer.php:120 inc/customizer.php:151 inc/customizer.php:181
+#: inc/customizer.php:212 inc/customizer.php:242 inc/customizer.php:274
+#: inc/customizer.php:307 inc/customizer.php:338 inc/customizer.php:1573
+#: inc/meta-box-layout.php:68
+msgid "No sidebar - full-width"
+msgstr "Ei sivupalkkia - täysi leveys"
+
+#: inc/customizer.php:125
+msgid "Pages"
+msgstr "Sivut"
+
+#: inc/customizer.php:136
+msgid "Page layout"
+msgstr "Sivujen sijoittelu"
+
+#: inc/customizer.php:137
+msgid "Layouts can be changed for individual pages in the page editor."
+msgstr "Yksittäisten sivujen sijoitteluja voi muokata julkaisueditorissa."
+
+#: inc/customizer.php:156
+msgid "Blog"
+msgstr "Blogi"
+
+#: inc/customizer.php:167
+msgid "Blog layout"
+msgstr "Blogin sijoittelu"
+
+#: inc/customizer.php:186 inc/customizer.php:986
+msgid "Archives"
+msgstr "Arkisto"
+
+#: inc/customizer.php:197
+msgid "Archive layout"
+msgstr "Arkiston sijoittelu"
+
+#: inc/customizer.php:198
+msgid "Change the layout for category, tag, date, and author archives."
+msgstr ""
+"Vaihda kategorian, tagin, päivämäärän ja julkaisijan arkiston sijoittelua."
+
+#: inc/customizer.php:217
+msgid "Search Results"
+msgstr "Hakutulokset"
+
+#: inc/customizer.php:228
+msgid "Search results layout"
+msgstr "Hakutulosten sijoittelu"
+
+#: inc/customizer.php:248
+msgid "bbPress"
+msgstr "bbPress"
+
+#: inc/customizer.php:259
+msgid "Forums layout"
+msgstr "Foorumien sijoittelu"
+
+#: inc/customizer.php:260
+msgid "Change the layout for all bbPress forum pages."
+msgstr "Change the layout for all bbPress forum pages."
+
+#: inc/customizer.php:281
+msgid "WooCommerce - Products"
+msgstr "WooCommerce - tuotteet"
+
+#: inc/customizer.php:292 inc/customizer.php:323
+msgid "Product layout"
+msgstr "Tuotteiden sijoittelu"
+
+#: inc/customizer.php:293
+msgid "Change the layout for all WooCommerce product pages."
+msgstr "Muuta kaikkien WooCommerce tuotesivujen sijoittelua."
+
+#: inc/customizer.php:312
+msgid "WooCommerce - Categories"
+msgstr "WooCommerce - kategoriat"
+
+#: inc/customizer.php:324
+msgid "Change the layout for all WooCommerce product categories."
+msgstr "Muuta kaikkien WooCommerce tuotekategorioiden sijoittelua."
+
+#: inc/customizer.php:344
+msgid "Site Width"
+msgstr "Sivuston leveys"
+
+#: inc/customizer.php:355
+msgid "Maximum site width"
+msgstr "Sivuston suurin leveys"
+
+#: inc/customizer.php:356
+msgid ""
+"Control the widest the site will get on large screens. Default is 1280px"
+msgstr ""
+"Kontrolloi kuinka leveä sivusto on suurilla näytöillä. Oletus on 1280px"
+
+#: inc/customizer.php:366
+msgid "Below Header"
+msgstr "Yläviitteen alla"
+
+#: inc/customizer.php:376 inc/customizer.php:416 inc/customizer.php:457
+#: inc/customizer.php:498 inc/customizer.php:539 inc/customizer.php:580
+msgid "Display widgets in a row or column?"
+msgstr "Näytä vimpaimet rivissä tai sarakkeessa?"
+
+#: inc/customizer.php:381 inc/customizer.php:421 inc/customizer.php:462
+#: inc/customizer.php:503 inc/customizer.php:544 inc/customizer.php:585
+#: inc/customizer.php:1582
+msgid "Row"
+msgstr "Rivi"
+
+#: inc/customizer.php:382 inc/customizer.php:422 inc/customizer.php:463
+#: inc/customizer.php:504 inc/customizer.php:545 inc/customizer.php:586
+#: inc/customizer.php:1583
+msgid "Column"
+msgstr "Sarake"
+
+#: inc/customizer.php:392 inc/customizer.php:432 inc/customizer.php:473
+#: inc/customizer.php:514 inc/customizer.php:555 inc/customizer.php:596
+msgid "Widget text alignment"
+msgstr "Vimpaimen tekstin kohdistaminen"
+
+#: inc/customizer.php:397 inc/customizer.php:437 inc/customizer.php:478
+#: inc/customizer.php:519 inc/customizer.php:560 inc/customizer.php:601
+#: inc/customizer.php:1592
+msgid "Left"
+msgstr "Vasen"
+
+#: inc/customizer.php:398 inc/customizer.php:438 inc/customizer.php:479
+#: inc/customizer.php:520 inc/customizer.php:561 inc/customizer.php:602
+#: inc/customizer.php:1593
+msgid "Center"
+msgstr "Keskusta"
+
+#: inc/customizer.php:399 inc/customizer.php:439 inc/customizer.php:480
+#: inc/customizer.php:521 inc/customizer.php:562 inc/customizer.php:603
+#: inc/customizer.php:1594
+msgid "Right"
+msgstr "Oikea"
+
+#: inc/customizer.php:406
+msgid "Above Posts"
+msgstr "Julkaisun yläpuolella"
+
+#: inc/customizer.php:447
+msgid "After First Post"
+msgstr "Ensimmäisen julkaisun jälkeen"
+
+#: inc/customizer.php:488
+msgid "After Post Content"
+msgstr "Julkaisun sisällön jälkeen"
+
+#: inc/customizer.php:529
+msgid "After Page Content"
+msgstr "Sivun sisällön jälkeen"
+
+#: inc/customizer.php:611
+msgid "Social Media Icons"
+msgstr "Sosiaalisen Median Kuvakkeet"
+
+#: inc/customizer.php:613
+msgid "Add the URL for each of your social profiles."
+msgstr "Lisää sosiaalisen median tiliesi URL."
+
+#: inc/customizer.php:632
+msgid "Email Address"
+msgstr "Sähköposti"
+
+#: inc/customizer.php:643
+msgid "Phone"
+msgstr "Puhelin"
+
+#: inc/customizer.php:653
+msgid "RSS"
+msgstr "RSS"
+
+#: inc/customizer.php:655
+msgid "ResearchGate"
+msgstr "ResearchGate"
+
+#: inc/customizer.php:657
+msgid "SoundCloud"
+msgstr "SoundCloud"
+
+#: inc/customizer.php:659
+msgid "SlideShare"
+msgstr "SlideShare"
+
+#: inc/customizer.php:661
+msgid "CodePen"
+msgstr "CodePen"
+
+#: inc/customizer.php:663
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: inc/customizer.php:665
+msgid "Stack Overflow"
+msgstr "Stack Overflow"
+
+#: inc/customizer.php:667
+msgid "DeviantArt"
+msgstr "DeviantArt"
+
+#: inc/customizer.php:669
+msgid "Hacker News"
+msgstr "Hacker News"
+
+#: inc/customizer.php:671
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: inc/customizer.php:673
+msgid "QQ"
+msgstr "QQ"
+
+#: inc/customizer.php:675
+msgid "VK"
+msgstr "VK"
+
+#: inc/customizer.php:677
+msgid "WeChat"
+msgstr "WeChat"
+
+#: inc/customizer.php:679
+msgid "Tencent Weibo"
+msgstr "Tencent Weibo"
+
+#: inc/customizer.php:681
+msgid "PayPal"
+msgstr "PayPal"
+
+#: inc/customizer.php:683
+msgid "Contact Form"
+msgstr "Contact Form"
+
+#: inc/customizer.php:685
+msgid "Google Wallet"
+msgstr "Google Wallet"
+
+#: inc/customizer.php:687
+msgid "OK.ru"
+msgstr "OK.ru"
+
+#: inc/customizer.php:689
+msgid "ArtStation"
+msgstr "ArtStation"
+
+#: inc/customizer.php:691
+msgid "diaspora*"
+msgstr "diaspora*"
+
+#: inc/customizer.php:693
+msgid "IMDB"
+msgstr "IMDB"
+
+#: inc/customizer.php:704
+msgid ""
+"Accepts Skype link protocol (<a href=\"%s\" target=\"_blank\">learn more</a>)"
+msgstr ""
+"Accepts Skype link protocol (<a href=\"%s\" target=\"_blank\">learn more</a>)"
+
+#: inc/customizer.php:730
+msgid "Custom Icon 1 Name"
+msgstr "Custom Icon 1 Name"
+
+#: inc/customizer.php:740
+msgid "Custom Icon 1 URL"
+msgstr "Custom Icon 1 URL"
+
+#: inc/customizer.php:750
+msgid "Custom icon 1 image"
+msgstr "Custom icon 1 image"
+
+#: inc/customizer.php:756
+msgid "Custom Icon 1 size (px)"
+msgstr "Custom Icon 1 size (px)"
+
+#: inc/customizer.php:767
+msgid "Custom Icon 2 Name"
+msgstr "Custom Icon 2 Name"
+
+#: inc/customizer.php:777
+msgid "Custom Icon 2"
+msgstr "Custom Icon 2"
+
+#: inc/customizer.php:787
+msgid "Icon 2 image"
+msgstr "Icon 2 image"
+
+#: inc/customizer.php:793
+msgid "Custom Icon 2 size (px)"
+msgstr "Custom Icon 2 size (px)"
+
+#: inc/customizer.php:804
+msgid "Custom Icon 3 Name"
+msgstr "Custom Icon 3 Name"
+
+#: inc/customizer.php:814
+msgid "Custom Icon 3"
+msgstr "Custom Icon 3"
+
+#: inc/customizer.php:824
+msgid "Icon 3 image"
+msgstr "Icon 3 image"
+
+#: inc/customizer.php:830
+msgid "Custom Icon 3 size (px)"
+msgstr "Custom Icon 3 size (px)"
+
+#: inc/customizer.php:841
+msgid "Header"
+msgstr "Yläviite"
+
+#: inc/customizer.php:852
+msgid "Show today's date?"
+msgstr "Näytä tämän päivän päivämäärä?"
+
+#: inc/customizer.php:868 inc/customizer.php:1290
+msgid "Show the social icons?"
+msgstr "Näytä sosiaalisen median kuvakkeet?"
+
+#: inc/customizer.php:884 inc/customizer.php:1306
+msgid "Show the tagline?"
+msgstr "Näytä iskulause?"
+
+#: inc/customizer.php:900
+msgid "Show the search bar?"
+msgstr "Näytä hakupalkki?"
+
+#: inc/customizer.php:913
+msgid "Blog & Archives"
+msgstr "Blogi ja arkistot"
+
+#: inc/customizer.php:914
+msgid "These settings apply to the main posts page and all archives."
+msgstr "Nämä asetukset vaikuttavat pääjulkaisusivulle ja kaikkiin arkistoihin."
+
+#: inc/customizer.php:925
+msgid "Show the Featured Images?"
+msgstr "Näytä artikkelin kuvat?"
+
+#: inc/customizer.php:941
+msgid "Show the post author in the byline?"
+msgstr "Näytä julkaisun kirjoittaja artikkelissa?"
+
+#: inc/customizer.php:957
+msgid "Show the post date in the byline?"
+msgstr "Näytä julkaisuaika artikkelissa?"
+
+#: inc/customizer.php:973
+msgid "Show the post categories in the byline?"
+msgstr "Näytä julkaisun kategoria artikkelissa?"
+
+#: inc/customizer.php:987
+msgid "These settings apply to the category, tag, date, and author archives."
+msgstr ""
+"Nämä asetukset vaikuttavat kategoria, tagi, päivämäärä ja kirjoittaja-"
+"arkistoihin."
+
+#: inc/customizer.php:998
+msgid "Show the archive title?"
+msgstr "Näytä arkiston otsikko?"
+
+#: inc/customizer.php:1014
+msgid "Show the archive description?"
+msgstr "Näytä arkiston kuvaus?"
+
+#: inc/customizer.php:1028
+msgid "These settings apply to individual post pages."
+msgstr "Nämä asetukset vaikuttavat yksittäisiin julkaisusivuihin."
+
+#: inc/customizer.php:1039
+msgid "Show the Featured Image?"
+msgstr "Näytä erikoisartikkelin kuva?"
+
+#: inc/customizer.php:1055
+msgid "Show the Featured Image caption?"
+msgstr "Näytä erikoisartikkelin kuvateksti?"
+
+#: inc/customizer.php:1071
+msgid "Show the post author?"
+msgstr "Näytä julkaisun kirjoittaja?"
+
+#: inc/customizer.php:1087
+msgid "Show the post date?"
+msgstr "Näytä julkaisuaika?"
+
+#: inc/customizer.php:1103
+msgid "Show the category links?"
+msgstr "Näytä kategorialinkit?"
+
+#: inc/customizer.php:1119
+msgid "Show the tag links?"
+msgstr "Näytä tagi linkit?"
+
+#: inc/customizer.php:1135
+msgid "Show the author box?"
+msgstr "Näytä kirjoittajalaatikko?"
+
+#: inc/customizer.php:1151
+msgid "Show avatar in the author box?"
+msgstr "Näytä kuva kirjoittajalaatikossa?"
+
+#: inc/customizer.php:1167
+msgid "Link to author's posts in the author box?"
+msgstr "Linkkaa kirjoittajan julkaisuihin kirjoittajalaatikossa?"
+
+#: inc/customizer.php:1183
+msgid "Show the \"More from...\" section?"
+msgstr "Näytä \"Lisää kirjoittajalta...\" osio?"
+
+#: inc/customizer.php:1196
+msgid "Sidebars"
+msgstr "Sivupalkit"
+
+#: inc/customizer.php:1197
+msgid "These settings apply to the main two sidebars."
+msgstr "Nämä asetukset vaikuttavat kahteen pääsivupalkkiin."
+
+#: inc/customizer.php:1208
+msgid "Show the left sidebar widgets on mobile devices?"
+msgstr "Näytä vasemman sivupalkin vimpaimet mobiililaitteilla?"
+
+#: inc/customizer.php:1224
+msgid "Show the right sidebar widgets on mobile devices?"
+msgstr "Näytä oikean sivupalkin vimpaimet mobiililaitteilla?"
+
+#: inc/customizer.php:1237
+msgid "Comments"
+msgstr "Kommentit"
+
+#: inc/customizer.php:1238
+msgid "These settings apply to post comments."
+msgstr "Nämä asetukset vaikuttavat julkaisuiden kommenteihin."
+
+#: inc/customizer.php:1249
+msgid "Show the comment date?"
+msgstr "Näytä kommentin päivämäärä?"
+
+#: inc/customizer.php:1265
+msgid "Show the \"Post Author\" label?"
+msgstr "Näytä \"julkaisun kirjoittaja\" leima?"
+
+#: inc/customizer.php:1279
+msgid "These settings apply to the footer."
+msgstr "Nämä vaikuttavat alaviitteeseen."
+
+#: inc/customizer.php:1322
+msgid "Show the logo (or site title)?"
+msgstr "Näytä sivuston logo (tai sivuston otsikko)?"
+
+#: inc/customizer.php:1336
+msgid "Excerpts"
+msgstr "Katkelmat"
+
+#: inc/customizer.php:1346
+msgid "Show full posts on blog?"
+msgstr "Näytä koko julkaisu blogissa?"
+
+#: inc/customizer.php:1362
+msgid "Add \"Read More\" link after excerpt?"
+msgstr "Lisää \"Lue Lisää\" linkki katkelman jälkeen?"
+
+#: inc/customizer.php:1378
+msgid "\"Read More\" link text"
+msgstr "\"Lue lisää\" linkin teksti"
+
+#: inc/customizer.php:1390 inc/widgets/post-list.php:274
+msgid "Excerpt word count"
+msgstr "Katkelman sanamäärä"
+
+#: inc/customizer.php:1400
+msgid "Scroll-to-Top Arrow"
+msgstr "Takaisin Ylös -nuoli"
+
+#: inc/customizer.php:1410
+msgid "Display Scroll-to-top arrow?"
+msgstr "Näytä Takaisin Ylös -nuoli?"
+
+#: inc/customizer.php:1424
+msgid "Additional Options"
+msgstr "Lisäasetukset"
+
+#: inc/customizer.php:1434
+msgid "Display the full mobile menu without a toggle button?"
+msgstr "Näytä kokonainen mobiilivalikko ilman kytkentänappia?"
+
+#: inc/customizer.php:1450
+msgid "Display the date each post was last updated?"
+msgstr "Näytä päivämäärä jolloin julkaisuja muokattiin?"
+
+#: inc/customizer.php:1466
+msgid ""
+"Number of posts in the \"More from category\" section below the post content"
+msgstr ""
+"\"Lisää tästä kategoriasta\" julkaisujen määrä julkaisun sisällön alapuolella"
+
+#: inc/customizer.php:1478
+msgid "Display post titles above or below Featured Images?"
+msgstr "Näytä julkaisujen otsikot artikkelikuvaa ennen vai sen jälkeen?"
+
+#: inc/customizer.php:1483 inc/customizer.php:1611
+msgid "Above"
+msgstr "Ennen"
+
+#: inc/customizer.php:1484 inc/customizer.php:1612
+msgid "Below"
+msgstr "Jälkeen"
+
+#: inc/customizer.php:1494
+msgid "Where should Featured Images in the post feed link to?"
+msgstr "Mihin artikkelikuvan tulisi linkata?"
+
+#: inc/customizer.php:1499 inc/customizer.php:1621
+msgid "Post"
+msgstr "Julkaisuun"
+
+#: inc/customizer.php:1500 inc/customizer.php:1622
+msgid "Media file"
+msgstr "Kuvatiedostoon"
+
+#: inc/customizer.php:1509
+msgid "Alternate logo for the footer"
+msgstr "Alaviitteen vaihtoehtoinen logo"
+
+#: inc/customizer.php:1510
+msgid ""
+"Upload the logo at the exact dimensions you want it to display on the site."
+msgstr ""
+"Lataa logo tarkalleen niissä määreissä missä haluat sen näkyvän sivulla."
+
+#: inc/last-updated-meta-box.php:12
+msgid "Last Updated Date"
+msgstr "Viimeisimmän päivityksen päivämäärä"
+
+#: inc/last-updated-meta-box.php:29
+msgid "Use Customizer setting"
+msgstr "Käytä muokkaimen asetuksia"
+
+#: inc/last-updated-meta-box.php:32
+msgid "Show the date"
+msgstr "Näytä päivämäärä"
+
+#: inc/last-updated-meta-box.php:36
+msgid "Don't show the date"
+msgstr "Älä näytä päivämäärää"
+
+#: inc/meta-box-fi-display.php:15
+msgid "Featured Image Display"
+msgstr "Artikkelikuvan näyttö"
+
+#: inc/meta-box-fi-display.php:37
+msgid "Use display set in Customizer"
+msgstr "Käytä muokkaimessa asetettuja näyttöasetuksia"
+
+#: inc/meta-box-fi-display.php:39
+msgid "Post & blog"
+msgstr "Julkaisu ja blogi"
+
+#: inc/meta-box-fi-display.php:42
+msgid "Post only"
+msgstr "Vain julkaisu"
+
+#: inc/meta-box-fi-display.php:45
+msgid "Blog only"
+msgstr "Vain blogi"
+
+#: inc/meta-box-layout.php:39
+msgid "Use layout set in Customizer"
+msgstr "Käytä muokkaimessa asetettua sijoittelua"
+
+#: inc/review.php:113
+msgid "Click here to leave your review"
+msgstr "Näpäytä tästä jättääksesi arvostelun"
+
+#: inc/scripts.php:18
+msgid "close menu"
+msgstr "sulje valikko"
+
+#: inc/scripts.php:19
+msgid "open dropdown menu"
+msgstr "avaa alasvetovalikko"
+
+#: inc/scripts.php:20
+msgid "close dropdown menu"
+msgstr "sulje alasvetovalikko"
+
+#: inc/social-icons.php:144
+msgid "email"
+msgstr "sähköposti"
+
+#: inc/widgets/post-list.php:15
+msgid "A more robust recent posts widget. Added by the Mission News theme."
+msgstr ""
+"Vankkarakenteisempi viimeisimmät julkaisut vimpain. Lisännyt Mission News "
+"Teema."
+
+#: inc/widgets/post-list.php:20
+msgid "Recent Posts Extended"
+msgstr "Viimeisin julkaisu laajennettuna"
+
+#: inc/widgets/post-list.php:181
+msgid "Title"
+msgstr "Otsikko"
+
+#: inc/widgets/post-list.php:184
+msgid "Post Source"
+msgstr "Julkaisun lähde"
+
+#: inc/widgets/post-list.php:188 inc/widgets/post-list.php:191
+msgid "Category"
+msgstr "Kategoria"
+
+#: inc/widgets/post-list.php:202 inc/widgets/post-list.php:205
+msgid "Tag"
+msgstr "Tagi"
+
+#: inc/widgets/post-list.php:215
+msgid "Relationship"
+msgstr "Suhde"
+
+#: inc/widgets/post-list.php:217
+msgid "AND"
+msgstr "JA"
+
+#: inc/widgets/post-list.php:218
+msgid "OR"
+msgstr "TAI"
+
+#: inc/widgets/post-list.php:224
+msgid ""
+"Selecting both a category and a tag will require posts to be in both. If "
+"you'd like to get posts from either the category or tag, switch the "
+"\"Relationship\" option to \"OR.\" If you'd like to use\n"
+"\t\t\t\t\t\tthe most recent posts from any tag or category, uncheck both "
+"\"Category\" and \"Tag.\""
+msgstr ""
+"Selecting both a category and a tag will require posts to be in both. If "
+"you'd like to get posts from either the category or tag, switch the "
+"\"Relationship\" option to \"OR.\" If you'd like to use\n"
+"\t\t\t\t\t\tthe most recent posts from any tag or category, uncheck both "
+"\"Category\" and \"Tag.\""
+
+#: inc/widgets/post-list.php:230
+msgid "Content"
+msgstr "Sisältö"
+
+#: inc/widgets/post-list.php:234
+msgid "Show author in byline"
+msgstr "Näytä kirjoittaja artikkelissa"
+
+#: inc/widgets/post-list.php:238
+msgid "Show date in byline"
+msgstr "Näytä päivämäärä artikkelissa"
+
+#: inc/widgets/post-list.php:242
+msgid "Show categories in byline"
+msgstr "Näytä kategoria artikkelissa"
+
+#: inc/widgets/post-list.php:246
+msgid "Show Featured Images"
+msgstr "Näytä artikkelikuva"
+
+#: inc/widgets/post-list.php:250
+msgid "Show excerpt"
+msgstr "Näytä katkelma"
+
+#: inc/widgets/post-list.php:254
+msgid "Show comments link"
+msgstr "Näytä kommenttilinkki"
+
+#: inc/widgets/post-list.php:258
+msgid "Show category link"
+msgstr "Näytä kategorialinkki"
+
+#: inc/widgets/post-list.php:262
+msgid "Exclude current post"
+msgstr "Älä sisällytä tätä julkaisua"
+
+#: inc/widgets/post-list.php:266
+msgid "Exclude all posts in the center column"
+msgstr "Älä sisällytä mitään keskisarakkeen julkaisuja"
+
+#: inc/widgets/post-list.php:270
+msgid "Number of posts"
+msgstr "Julkaisujen määrä"
+
+#: inc/widgets/post-list.php:278
+msgid "Text after excerpts"
+msgstr "Katkelman jälkeinen teksti"
+
+#: inc/widgets/post-list.php:281 inc/widgets/post-list.php:284
+msgid "Style"
+msgstr "Tyyli"
+
+#: inc/widgets/post-list.php:286
+msgid "Style 1"
+msgstr "Tyyli 1"
+
+#: inc/widgets/post-list.php:287
+msgid "Style 2"
+msgstr "Tyyli 2"
+
+#. translators: The label of the "Back" link in primary navigation
+#: menu-primary.php:3
+msgid "Back"
+msgstr "Takaisin"
+
+#. translators: %1$s = number of results. %2$s = search query
+#: search.php:9
+msgid "%1$s search result for %2$s"
+msgid_plural "%1$s search results for %2$s"
+msgstr[0] "%1$s hakutulos %2$s"
+msgstr[1] "%1$s hakutulokset %2$s"
+
+#. translators: %s = search query
+#: search.php:12
+msgid "No search results for \"%s\""
+msgstr "Ei hakutuloksia \"%s\""
+
+#: search.php:34
+msgid "Can't find what you're looking for?  Try refining your search:"
+msgstr "Etkö löydä etsimääsi? Kokeile muuttaa hakusanojasi:"
+
+#: searchform.php:4
+msgid " Search for..."
+msgstr " Etsi..."
+
+#: theme-options.php:5 theme-options.php:6 theme-options.php:19
+msgid "%s Dashboard"
+msgstr "%s ohjausnäkymä"
+
+#. Description of the plugin/theme
+msgid ""
+"For publishers on a mission. Mission News is a newspaper theme for "
+"publishers who want their content to be seen and heard. Premium-quality "
+"design adds credibility to every word you write, and a fully responsive "
+"layout ensures your site looks fantastic on every screen. The aesthetic is "
+"timeless and modeled after classic news sites like the New York Times. Use "
+"Mission News to setup a news site on any subject from health to finance. "
+"Mission News is also fully compatible with the new Gutenberg post editor. "
+"View the fully-setup live demo here: https://www.competethemes.com/demos/?"
+"theme=Mission+News"
+msgstr ""
+"For publishers on a mission. Mission News is a newspaper theme for "
+"publishers who want their content to be seen and heard. Premium-quality "
+"design adds credibility to every word you write, and a fully responsive "
+"layout ensures your site looks fantastic on every screen. The aesthetic is "
+"timeless and modeled after classic news sites like the New York Times. Use "
+"Mission News to setup a news site on any subject from health to finance. "
+"Mission News is also fully compatible with the new Gutenberg post editor. "
+"View the fully-setup live demo here: https://www.competethemes.com/demos/?"
+"theme=Mission+News"
+
+#: comments.php:11 comments.php:31 comments.php:56
+msgctxt "noun: 5 comments"
+msgid "% Comments"
+msgstr "% kommenttia"
+
+#: content/archive-header.php:12
+msgctxt "Posts published in CATEGORY"
+msgid "Posts published in"
+msgstr "Julkaisut kategoriassa"
+
+#: content/archive-header.php:19
+msgctxt "Posts published by AUTHOR"
+msgid "Posts published by"
+msgstr "Julkaisut kirjoittajalta"
+
+#: content/archive-header.php:23
+msgctxt "Posts published in MONTH"
+msgid "Posts published in"
+msgstr "Julkaisut kirjoitettu"
+
+#: content/more-from-category.php:19
+msgctxt "More from POST CATEGORY"
+msgid "More from"
+msgstr "Enemmän kategoriasta"
+
+#: content/post-categories.php:10
+msgctxt "PUBLISHED IN post category"
+msgid "Published in"
+msgstr "Julkaistu kategoriassa"
+
+#: content/post-categories.php:14 functions.php:1015
+msgctxt "category AND category"
+msgid "and"
+msgstr "ja"
+
+#. translators: placeholder is the name of the post category
+#: content/post-categories.php:17 functions.php:1018
+msgctxt "View all posts in post category"
+msgid "View all posts in %s"
+msgstr "Näytä kaikki julkaisut kategoriassa %"
+
+#: functions.php:357
+msgctxt "verb: open the menu"
+msgid "open menu"
+msgstr "avaa valikko"
+
+#. translators: %s = the author who published the post
+#: functions.php:733
+msgctxt "This blog post was published by some author"
+msgid "By %s"
+msgstr "Kirjoituksen julkaisi %s"
+
+#. translators: %1$s = the author who published the post. %2$s = the date it
+#. was published
+#: functions.php:736
+msgctxt "This blog post was published by some author on some date "
+msgid "By %1$s on %2$s"
+msgstr "Kirjoituksen julkaisi %1$s päivämäärällä %2$s"

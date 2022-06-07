@@ -816,6 +816,8 @@ if ( ! function_exists( ( 'ct_mission_news_logo_refresh' ) ) ) {
 }
 add_action( 'customize_register', 'ct_mission_news_logo_refresh', 20 );
 
+
+
 //----------------------------------------------------------------------------------
 // Add dismissible Mission News Pro admin notice
 //----------------------------------------------------------------------------------

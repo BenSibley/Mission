@@ -3,331 +3,374 @@
 //----------------------------------------------------------------------------------
 //	Include all required files
 //----------------------------------------------------------------------------------
-require_once( trailingslashit( get_template_directory() ) . 'theme-options.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/widgets/post-list.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/comments.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/customizer.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/last-updated-meta-box.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/meta-box-layout.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/meta-box-fi-display.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/review.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/scripts.php' );
-require_once( trailingslashit( get_template_directory() ) . 'inc/social-icons.php' );
+require_once(trailingslashit(get_template_directory()) . 'theme-options.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/widgets/post-list.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/comments.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/customizer.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/last-updated-meta-box.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/meta-box-layout.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/meta-box-fi-display.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/review.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/scripts.php');
+require_once(trailingslashit(get_template_directory()) . 'inc/social-icons.php');
+// TGMP
+require_once(trailingslashit(get_template_directory()) . 'tgm/class-tgm-plugin-activation.php');
+
+function ct_mission_news_register_required_plugins()
+{
+    $plugins = array(
+
+        array(
+            'name'      => 'Independent Analytics',
+            'slug'      => 'independent-analytics',
+            'required'  => false,
+        ),
+    );
+    
+    $config = array(
+        'id'           => 'ct-mission-news',
+        'default_path' => '',
+        'menu'         => 'tgmpa-install-plugins',
+        'has_notices'  => true,
+        'dismissable'  => true,
+        'dismiss_msg'  => '',
+        'is_automatic' => false,
+        'message'      => '',
+        'strings'      => array(
+            'page_title'                      => __('Install Recommended Plugins', 'mission-news'),
+            'menu_title'                      => __('Recommended Plugins', 'mission-news'),
+            'notice_can_install_recommended'     => _n_noop(
+                'The makers of the Mission News theme now recommend installing Independent Analytics, their new plugin for visitor tracking: %1$s.',
+                'The makers of the Mission News theme now recommend installing Independent Analytics, their new plugin for visitor tracking: %1$s.',
+                'mission-news'
+            ),
+        )
+    );
+
+    tgmpa($plugins, $config);
+}
+add_action('tgmpa_register', 'ct_mission_news_register_required_plugins');
 
 //----------------------------------------------------------------------------------
 //	Include review request
 //----------------------------------------------------------------------------------
-require_once( trailingslashit( get_template_directory() ) . 'dnh/handler.php' );
-new WP_Review_Me( array(
-		'days_after' => 14,
-		'type'       => 'theme',
-		'slug'       => 'mission-news',
-		'message'    => __( 'Hey! Sorry to interrupt, but you\'ve been using Mission News for a little while now. If you\'re happy with this theme, could you take a minute to leave a review? <i>You won\'t see this notice again after closing it.</i>', 'mission-news' )
-	)
+require_once(trailingslashit(get_template_directory()) . 'dnh/handler.php');
+new WP_Review_Me(
+    array(
+        'days_after' => 14,
+        'type'       => 'theme',
+        'slug'       => 'mission-news',
+        'message'    => __('Hey! Sorry to interrupt, but you\'ve been using Mission News for a little while now. If you\'re happy with this theme, could you take a minute to leave a review? <i>You won\'t see this notice again after closing it.</i>', 'mission-news')
+    )
 );
 //----------------------------------------------------------------------------------
 //	Set content width variable
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_set_content_width' ) ) ) {
-	function ct_mission_news_set_content_width() {
-		if ( ! isset( $content_width ) ) {
-			$content_width = 569;
-		}
-	}
+if (! function_exists(('ct_mission_news_set_content_width'))) {
+    function ct_mission_news_set_content_width()
+    {
+        if (! isset($content_width)) {
+            $content_width = 569;
+        }
+    }
 }
-add_action( 'after_setup_theme', 'ct_mission_news_set_content_width', 0 );
+add_action('after_setup_theme', 'ct_mission_news_set_content_width', 0);
 
 //----------------------------------------------------------------------------------
 //	Add theme support for various features, register menus, load text domain
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_theme_setup' ) ) ) {
-	function ct_mission_news_theme_setup() {
+if (! function_exists(('ct_mission_news_theme_setup'))) {
+    function ct_mission_news_theme_setup()
+    {
+        add_theme_support('post-thumbnails');
+        add_theme_support('automatic-feed-links');
+        add_theme_support('title-tag');
+        add_theme_support('html5', array(
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption'
+        ));
+        add_theme_support('infinite-scroll', array(
+            'container' => 'loop-container',
+            'footer'    => 'overflow-container',
+            'render'    => 'ct_mission_news_infinite_scroll_render'
+        ));
+        add_theme_support('custom-logo', array(
+            'height'      => 120,
+            'width'       => 480,
+            'flex-height' => true,
+            'flex-width'  => true
+        ));
+        add_theme_support('woocommerce');
+        // support WooCommerce image gallery features
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-lightbox');
+        add_theme_support('wc-product-gallery-slider');
 
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'title-tag' );
-		add_theme_support( 'html5', array(
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption'
-		) );
-		add_theme_support( 'infinite-scroll', array(
-			'container' => 'loop-container',
-			'footer'    => 'overflow-container',
-			'render'    => 'ct_mission_news_infinite_scroll_render'
-		) );
-		add_theme_support( 'custom-logo', array(
-			'height'      => 120,
-			'width'       => 480,
-			'flex-height' => true,
-			'flex-width'  => true
-		) );
-		add_theme_support( 'woocommerce' );
-		// support WooCommerce image gallery features
-		add_theme_support( 'wc-product-gallery-zoom' );
-		add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
+        // Gutenberg - add support for editor styles
+        add_theme_support('editor-styles');
 
-		// Gutenberg - add support for editor styles
-		add_theme_support('editor-styles');
+        // Gutenberg - modify the font sizes
+        add_theme_support('editor-font-sizes', array(
+            array(
+                    'name' => __('small', 'mission-news'),
+                    'shortName' => __('S', 'mission-news'),
+                    'size' => 12,
+                    'slug' => 'small'
+            ),
+            array(
+                    'name' => __('regular', 'mission-news'),
+                    'shortName' => __('M', 'mission-news'),
+                    'size' => 16,
+                    'slug' => 'regular'
+            ),
+            array(
+                    'name' => __('large', 'mission-news'),
+                    'shortName' => __('L', 'mission-news'),
+                    'size' => 21,
+                    'slug' => 'large'
+            ),
+            array(
+                    'name' => __('larger', 'mission-news'),
+                    'shortName' => __('XL', 'mission-news'),
+                    'size' => 28,
+                    'slug' => 'larger'
+            )
+        ));
 
-		// Gutenberg - modify the font sizes
-		add_theme_support( 'editor-font-sizes', array(
-			array(
-					'name' => __( 'small', 'mission-news' ),
-					'shortName' => __( 'S', 'mission-news' ),
-					'size' => 12,
-					'slug' => 'small'
-			),
-			array(
-					'name' => __( 'regular', 'mission-news' ),
-					'shortName' => __( 'M', 'mission-news' ),
-					'size' => 16,
-					'slug' => 'regular'
-			),
-			array(
-					'name' => __( 'large', 'mission-news' ),
-					'shortName' => __( 'L', 'mission-news' ),
-					'size' => 21,
-					'slug' => 'large'
-			),
-			array(
-					'name' => __( 'larger', 'mission-news' ),
-					'shortName' => __( 'XL', 'mission-news' ),
-					'size' => 28,
-					'slug' => 'larger'
-			)
-		) );
+        register_nav_menus(array(
+            'primary'   => esc_html__('Primary', 'mission-news'),
+            'secondary' => esc_html__('Secondary', 'mission-news'),
+            'footer' 		=> esc_html__('Footer', 'mission-news')
+        ));
 
-		register_nav_menus( array(
-			'primary'   => esc_html__( 'Primary', 'mission-news' ),
-			'secondary' => esc_html__( 'Secondary', 'mission-news' ),
-			'footer' 		=> esc_html__( 'Footer', 'mission-news' )
-		) );
-
-		add_theme_support( 'customize-selective-refresh-widgets' );
+        add_theme_support('customize-selective-refresh-widgets');
 
 
-		load_theme_textdomain( 'mission-news', get_template_directory() . '/languages' );
-	}
+        load_theme_textdomain('mission-news', get_template_directory() . '/languages');
+    }
 }
-add_action( 'after_setup_theme', 'ct_mission_news_theme_setup' );
+add_action('after_setup_theme', 'ct_mission_news_theme_setup');
 
 //-----------------------------------------------------------------------------
 // Load custom stylesheet for the post editor
 //-----------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_add_editor_styles' ) ) {
-	function ct_mission_news_add_editor_styles() {
-		add_editor_style( 'styles/editor-style.css' );
-	}
+if (! function_exists('ct_mission_news_add_editor_styles')) {
+    function ct_mission_news_add_editor_styles()
+    {
+        add_editor_style('styles/editor-style.css');
+    }
 }
-add_action( 'admin_init', 'ct_mission_news_add_editor_styles' );
+add_action('admin_init', 'ct_mission_news_add_editor_styles');
 
 //----------------------------------------------------------------------------------
 //	Register widget areas
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_register_widget_areas' ) ) ) {
-	function ct_mission_news_register_widget_areas() {
-
-		register_sidebar( array(
-			'name'          => esc_html__( 'Left Sidebar', 'mission-news' ),
-			'id'            => 'left',
-			'description'   => esc_html__( 'Widgets in this area will be shown left of the main post content.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-		register_sidebar( array(
-			'name'          => esc_html__( 'Right Sidebar', 'mission-news' ),
-			'id'            => 'right',
-			'description'   => esc_html__( 'Widgets in this area will be shown right of the main post content.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - Below Header', 'mission-news' ),
-			'id'            => 'below-header',
-			'description'   => esc_html__( 'Widgets in this area will be shown below the header and above the posts and sidebars.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - Above Posts', 'mission-news' ),
-			'id'            => 'above-main',
-			'description'   => esc_html__( 'Widgets in this area will be shown in the center column above the posts.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - After Post Content', 'mission-news' ),
-			'id'            => 'after-post',
-			'description'   => esc_html__( 'Widgets in this area will be shown on post pages after the content.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - After Page Content', 'mission-news' ),
-			'id'            => 'after-page',
-			'description'   => esc_html__( 'Widgets in this area will be shown on pages after the content.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-		register_sidebar( array(
-			'name'          => esc_html__( 'Ad Spot - After First Post', 'mission-news' ),
-			'id'            => 'after-first-post',
-			'description'   => esc_html__( 'Widgets in this area will be shown on the blog after the first post.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-		register_sidebar( array(
-			'name'          => esc_html__( 'Footer', 'mission-news' ),
-			'id'            => 'site-footer',
-			'description'   => esc_html__( 'Widgets in this area will be shown in the footer.', 'mission-news' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
-		) );
-	}
+if (! function_exists(('ct_mission_news_register_widget_areas'))) {
+    function ct_mission_news_register_widget_areas()
+    {
+        register_sidebar(array(
+            'name'          => esc_html__('Left Sidebar', 'mission-news'),
+            'id'            => 'left',
+            'description'   => esc_html__('Widgets in this area will be shown left of the main post content.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+        register_sidebar(array(
+            'name'          => esc_html__('Right Sidebar', 'mission-news'),
+            'id'            => 'right',
+            'description'   => esc_html__('Widgets in this area will be shown right of the main post content.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+        register_sidebar(array(
+            'name'          => esc_html__('Ad Spot - Below Header', 'mission-news'),
+            'id'            => 'below-header',
+            'description'   => esc_html__('Widgets in this area will be shown below the header and above the posts and sidebars.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+        register_sidebar(array(
+            'name'          => esc_html__('Ad Spot - Above Posts', 'mission-news'),
+            'id'            => 'above-main',
+            'description'   => esc_html__('Widgets in this area will be shown in the center column above the posts.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+        register_sidebar(array(
+            'name'          => esc_html__('Ad Spot - After Post Content', 'mission-news'),
+            'id'            => 'after-post',
+            'description'   => esc_html__('Widgets in this area will be shown on post pages after the content.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+        register_sidebar(array(
+            'name'          => esc_html__('Ad Spot - After Page Content', 'mission-news'),
+            'id'            => 'after-page',
+            'description'   => esc_html__('Widgets in this area will be shown on pages after the content.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+        register_sidebar(array(
+            'name'          => esc_html__('Ad Spot - After First Post', 'mission-news'),
+            'id'            => 'after-first-post',
+            'description'   => esc_html__('Widgets in this area will be shown on the blog after the first post.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+        register_sidebar(array(
+            'name'          => esc_html__('Footer', 'mission-news'),
+            'id'            => 'site-footer',
+            'description'   => esc_html__('Widgets in this area will be shown in the footer.', 'mission-news'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>'
+        ));
+    }
 }
-add_action( 'widgets_init', 'ct_mission_news_register_widget_areas' );
+add_action('widgets_init', 'ct_mission_news_register_widget_areas');
 
 //----------------------------------------------------------------------------------
 //	Output excerpt/content
 //  Can't return the_content() so need to use get_the_content()
 //  Apply same filter and str_replace() as the_content(): https://developer.wordpress.org/reference/functions/the_content/
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_excerpt' ) ) {
-	function ct_mission_news_excerpt() {
-		global $post;
-		$more_link = '';
-		if ( get_theme_mod('more_link') == 'yes' ) {
-			$more_link_text = get_theme_mod('more_link_text');
-			if ( empty($more_link_text)) {
-				$more_link_text = esc_html__( 'Continue reading', 'mission-news' );
-			}
-			$more_link = '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . $more_link_text . '<span class="screen-reader-text">' . esc_html( get_the_title() ) . '</span></a></div>';
-		}
-		$ismore = strpos( $post->post_content, '<!--more-->' );
-		if ( get_theme_mod( 'full_post' ) == 'yes' || $ismore ) {		
-			$content = get_the_content('');
-			$content = apply_filters( 'the_content', $content );
-			$content = str_replace( ']]>', ']]&gt;', $content );
-			$content .= $more_link;
+if (! function_exists('ct_mission_news_excerpt')) {
+    function ct_mission_news_excerpt()
+    {
+        global $post;
+        $more_link = '';
+        if (get_theme_mod('more_link') == 'yes') {
+            $more_link_text = get_theme_mod('more_link_text');
+            if (empty($more_link_text)) {
+                $more_link_text = esc_html__('Continue reading', 'mission-news');
+            }
+            $more_link = '<div class="more-link-wrapper"><a class="more-link" href="' . esc_url(get_permalink()) . '">' . $more_link_text . '<span class="screen-reader-text">' . esc_html(get_the_title()) . '</span></a></div>';
+        }
+        $ismore = strpos($post->post_content, '<!--more-->');
+        if (get_theme_mod('full_post') == 'yes' || $ismore) {
+            $content = get_the_content('');
+            $content = apply_filters('the_content', $content);
+            $content = str_replace(']]>', ']]&gt;', $content);
+            $content .= $more_link;
 
-			return $content;
-		} else {
-			// If there is only the ellipsis then don't return anything
-			if ( get_the_excerpt() == '&#8230;' ) {
-				return '';
-			} else {
-				return wpautop( wp_kses_post( get_the_excerpt() ) ) . $more_link;
-			}
-		}
-	}
+            return $content;
+        } else {
+            // If there is only the ellipsis then don't return anything
+            if (get_the_excerpt() == '&#8230;') {
+                return '';
+            } else {
+                return wpautop(wp_kses_post(get_the_excerpt())) . $more_link;
+            }
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------
 //	Update excerpt length. Allow user input from Customizer.
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_custom_excerpt_length' ) ) {
-	function ct_mission_news_custom_excerpt_length( $length ) {
+if (! function_exists('ct_mission_news_custom_excerpt_length')) {
+    function ct_mission_news_custom_excerpt_length($length)
+    {
+        if (is_admin()) {
+            return $length;
+        }
+        $new_excerpt_length = get_theme_mod('excerpt_length');
 
-		if ( is_admin() ) {
-			return $length;
-		}
-		$new_excerpt_length = get_theme_mod( 'excerpt_length' );
-
-		if ( ! empty( $new_excerpt_length ) && $new_excerpt_length != 25 ) {
-			return $new_excerpt_length;
-		} elseif ( $new_excerpt_length === 0 ) {
-			return 0;
-		} else {
-			return 25;
-		}
-	}
+        if (! empty($new_excerpt_length) && $new_excerpt_length != 25) {
+            return $new_excerpt_length;
+        } elseif ($new_excerpt_length === 0) {
+            return 0;
+        } else {
+            return 25;
+        }
+    }
 }
-add_filter( 'excerpt_length', 'ct_mission_news_custom_excerpt_length', 99 );
+add_filter('excerpt_length', 'ct_mission_news_custom_excerpt_length', 99);
 
 //----------------------------------------------------------------------------------
 // Add plain ellipsis for automatic excerpts ("[...]" => "...")
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_excerpt_ellipsis' ) ) {
-	function ct_mission_news_excerpt_ellipsis() {
-		return '&#8230;';
-	}
+if (! function_exists('ct_mission_news_excerpt_ellipsis')) {
+    function ct_mission_news_excerpt_ellipsis()
+    {
+        return '&#8230;';
+    }
 }
-add_filter( 'excerpt_more', 'ct_mission_news_excerpt_ellipsis', 10 );
+add_filter('excerpt_more', 'ct_mission_news_excerpt_ellipsis', 10);
 
 //----------------------------------------------------------------------------------
 // Don't scroll to text after clicking a "more tag" link
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_remove_more_link_scroll' ) ) {
-	function ct_mission_news_remove_more_link_scroll( $link ) {
-		if ( is_admin() ) {
-			return $link;
-		}
-		$link = preg_replace( '|#more-[0-9]+|', '', $link );
-		return $link;
-	}
+if (! function_exists('ct_mission_news_remove_more_link_scroll')) {
+    function ct_mission_news_remove_more_link_scroll($link)
+    {
+        if (is_admin()) {
+            return $link;
+        }
+        $link = preg_replace('|#more-[0-9]+|', '', $link);
+        return $link;
+    }
 }
-add_filter( 'the_content_more_link', 'ct_mission_news_remove_more_link_scroll' );
+add_filter('the_content_more_link', 'ct_mission_news_remove_more_link_scroll');
 
 //----------------------------------------------------------------------------------
 // Output the Featured Image
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_featured_image' ) ) {
-	function ct_mission_news_featured_image() {
-		$blog_display = apply_filters( 'ct_mission_news_featured_image_display_filter', get_theme_mod( 'featured_image_blog_archives' ) );
-		$post_display = apply_filters( 'ct_mission_news_featured_image_display_filter', get_theme_mod( 'featured_image_posts' ) );
+if (! function_exists('ct_mission_news_featured_image')) {
+    function ct_mission_news_featured_image()
+    {
+        $blog_display = apply_filters('ct_mission_news_featured_image_display_filter', get_theme_mod('featured_image_blog_archives'));
+        $post_display = apply_filters('ct_mission_news_featured_image_display_filter', get_theme_mod('featured_image_posts'));
 
-		// don't output on archives or post pages when turned off via Customizer setting
-		if (
-			( (  is_home() || is_archive() || is_search() ) && ($blog_display == 'post' || $blog_display == 'no') )
-			|| ( is_singular( 'post' ) && ($post_display == 'blog' || $post_display == 'no' ) )
-		) {
-			return;
-		}
+        // don't output on archives or post pages when turned off via Customizer setting
+        if (
+            ((is_home() || is_archive() || is_search()) && ($blog_display == 'post' || $blog_display == 'no'))
+            || (is_singular('post') && ($post_display == 'blog' || $post_display == 'no'))
+        ) {
+            return;
+        }
 
-		global $post;
-		$featured_image = '';
+        global $post;
+        $featured_image = '';
 
-		if ( has_post_thumbnail( $post->ID ) ) {
+        if (has_post_thumbnail($post->ID)) {
+            if (is_singular()) {
+                $featured_image = '<div class="featured-image">' . get_the_post_thumbnail($post->ID, 'full') . '</div>';
+                if (get_theme_mod('featured_image_caption_posts') == 'yes') {
+                    $caption = get_post(get_post_thumbnail_id())->post_excerpt;
+                    if (!empty($caption)) {
+                        $featured_image .= '<div class="caption">' . wp_kses_post($caption) . '</div>';
+                    }
+                }
+            } else {
+                $link = get_theme_mod('featured_image_link') == 'media' ? get_the_post_thumbnail_url($post->ID) : get_permalink();
+                $featured_image = '<div class="featured-image"><a href="' . esc_url($link) . '">' . esc_html(get_the_title()) . get_the_post_thumbnail($post->ID, 'large') . '</a></div>';
+            }
+        }
 
-			if ( is_singular() ) {
-				$featured_image = '<div class="featured-image">' . get_the_post_thumbnail( $post->ID, 'full' ) . '</div>';
-				if ( get_theme_mod('featured_image_caption_posts') == 'yes' ) {
-					$caption = get_post( get_post_thumbnail_id() )->post_excerpt;
-					if ( !empty($caption) ){
-						$featured_image .= '<div class="caption">' . wp_kses_post($caption) . '</div>';
-					}
-				}
-			} else {
-				$link = get_theme_mod('featured_image_link') == 'media' ? get_the_post_thumbnail_url( $post->ID ) : get_permalink();
-				$featured_image = '<div class="featured-image"><a href="' . esc_url( $link ) . '">' . esc_html( get_the_title() ) . get_the_post_thumbnail( $post->ID, 'large' ) . '</a></div>';
-			}
-		}
+        $featured_image = apply_filters('ct_mission_news_featured_image', $featured_image);
 
-		$featured_image = apply_filters( 'ct_mission_news_featured_image', $featured_image );
-
-		if ( $featured_image ) {
-			echo $featured_image;
-		}
-	}
+        if ($featured_image) {
+            echo $featured_image;
+        }
+    }
 }
 
 
@@ -335,697 +378,721 @@ if ( ! function_exists( 'ct_mission_news_featured_image' ) ) {
  * WP will apply the ".menu-primary-items" class & id to the containing <div> instead of <ul>
  * making styling confusing. This simple wrapper adds a unique class to make styling easier.
  */
-if ( ! function_exists( ( 'ct_mission_news_wp_page_menu' ) ) ) {
-	function ct_mission_news_wp_page_menu() {
-		wp_page_menu( array(
-				"menu_class" => "menu-unset",
-				"depth"      => - 1
-			)
-		);
-	}
+if (! function_exists(('ct_mission_news_wp_page_menu'))) {
+    function ct_mission_news_wp_page_menu()
+    {
+        wp_page_menu(
+            array(
+                "menu_class" => "menu-unset",
+                "depth"      => - 1
+            )
+        );
+    }
 }
 
 //----------------------------------------------------------------------------------
 // Add toggle buttons for tier 3+ sub-menus. Used in mobile menu.
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_nav_dropdown_buttons' ) ) ) {
-	function ct_mission_news_nav_dropdown_buttons( $item_output, $item, $depth, $args ) {
+if (! function_exists(('ct_mission_news_nav_dropdown_buttons'))) {
+    function ct_mission_news_nav_dropdown_buttons($item_output, $item, $depth, $args)
+    {
+        if ($args->theme_location == 'primary' || $args->theme_location == 'secondary') {
+            if (in_array('menu-item-has-children', $item->classes) || in_array('page_item_has_children', $item->classes)) {
+                $item_output = str_replace($args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x("open menu", "verb: open the menu", "mission-news") . '</span><i class="fas fa-angle-right"></i></button>', $item_output);
+            }
+        }
 
-		if ( $args->theme_location == 'primary' || $args->theme_location == 'secondary' ) {
-
-			if ( in_array( 'menu-item-has-children', $item->classes ) || in_array( 'page_item_has_children', $item->classes ) ) {
-				$item_output = str_replace( $args->link_after . '</a>', $args->link_after . '</a><button class="toggle-dropdown" aria-expanded="false" name="toggle-dropdown"><span class="screen-reader-text">' . esc_html_x( "open menu", "verb: open the menu", "mission-news" ) . '</span><i class="fas fa-angle-right"></i></button>', $item_output );
-			}
-		}
-
-		return $item_output;
-	}
+        return $item_output;
+    }
 }
-add_filter( 'walker_nav_menu_start_el', 'ct_mission_news_nav_dropdown_buttons', 10, 4 );
+add_filter('walker_nav_menu_start_el', 'ct_mission_news_nav_dropdown_buttons', 10, 4);
 
 //----------------------------------------------------------------------------------
 // Add a label to "sticky" posts on archive pages
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_sticky_post_marker' ) ) ) {
-	function ct_mission_news_sticky_post_marker() {
-
-		if ( is_sticky() && !is_archive() && !is_search() ) {
-			echo '<div class="sticky-status"><span>' . esc_html__( "Featured", "mission-news" ) . '</span></div>';
-		}
-	}
+if (! function_exists(('ct_mission_news_sticky_post_marker'))) {
+    function ct_mission_news_sticky_post_marker()
+    {
+        if (is_sticky() && !is_archive() && !is_search()) {
+            echo '<div class="sticky-status"><span>' . esc_html__("Featured", "mission-news") . '</span></div>';
+        }
+    }
 }
-add_action( 'ct_mission_news_sticky_post_status', 'ct_mission_news_sticky_post_marker' );
+add_action('ct_mission_news_sticky_post_status', 'ct_mission_news_sticky_post_marker');
 
 //----------------------------------------------------------------------------------
 // Reset Customizer settings added by Mission News. Button added in theme-options.php.
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_reset_customizer_options' ) ) ) {
-	function ct_mission_news_reset_customizer_options() {
+if (! function_exists(('ct_mission_news_reset_customizer_options'))) {
+    function ct_mission_news_reset_customizer_options()
+    {
+        if (!isset($_POST['ct_mission_news_reset_customizer']) || 'ct_mission_news_reset_customizer_settings' !== $_POST['ct_mission_news_reset_customizer']) {
+            return;
+        }
 
-		if ( !isset( $_POST['ct_mission_news_reset_customizer'] ) || 'ct_mission_news_reset_customizer_settings' !== $_POST['ct_mission_news_reset_customizer'] ) {
-			return;
-		}
+        if (! wp_verify_nonce(wp_unslash($_POST['ct_mission_news_reset_customizer_nonce']), 'ct_mission_news_reset_customizer_nonce')) {
+            return;
+        }
 
-		if ( ! wp_verify_nonce( wp_unslash( $_POST['ct_mission_news_reset_customizer_nonce'] ), 'ct_mission_news_reset_customizer_nonce' ) ) {
-			return;
-		}
+        if (! current_user_can('edit_theme_options')) {
+            return;
+        }
 
-		if ( ! current_user_can( 'edit_theme_options' ) ) {
-			return;
-		}
+        $mods_array = array(
+            'layout',
+            'date',
+            'social_icons_header',
+            'tagline_header',
+            'search',
+            'featured_image_blog_archives',
+            'post_author_blog_archives',
+            'post_date_blog_archives',
+            'archive_title',
+            'archive_description',
+            'featured_image_posts',
+            'post_author_posts',
+            'post_date_posts',
+            'category_links_posts',
+            'tag_links_posts',
+            'author_avatar_posts',
+            'author_box_posts',
+            'more_from_posts',
+            'comment_date',
+            'author_label',
+            'full_post',
+            'excerpt_length',
+            'last_updated'
+        );
 
-		$mods_array = array(
-			'layout',
-			'date',
-			'social_icons_header',
-			'tagline_header',
-			'search',
-			'featured_image_blog_archives',
-			'post_author_blog_archives',
-			'post_date_blog_archives',
-			'archive_title',
-			'archive_description',
-			'featured_image_posts',
-			'post_author_posts',
-			'post_date_posts',
-			'category_links_posts',
-			'tag_links_posts',
-			'author_avatar_posts',
-			'author_box_posts',
-			'more_from_posts',
-			'comment_date',
-			'author_label',
-			'full_post',
-			'excerpt_length',
-			'last_updated'
-		);
+        $social_sites = ct_mission_news_social_array();
 
-		$social_sites = ct_mission_news_social_array();
+        // add social site settings to mods array
+        foreach ($social_sites as $social_site => $value) {
+            $mods_array[] = $social_site;
+        }
 
-		// add social site settings to mods array
-		foreach ( $social_sites as $social_site => $value ) {
-			$mods_array[] = $social_site;
-		}
+        $mods_array = apply_filters('ct_mission_news_mods_to_remove', $mods_array);
 
-		$mods_array = apply_filters( 'ct_mission_news_mods_to_remove', $mods_array );
+        foreach ($mods_array as $theme_mod) {
+            remove_theme_mod($theme_mod);
+        }
 
-		foreach ( $mods_array as $theme_mod ) {
-			remove_theme_mod( $theme_mod );
-		}
+        $redirect = admin_url('themes.php?page=mission-options');
+        $redirect = add_query_arg('ct_mission_news_status', 'deleted', $redirect);
 
-		$redirect = admin_url( 'themes.php?page=mission-options' );
-		$redirect = add_query_arg( 'ct_mission_news_status', 'deleted', $redirect );
-
-		// safely redirect
-		wp_safe_redirect( $redirect );
-		exit;
-	}
+        // safely redirect
+        wp_safe_redirect($redirect);
+        exit;
+    }
 }
-add_action( 'admin_init', 'ct_mission_news_reset_customizer_options' );
+add_action('admin_init', 'ct_mission_news_reset_customizer_options');
 
 //----------------------------------------------------------------------------------
 // Notice to let users know when their Customizer settings have been reset
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_delete_settings_notice' ) ) ) {
-	function ct_mission_news_delete_settings_notice() {
-
-		if ( isset( $_GET['ct_mission_news_status'] ) ) {
-			if ( $_GET['ct_mission_news_status'] == 'deleted' ) {
-				?>
+if (! function_exists(('ct_mission_news_delete_settings_notice'))) {
+    function ct_mission_news_delete_settings_notice()
+    {
+        if (isset($_GET['ct_mission_news_status'])) {
+            if ($_GET['ct_mission_news_status'] == 'deleted') {
+                ?>
 				<div class="updated">
-					<p><?php esc_html_e( 'Customizer settings deleted', 'mission-news' ); ?>.</p>
+					<p><?php esc_html_e('Customizer settings deleted', 'mission-news'); ?>.</p>
 				</div>
 				<?php
-			}
-		}
-	}
+            }
+        }
+    }
 }
-add_action( 'admin_notices', 'ct_mission_news_delete_settings_notice' );
+add_action('admin_notices', 'ct_mission_news_delete_settings_notice');
 
 //----------------------------------------------------------------------------------
 // Add body classes for styling purposes
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_body_class' ) ) ) {
-	function ct_mission_news_body_class( $classes ) {
+if (! function_exists(('ct_mission_news_body_class'))) {
+    function ct_mission_news_body_class($classes)
+    {
+        global $post;
+        $full_post   		 				= get_theme_mod('full_post');
+        $layout      		 				= get_theme_mod('layout');
+        $layout_post 		 				= apply_filters('ct_mission_news_layout_filter', get_theme_mod('layout_posts'));
+        $layout_page 		 				= apply_filters('ct_mission_news_layout_filter', get_theme_mod('layout_pages'));
+        $layout_archives 				= get_theme_mod('layout_archives');
+        $layout_blog 			  		= get_theme_mod('layout_blog');
+        $layout_search 			  	= get_theme_mod('layout_search');
+        $layout_bbpress  				= get_theme_mod('layout_bbpress');
+        $layout_woocommerce 		= get_theme_mod('layout_woocommerce');
+        $layout_woocommerce_cat = get_theme_mod('layout_woocommerce_cat');
 
-		global $post;
-		$full_post   		 				= get_theme_mod( 'full_post' );
-		$layout      		 				= get_theme_mod( 'layout' );
-		$layout_post 		 				= apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_posts' ) );
-		$layout_page 		 				= apply_filters( 'ct_mission_news_layout_filter', get_theme_mod( 'layout_pages' ) );
-		$layout_archives 				= get_theme_mod( 'layout_archives' );
-		$layout_blog 			  		= get_theme_mod( 'layout_blog' );
-		$layout_search 			  	= get_theme_mod( 'layout_search' );
-		$layout_bbpress  				= get_theme_mod( 'layout_bbpress' );
-		$layout_woocommerce 		= get_theme_mod( 'layout_woocommerce' );
-		$layout_woocommerce_cat = get_theme_mod( 'layout_woocommerce_cat' );
+        if (!function_exists('is_bbpress')) {
+            function is_bbpress()
+            {
+                return false;
+            }
+        }
+        if (!function_exists('is_product')) {
+            function is_product()
+            {
+                return false;
+            }
+            function is_product_category()
+            {
+                return false;
+            }
+            function is_shop()
+            {
+                return false;
+            }
+        }
+        if ($full_post == 'yes') {
+            $classes[] = 'full-post';
+        }
+        if (!empty($layout) && !is_product_category() && !is_shop()) {
+            $classes[] = 'layout-' . esc_attr($layout);
+        }
+        if (!empty($layout_post) && is_singular('post') && !is_bbpress()) {
+            $classes[] = 'layout-' . esc_attr($layout_post);
+        }
+        if (!empty($layout_page) && is_singular('page') && !is_bbpress()) {
+            $classes[] = 'layout-' . esc_attr($layout_page);
+        }
+        if (!empty($layout_archives) && is_archive() && !is_bbpress() && !is_product_category() && !is_shop()) {
+            $classes[] = 'layout-' . esc_attr($layout_archives);
+        }
+        if (!empty($layout_blog) && is_home()) {
+            $classes[] = 'layout-' . esc_attr($layout_blog);
+        }
+        if (!empty($layout_search) && is_search()) {
+            $classes[] = 'layout-' . esc_attr($layout_search);
+        }
+        if (!empty($layout_bbpress) && is_bbpress()) {
+            $classes[] = 'layout-' . esc_attr($layout_bbpress);
+        }
+        if (!empty($layout_woocommerce) && is_product()) {
+            $classes[] = 'layout-' . esc_attr($layout_woocommerce);
+        }
+        if (!empty($layout_woocommerce_cat) && (is_product_category() || is_shop())) {
+            $classes[] = 'layout-' . esc_attr($layout_woocommerce_cat);
+        }
 
-		if ( !function_exists('is_bbpress') ) {
-			function is_bbpress() {
-				return false;
-			}
-		}
-		if ( !function_exists('is_product') ) {
-			function is_product() {
-				return false;
-			}
-			function is_product_category() {
-				return false;
-			}
-			function is_shop() {
-				return false;
-			}
-		}
-		if ( $full_post == 'yes' ) {
-			$classes[] = 'full-post';
-		} if ( !empty( $layout ) && !is_product_category() && !is_shop() ) {
-			$classes[] = 'layout-' . esc_attr( $layout );
-		} if ( !empty( $layout_post ) && is_singular('post') && !is_bbpress() ) {
-			$classes[] = 'layout-' . esc_attr( $layout_post );
-		} if ( !empty( $layout_page ) && is_singular('page') && !is_bbpress() ) {
-			$classes[] = 'layout-' . esc_attr( $layout_page );
-		} if ( !empty( $layout_archives ) && is_archive() && !is_bbpress() && !is_product_category() && !is_shop() ) {
-			$classes[] = 'layout-' . esc_attr( $layout_archives );
-		} if ( !empty( $layout_blog ) && is_home() ) {
-			$classes[] = 'layout-' . esc_attr( $layout_blog );
-		} if ( !empty( $layout_search ) && is_search() ) {
-			$classes[] = 'layout-' . esc_attr( $layout_search );
-		} if ( !empty( $layout_bbpress ) && is_bbpress() ) {
-			$classes[] = 'layout-' . esc_attr( $layout_bbpress );
-		} if ( !empty( $layout_woocommerce ) && is_product() ) {
-			$classes[] = 'layout-' . esc_attr( $layout_woocommerce );
-		} if ( !empty( $layout_woocommerce_cat ) && ( is_product_category() || is_shop() ) ) {
-			$classes[] = 'layout-' . esc_attr( $layout_woocommerce_cat );
-		}
+        if (get_theme_mod('layout_first_image') == 'no') {
+            $classes[] = 'small-first-post';
+        }
+        if (get_theme_mod('left_sidebar_mobile') == 'no') {
+            $classes[] = 'hide-left-sidebar';
+        }
+        if (get_theme_mod('right_sidebar_mobile') == 'no') {
+            $classes[] = 'hide-right-sidebar';
+        }
+        if (get_theme_mod('mobile_menu_toggle') == 'yes') {
+            $classes[] = 'mobile-menu-open';
+        }
+        if (get_theme_mod('post_titles_positioning') == 'above') {
+            $classes[] = 'titles-above-image';
+        }
 
-		if ( get_theme_mod('layout_first_image') == 'no' ) {
-			$classes[] = 'small-first-post';
-		}
-		if ( get_theme_mod('left_sidebar_mobile') == 'no' ) {
-			$classes[] = 'hide-left-sidebar';
-		}
-		if ( get_theme_mod('right_sidebar_mobile') == 'no' ) {
-			$classes[] = 'hide-right-sidebar';
-		}
-		if ( get_theme_mod('mobile_menu_toggle') == 'yes' ) {
-			$classes[] = 'mobile-menu-open';
-		}
-		if ( get_theme_mod('post_titles_positioning') == 'above' ) {
-			$classes[] = 'titles-above-image';
-		}
-
-		return $classes;
-	}
+        return $classes;
+    }
 }
-add_filter( 'body_class', 'ct_mission_news_body_class' );
+add_filter('body_class', 'ct_mission_news_body_class');
 
 //----------------------------------------------------------------------------------
 // Add classes to post element for styling purposes
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_post_class' ) ) ) {
-	function ct_mission_news_post_class( $classes ) {
-		global $wp_query;
-		$layout = get_theme_mod( 'layout' );
+if (! function_exists(('ct_mission_news_post_class'))) {
+    function ct_mission_news_post_class($classes)
+    {
+        global $wp_query;
+        $layout = get_theme_mod('layout');
 
-		// adding a shared class for post divs on archive and single pages
-		$classes[] = 'entry';
+        // adding a shared class for post divs on archive and single pages
+        $classes[] = 'entry';
 
-		if ( $wp_query->current_post == 0 && !is_singular('post') ) {
-			if ( get_theme_mod('layout_first_image') == 'no' ) {
-				$classes[] = $layout;
-				$classes[] = 'small';
-			}
-		} elseif ( !empty( $layout ) && $wp_query->current_post != 0 ) {
-			$classes[] = $layout;
-		}
+        if ($wp_query->current_post == 0 && !is_singular('post')) {
+            if (get_theme_mod('layout_first_image') == 'no') {
+                $classes[] = $layout;
+                $classes[] = 'small';
+            }
+        } elseif (!empty($layout) && $wp_query->current_post != 0) {
+            $classes[] = $layout;
+        }
 
-		return $classes;
-	}
+        return $classes;
+    }
 }
-add_filter( 'post_class', 'ct_mission_news_post_class' );
+add_filter('post_class', 'ct_mission_news_post_class');
 
 //----------------------------------------------------------------------------------
 // Used to get messy SVG HTML out of content markup.
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_svg_output' ) ) ) {
-	function ct_mission_news_svg_output( $type ) {
+if (! function_exists(('ct_mission_news_svg_output'))) {
+    function ct_mission_news_svg_output($type)
+    {
+        $svg = '';
+        if ($type == 'toggle-navigation') {
+            $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-272.000000, -21.000000)" fill="#000000"><g transform="translate(266.000000, 12.000000)"><g transform="translate(6.000000, 9.000000)"><rect class="top-bar" x="0" y="0" width="24" height="2"/><rect class="middle-bar" x="0" y="8" width="24" height="2"/><rect class="bottom-bar" x="0" y="16" width="24" height="2"/></g></g></g></g></svg>';
+        } elseif ($type == 'close') {
+            $svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-17.000000, -12.000000)" fill="#000000"><g transform="translate(17.000000, 12.000000)"><rect transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) " x="9" y="-2" width="2" height="24"/><rect transform="translate(10.000000, 10.000000) rotate(-45.000000) translate(-10.000000, -10.000000) " x="9" y="-2" width="2" height="24"/></g></g></g></svg>';
+        }
 
-		$svg = '';
-		if ( $type == 'toggle-navigation' ) {
-			$svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-272.000000, -21.000000)" fill="#000000"><g transform="translate(266.000000, 12.000000)"><g transform="translate(6.000000, 9.000000)"><rect class="top-bar" x="0" y="0" width="24" height="2"/><rect class="middle-bar" x="0" y="8" width="24" height="2"/><rect class="bottom-bar" x="0" y="16" width="24" height="2"/></g></g></g></g></svg>';
-		} elseif ( $type == 'close' ) {
-			$svg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-17.000000, -12.000000)" fill="#000000"><g transform="translate(17.000000, 12.000000)"><rect transform="translate(10.000000, 10.000000) rotate(45.000000) translate(-10.000000, -10.000000) " x="9" y="-2" width="2" height="24"/><rect transform="translate(10.000000, 10.000000) rotate(-45.000000) translate(-10.000000, -10.000000) " x="9" y="-2" width="2" height="24"/></g></g></g></svg>';
-		}
-
-		return $svg;
-	}
+        return $svg;
+    }
 }
 
 //----------------------------------------------------------------------------------
 // Add meta elements for the charset, viewport, and template
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_add_meta_elements' ) ) ) {
-	function ct_mission_news_add_meta_elements() {
+if (! function_exists(('ct_mission_news_add_meta_elements'))) {
+    function ct_mission_news_add_meta_elements()
+    {
+        $meta_elements = '';
 
-		$meta_elements = '';
+        $meta_elements .= sprintf('<meta charset="%s" />' . "\n", esc_attr(get_bloginfo('charset')));
+        $meta_elements .= '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
 
-		$meta_elements .= sprintf( '<meta charset="%s" />' . "\n", esc_attr( get_bloginfo( 'charset' ) ) );
-		$meta_elements .= '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
+        $theme    = wp_get_theme(get_template());
+        $template = sprintf('<meta name="template" content="%s %s" />' . "\n", esc_attr($theme->get('Name')), esc_attr($theme->get('Version')));
+        $meta_elements .= $template;
 
-		$theme    = wp_get_theme( get_template() );
-		$template = sprintf( '<meta name="template" content="%s %s" />' . "\n", esc_attr( $theme->get( 'Name' ) ), esc_attr( $theme->get( 'Version' ) ) );
-		$meta_elements .= $template;
-
-		echo $meta_elements;
-	}
+        echo $meta_elements;
+    }
 }
-add_action( 'wp_head', 'ct_mission_news_add_meta_elements', 1 );
+add_action('wp_head', 'ct_mission_news_add_meta_elements', 1);
 
 //----------------------------------------------------------------------------------
 // Get the right template for Jetpack infinite scroll
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_infinite_scroll_render' ) ) ) {
-	function ct_mission_news_infinite_scroll_render() {
-		while ( have_posts() ) {
-			the_post();
-			global $wp_query;
-			$layout = get_theme_mod( 'layout' );
+if (! function_exists(('ct_mission_news_infinite_scroll_render'))) {
+    function ct_mission_news_infinite_scroll_render()
+    {
+        while (have_posts()) {
+            the_post();
+            global $wp_query;
+            $layout = get_theme_mod('layout');
 
-			if ( $wp_query->current_post == 0 ) {
-				if ( $layout == 'double' || $layout == 'rows' || $layout == 'rows-excerpt' ) {
-					get_template_part( 'content-archive', get_post_type() );
-				} else {
-					get_template_part( 'content-archive', $layout );
-				}
-			} else {
-				if ( $layout == 'simple' ) {
-					get_template_part( 'content-archive', get_post_type() );
-				} else {
-					get_template_part( 'content-archive', $layout );
-				}
-			}
-			
-		}
-	}
+            if ($wp_query->current_post == 0) {
+                if ($layout == 'double' || $layout == 'rows' || $layout == 'rows-excerpt') {
+                    get_template_part('content-archive', get_post_type());
+                } else {
+                    get_template_part('content-archive', $layout);
+                }
+            } else {
+                if ($layout == 'simple') {
+                    get_template_part('content-archive', get_post_type());
+                } else {
+                    get_template_part('content-archive', $layout);
+                }
+            }
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------
-// Template routing function. Setup to follow DRY coding patterns. 
+// Template routing function. Setup to follow DRY coding patterns.
 // (Using index.php file only instead of duplicating loop in page.php, post.php, etc.)
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_get_content_template' ) ) {
-	function ct_mission_news_get_content_template() {
-		global $wp_query;
-		$layout = get_theme_mod( 'layout' );
+if (! function_exists('ct_mission_news_get_content_template')) {
+    function ct_mission_news_get_content_template()
+    {
+        global $wp_query;
+        $layout = get_theme_mod('layout');
 
-		// output ad widget area after first post
-		if ( is_main_query() && $wp_query->current_post == 1 ) {
-			get_sidebar( 'after-first-post' );
-		}
+        // output ad widget area after first post
+        if (is_main_query() && $wp_query->current_post == 1) {
+            get_sidebar('after-first-post');
+        }
 
-		if ( is_home() || is_archive() || is_search() ) {
+        if (is_home() || is_archive() || is_search()) {
+            $small_first_post = get_theme_mod('layout_first_image') == 'no' ? true : false;
 
-			$small_first_post = get_theme_mod('layout_first_image') == 'no' ? true : false;
-
-			if ( $wp_query->current_post == 0 ) {
-				if ( $small_first_post && !empty($layout) && $layout != 'simple' ) {
-					get_template_part( 'content-archive-' . esc_attr( $layout ), get_post_type() );
-				} else {
-					get_template_part( 'content-archive', get_post_type() );
-				}
-			} else {
-				if ( !empty($layout) && $layout != 'simple' ) {
-					get_template_part( 'content-archive-' . esc_attr( $layout ), get_post_type() );
-				} else {
-					get_template_part( 'content-archive', get_post_type() );
-				}
-			}
-		} else {
-			get_template_part( 'content', get_post_type() );
-		}
-	}
+            if ($wp_query->current_post == 0) {
+                if ($small_first_post && !empty($layout) && $layout != 'simple') {
+                    get_template_part('content-archive-' . esc_attr($layout), get_post_type());
+                } else {
+                    get_template_part('content-archive', get_post_type());
+                }
+            } else {
+                if (!empty($layout) && $layout != 'simple') {
+                    get_template_part('content-archive-' . esc_attr($layout), get_post_type());
+                } else {
+                    get_template_part('content-archive', get_post_type());
+                }
+            }
+        } else {
+            get_template_part('content', get_post_type());
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------
-// Filters the_archive_title() like this: "Category: Business" => "Business" 
+// Filters the_archive_title() like this: "Category: Business" => "Business"
 // the_archive_title() is used in content/archive-header.php
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_modify_archive_titles' ) ) {
-	function ct_mission_news_modify_archive_titles( $title ) {
+if (! function_exists('ct_mission_news_modify_archive_titles')) {
+    function ct_mission_news_modify_archive_titles($title)
+    {
+        if (is_category()) {
+            $title = single_cat_title('', false);
+        } elseif (is_tag()) {
+            $title = single_tag_title('', false);
+        } elseif (is_author()) {
+            $title = get_the_author();
+        } elseif (is_month()) {
+            $title = single_month_title(' ');
+        }
+        // is_year() and is_day() neglected b/c there is no analogous function for retrieving the page title
 
-		if ( is_category() ) {
-			$title = single_cat_title( '', false );
-		} elseif ( is_tag() ) {
-			$title = single_tag_title( '', false );
-		} elseif ( is_author() ) {
-			$title = get_the_author();
-		} elseif ( is_month() ) {
-			$title = single_month_title( ' ' );
-		}
-		// is_year() and is_day() neglected b/c there is no analogous function for retrieving the page title
-
-		return $title;
-	}
+        return $title;
+    }
 }
-add_filter( 'get_the_archive_title', 'ct_mission_news_modify_archive_titles' );
+add_filter('get_the_archive_title', 'ct_mission_news_modify_archive_titles');
 
 //----------------------------------------------------------------------------------
 // Add paragraph tags for author bio displayed in content/archive-header.php.
-// the_archive_description includes paragraph tags for tag and category descriptions, but not the author bio. 
+// the_archive_description includes paragraph tags for tag and category descriptions, but not the author bio.
 //----------------------------------------------------------------------------------
-if ( ! function_exists( 'ct_mission_news_modify_archive_descriptions' ) ) {
-	function ct_mission_news_modify_archive_descriptions( $description ) {
-
-		if ( is_author() ) {
-			$description = wpautop( $description );
-		}
-		return $description;
-	}
+if (! function_exists('ct_mission_news_modify_archive_descriptions')) {
+    function ct_mission_news_modify_archive_descriptions($description)
+    {
+        if (is_author()) {
+            $description = wpautop($description);
+        }
+        return $description;
+    }
 }
-add_filter( 'get_the_archive_description', 'ct_mission_news_modify_archive_descriptions' );
+add_filter('get_the_archive_description', 'ct_mission_news_modify_archive_descriptions');
 
 //----------------------------------------------------------------------------------
 // Output the post byline. Used in content-archive.php and inc/widgets/post-list.php
-// Using function instead of template part so widget can pass in variables 
+// Using function instead of template part so widget can pass in variables
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_post_byline' ) ) ) {
-	function ct_mission_news_post_byline( $author, $date, $categories ) {
+if (! function_exists(('ct_mission_news_post_byline'))) {
+    function ct_mission_news_post_byline($author, $date, $categories)
+    {
+        if ($author == 'no' && $date == 'no' && $categories == 'no') {
+            return;
+        }
+        if (empty($author)) {
+            $author = 'yes';
+        }
+        if (empty($date)) {
+            $date = 'yes';
+        }
+        $post_author = get_the_author();
+        // add compatibility when used in header before loop
+        if (empty($post_author)) {
+            global $post;
+            $post_author = get_the_author_meta('display_name', $post->post_author);
+        }
+        $post_date = get_the_date();
+        if (get_theme_mod('post_byline_time') == 'yes') {
+            $post_date .= ' ' . get_the_time();
+        }
 
-		if ( $author == 'no' && $date == 'no' && $categories == 'no' ) {
-			return;
-		}
-		if ( empty($author) ) {
-			$author = 'yes';
-		}
-		if ( empty($date) ) {
-			$date = 'yes';
-		}
-		$post_author = get_the_author();
-		// add compatibility when used in header before loop
-		if ( empty( $post_author ) ) {
-			global $post;
-			$post_author = get_the_author_meta( 'display_name', $post->post_author );
-		}
-		$post_date = get_the_date();
-		if ( get_theme_mod('post_byline_time') == 'yes' ) {
-			$post_date .= ' ' . get_the_time();
-		}
-
-		echo '<div class="post-byline">';
-		if ( $author == 'no' ) {
-			echo esc_html( $post_date );
-		} elseif ( $date == 'no' ) {
-			// translators: %s = the author who published the post
-			printf( esc_html_x( 'By %s', 'This blog post was published by some author', 'mission-news' ), esc_html( $post_author ) );
-		} else {
-			// translators: %1$s = the author who published the post. %2$s = the date it was published
-			printf( esc_html_x( 'By %1$s on %2$s', 'This blog post was published by some author on some date ', 'mission-news' ), esc_html( $post_author ), esc_html( $post_date ) );
-		}
-		// Add optional post category
-		if ( $categories == 'yes' ) {
-			if ( $author == 'yes' || $date == 'yes' ) {
-				echo ' | ';
-			}
-			ct_mission_news_byline_categories();
-		}
-		echo '</div>';
-	}
+        echo '<div class="post-byline">';
+        if ($author == 'no') {
+            echo esc_html($post_date);
+        } elseif ($date == 'no') {
+            // translators: %s = the author who published the post
+            printf(esc_html_x('By %s', 'This blog post was published by some author', 'mission-news'), esc_html($post_author));
+        } else {
+            // translators: %1$s = the author who published the post. %2$s = the date it was published
+            printf(esc_html_x('By %1$s on %2$s', 'This blog post was published by some author on some date ', 'mission-news'), esc_html($post_author), esc_html($post_date));
+        }
+        // Add optional post category
+        if ($categories == 'yes') {
+            if ($author == 'yes' || $date == 'yes') {
+                echo ' | ';
+            }
+            ct_mission_news_byline_categories();
+        }
+        echo '</div>';
+    }
 }
 
 //----------------------------------------------------------------------------------
 // Providing a fallback title on the off-chance a post is untitled so it remains clickable on the blog.
 // Copying "(title)" which WordPress uses in the admin dashboard.
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_no_missing_titles' ) ) ) {
-	function ct_mission_news_no_missing_titles( $title, $id = null ) {
-		if ( $title == '' ) {
-			$title = esc_html__( '(title)', 'mission-news' );
-		}
+if (! function_exists(('ct_mission_news_no_missing_titles'))) {
+    function ct_mission_news_no_missing_titles($title, $id = null)
+    {
+        if ($title == '') {
+            $title = esc_html__('(title)', 'mission-news');
+        }
 
-		return $title;
-	}
+        return $title;
+    }
 }
-add_filter( 'the_title', 'ct_mission_news_no_missing_titles', 10, 2 );
+add_filter('the_title', 'ct_mission_news_no_missing_titles', 10, 2);
 
 
 //----------------------------------------------------------------------------------
-// Allow individual posts to override the global layout (via meta box) set in the Customizer 
+// Allow individual posts to override the global layout (via meta box) set in the Customizer
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_filter_layout' ) ) ) {
-	function ct_mission_news_filter_layout( $layout ) {
+if (! function_exists(('ct_mission_news_filter_layout'))) {
+    function ct_mission_news_filter_layout($layout)
+    {
+        if (is_singular('post') || is_singular('page')) {
+            global $post;
+            $single_layout = get_post_meta($post->ID, 'ct_mission_news_post_layout_key', true);
 
-		if ( is_singular( 'post' ) || is_singular( 'page' ) ) {
-			global $post;
-			$single_layout = get_post_meta( $post->ID, 'ct_mission_news_post_layout_key', true );
+            if (! empty($single_layout) && $single_layout != 'default') {
+                $layout = $single_layout;
+            }
+        }
 
-			if ( ! empty( $single_layout ) && $single_layout != 'default' ) {
-				$layout = $single_layout;
-			}
-		}
-
-		return $layout;
-	}
+        return $layout;
+    }
 }
-add_filter( 'ct_mission_news_layout_filter', 'ct_mission_news_filter_layout' );
+add_filter('ct_mission_news_layout_filter', 'ct_mission_news_filter_layout');
 
 //----------------------------------------------------------------------------------
 // Allow individual posts to override the global Featured Image display setting
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_filter_featured_image_display' ) ) ) {
-	function ct_mission_news_filter_featured_image_display( $display ) {
+if (! function_exists(('ct_mission_news_filter_featured_image_display'))) {
+    function ct_mission_news_filter_featured_image_display($display)
+    {
+        global $post;
+        $single_display = get_post_meta($post->ID, 'ct_mission_news_featured_image_display', true);
 
-			global $post;
-			$single_display = get_post_meta( $post->ID, 'ct_mission_news_featured_image_display', true );
+        if (! empty($single_display) && $single_display != 'default') {
+            $display = $single_display;
+        }
 
-			if ( ! empty( $single_display ) && $single_display != 'default' ) {
-				$display = $single_display;
-			}
-
-		return $display;
-	}
+        return $display;
+    }
 }
-add_filter( 'ct_mission_news_featured_image_display_filter', 'ct_mission_news_filter_featured_image_display' );
+add_filter('ct_mission_news_featured_image_display_filter', 'ct_mission_news_filter_featured_image_display');
 
 //----------------------------------------------------------------------------------
 // Allows site title to display in Customizer preview when logo is removed
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_logo_refresh' ) ) ) {
-	function ct_mission_news_logo_refresh($wp_customize) {
-		$wp_customize->get_setting( 'custom_logo' )->transport = 'refresh';
-	}
+if (! function_exists(('ct_mission_news_logo_refresh'))) {
+    function ct_mission_news_logo_refresh($wp_customize)
+    {
+        $wp_customize->get_setting('custom_logo')->transport = 'refresh';
+    }
 }
-add_action( 'customize_register', 'ct_mission_news_logo_refresh', 20 );
+add_action('customize_register', 'ct_mission_news_logo_refresh', 20);
 
 
 
 //----------------------------------------------------------------------------------
 // Add dismissible Mission News Pro admin notice
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_pro_admin_notice' ) ) ) {
-	function ct_mission_news_pro_admin_notice() {
-		if ( function_exists( ( 'dnh_register_notice' ) ) ) {
-			dnh_register_notice( 'ct_mission_news_pro_notice', 'updated', sprintf( __( 'Mission News Pro is now available! <a href="%s" target="_blank">Click here for screenshots & videos</a>.', 'mission-news' ), 'https://www.competethemes.com/mission-news-pro/?utm_source=admin-notice&utm_medium=dashboards' ) );
-		}
-	}
+if (! function_exists(('ct_mission_news_pro_admin_notice'))) {
+    function ct_mission_news_pro_admin_notice()
+    {
+        if (function_exists(('dnh_register_notice'))) {
+            dnh_register_notice('ct_mission_news_pro_notice', 'updated', sprintf(__('Mission News Pro is now available! <a href="%s" target="_blank">Click here for screenshots & videos</a>.', 'mission-news'), 'https://www.competethemes.com/mission-news-pro/?utm_source=admin-notice&utm_medium=dashboards'));
+        }
+    }
 }
-add_action( 'admin_init', 'ct_mission_news_pro_admin_notice' );
-	
+add_action('admin_init', 'ct_mission_news_pro_admin_notice');
+
 //----------------------------------------------------------------------------------
 // Output styles for widget alignment
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_widget_styles' ) ) ) {
-	function ct_mission_news_widget_styles() {
-		$css = '';
-		$below_header 			= get_theme_mod('ct_mission_widget_styles_below_header_alignment');
-		$above_posts  			= get_theme_mod('ct_mission_widget_styles_above_posts_alignment');
-		$after_first_post 	= get_theme_mod('ct_mission_widget_styles_after_first_post_alignment');
-		$after_post_content = get_theme_mod('ct_mission_widget_styles_after_post_content_alignment');
-		$after_page_content = get_theme_mod('ct_mission_widget_styles_after_page_content_alignment');
-		$footer 						= get_theme_mod('ct_mission_widget_styles_footer_alignment');
-		
-		if ( !empty($below_header) ) {
-			$css .= ".widget-area-below-header {text-align: $below_header;}";
-		}
-		if ( !empty($above_posts) ) {
-			$css .= ".widget-area-above-main {text-align: $above_posts;}";
-		}
-		if ( !empty($after_first_post) ) {
-			$css .= ".widget-area-after-first-post {text-align: $after_first_post;}";
-		}
-		if ( !empty($after_post_content) ) {
-			$css .= ".widget-area-after-post {text-align: $after_post_content;}";
-		}
-		if ( !empty($after_page_content) ) {
-			$css .= ".widget-area-after-page {text-align: $after_page_content;}";
-		}
-		if ( !empty($footer) ) {
-			$css .= ".widget-area-site-footer {text-align: $footer;}";
-		}
-		if ( !empty( $css ) ) {
-			$css = ct_mission_news_sanitize_css($css);
-			wp_add_inline_style( 'ct-mission-news-style', $css );
-		}
-	}
+if (! function_exists(('ct_mission_news_widget_styles'))) {
+    function ct_mission_news_widget_styles()
+    {
+        $css = '';
+        $below_header 			= get_theme_mod('ct_mission_widget_styles_below_header_alignment');
+        $above_posts  			= get_theme_mod('ct_mission_widget_styles_above_posts_alignment');
+        $after_first_post 	= get_theme_mod('ct_mission_widget_styles_after_first_post_alignment');
+        $after_post_content = get_theme_mod('ct_mission_widget_styles_after_post_content_alignment');
+        $after_page_content = get_theme_mod('ct_mission_widget_styles_after_page_content_alignment');
+        $footer 						= get_theme_mod('ct_mission_widget_styles_footer_alignment');
+        
+        if (!empty($below_header)) {
+            $css .= ".widget-area-below-header {text-align: $below_header;}";
+        }
+        if (!empty($above_posts)) {
+            $css .= ".widget-area-above-main {text-align: $above_posts;}";
+        }
+        if (!empty($after_first_post)) {
+            $css .= ".widget-area-after-first-post {text-align: $after_first_post;}";
+        }
+        if (!empty($after_post_content)) {
+            $css .= ".widget-area-after-post {text-align: $after_post_content;}";
+        }
+        if (!empty($after_page_content)) {
+            $css .= ".widget-area-after-page {text-align: $after_page_content;}";
+        }
+        if (!empty($footer)) {
+            $css .= ".widget-area-site-footer {text-align: $footer;}";
+        }
+        if (!empty($css)) {
+            $css = ct_mission_news_sanitize_css($css);
+            wp_add_inline_style('ct-mission-news-style', $css);
+        }
+    }
 }
-add_action( 'wp_enqueue_scripts', 'ct_mission_news_widget_styles', 99 );
+add_action('wp_enqueue_scripts', 'ct_mission_news_widget_styles', 99);
 
 //----------------------------------------------------------------------------------
 // Sanitize CSS
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_sanitize_css' ) ) ) {
-	function ct_mission_news_sanitize_css( $css ) {
-		$css = wp_kses( $css, array( '\'', '\"' ) );
-		$css = str_replace( '&gt;', '>', $css );
+if (! function_exists(('ct_mission_news_sanitize_css'))) {
+    function ct_mission_news_sanitize_css($css)
+    {
+        $css = wp_kses($css, array( '\'', '\"' ));
+        $css = str_replace('&gt;', '>', $css);
 
-		return $css;
-	}
+        return $css;
+    }
 }
 
 //----------------------------------------------------------------------------------
 // Add Recent Posts Extended widgets with same settings as in the demo site and screenshot
 // Only runs upon theme activation and if both sidebars are empty
 //----------------------------------------------------------------------------------
-if ( ! function_exists( ( 'ct_mission_news_set_default_widgets' ) ) ) {
-	function ct_mission_news_set_default_widgets() {
+if (! function_exists(('ct_mission_news_set_default_widgets'))) {
+    function ct_mission_news_set_default_widgets()
+    {
 
-		// get active widgets in sidebars
-		$active_widgets = get_option( 'sidebars_widgets' );
-		
-		// if both sidebars are empty
-		if ( empty( $active_widgets['left'] ) && empty( $active_widgets['right'] ) ) {
-			// prepare counter
-			$counter = 1;
-			// add new instance of Recent Posts Extended to left sidebar
-			$active_widgets['left'][0] = 'ct_mission_news_post_list-' . absint($counter);
-			// set default options for the widget
-			$widget_options[$counter] = array(
-				'title' 				  => __('Latest Posts', 'mission-news'),
-				'use_category' 	  => 'yes',
-				'category'     	  => 1,
-				'use_tag' 			  => 'no',
-				'tag'          	  => 1,
-				'relationship' 	  => 'AND',
-				'author'       	  => 'yes',
-				'date'         	  => 'no',
-				'image'        	  => 'no',
-				'excerpt'     	  => 'yes',
-				'excerpt_length'  => 25,
-				'comments'     	  => 'yes',
-				'post_category'   => 'no',
-				'exclude_current' => 'no',
-				'post_count'   	 	=> 5,
-				'style'        	 	=> 1
-			);
-			// increment for next widget
-			$counter++;
-			// add new instance of Recent Posts Extended to right sidebar
-			$active_widgets['right'][0] = 'ct_mission_news_post_list-' . absint($counter);
-			// set default options for the widget
-			$widget_options[$counter] = array(
-				'title' 				 	=> __('Latest Posts', 'mission-news'),
-				'use_category' 	 	=> 'yes',
-				'category'     	 	=> 1,
-				'use_tag' 			 	=> 'no',
-				'tag'          	 	=> 1,
-				'relationship' 	 	=> 'AND',
-				'author'       	 	=> 'no',
-				'date'         	 	=> 'yes',
-				'image'        	 	=> 'yes',
-				'excerpt'     	 	=> 'no',
-				'excerpt_length' 	=> 25,
-				'comments'     	 	=> 'no',
-				'post_category'   => 'no',
-				'exclude_current' => 'no',
-				'post_count'   	 	=> 5,
-				'style'        	 	=> 2
-			);
-			// save settings for both widgets
-			update_option( 'widget_ct_mission_news_post_list', $widget_options );
-			// save widgets to sidebars
-			update_option( 'sidebars_widgets', $active_widgets );
-		}
-	}
+        // get active widgets in sidebars
+        $active_widgets = get_option('sidebars_widgets');
+        
+        // if both sidebars are empty
+        if (empty($active_widgets['left']) && empty($active_widgets['right'])) {
+            // prepare counter
+            $counter = 1;
+            // add new instance of Recent Posts Extended to left sidebar
+            $active_widgets['left'][0] = 'ct_mission_news_post_list-' . absint($counter);
+            // set default options for the widget
+            $widget_options[$counter] = array(
+                'title' 				  => __('Latest Posts', 'mission-news'),
+                'use_category' 	  => 'yes',
+                'category'     	  => 1,
+                'use_tag' 			  => 'no',
+                'tag'          	  => 1,
+                'relationship' 	  => 'AND',
+                'author'       	  => 'yes',
+                'date'         	  => 'no',
+                'image'        	  => 'no',
+                'excerpt'     	  => 'yes',
+                'excerpt_length'  => 25,
+                'comments'     	  => 'yes',
+                'post_category'   => 'no',
+                'exclude_current' => 'no',
+                'post_count'   	 	=> 5,
+                'style'        	 	=> 1
+            );
+            // increment for next widget
+            $counter++;
+            // add new instance of Recent Posts Extended to right sidebar
+            $active_widgets['right'][0] = 'ct_mission_news_post_list-' . absint($counter);
+            // set default options for the widget
+            $widget_options[$counter] = array(
+                'title' 				 	=> __('Latest Posts', 'mission-news'),
+                'use_category' 	 	=> 'yes',
+                'category'     	 	=> 1,
+                'use_tag' 			 	=> 'no',
+                'tag'          	 	=> 1,
+                'relationship' 	 	=> 'AND',
+                'author'       	 	=> 'no',
+                'date'         	 	=> 'yes',
+                'image'        	 	=> 'yes',
+                'excerpt'     	 	=> 'no',
+                'excerpt_length' 	=> 25,
+                'comments'     	 	=> 'no',
+                'post_category'   => 'no',
+                'exclude_current' => 'no',
+                'post_count'   	 	=> 5,
+                'style'        	 	=> 2
+            );
+            // save settings for both widgets
+            update_option('widget_ct_mission_news_post_list', $widget_options);
+            // save widgets to sidebars
+            update_option('sidebars_widgets', $active_widgets);
+        }
+    }
 }
-add_action( 'after_switch_theme', 'ct_mission_news_set_default_widgets' );
+add_action('after_switch_theme', 'ct_mission_news_set_default_widgets');
 
-if ( ! function_exists( ( 'ct_mission_news_site_width_css' ) ) ) {
-	function ct_mission_news_site_width_css() {
-		$site_width = get_theme_mod( 'site_width');
-		$css = '';
+if (! function_exists(('ct_mission_news_site_width_css'))) {
+    function ct_mission_news_site_width_css()
+    {
+        $site_width = get_theme_mod('site_width');
+        $css = '';
 
-		if ( !empty($site_width) && $site_width != 1280 ) {
-			$css .= '.max-width { max-width: '. absint($site_width) .'px;}';	
-			$css .= '.is-sticky .site-header { max-width: '. absint($site_width) .'px !important;}';	
-		}
-		if ( !empty( $css ) ) {
-			$css = ct_mission_news_sanitize_css($css);
-			wp_add_inline_style( 'ct-mission-news-style', $css );
-		}
-	}
+        if (!empty($site_width) && $site_width != 1280) {
+            $css .= '.max-width { max-width: '. absint($site_width) .'px;}';
+            $css .= '.is-sticky .site-header { max-width: '. absint($site_width) .'px !important;}';
+        }
+        if (!empty($css)) {
+            $css = ct_mission_news_sanitize_css($css);
+            wp_add_inline_style('ct-mission-news-style', $css);
+        }
+    }
 }
-add_action( 'wp_enqueue_scripts', 'ct_mission_news_site_width_css', 99 );
+add_action('wp_enqueue_scripts', 'ct_mission_news_site_width_css', 99);
 
 //----------------------------------------------------------------------------------
-// Output the markup for the optional scroll-to-top arrow 
+// Output the markup for the optional scroll-to-top arrow
 //----------------------------------------------------------------------------------
-function ct_mission_news_scroll_to_top_arrow() {
-	$setting = get_theme_mod('scroll_to_top');
-	
-	if ( $setting == 'yes' ) {
-		echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'mission-news') .'</span><i class="fas fa-arrow-up"></i></button>';
-	}
+function ct_mission_news_scroll_to_top_arrow()
+{
+    $setting = get_theme_mod('scroll_to_top');
+    
+    if ($setting == 'yes') {
+        echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'mission-news') .'</span><i class="fas fa-arrow-up"></i></button>';
+    }
 }
-add_action( 'ct_mission_news_body_bottom', 'ct_mission_news_scroll_to_top_arrow');
+add_action('ct_mission_news_body_bottom', 'ct_mission_news_scroll_to_top_arrow');
 
 //----------------------------------------------------------------------------------
 // Output the "Last Updated" date on posts
 //----------------------------------------------------------------------------------
-function ct_mission_news_output_last_updated_date() {
-	
-	global $post;
+function ct_mission_news_output_last_updated_date()
+{
+    global $post;
 
-	if ( get_the_modified_date() != get_the_date() ) {
-		$updated_post = get_post_meta( $post->ID, 'ct_mission_news_last_updated', true );
-		$updated_customizer = get_theme_mod( 'last_updated' );
-		if ( 
-			( $updated_customizer == 'yes' && ($updated_post != 'no') )
-			|| $updated_post == 'yes' 
-			) {
-				echo '<p class="last-updated">'. esc_html__("Last updated on", "mission-news") . ' ' . get_the_modified_date() . ' </p>';
-			}
-	}
+    if (get_the_modified_date() != get_the_date()) {
+        $updated_post = get_post_meta($post->ID, 'ct_mission_news_last_updated', true);
+        $updated_customizer = get_theme_mod('last_updated');
+        if (
+            ($updated_customizer == 'yes' && ($updated_post != 'no'))
+            || $updated_post == 'yes'
+        ) {
+            echo '<p class="last-updated">'. esc_html__("Last updated on", "mission-news") . ' ' . get_the_modified_date() . ' </p>';
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------
 // Add support for Elementor headers & footers
 //----------------------------------------------------------------------------------
-function ct_mission_news_register_elementor_locations( $elementor_theme_manager ) {
-	$elementor_theme_manager->register_location( 'header' );
-	$elementor_theme_manager->register_location( 'footer' );
+function ct_mission_news_register_elementor_locations($elementor_theme_manager)
+{
+    $elementor_theme_manager->register_location('header');
+    $elementor_theme_manager->register_location('footer');
 }
-add_action( 'elementor/theme/register_locations', 'ct_mission_news_register_elementor_locations' );
+add_action('elementor/theme/register_locations', 'ct_mission_news_register_elementor_locations');
 
 //----------------------------------------------------------------------------------
 // Outputs post categories. Used in post byline.
 //----------------------------------------------------------------------------------
-function ct_mission_news_byline_categories(){
+function ct_mission_news_byline_categories()
+{
+    global $post;
+    $categories = get_the_category($post->ID);
+    $separator  = ', ';
+    $output     = '';
 
-	global $post;
-	$categories = get_the_category( $post->ID );
-	$separator  = ', ';
-	$output     = '';
-
-	if ( $categories ) {
-		echo '<p class="post-categories">';
-		foreach ( $categories as $category ) {
-			if ( $category === end( $categories ) && $category !== reset( $categories ) ) {
-				$output = rtrim( $output, ", " );
-				$output .= ' ' . esc_html_x( 'and', 'category AND category', 'mission-news' ) . ' ';
-			}
-			// translators: placeholder is the name of the post category
-			$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" title="' . esc_attr( sprintf( _x( "View all posts in %s", 'View all posts in post category', 'mission-news' ), esc_html( $category->name ) ) ) . '">' . esc_html( $category->cat_name ) . '</a>' . $separator;
-		}
-		echo wp_kses_post( trim( $output, $separator ) );
-		echo "</p>";
-	}
+    if ($categories) {
+        echo '<p class="post-categories">';
+        foreach ($categories as $category) {
+            if ($category === end($categories) && $category !== reset($categories)) {
+                $output = rtrim($output, ", ");
+                $output .= ' ' . esc_html_x('and', 'category AND category', 'mission-news') . ' ';
+            }
+            // translators: placeholder is the name of the post category
+            $output .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" title="' . esc_attr(sprintf(_x("View all posts in %s", 'View all posts in post category', 'mission-news'), esc_html($category->name))) . '">' . esc_html($category->cat_name) . '</a>' . $separator;
+        }
+        echo wp_kses_post(trim($output, $separator));
+        echo "</p>";
+    }
 }

@@ -698,8 +698,12 @@ if (! function_exists('ct_mission_news_get_content_template')) {
         $layout = get_theme_mod('layout');
 
         // output ad widget area after first post
-        if (is_main_query() && $wp_query->current_post == 1) {
-            get_sidebar('after-first-post');
+        if (is_main_query()) {
+            if ($layout != 'double' && $wp_query->current_post == 1) {
+                get_sidebar('after-first-post');
+            } elseif ($layout == 'double' && $wp_query->current_post == 2) {
+                get_sidebar('after-first-post');
+            }
         }
 
         if (is_home() || is_archive() || is_search()) {

@@ -2827,6 +2827,7 @@ body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
   padding-bottom: 1.125em;
   border-bottom: solid 1px #DCDCDC;
   margin-bottom: 1.125em;
+  clear: both;
 }
 
 @media all and (min-width: 37.5em) {

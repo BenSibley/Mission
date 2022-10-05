@@ -26,7 +26,7 @@ function ct_mission_news_register_required_plugins()
             'required'  => false,
         ),
     );
-    
+
     $config = array(
         'id'           => 'ct-mission-news',
         'default_path' => '',
@@ -904,7 +904,7 @@ if (! function_exists(('ct_mission_news_widget_styles'))) {
         $after_post_content = get_theme_mod('ct_mission_widget_styles_after_post_content_alignment');
         $after_page_content = get_theme_mod('ct_mission_widget_styles_after_page_content_alignment');
         $footer 						= get_theme_mod('ct_mission_widget_styles_footer_alignment');
-        
+
         if (!empty($below_header)) {
             $css .= ".widget-area-below-header {text-align: $below_header;}";
         }
@@ -951,10 +951,9 @@ if (! function_exists(('ct_mission_news_sanitize_css'))) {
 if (! function_exists(('ct_mission_news_set_default_widgets'))) {
     function ct_mission_news_set_default_widgets()
     {
-
         // get active widgets in sidebars
         $active_widgets = get_option('sidebars_widgets');
-        
+
         // if both sidebars are empty
         if (empty($active_widgets['left']) && empty($active_widgets['right'])) {
             // prepare counter
@@ -1036,7 +1035,7 @@ add_action('wp_enqueue_scripts', 'ct_mission_news_site_width_css', 99);
 function ct_mission_news_scroll_to_top_arrow()
 {
     $setting = get_theme_mod('scroll_to_top');
-    
+
     if ($setting == 'yes') {
         echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'mission-news') .'</span><i class="fas fa-arrow-up"></i></button>';
     }

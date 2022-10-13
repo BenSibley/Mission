@@ -5,7 +5,7 @@ Theme URI: https://www.competethemes.com/mission-news/
 Author: Compete Themes
 Author URI: https://www.competethemes.com/
 Description: For publishers on a mission. Mission News is a newspaper theme for publishers who want their content to be seen and heard. Premium-quality design adds credibility to every word you write, and a fully responsive layout ensures your site looks fantastic on every screen. The aesthetic is timeless and modeled after classic news sites like the New York Times. Use Mission News to setup a news site on any subject from health to finance. Mission News is also fully compatible with the new Gutenberg post editor. View the fully-setup live demo here: https://www.competethemes.com/demos/?theme=Mission+News
-Version: 1.52
+Version: 1.53
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: three-columns, left-sidebar, right-sidebar, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, entertainment, news
@@ -2827,7 +2827,6 @@ body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
   padding-bottom: 1.125em;
   border-bottom: solid 1px #DCDCDC;
   margin-bottom: 1.125em;
-  clear: both;
 }
 
 @media all and (min-width: 37.5em) {
@@ -2837,10 +2836,49 @@ body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
   }
 
   .layout-double .widget-area-after-first-post {
-    padding-top: 1.125em;
-    padding-bottom: 0;
-    border-top: solid 1px #DCDCDC;
+    width: 50%;
+    float: right;
     border-bottom: none;
+    border-top: solid 1px #DCDCDC;
+    padding: 0.75em 0.75em 0.75em 0;
+    margin: 0;
+  }
+
+  .layout-double.small-first-post .widget-area-after-first-post ~ div:nth-of-type(even) {
+    clear: right !important;
+    padding-right: 0 !important;
+    padding-left: 0.75em !important;
+    margin-left: -1px !important;
+    margin-right: 0 !important;
+    border-right: none !important;
+    border-left: solid 1px #DCDCDC !important;
+  }
+  .layout-double.small-first-post .widget-area-after-first-post ~ div:nth-of-type(odd) {
+    clear: none !important;
+    padding-left: 0 !important;
+    padding-right: 0.75em !important;
+    border-left: none !important;
+    border-right: solid 1px #DCDCDC !important;
+  }
+
+  .layout-double:not(.small-first-post) .widget-area-after-first-post {
+    padding: 0.75em 0 0.75em 0.75em;
+  }
+  .layout-double:not(.small-first-post) .widget-area-after-first-post ~ div:nth-of-type(odd) {
+    clear: right !important;
+    padding-right: 0 !important;
+    padding-left: 0.75em !important;
+    margin-left: -1px !important;
+    margin-right: 0 !important;
+    border-right: none !important;
+    border-left: solid 1px #DCDCDC !important;
+  }
+  .layout-double:not(.small-first-post) .widget-area-after-first-post ~ div:nth-of-type(even) {
+    clear: none !important;
+    padding-left: 0 !important;
+    padding-right: 0.75em !important;
+    border-left: none !important;
+    border-right: solid 1px #DCDCDC !important;
   }
 
   .layout-double .widget-area:not(.active-1).widget-area-after-first-post {

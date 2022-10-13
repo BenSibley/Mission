@@ -52,7 +52,6 @@
   padding-bottom: $baseline-height * 0.75;
   border-bottom: solid 1px $color-gray-86;
   margin-bottom: $baseline-height * 0.75;
-  clear: both;
 }
 
 @media all and (min-width: $six-hundred) {
@@ -62,10 +61,51 @@
     padding: 0 $column;
   }
   .layout-double .widget-area-after-first-post {
-    padding-top: $baseline-height * 0.75;
-    padding-bottom: 0;
-    border-top: solid 1px $color-gray-86;
+    width: 50%;
+    float: left;
     border-bottom: none;
+    border-top: solid 1px #DCDCDC;
+    padding: 0.75em 0 0.75em 0.75em;
+    margin: 0;
+  }
+  .layout-double.small-first-post .widget-area-after-first-post {
+
+    ~ div:nth-of-type(even) {
+      clear: left !important;
+      padding-left: 0 !important;
+      padding-right: 0.75em !important;
+      margin-right: -1px !important;
+      margin-left: 0 !important;
+      border-left: none !important;
+      border-right: solid 1px #DCDCDC !important;
+    }
+    ~ div:nth-of-type(odd) {
+      clear: none !important;
+      padding-right: 0 !important;
+      padding-left: 0.75em !important;
+      border-right: none !important;
+      border-left: solid 1px #DCDCDC !important
+    }
+  }
+  .layout-double:not(.small-first-post) .widget-area-after-first-post {
+    padding: 0.75em 0.75em 0.75em 0;
+
+    ~ div:nth-of-type(odd) {
+      clear: left !important;
+      padding-left: 0 !important;
+      padding-right: 0.75em !important;
+      margin-right: -1px !important;
+      margin-left: 0 !important;
+      border-left: none !important;
+      border-right: solid 1px #DCDCDC !important;
+    }
+    ~ div:nth-of-type(even) {
+      clear: none !important;
+      padding-right: 0 !important;
+      padding-left: 0.75em !important;
+      border-right: none !important;
+      border-left: solid 1px #DCDCDC !important
+    }
   }
   .layout-double .widget-area:not(.active-1) {
   

@@ -193,11 +193,13 @@ jQuery(document).ready(function($){
             body.addClass('display-search');
             // make search input keyboard accessible
             siteHeader.find('.search-field').attr('tabindex', 0);
-            // put cursor into the search input (delay 0.25 b/c of CSS transition)
-            setTimeout( function() {
-                $('#search-form-popup').find('#search-field').focus();
-            }, 250);
-
+            // Desktop only: put cursor into the search input (delay 0.25 b/c of CSS transition)
+            if (window.innerWidth > 1100) {
+                setTimeout( function() {
+                    $('#search-form-popup').find('#search-field').focus().setSelectionRange(0, 999);;
+                }, 250);
+            }
+            
             // prevent background scrolling
             body.css('overflow', 'hidden');
         }

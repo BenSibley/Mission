@@ -131,6 +131,8 @@ if (! function_exists('ct_mission_news_social_icons_output')) {
                     $class = 'fab fa-get-pocket';
                 } elseif ($active_site == 'phone') {
                     $class = 'fas fa-phone';
+                } elseif ($active_site == 'twitter') {
+                    $class = 'fa-brands fa-x-twitter';
                 } else {
                     $class = 'fab fa-' . $active_site;
                 }
@@ -156,8 +158,8 @@ if (! function_exists('ct_mission_news_social_icons_output')) {
 				<?php } elseif ($active_site == 'social_icon_custom_1' || $active_site == 'social_icon_custom_2' || $active_site == 'social_icon_custom_3') { ?>
 					<a class="custom-icon" target="_blank"
 					href="<?php echo esc_url(get_theme_mod($active_site)); ?>">
-					<img class="icon" src="<?php echo esc_url(get_theme_mod($active_site .'_image')); ?>" style="width: 19px;" />
-						<span class="screen-reader-text"><?php echo esc_html(get_theme_mod($active_site .'_name'));  ?></span>
+					<img class="icon" src="<?php echo esc_url(get_theme_mod($active_site . '_image')); ?>" style="width: 19px;" />
+						<span class="screen-reader-text"><?php echo esc_html(get_theme_mod($active_site . '_name'));  ?></span>
 					</a>
 				<?php } else { ?>
 					<a class="<?php echo esc_attr($active_site); ?>" target="_blank"
@@ -166,7 +168,7 @@ if (! function_exists('ct_mission_news_social_icons_output')) {
 						   title="<?php echo esc_attr($active_site); ?>"></i>
 					</a>
 					<?php
-                }
+				}
                 echo '</li>';
             }
             echo "</ul>";

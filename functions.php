@@ -66,10 +66,10 @@ new WP_Review_Me(
 //----------------------------------------------------------------------------------
 //	Set content width variable
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_set_content_width'))) {
+if (!function_exists(('ct_mission_news_set_content_width'))) {
     function ct_mission_news_set_content_width()
     {
-        if (! isset($content_width)) {
+        if (!isset($content_width)) {
             $content_width = 569;
         }
     }
@@ -79,7 +79,7 @@ add_action('after_setup_theme', 'ct_mission_news_set_content_width', 0);
 //----------------------------------------------------------------------------------
 //	Add theme support for various features, register menus, load text domain
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_theme_setup'))) {
+if (!function_exists(('ct_mission_news_theme_setup'))) {
     function ct_mission_news_theme_setup()
     {
         add_theme_support('post-thumbnails');
@@ -156,7 +156,7 @@ add_action('after_setup_theme', 'ct_mission_news_theme_setup');
 //-----------------------------------------------------------------------------
 // Load custom stylesheet for the post editor
 //-----------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_add_editor_styles')) {
+if (!function_exists('ct_mission_news_add_editor_styles')) {
     function ct_mission_news_add_editor_styles()
     {
         add_editor_style('styles/editor-style.css');
@@ -167,7 +167,7 @@ add_action('admin_init', 'ct_mission_news_add_editor_styles');
 //----------------------------------------------------------------------------------
 //	Register widget areas
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_register_widget_areas'))) {
+if (!function_exists(('ct_mission_news_register_widget_areas'))) {
     function ct_mission_news_register_widget_areas()
     {
         register_sidebar(array(
@@ -251,7 +251,7 @@ add_action('widgets_init', 'ct_mission_news_register_widget_areas');
 //  Can't return the_content() so need to use get_the_content()
 //  Apply same filter and str_replace() as the_content(): https://developer.wordpress.org/reference/functions/the_content/
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_excerpt')) {
+if (!function_exists('ct_mission_news_excerpt')) {
     function ct_mission_news_excerpt()
     {
         global $post;
@@ -285,7 +285,7 @@ if (! function_exists('ct_mission_news_excerpt')) {
 //----------------------------------------------------------------------------------
 //	Update excerpt length. Allow user input from Customizer.
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_custom_excerpt_length')) {
+if (!function_exists('ct_mission_news_custom_excerpt_length')) {
     function ct_mission_news_custom_excerpt_length($length)
     {
         if (is_admin()) {
@@ -293,7 +293,7 @@ if (! function_exists('ct_mission_news_custom_excerpt_length')) {
         }
         $new_excerpt_length = get_theme_mod('excerpt_length');
 
-        if (! empty($new_excerpt_length) && $new_excerpt_length != 25) {
+        if (!empty($new_excerpt_length) && $new_excerpt_length != 25) {
             return $new_excerpt_length;
         } elseif ($new_excerpt_length === 0) {
             return 0;
@@ -307,7 +307,7 @@ add_filter('excerpt_length', 'ct_mission_news_custom_excerpt_length', 99);
 //----------------------------------------------------------------------------------
 // Add plain ellipsis for automatic excerpts ("[...]" => "...")
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_excerpt_ellipsis')) {
+if (!function_exists('ct_mission_news_excerpt_ellipsis')) {
     function ct_mission_news_excerpt_ellipsis()
     {
         return '&#8230;';
@@ -318,7 +318,7 @@ add_filter('excerpt_more', 'ct_mission_news_excerpt_ellipsis', 10);
 //----------------------------------------------------------------------------------
 // Don't scroll to text after clicking a "more tag" link
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_remove_more_link_scroll')) {
+if (!function_exists('ct_mission_news_remove_more_link_scroll')) {
     function ct_mission_news_remove_more_link_scroll($link)
     {
         if (is_admin()) {
@@ -333,7 +333,7 @@ add_filter('the_content_more_link', 'ct_mission_news_remove_more_link_scroll');
 //----------------------------------------------------------------------------------
 // Output the Featured Image
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_featured_image')) {
+if (!function_exists('ct_mission_news_featured_image')) {
     function ct_mission_news_featured_image()
     {
         $blog_display = apply_filters('ct_mission_news_featured_image_display_filter', get_theme_mod('featured_image_blog_archives'));
@@ -378,13 +378,13 @@ if (! function_exists('ct_mission_news_featured_image')) {
  * WP will apply the ".menu-primary-items" class & id to the containing <div> instead of <ul>
  * making styling confusing. This simple wrapper adds a unique class to make styling easier.
  */
-if (! function_exists(('ct_mission_news_wp_page_menu'))) {
+if (!function_exists(('ct_mission_news_wp_page_menu'))) {
     function ct_mission_news_wp_page_menu()
     {
         wp_page_menu(
             array(
                 "menu_class" => "menu-unset",
-                "depth"      => - 1
+                "depth"      => -1
             )
         );
     }
@@ -393,7 +393,7 @@ if (! function_exists(('ct_mission_news_wp_page_menu'))) {
 //----------------------------------------------------------------------------------
 // Add toggle buttons for tier 3+ sub-menus. Used in mobile menu.
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_nav_dropdown_buttons'))) {
+if (!function_exists(('ct_mission_news_nav_dropdown_buttons'))) {
     function ct_mission_news_nav_dropdown_buttons($item_output, $item, $depth, $args)
     {
         if ($args->theme_location == 'primary' || $args->theme_location == 'secondary') {
@@ -410,7 +410,7 @@ add_filter('walker_nav_menu_start_el', 'ct_mission_news_nav_dropdown_buttons', 1
 //----------------------------------------------------------------------------------
 // Add a label to "sticky" posts on archive pages
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_sticky_post_marker'))) {
+if (!function_exists(('ct_mission_news_sticky_post_marker'))) {
     function ct_mission_news_sticky_post_marker()
     {
         if (is_sticky() && !is_archive() && !is_search()) {
@@ -423,18 +423,18 @@ add_action('ct_mission_news_sticky_post_status', 'ct_mission_news_sticky_post_ma
 //----------------------------------------------------------------------------------
 // Reset Customizer settings added by Mission News. Button added in theme-options.php.
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_reset_customizer_options'))) {
+if (!function_exists(('ct_mission_news_reset_customizer_options'))) {
     function ct_mission_news_reset_customizer_options()
     {
         if (!isset($_POST['ct_mission_news_reset_customizer']) || 'ct_mission_news_reset_customizer_settings' !== $_POST['ct_mission_news_reset_customizer']) {
             return;
         }
 
-        if (! wp_verify_nonce(wp_unslash($_POST['ct_mission_news_reset_customizer_nonce']), 'ct_mission_news_reset_customizer_nonce')) {
+        if (!wp_verify_nonce(wp_unslash($_POST['ct_mission_news_reset_customizer_nonce']), 'ct_mission_news_reset_customizer_nonce')) {
             return;
         }
 
-        if (! current_user_can('edit_theme_options')) {
+        if (!current_user_can('edit_theme_options')) {
             return;
         }
 
@@ -490,7 +490,7 @@ add_action('admin_init', 'ct_mission_news_reset_customizer_options');
 //----------------------------------------------------------------------------------
 // Notice to let users know when their Customizer settings have been reset
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_delete_settings_notice'))) {
+if (!function_exists(('ct_mission_news_delete_settings_notice'))) {
     function ct_mission_news_delete_settings_notice()
     {
         if (isset($_GET['ct_mission_news_status'])) {
@@ -509,7 +509,7 @@ add_action('admin_notices', 'ct_mission_news_delete_settings_notice');
 //----------------------------------------------------------------------------------
 // Add body classes for styling purposes
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_body_class'))) {
+if (!function_exists(('ct_mission_news_body_class'))) {
     function ct_mission_news_body_class($classes)
     {
         global $post;
@@ -599,7 +599,7 @@ add_filter('body_class', 'ct_mission_news_body_class');
 //----------------------------------------------------------------------------------
 // Add classes to post element for styling purposes
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_post_class'))) {
+if (!function_exists(('ct_mission_news_post_class'))) {
     function ct_mission_news_post_class($classes)
     {
         global $wp_query;
@@ -625,7 +625,7 @@ add_filter('post_class', 'ct_mission_news_post_class');
 //----------------------------------------------------------------------------------
 // Used to get messy SVG HTML out of content markup.
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_svg_output'))) {
+if (!function_exists(('ct_mission_news_svg_output'))) {
     function ct_mission_news_svg_output($type)
     {
         $svg = '';
@@ -642,7 +642,7 @@ if (! function_exists(('ct_mission_news_svg_output'))) {
 //----------------------------------------------------------------------------------
 // Add meta elements for the charset, viewport, and template
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_add_meta_elements'))) {
+if (!function_exists(('ct_mission_news_add_meta_elements'))) {
     function ct_mission_news_add_meta_elements()
     {
         $meta_elements = '';
@@ -662,7 +662,7 @@ add_action('wp_head', 'ct_mission_news_add_meta_elements', 1);
 //----------------------------------------------------------------------------------
 // Get the right template for Jetpack infinite scroll
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_infinite_scroll_render'))) {
+if (!function_exists(('ct_mission_news_infinite_scroll_render'))) {
     function ct_mission_news_infinite_scroll_render()
     {
         while (have_posts()) {
@@ -691,7 +691,7 @@ if (! function_exists(('ct_mission_news_infinite_scroll_render'))) {
 // Template routing function. Setup to follow DRY coding patterns.
 // (Using index.php file only instead of duplicating loop in page.php, post.php, etc.)
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_get_content_template')) {
+if (!function_exists('ct_mission_news_get_content_template')) {
     function ct_mission_news_get_content_template()
     {
         global $wp_query;
@@ -728,7 +728,7 @@ if (! function_exists('ct_mission_news_get_content_template')) {
 // Filters the_archive_title() like this: "Category: Business" => "Business"
 // the_archive_title() is used in content/archive-header.php
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_modify_archive_titles')) {
+if (!function_exists('ct_mission_news_modify_archive_titles')) {
     function ct_mission_news_modify_archive_titles($title)
     {
         if (is_category()) {
@@ -751,7 +751,7 @@ add_filter('get_the_archive_title', 'ct_mission_news_modify_archive_titles');
 // Add paragraph tags for author bio displayed in content/archive-header.php.
 // the_archive_description includes paragraph tags for tag and category descriptions, but not the author bio.
 //----------------------------------------------------------------------------------
-if (! function_exists('ct_mission_news_modify_archive_descriptions')) {
+if (!function_exists('ct_mission_news_modify_archive_descriptions')) {
     function ct_mission_news_modify_archive_descriptions($description)
     {
         if (is_author()) {
@@ -766,7 +766,7 @@ add_filter('get_the_archive_description', 'ct_mission_news_modify_archive_descri
 // Output the post byline. Used in content-archive.php and inc/widgets/post-list.php
 // Using function instead of template part so widget can pass in variables
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_post_byline'))) {
+if (!function_exists(('ct_mission_news_post_byline'))) {
     function ct_mission_news_post_byline($author, $date, $categories)
     {
         if ($author == 'no' && $date == 'no' && $categories == 'no') {
@@ -814,7 +814,7 @@ if (! function_exists(('ct_mission_news_post_byline'))) {
 // Providing a fallback title on the off-chance a post is untitled so it remains clickable on the blog.
 // Copying "(title)" which WordPress uses in the admin dashboard.
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_no_missing_titles'))) {
+if (!function_exists(('ct_mission_news_no_missing_titles'))) {
     function ct_mission_news_no_missing_titles($title, $id = null)
     {
         if ($title == '') {
@@ -830,14 +830,14 @@ add_filter('the_title', 'ct_mission_news_no_missing_titles', 10, 2);
 //----------------------------------------------------------------------------------
 // Allow individual posts to override the global layout (via meta box) set in the Customizer
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_filter_layout'))) {
+if (!function_exists(('ct_mission_news_filter_layout'))) {
     function ct_mission_news_filter_layout($layout)
     {
         if (is_singular('post') || is_singular('page')) {
             global $post;
             $single_layout = get_post_meta($post->ID, 'ct_mission_news_post_layout_key', true);
 
-            if (! empty($single_layout) && $single_layout != 'default') {
+            if (!empty($single_layout) && $single_layout != 'default') {
                 $layout = $single_layout;
             }
         }
@@ -850,13 +850,13 @@ add_filter('ct_mission_news_layout_filter', 'ct_mission_news_filter_layout');
 //----------------------------------------------------------------------------------
 // Allow individual posts to override the global Featured Image display setting
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_filter_featured_image_display'))) {
+if (!function_exists(('ct_mission_news_filter_featured_image_display'))) {
     function ct_mission_news_filter_featured_image_display($display)
     {
         global $post;
         $single_display = get_post_meta($post->ID, 'ct_mission_news_featured_image_display', true);
 
-        if (! empty($single_display) && $single_display != 'default') {
+        if (!empty($single_display) && $single_display != 'default') {
             $display = $single_display;
         }
 
@@ -868,7 +868,7 @@ add_filter('ct_mission_news_featured_image_display_filter', 'ct_mission_news_fil
 //----------------------------------------------------------------------------------
 // Allows site title to display in Customizer preview when logo is removed
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_logo_refresh'))) {
+if (!function_exists(('ct_mission_news_logo_refresh'))) {
     function ct_mission_news_logo_refresh($wp_customize)
     {
         $wp_customize->get_setting('custom_logo')->transport = 'refresh';
@@ -881,7 +881,7 @@ add_action('customize_register', 'ct_mission_news_logo_refresh', 20);
 //----------------------------------------------------------------------------------
 // Add dismissible Mission News Pro admin notice
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_pro_admin_notice'))) {
+if (!function_exists(('ct_mission_news_pro_admin_notice'))) {
     function ct_mission_news_pro_admin_notice()
     {
         if (function_exists(('dnh_register_notice'))) {
@@ -894,7 +894,7 @@ add_action('admin_init', 'ct_mission_news_pro_admin_notice');
 //----------------------------------------------------------------------------------
 // Output styles for widget alignment
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_widget_styles'))) {
+if (!function_exists(('ct_mission_news_widget_styles'))) {
     function ct_mission_news_widget_styles()
     {
         $css = '';
@@ -934,7 +934,7 @@ add_action('wp_enqueue_scripts', 'ct_mission_news_widget_styles', 99);
 //----------------------------------------------------------------------------------
 // Sanitize CSS
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_sanitize_css'))) {
+if (!function_exists(('ct_mission_news_sanitize_css'))) {
     function ct_mission_news_sanitize_css($css)
     {
         $css = wp_kses($css, array( '\'', '\"' ));
@@ -948,7 +948,7 @@ if (! function_exists(('ct_mission_news_sanitize_css'))) {
 // Add Recent Posts Extended widgets with same settings as in the demo site and screenshot
 // Only runs upon theme activation and if both sidebars are empty
 //----------------------------------------------------------------------------------
-if (! function_exists(('ct_mission_news_set_default_widgets'))) {
+if (!function_exists(('ct_mission_news_set_default_widgets'))) {
     function ct_mission_news_set_default_widgets()
     {
         // get active widgets in sidebars
@@ -1011,15 +1011,15 @@ if (! function_exists(('ct_mission_news_set_default_widgets'))) {
 }
 add_action('after_switch_theme', 'ct_mission_news_set_default_widgets');
 
-if (! function_exists(('ct_mission_news_site_width_css'))) {
+if (!function_exists(('ct_mission_news_site_width_css'))) {
     function ct_mission_news_site_width_css()
     {
         $site_width = get_theme_mod('site_width');
         $css = '';
 
         if (!empty($site_width) && $site_width != 1280) {
-            $css .= '.max-width { max-width: '. absint($site_width) .'px;}';
-            $css .= '.is-sticky .site-header { max-width: '. absint($site_width) .'px !important;}';
+            $css .= '.max-width { max-width: ' . absint($site_width) . 'px;}';
+            $css .= '.is-sticky .site-header { max-width: ' . absint($site_width) . 'px !important;}';
         }
         if (!empty($css)) {
             $css = ct_mission_news_sanitize_css($css);
@@ -1032,15 +1032,17 @@ add_action('wp_enqueue_scripts', 'ct_mission_news_site_width_css', 99);
 //----------------------------------------------------------------------------------
 // Output the markup for the optional scroll-to-top arrow
 //----------------------------------------------------------------------------------
-function ct_mission_news_scroll_to_top_arrow()
-{
-    $setting = get_theme_mod('scroll_to_top');
+if (!function_exists('ct_mission_news_scroll_to_top_arrow')) {
+    function ct_mission_news_scroll_to_top_arrow()
+    {
+        $setting = get_theme_mod('scroll_to_top');
 
-    if ($setting == 'yes') {
-        echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">'. esc_html__('Scroll to the top', 'mission-news') .'</span><i class="fas fa-arrow-up"></i></button>';
+        if ($setting == 'yes') {
+            echo '<button id="scroll-to-top" class="scroll-to-top"><span class="screen-reader-text">' . esc_html__('Scroll to the top', 'mission-news') . '</span><i class="fas fa-arrow-up"></i></button>';
+        }
     }
+    add_action('ct_mission_news_body_bottom', 'ct_mission_news_scroll_to_top_arrow');
 }
-add_action('ct_mission_news_body_bottom', 'ct_mission_news_scroll_to_top_arrow');
 
 //----------------------------------------------------------------------------------
 // Output the "Last Updated" date on posts
@@ -1056,7 +1058,7 @@ function ct_mission_news_output_last_updated_date()
             ($updated_customizer == 'yes' && ($updated_post != 'no'))
             || $updated_post == 'yes'
         ) {
-            echo '<p class="last-updated">'. esc_html__("Last updated on", "mission-news") . ' ' . get_the_modified_date() . ' </p>';
+            echo '<p class="last-updated">' . esc_html__("Last updated on", "mission-news") . ' ' . get_the_modified_date() . ' </p>';
         }
     }
 }

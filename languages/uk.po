@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Mission News 1.43\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
 "POT-Creation-Date: 2021-04-13 17:21:11+00:00\n"
-"PO-Revision-Date: 2023-03-31 09:59+0300\n"
+"PO-Revision-Date: 2023-12-17 12:12+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -45,11 +45,11 @@ msgstr "Один коментар"
 msgid ""
 "Comments are closed, but <a href=\"%s\" title=\"Trackback URL for this "
 "post\">trackbacks</a> and pingbacks are open."
-msgstr "Коментування заборонено."
+msgstr "Коментарі вимкнено."
 
 #: comments.php:70 comments.php:85
 msgid "Comments are closed."
-msgstr "Коментування заборонено."
+msgstr "Коментарі вимкнено."
 
 #: content/archive-header.php:16
 msgid "Posts tagged as"
@@ -78,11 +78,11 @@ msgstr "Залишити коментар"
 #. Translators: %s is the name of the post category
 #: content/more-from-category.php:21
 msgid "More posts in %s"
-msgstr "Більше публікацій %s"
+msgstr "Інші публікації категорії %s"
 
 #: content/post-author.php:14
 msgid "More posts from"
-msgstr "Більше публікацій"
+msgstr "Інші публікації"
 
 #: content/post-nav-attachment.php:3
 msgid "Previous Image"
@@ -242,7 +242,7 @@ msgstr "Продовжити читання"
 
 #: functions.php:373
 msgid "Featured"
-msgstr "Рекомендовані"
+msgstr "Важливе"
 
 #: functions.php:456
 msgid "Customizer settings deleted"
@@ -1246,7 +1246,7 @@ msgstr "Більше публікацій за"
 #: content/more-from-category.php:19
 msgctxt "More from POST CATEGORY"
 msgid "More from"
-msgstr "Більше публікацій"
+msgstr "Читайте також"
 
 #: content/post-categories.php:10
 msgctxt "PUBLISHED IN post category"
@@ -1262,7 +1262,7 @@ msgstr "і"
 #: content/post-categories.php:17 functions.php:1018
 msgctxt "View all posts in post category"
 msgid "View all posts in %s"
-msgstr "Переглянути всі публікації категорії %s"
+msgstr "Переглянути всі публікації рубрики %s"
 
 #: functions.php:357
 msgctxt "verb: open the menu"

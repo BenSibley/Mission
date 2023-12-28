@@ -1091,7 +1091,7 @@ function ct_mission_news_byline_categories()
                 $output .= ' ' . esc_html_x('and', 'category AND category', 'mission-news') . ' ';
             }
             // translators: placeholder is the name of the post category
-            $output .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" title="' . esc_attr(sprintf(_x("View all posts in %s", 'View all posts in post category', 'mission-news'), esc_html($category->name))) . '">' . esc_html($category->cat_name) . '</a>' . $separator;
+            $output .= '<a class="' . sanitize_title($category->name) . '" href="' . esc_url(get_category_link($category->term_id)) . '" title="' . esc_attr(sprintf(_x("View all posts in %s", 'View all posts in post category', 'mission-news'), esc_html($category->name))) . '">' . esc_html($category->cat_name) . '</a>' . $separator;
         }
         echo wp_kses_post(trim($output, $separator));
         echo "</p>";

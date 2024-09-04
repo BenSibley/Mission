@@ -1866,10 +1866,10 @@ body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
     display: block;
     padding: 6px 24px 6px 36px;
   }
-  .menu-primary-items ul a:hover:before, .menu-primary-items ul a:active:before, .menu-primary-items ul a:focus:before,
-.menu-unset ul ul a:hover:before,
-.menu-unset ul ul a:active:before,
-.menu-unset ul ul a:focus:before {
+  .menu-primary-items ul li.menu-item-has-children a:hover:before, .menu-primary-items ul li.menu-item-has-children a:active:before, .menu-primary-items ul li.menu-item-has-children a:focus:before,
+.menu-unset ul ul li.menu-item-has-children a:hover:before,
+.menu-unset ul ul li.menu-item-has-children a:active:before,
+.menu-unset ul ul li.menu-item-has-children a:focus:before {
     content: "";
     position: absolute;
     right: 100%;

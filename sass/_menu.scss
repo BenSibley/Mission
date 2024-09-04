@@ -470,18 +470,23 @@
       a {
         display: block;
         padding: 6px 36px 6px 24px;
+      }
+      li.menu-item-has-children {
 
-        &:hover,
-        &:active,
-        &:focus {
-
-          &:before {
-            content: '';
-            position: absolute;
-            left: 100%;
-            width: 100%;
-            top: 0;
-            height: 100%;
+        a {
+          
+          &:hover,
+          &:active,
+          &:focus {
+  
+            &:before {
+              content: '';
+              position: absolute;
+              left: 100%;
+              width: 100%;
+              top: 0;
+              height: 100%;
+            }
           }
         }
       }

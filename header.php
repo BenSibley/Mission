@@ -33,7 +33,7 @@ if ( function_exists( 'wp_body_open' ) ) {
 				<div id="title-container" class="title-container"><?php
 					get_template_part( 'logo', '', array('source' => 'header') );
 					if ( get_theme_mod( 'date' ) != 'no' ) {
-						echo '<p class="date">' . date_i18n( get_option( "date_format" ), strtotime( "<script>new Date();</script>" ) ) . '</p>';
+						echo '<p class="date">' . date_i18n( get_option( "date_format" )) . '</p>';
 					}
 					if ( get_bloginfo( 'description' ) && get_theme_mod( 'tagline_header' ) != 'no' ) {
 						echo '<p class="tagline">' . esc_html( get_bloginfo( 'description' ) ) . '</p>';

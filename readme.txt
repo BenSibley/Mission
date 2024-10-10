@@ -3,7 +3,7 @@ Contributors: bensibley
 Tags: three-columns, left-sidebar, right-sidebar, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, entertainment, news
 Requires at least: 4.5
 Tested up to: 6.6
-Stable tag: 1.61
+Stable tag: 1.62
 
 For publishers on a mission.
 

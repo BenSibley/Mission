@@ -567,18 +567,18 @@ a img {
   right: 0;
 }
 
-.entry.double .sticky-status,
-.entry.double.small .sticky-status {
+.loop-container .entry.double .sticky-status,
+.loop-container .entry.double.small .sticky-status {
   top: 12px;
 }
 
-body:not(.small-first-post) .entry.double:nth-child(odd) .sticky-status,
-body:not(.small-first-post) .entry.double.small:nth-child(odd) .sticky-status {
+body:not(.small-first-post) .loop-container .entry.double:nth-child(odd) .sticky-status,
+body:not(.small-first-post) .loop-container .entry.double.small:nth-child(odd) .sticky-status {
   right: 12px;
 }
 
-body.small-first-post .entry.double:nth-child(even) .sticky-status,
-body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
+body.small-first-post .loop-container .entry.double:nth-child(even) .sticky-status,
+body.small-first-post .loop-container .entry.double.small:nth-child(even) .sticky-status {
   right: 12px;
 }
 

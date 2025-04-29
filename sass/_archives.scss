@@ -37,8 +37,8 @@
   }
 }
 
-.entry.double,
-.entry.double.small {
+.loop-container .entry.double,
+.loop-container .entry.double.small {
 
   .sticky-status {
     top: 12px;
@@ -47,8 +47,8 @@
 
 body:not(.small-first-post) {
 
-  .entry.double,
-  .entry.double.small {
+  .loop-container .entry.double,
+  .loop-container .entry.double.small {
     
     &:nth-child(odd) {
 
@@ -61,8 +61,8 @@ body:not(.small-first-post) {
 }
 body.small-first-post {
 
-  .entry.double,
-  .entry.double.small {
+  .loop-container .entry.double,
+  .loop-container .entry.double.small {
 
     &:nth-child(even) {
 

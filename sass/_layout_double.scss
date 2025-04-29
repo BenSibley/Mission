@@ -3,7 +3,7 @@
 .search.layout-double:not(.bbpress) {
 
   // .entry
-  .double {
+  .loop-container .double {
     margin-bottom: $baseline-height/2;
     padding-bottom: $baseline-height/2;
 
@@ -24,7 +24,7 @@
       padding-bottom: 0;
     }
     // .entry
-    .double {
+    .loop-container .double {
       width: 50%;
       float: left;
       border-bottom: none;
@@ -39,7 +39,7 @@
     }
     &.small-first-post {
 
-      .double {
+      .loop-container .double {
   
         &:nth-of-type(even) {
           padding-left: $baseline-height/2;
@@ -55,7 +55,7 @@
     }
     &:not(.small-first-post) {
   
-      .double {
+      .loop-container .double {
         
         &:nth-of-type(odd) {
           padding-left: $baseline-height/2;

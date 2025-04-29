@@ -3204,15 +3204,15 @@ body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
     /* 24px */
   }
 }
-.blog.layout-double:not(.bbpress) .double,
-.archive.layout-double:not(.bbpress) .double,
-.search.layout-double:not(.bbpress) .double {
+.blog.layout-double:not(.bbpress) .loop-container .double,
+.archive.layout-double:not(.bbpress) .loop-container .double,
+.search.layout-double:not(.bbpress) .loop-container .double {
   margin-bottom: 0.75em;
   padding-bottom: 0.75em;
 }
-.blog.layout-double:not(.bbpress) .double .post-header,
-.archive.layout-double:not(.bbpress) .double .post-header,
-.search.layout-double:not(.bbpress) .double .post-header {
+.blog.layout-double:not(.bbpress) .loop-container .double .post-header,
+.archive.layout-double:not(.bbpress) .loop-container .double .post-header,
+.search.layout-double:not(.bbpress) .loop-container .double .post-header {
   margin-bottom: 0;
 }
 
@@ -3223,9 +3223,9 @@ body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
     border-bottom: none;
     padding-bottom: 0;
   }
-  .blog.layout-double:not(.bbpress) .double,
-.archive.layout-double:not(.bbpress) .double,
-.search.layout-double:not(.bbpress) .double {
+  .blog.layout-double:not(.bbpress) .loop-container .double,
+.archive.layout-double:not(.bbpress) .loop-container .double,
+.search.layout-double:not(.bbpress) .loop-container .double {
     width: 50%;
     float: left;
     border-bottom: none;
@@ -3233,38 +3233,38 @@ body.small-first-post .entry.double.small:nth-child(even) .sticky-status {
     padding: 0.75em 0;
     margin: 0;
   }
-  .blog.layout-double:not(.bbpress) .double .post-title,
-.archive.layout-double:not(.bbpress) .double .post-title,
-.search.layout-double:not(.bbpress) .double .post-title {
+  .blog.layout-double:not(.bbpress) .loop-container .double .post-title,
+.archive.layout-double:not(.bbpress) .loop-container .double .post-title,
+.search.layout-double:not(.bbpress) .loop-container .double .post-title {
     font-size: 1.125em;
     /* 18px / 16px */
     line-height: 1.333;
     /* 24px */
   }
-  .blog.layout-double:not(.bbpress).small-first-post .double:nth-of-type(even),
-.archive.layout-double:not(.bbpress).small-first-post .double:nth-of-type(even),
-.search.layout-double:not(.bbpress).small-first-post .double:nth-of-type(even) {
+  .blog.layout-double:not(.bbpress).small-first-post .loop-container .double:nth-of-type(even),
+.archive.layout-double:not(.bbpress).small-first-post .loop-container .double:nth-of-type(even),
+.search.layout-double:not(.bbpress).small-first-post .loop-container .double:nth-of-type(even) {
     padding-left: 0.75em;
     margin-left: -1px;
     border-left: solid 1px #DCDCDC;
   }
-  .blog.layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd),
-.archive.layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd),
-.search.layout-double:not(.bbpress).small-first-post .double:nth-of-type(odd) {
+  .blog.layout-double:not(.bbpress).small-first-post .loop-container .double:nth-of-type(odd),
+.archive.layout-double:not(.bbpress).small-first-post .loop-container .double:nth-of-type(odd),
+.search.layout-double:not(.bbpress).small-first-post .loop-container .double:nth-of-type(odd) {
     padding-right: 0.75em;
     clear: left;
     border-right: solid 1px #DCDCDC;
   }
-  .blog.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd),
-.archive.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd),
-.search.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(odd) {
+  .blog.layout-double:not(.bbpress):not(.small-first-post) .loop-container .double:nth-of-type(odd),
+.archive.layout-double:not(.bbpress):not(.small-first-post) .loop-container .double:nth-of-type(odd),
+.search.layout-double:not(.bbpress):not(.small-first-post) .loop-container .double:nth-of-type(odd) {
     padding-left: 0.75em;
     margin-left: -1px;
     border-left: solid 1px #DCDCDC;
   }
-  .blog.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even),
-.archive.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even),
-.search.layout-double:not(.bbpress):not(.small-first-post) .double:nth-of-type(even) {
+  .blog.layout-double:not(.bbpress):not(.small-first-post) .loop-container .double:nth-of-type(even),
+.archive.layout-double:not(.bbpress):not(.small-first-post) .loop-container .double:nth-of-type(even),
+.search.layout-double:not(.bbpress):not(.small-first-post) .loop-container .double:nth-of-type(even) {
     padding-right: 0.75em;
     clear: left;
     border-right: solid 1px #DCDCDC;

@@ -189,7 +189,7 @@ class ct_mission_news_post_list extends WP_Widget
 		<div class="mission-post-list-widget">
 			<p>
 				<label for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title', 'mission-news'); ?></label>
-				<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr(esc_attr($instance['title'])); ?>">
+				<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($instance['title']); ?>">
 			</p>
 			<h4><?php esc_html_e('Post Source', 'mission-news'); ?></h4>
 			<div class="container">

@@ -21,14 +21,19 @@ function ct_mission_news_register_recommended_plugins()
         'id'      => 'ct-mission-news',
         'plugins' => array(
             array(
-                'name' => 'Independent Analytics',
-                'slug' => 'independent-analytics',
+                'name'        => 'Independent Analytics',
+                'slug'        => 'independent-analytics',
+                'description' => __('Simple, privacy-friendly visitor stats right in your WordPress dashboard. A Google Analytics alternative.', 'mission-news'),
+            ),
+            array(
+                'name'        => 'Resolver',
+                'slug'        => 'resolver-ai-chatbot',
+                'description' => __('An AI chatbot that answers your visitors\' questions using your site\'s content.', 'mission-news'),
             ),
         ),
-        'message' => __('The makers of the Mission News theme now recommend installing Independent Analytics, their new plugin for visitor tracking.', 'mission-news'),
     ));
 }
-add_action('admin_init', 'ct_mission_news_register_recommended_plugins');
+add_action('init', 'ct_mission_news_register_recommended_plugins');
 
 //----------------------------------------------------------------------------------
 //	Set content width variable

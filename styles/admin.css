@@ -42,8 +42,7 @@
 }
 .mission-post-list-widget .tip-icon:hover + p {
   -webkit-transform: translateY(-4px);
-  -ms-transform: translateY(-4px);
-  transform: translateY(-4px);
+          transform: translateY(-4px);
   opacity: 1;
   visibility: visible;
 }
@@ -57,8 +56,9 @@
   top: -8px;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 0.25s, -webkit-transform 0.25s;
+  transition: opacity 0.25s, -webkit-transform 0.25s;
   transition: opacity 0.25s, transform 0.25s;
+  transition: opacity 0.25s, transform 0.25s, -webkit-transform 0.25s;
 }
 
 .widgets-php #available-widgets [id*=ct_mission_news_post_list] .widget-top {
@@ -144,14 +144,14 @@
   text-decoration: none;
   color: white;
   background: #FF931E;
-  -webkit-transition: background 0.2s, -webkit-transform 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, -webkit-transform 0.2s;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s, -webkit-transform 0.2s;
 }
 .mission-news-dashboard-wrap .pro-ad a:hover, .mission-news-dashboard-wrap .thanks-upgrading a:hover, .mission-news-dashboard-wrap .pro-ad a:active, .mission-news-dashboard-wrap .thanks-upgrading a:active, .mission-news-dashboard-wrap .pro-ad a:focus, .mission-news-dashboard-wrap .thanks-upgrading a:focus {
   background: #FFA33F;
   -webkit-transform: translateY(-2px);
-  -ms-transform: translateY(-2px);
-  transform: translateY(-2px);
+          transform: translateY(-2px);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
 }
 .mission-news-dashboard-wrap .sidebar h4 {
@@ -228,7 +228,6 @@
   font-weight: 700;
   border: none;
   text-decoration: none;
-  -webkit-transition: color 0.2s, background-color 0.2s;
   transition: color 0.2s, background-color 0.2s;
 }
 .mission-news-dashboard-wrap .ad .button a:link, .mission-news-dashboard-wrap .ad .button a:visited {
@@ -267,13 +266,9 @@
 
 @media all and (min-width: 600px) {
   .mission-news-dashboard-wrap .feature-list li {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
   }
   .mission-news-dashboard-wrap .feature-list .image {
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
   }
   .mission-news-dashboard-wrap .feature-list img {
@@ -327,8 +322,6 @@
 }
 @media all and (min-width: 1100px) {
   .mission-news-dashboard-wrap .feature-list li {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
   }
   .mission-news-dashboard-wrap .feature-list img {
@@ -336,5 +329,3 @@
     margin: 0 24px 0 0;
   }
 }
-
-/*# sourceMappingURL=admin.css.map */

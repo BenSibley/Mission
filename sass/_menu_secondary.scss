@@ -298,14 +298,14 @@
         &:focus {
 
           ~ ul {
-            transform: translateX(12px);
+            /* @noflip */ transform: translateX(12px);
           }
         }
       }
       ul {
 
         &:hover {
-          transform: translateX(12px);
+          /* @noflip */ transform: translateX(12px);
         }
         a,
         ul a {

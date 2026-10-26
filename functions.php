@@ -24,13 +24,11 @@ function ct_mission_news_register_recommended_plugins()
                 'name'        => 'Independent Analytics',
                 'slug'        => 'independent-analytics',
                 'description' => __('a simple, privacy-friendly alternative to Google Analytics.', 'mission-news'),
-                'url'         => 'https://independentwp.com',
             ),
             array(
                 'name'        => 'Resolver',
                 'slug'        => 'resolver-ai-chatbot',
                 'description' => __('an AI-powered chatbot that trains on your website\'s content and answers visitor questions intelligently.', 'mission-news'),
-                'url'         => 'https://resolverchatbot.com',
             ),
         ),
     ));

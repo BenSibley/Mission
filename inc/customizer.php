@@ -693,6 +693,8 @@ function ct_mission_news_add_customizer_content( $wp_customize ) {
 				$label = __('IMDB', 'mission-news');
 			} elseif ( $social_site == 'twitter' ) {
 				$label = __('X (Twitter)', 'mission-news');
+			} elseif ( $social_site == 'tiktok' ) {
+				$label = __('TikTok', 'mission-news');
 			}
 			if ( $social_site == 'skype' ) {
 				// setting

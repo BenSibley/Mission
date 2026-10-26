@@ -29,7 +29,7 @@ function ct_mission_news_register_recommended_plugins()
             array(
                 'name'        => 'Resolver',
                 'slug'        => 'resolver-ai-chatbot',
-                'description' => __('an AI-powered chatbot that trains on your website\'s content in seconds and answers visitor questions intelligently.', 'mission-news'),
+                'description' => __('an AI-powered chatbot that trains on your website\'s content and answers visitor questions intelligently.', 'mission-news'),
                 'url'         => 'https://resolverchatbot.com',
             ),
         ),
